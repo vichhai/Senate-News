@@ -1,0 +1,103 @@
+//
+//  SideMenuTableViewController.m
+//  Senate News
+//
+//  Created by vichhai on 9/2/15.
+//  Copyright (c) 2015 GITS. All rights reserved.
+//
+
+#import "SideMenuTableViewController.h"
+
+@interface SideMenuTableViewController ()
+
+@end
+
+@implementation SideMenuTableViewController
+
+-(BOOL)prefersStatusBarHidden{
+    return true;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    // This will remove extra separators from tableview
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Table view data source and delegate methods
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 30;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    if (section == 0) {
+        return 3;
+    } else if (section == 1){
+        return 5;
+    } else{
+        return 10;
+    }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return [self setupViewForSectionHeader:@"1"];
+//    } else if (section == 1){
+//        return [self setupViewForSectionHeader:@"1"];
+//    } else{
+//        return [self setupViewForSectionHeader:@"1"];
+//    }
+    return [self setupViewForSectionHeader:@"1adfasdfasdfasdfasdfiashdfkhaskdhflkahsdjkfhkashdkfjh"];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return @"Section 1";
+    } else if (section == 1){
+        return @"Section 2";
+    } else{
+        return @"Section 3";
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.textLabel.text = @"Hello";
+    return cell;
+}
+
+-(UIView *)setupViewForSectionHeader:(NSString *)text {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 25)];
+    headerView.backgroundColor = [UIColor redColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 20, 20)];
+    imageView.image = [UIImage imageNamed:@"alarm_icon.png"];
+    [headerView addSubview:imageView];
+    
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(27, 0, headerView.frame.size.width - 85, 25)];
+    textLabel.text = text;
+    
+    [headerView addSubview:textLabel];
+    return headerView;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"abc" sender:nil];
+}
+
+@end
