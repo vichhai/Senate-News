@@ -49,6 +49,7 @@
 		ED94FDE11B9834A1006A257E /* none_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED94FDE01B9834A1006A257E /* none_photo.png */; };
 		ED94FDE31B9842F7006A257E /* photo_page_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED94FDE21B9842F7006A257E /* photo_page_icon.png */; };
 		EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */; };
+		FD2771F31B98772F005906D4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F21B98772F005906D4 /* Post.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,8 @@
 		ED94FDE21B9842F7006A257E /* photo_page_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_page_icon.png; sourceTree = "<group>"; };
 		EDA852D61B982DDF009C2B92 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		FD2771F11B98772F005906D4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		FD2771F21B98772F005906D4 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,7 @@
 		ED94010B1B96D467001BCE2D /* Senate News */ = {
 			isa = PBXGroup;
 			children = (
+				FD2771EE1B9876CC005906D4 /* Model */,
 				ED9401101B96D467001BCE2D /* AppDelegate.h */,
 				ED9401111B96D467001BCE2D /* AppDelegate.m */,
 				ED36189B1B96E5DC0095E48A /* Side Menu */,
@@ -324,6 +328,15 @@
 				ED94FDCF1B9831D2006A257E /* UIView+WebCacheOperation.m */,
 			);
 			name = SDWebImage;
+			sourceTree = "<group>";
+		};
+		FD2771EE1B9876CC005906D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD2771F11B98772F005906D4 /* Post.h */,
+				FD2771F21B98772F005906D4 /* Post.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +465,7 @@
 				ED94FDD31B9831D2006A257E /* SDWebImageCompat.m in Sources */,
 				ED94FDD81B9831D2006A257E /* SDWebImagePrefetcher.m in Sources */,
 				ED94FDDF1B9831D2006A257E /* UIView+WebCacheOperation.m in Sources */,
+				FD2771F31B98772F005906D4 /* Post.m in Sources */,
 				ED94FDDB1B9831D2006A257E /* UIImage+MultiFormat.m in Sources */,
 				ED3618A71B96FB8F0095E48A /* CustomTableViewCell.m in Sources */,
 				ED6B08E51B9803ED009068E9 /* GITSImageSlideViewController.swift in Sources */,
