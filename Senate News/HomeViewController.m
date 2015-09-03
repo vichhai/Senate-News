@@ -35,18 +35,26 @@
     [moreButton setImage:[UIImage imageNamed:@"Menu-50.png"] forState:UIControlStateNormal];
     [moreButton setImage:[UIImage imageNamed:@"Menu Filled-25.png"] forState:UIControlStateHighlighted];
     
+    
+    // =---> Make space between bar button 20 point
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    negativeSpacer.width = 20;
+    
     // =---> side menu
     SWRevealViewController *revealViewController = self.revealViewController;
     if ( revealViewController )
     {
         [moreButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     }
     
     UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
 
-    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1, barButtonItem2, nil];
+    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,negativeSpacer,barButtonItem2, nil];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
 
 }
