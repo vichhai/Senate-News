@@ -140,6 +140,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="tCO-KK-7Vp" id="SJi-8x-uSe"/>
+                                    <outlet property="delegate" destination="tCO-KK-7Vp" id="2rH-3l-GQ9"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="54X-tQ-g0S">
@@ -224,15 +225,6 @@
         <!--View Controller-->
         <scene sceneID="QSe-Qu-4TL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bmJ-HJ-oon" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="kQD-wa-jg7">
-                    <connections>
-                        <outlet property="delegate" destination="SaH-f0-Dm8" id="dF0-P3-Thn"/>
-                        <outlet property="searchContentsController" destination="SaH-f0-Dm8" id="yRy-lO-UrC"/>
-                        <outlet property="searchResultsDataSource" destination="SaH-f0-Dm8" id="fvA-S4-LBC"/>
-                        <outlet property="searchResultsDelegate" destination="SaH-f0-Dm8" id="DZr-QO-rqa"/>
-                    </connections>
-                </searchDisplayController>
                 <viewController id="SaH-f0-Dm8" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aKo-Ue-ObG"/>
@@ -256,6 +248,15 @@
                         <outlet property="searchDisplayController" destination="tHI-J3-ja2" id="XkK-23-1UQ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmJ-HJ-oon" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="kQD-wa-jg7">
+                    <connections>
+                        <outlet property="delegate" destination="SaH-f0-Dm8" id="dF0-P3-Thn"/>
+                        <outlet property="searchContentsController" destination="SaH-f0-Dm8" id="yRy-lO-UrC"/>
+                        <outlet property="searchResultsDataSource" destination="SaH-f0-Dm8" id="fvA-S4-LBC"/>
+                        <outlet property="searchResultsDelegate" destination="SaH-f0-Dm8" id="DZr-QO-rqa"/>
+                    </connections>
+                </searchDisplayController>
                 <searchDisplayController id="tHI-J3-ja2">
                     <connections>
                         <outlet property="delegate" destination="SaH-f0-Dm8" id="2bd-XG-I4G"/>
