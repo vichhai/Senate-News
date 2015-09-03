@@ -29,12 +29,12 @@
 		ED94011A1B96D467001BCE2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED9401191B96D467001BCE2D /* Images.xcassets */; };
 		ED94011D1B96D467001BCE2D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED94011B1B96D467001BCE2D /* LaunchScreen.xib */; };
 		ED9401291B96D467001BCE2D /* Senate_NewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9401281B96D467001BCE2D /* Senate_NewsTests.m */; };
-		ED94013C1B96D492001BCE2D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED94013B1B96D492001BCE2D /* SWRevealViewController.m */; };
 		ED9401401B96D4BA001BCE2D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED94013F1B96D4BA001BCE2D /* HomeViewController.m */; };
 		ED9401431B96D687001BCE2D /* Search Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9401411B96D687001BCE2D /* Search Filled-50.png */; };
 		ED9401441B96D687001BCE2D /* Search-50.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9401421B96D687001BCE2D /* Search-50.png */; };
 		ED94014B1B96D871001BCE2D /* Menu Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9401491B96D871001BCE2D /* Menu Filled-50.png */; };
 		ED94014C1B96D871001BCE2D /* Menu-50.png in Resources */ = {isa = PBXBuildFile; fileRef = ED94014A1B96D871001BCE2D /* Menu-50.png */; };
+		EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,14 +80,14 @@
 		ED9401221B96D467001BCE2D /* Senate NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Senate NewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9401271B96D467001BCE2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED9401281B96D467001BCE2D /* Senate_NewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Senate_NewsTests.m; sourceTree = "<group>"; };
-		ED94013A1B96D492001BCE2D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ../../SenateProject/SenateProject/SWRevealViewController.h; sourceTree = "<group>"; };
-		ED94013B1B96D492001BCE2D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ../../SenateProject/SenateProject/SWRevealViewController.m; sourceTree = "<group>"; };
 		ED94013E1B96D4BA001BCE2D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		ED94013F1B96D4BA001BCE2D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ED9401411B96D687001BCE2D /* Search Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search Filled-50.png"; sourceTree = "<group>"; };
 		ED9401421B96D687001BCE2D /* Search-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search-50.png"; sourceTree = "<group>"; };
 		ED9401491B96D871001BCE2D /* Menu Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Filled-50.png"; sourceTree = "<group>"; };
 		ED94014A1B96D871001BCE2D /* Menu-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu-50.png"; sourceTree = "<group>"; };
+		EDA852D61B982DDF009C2B92 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,8 +244,8 @@
 		ED94013D1B96D494001BCE2D /* SlideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				ED94013A1B96D492001BCE2D /* SWRevealViewController.h */,
-				ED94013B1B96D492001BCE2D /* SWRevealViewController.m */,
+				EDA852D61B982DDF009C2B92 /* SWRevealViewController.h */,
+				EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */,
 			);
 			name = SlideMenu;
 			sourceTree = "<group>";
@@ -370,9 +370,9 @@
 				ED6B08E81B9809E1009068E9 /* CustomDetailTableViewCell.m in Sources */,
 				ED3618A71B96FB8F0095E48A /* CustomTableViewCell.m in Sources */,
 				ED6B08E51B9803ED009068E9 /* GITSImageSlideViewController.swift in Sources */,
+				EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */,
 				ED9401401B96D4BA001BCE2D /* HomeViewController.m in Sources */,
 				ED36189E1B96E6050095E48A /* SideMenuTableViewController.m in Sources */,
-				ED94013C1B96D492001BCE2D /* SWRevealViewController.m in Sources */,
 				ED6B08CD1B97ED0E009068E9 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
