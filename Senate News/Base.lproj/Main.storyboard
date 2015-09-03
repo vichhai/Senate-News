@@ -90,7 +90,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-es-os6">
                                                     <rect key="frame" x="107" y="4" width="205" height="56"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsr-eB-Bk1">
@@ -164,7 +164,7 @@
                                             <constraint firstAttribute="height" constant="21" id="oas-va-KYn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -203,7 +203,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ទំព័រដើម" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huk-Ck-Ejb">
                                         <rect key="frame" x="43" y="7" width="54" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -247,7 +247,7 @@
                                                         <constraint firstAttribute="height" constant="104" id="LAF-65-L37"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Sep, 2015 10:16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-6Q-GIh">
@@ -259,11 +259,15 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHf-9Z-YFc">
-                                                    <rect key="frame" x="16" y="138" width="288" height="128"/>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHf-9Z-YFc">
+                                                    <rect key="frame" x="16" y="138" width="288" height="157"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="rSN-KW-ECe"/>
+                                                        <constraint firstAttribute="height" constant="157" id="rSN-KW-ECe"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="SaH-f0-Dm8" id="Hja-FU-oiq"/>
+                                                    </connections>
                                                 </scrollView>
                                             </subviews>
                                             <constraints>
@@ -346,7 +350,7 @@
                                                     </constraints>
                                                     <string key="text">​​សម្រាប់​ការ​ប្រកួត​រវាង​​​ក្រុម​ម្ចាស់​ផ្ទះ​ជប៉ុន​ និង​កម្ពុជា​​​​ល្ងាច​​ថ្ងៃ​ទី៣ ខែ​កញ្ញា ឆ្នាំ២០១៥​នេះ​​ អ្នក​ស្នេហា​វិស័យ​បាល់ទាត់​​នៅ​កម្ពុជា​អាច​​ចូល​រួម​ទស្សនា​បាន​​ដោយ​សេរី​ នៅ​​​​​កោះ​ពេជ្រ​ ​ចាប់​ពី​​វេលា​ម៉ោង៤:០០​តទៅ​ ដែល​មាន​​​​បំពាក់​ដោយ​ LED ខ្នាត​ធំ​ និង​ការ​ប្រគំតន្ត្រី​ដ៏​​អស្ចារ្យ​​ដែល​មាន​លោក ខេមរៈ សិរីមន្ត ចួល​រួម​សម្ដែង​ ​ដើម្បី​ចូលរួម​គាំទ្រ​​ក្រុម​បាល់ទាត់​ជម្រើស​ជាតិ​​កម្ពុជា សម្រាប់​​ការ​ប្រកួត​​បាល់ទាត់​​ពិភព​លោក​​​​​វគ្គ​ជម្រុះ​ប្រចាំ​តំបន់​អាស៊ី​ជុំ​ទី២​ ជើង​ទី១ ក្នុង​ពូល E ។\</string>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Sep, 2015 10:16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYW-wy-RKO">
