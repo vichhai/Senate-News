@@ -56,15 +56,24 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CustomDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    // remove duplicate label when scrolling
+    for (UIView *v in [cell.contentView subviews]) {
+        if ([v isKindOfClass:[UILabel class]])
+            if (v.tag == 100) {
+                [v removeFromSuperview];
+            }
+    }
+    
     cell.labelTitle.text = @"​​សម្រាប់​ការ​ប្រកួត​រវាង​​​ក្រុម​ម្ចាស់​ផ្ទះ​ជប៉ុន​ និង​កម្ពុជា​​​​ល្ងាច​​ថ្ងៃ​ទី៣ ខែ​កញ្ញា ឆ្នាំ២០១៥​នេះ​​ អ្នក​ស្នេហា​វិស័យ​បាល់ទាត់​​នៅ​កម្ពុជា​អាច​​ចូល​រួម​ទស្សនា​បាន​​ដោយ​សេរី​ នៅ​​​​​កោះ​ពេជ្រ​ ​ចាប់​ពី​​វេលា​ម៉ោង៤:០០​តទៅ​ ដែល​មាន​​​​បំពាក់​ដោយ​ LED ខ្នាត​ធំ​ និង​ការ​ប្រគំតន្ត្រី​ដ៏​​អស្ចារ្យ​​ដែល​មាន​លោក ខេមរៈ សិរីមន្ត ចួល​រួម​សម្ដែង​ ​ដើម្បី​ចូលរួម​គាំទ្រ​​ក្រុម​បាល់ទាត់​ជម្រើស​ជាតិ​​កម្ពុជា សម្រាប់​​ការ​ប្រកួត​​បាល់ទាត់​​ពិភព​លោក​​​​​វគ្គ​ជម្រុះ​ប្រចាំ​តំបន់​អាស៊ី​ជុំ​ទី២​ ជើង​ទី១ ក្នុង​ពូល E ។";
     CGFloat height = [self measureTextHeight:[arrContent objectAtIndex:indexPath.row] constrainedToSize:CGSizeMake(cell.myScrollView.frame.size.width, 2000.0f) fontSize:14.0f];
-    NSLog(@"height %f",height);
     
     // =--> Create Content Label
     UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.myScrollView.frame.origin.x, (cell.myScrollView.frame.origin.y + cell.myScrollView.frame.size.height) + 5 , cell.myScrollView.frame.size.width, height)];
     [contentLabel setFont:[UIFont systemFontOfSize:14]];
     contentLabel.text = [arrContent objectAtIndex:indexPath.row];
     contentLabel.numberOfLines = 0;
+    contentLabel.tag = 100;
     [cell.contentView addSubview:contentLabel];
     
     rowHeigh = (contentLabel.frame.origin.y + contentLabel.frame.size.height) + 10 ;
