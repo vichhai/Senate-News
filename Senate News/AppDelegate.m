@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AppUtils.h"
+#import "ShareObject.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:5.0];
+    
+    // =---> Check screen height
+    
+    if ([AppUtils getDeviceScreenHeight] == 736) {
+        [ShareObject shareObjectManager].shareWidth = 197;
+    } else if ([AppUtils getDeviceScreenHeight] == 667) {
+        [ShareObject shareObjectManager].shareWidth = 177;
+    } else {
+        [ShareObject shareObjectManager].shareWidth = 157;
+    }
+
     return YES;
 }
 
