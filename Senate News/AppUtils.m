@@ -19,4 +19,9 @@
     return [[UIScreen mainScreen] bounds].size.width;
 }
 
++(void)showErrorMessage:(NSString *)message{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ការណែនាំ" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+}
+
 @end

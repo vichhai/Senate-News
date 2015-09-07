@@ -12,5 +12,5 @@
 
 +(CGFloat)getDeviceScreenHeight;
 +(CGFloat)getDeviceScreenWidth;
-
++(void)showErrorMessage:(NSString *)message;
 @end
