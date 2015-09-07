@@ -17,7 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [NSThread sleepForTimeInterval:5.0];
+//    [NSThread sleepForTimeInterval:5.0];
     
     // =---> Check screen height
     

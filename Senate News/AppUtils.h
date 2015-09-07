@@ -8,9 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@interface AppUtils : NSObject
+
+@protocol AppUtilsDelegate;
+
+
+@interface AppUtils : NSObject <NSURLConnectionDataDelegate>
+
+@property (nonatomic,weak) id<AppUtilsDelegate>delegate;
 
 +(CGFloat)getDeviceScreenHeight;
 +(CGFloat)getDeviceScreenWidth;
 +(void)showErrorMessage:(NSString *)message;
+-(void)sendTranData:(NSDictionary *)reqDictionary;
+@end
+
+@protocol AppUtilsDelegate <NSObject>
+@optional
+
+- (void)returnResult:(NSDictionary *) result;
+
 @end

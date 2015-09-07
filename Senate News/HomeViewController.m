@@ -42,6 +42,7 @@
     Reachability* curReach = [note object];
     NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
     [self updateInterfaceWithReachability:curReach];
+    return;
 }
 
 #pragma mark - UIViewController
