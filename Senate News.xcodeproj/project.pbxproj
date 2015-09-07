@@ -51,6 +51,7 @@
 		EDA3BF5B1B994AA500F8334B /* ShareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA3BF5A1B994AA500F8334B /* ShareObject.m */; };
 		EDA3BF5E1B994C4A00F8334B /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA3BF5D1B994C4A00F8334B /* AppUtils.m */; };
 		EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */; };
+		EDD15FDD1B9D936F00D46393 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */; };
 		FD2771F31B98772F005906D4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F21B98772F005906D4 /* Post.m */; };
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,8 @@
 		EDA3BF5D1B994C4A00F8334B /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtils.m; sourceTree = "<group>"; };
 		EDA852D61B982DDF009C2B92 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		EDD15FDB1B9D936F00D46393 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		FD2771F11B98772F005906D4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		FD2771F21B98772F005906D4 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		FD2771F51B9877DB005906D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 			children = (
 				FD2771F51B9877DB005906D4 /* Reachability.h */,
 				FD2771F61B9877DB005906D4 /* Reachability.m */,
+				EDD15FDB1B9D936F00D46393 /* ConnectionManager.h */,
+				EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				ED6B08CD1B97ED0E009068E9 /* DetailViewController.m in Sources */,
 				ED94FDDA1B9831D2006A257E /* UIImage+GIF.m in Sources */,
 				ED94FDD11B9831D2006A257E /* NSData+ImageContentType.m in Sources */,
+				EDD15FDD1B9D936F00D46393 /* ConnectionManager.m in Sources */,
 				FD2771F71B9877DB005906D4 /* Reachability.m in Sources */,
 				ED94FDDC1B9831D2006A257E /* UIImage+WebP.m in Sources */,
 			);
