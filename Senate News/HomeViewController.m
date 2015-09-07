@@ -16,6 +16,7 @@
 @property (nonatomic) Reachability *internetReachability;
 @property (nonatomic) Reachability *wifiReachability;
 
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @end
 
 @implementation HomeViewController
@@ -55,7 +56,15 @@
     [self.hostReachability startNotifier];
     //[self updateInterfaceWithReachability:self.hostReachability];
     
+    
+    // =---> set tap gesture for uinavigation bar
 
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doDoubleTap)] ;
+    doubleTap.numberOfTapsRequired = 2;
+    [self.navigationController.navigationBar addGestureRecognizer:doubleTap];
+    
+    
+    
     // =---> set navigationbar color
     self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     
@@ -114,5 +123,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:@"detail" sender:nil];
+}
+
+#pragma mark - other method
+-(void)doDoubleTap{
+    
+    // =---> scroll tableView to the top
+    [_mainTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 @end
