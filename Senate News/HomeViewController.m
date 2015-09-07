@@ -9,7 +9,12 @@
 #import "HomeViewController.h"
 #import "SWRevealViewController.h"
 #import "CustomTableViewCell.h"
+#import "Reachability.h"
 @interface HomeViewController () <UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic) Reachability *hostReachability;
+@property (nonatomic) Reachability *internetReachability;
+@property (nonatomic) Reachability *wifiReachability;
 
 @end
 
@@ -20,8 +25,36 @@
     return true;
 }
 
+#pragma mark - check connection with Reachability
+
+- (void)updateInterfaceWithReachability:(Reachability *)reachability
+{
+    NetworkStatus internetStatus = [reachability  currentReachabilityStatus];
+    
+    if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN)){
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"no internet connection" message:@"Hello" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+- (void) reachabilityChanged:(NSNotification *)note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self updateInterfaceWithReachability:curReach];
+}
+
+#pragma mark - UIViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *remoteHostName = @"www.apple.com";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    self.hostReachability = [Reachability reachabilityWithHostName:remoteHostName];
+    [self.hostReachability startNotifier];
+    //[self updateInterfaceWithReachability:self.hostReachability];
+    
+
     // =---> set navigationbar color
     self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     
@@ -64,8 +97,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark
 #pragma mark - Tableview datasoruce
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
