@@ -52,6 +52,7 @@
 		EDA3BF5E1B994C4A00F8334B /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA3BF5D1B994C4A00F8334B /* AppUtils.m */; };
 		EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */; };
 		EDD15FDD1B9D936F00D46393 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */; };
+		EDE27ABF1B9E97EA000AB507 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27ABE1B9E97EA000AB507 /* MyViewController.m */; };
 		FD2771F31B98772F005906D4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F21B98772F005906D4 /* Post.m */; };
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,8 @@
 		EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		EDD15FDB1B9D936F00D46393 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
 		EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		EDE27ABD1B9E97EA000AB507 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		EDE27ABE1B9E97EA000AB507 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		FD2771F11B98772F005906D4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		FD2771F21B98772F005906D4 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		FD2771F51B9877DB005906D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				ED9401161B96D467001BCE2D /* Main.storyboard */,
 				ED9401191B96D467001BCE2D /* Images.xcassets */,
 				ED94011B1B96D467001BCE2D /* LaunchScreen.xib */,
+				EDE27ABD1B9E97EA000AB507 /* MyViewController.h */,
+				EDE27ABE1B9E97EA000AB507 /* MyViewController.m */,
 				ED94010C1B96D467001BCE2D /* Supporting Files */,
 			);
 			path = "Senate News";
@@ -491,6 +496,7 @@
 				ED94FDDD1B9831D2006A257E /* UIImageView+HighlightedWebCache.m in Sources */,
 				ED94FDD41B9831D2006A257E /* SDWebImageDecoder.m in Sources */,
 				EDA3BF5B1B994AA500F8334B /* ShareObject.m in Sources */,
+				EDE27ABF1B9E97EA000AB507 /* MyViewController.m in Sources */,
 				ED94FDDE1B9831D2006A257E /* UIImageView+WebCache.m in Sources */,
 				ED9401121B96D467001BCE2D /* AppDelegate.m in Sources */,
 				ED94FDD61B9831D2006A257E /* SDWebImageDownloaderOperation.m in Sources */,
