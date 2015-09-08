@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"%ld",(long)[AppUtils getOSVersion]);
+    
     [AppUtils settingNavigationBarTitle:self title:@"MyViewController"];
     [AppUtils settingLeftButton:self action:@selector(back) normalImageCode:@"back_arrow_icon.png" highlightImageCode:@"back_arrow_icon.png"];
     [AppUtils settingRightButton:self action:@selector(right) normalImageCode:@"Menu-50.png" highlightImageCode:nil];

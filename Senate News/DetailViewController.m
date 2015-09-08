@@ -10,12 +10,14 @@
 #import "CustomDetailTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "ShareObject.h"
-@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate>
+#import "ConnectionManager.h"
+@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate>
 {
-    CGFloat rowHeigh;
-    NSArray *arrContent;
-    NSArray *linkArray;
+    NSMutableArray *linkArray;
+    float rowHeigh;
+    NSMutableDictionary *resultDic;
 }
+@property (weak, nonatomic) IBOutlet UITableView *detailTeableView;
 
 @end
 
@@ -25,13 +27,12 @@
     return true;
 }
 
+#pragma mark - view life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    linkArray = [[NSArray alloc] initWithObjects:@"http://www.keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg",@"http://www.geant.net/Resources/PartnerResources/Partner%20Resources%20Image%20Library/Image%2010_958642.jpg",@"http://www.menucool.com/slider/jsImgSlider/images/image-slider-2.jpg", nil];
-    
-    arrContent = [[NSArray alloc] initWithObjects:@"​​សម្រាប់​ការ​ប្រកួត​រវាង​​​ក្រុម​ម្ចាស់​ផ្ទះ​ជប៉ុន​ និង​កម្ពុជា​​​​ល្ងាច​​ថ្ងៃ​ទី៣ ខែ​កញ្ញា ឆ្នាំ២០១៥​នេះ​​ អ្នក​ស្នេហា​វិស័យ​បាល់ទាត់​​នៅ​កម្ពុជា​អាច​​ចូល​រួម​ទស្សនា​បាន​​ដោយ​សេរី​ នៅ​​​​​កោះ​ពេជ្រ​ ​ចាប់​ពី​​វេលា​ម៉ោង៤:០០​តទៅ​ ដែល​មាន​​​​បំពាក់​ដោយ​ LED ខ្នាត​ធំ​ និង​ការ​ប្រគំតន្ត្រី​ដ៏​​អស្ចារ្យ​​ដែល​មាន​លោក ខេមរៈ សិរីមន្ត ចួល​រួម​សម្ដែង​ ​ដើម្បី​ចូលរួម​គាំទ្រ​​ក្រុម​បាល់ទាត់​ជម្រើស​ជាតិ​​កម្ពុជា សម្រាប់​​ការ​ប្រកួត​​បាល់ទាត់​​ពិភព​លោក​​​​​វគ្គ​ជម្រុះ​ប្រចាំ​តំបន់​អាស៊ី​ជុំ​ទី២​ ជើង​ទី១ ក្នុង​ពូល E ។ ការ​រៀប​ចំ​បញ្ចាំង ​​LED ​ខ្នាត​ធំ​ និង​ការ​​ប្រគំតន្ត្រី​​នេះ​រៀប​ចំ​ឡើង​ដោយ​ស្ថានីយ​ទូរទស្សន៍​បាយ័ន​ និង​ក្រុម​ហ៊ុន​ស្រាបៀរ​កម្ពុជា​ដែល​នាំ​​​តារា​ល្បីៗ ​មួយ​ចំនួន​ចូល​រួម​​សម្ដែង​ដូច​ជា​តារា​ចម្រៀង​​លោក​ ខេមរៈ សិរីមន្ត​​ និង​​តារា​ល្បី​ៗ ​ជា​ច្រើន​ដួង​ទៀត។ លើស​ពី​នេះ​ក៏​មាន​ការ​ចូល​រួម​​ពី​​កីឡាករ​បាល់ទាត់​លេចធ្លោ​ក្នុង​ក្រុម​​​​ជម្រើស​​ជាតិ​កម្ពុជា​អាយុ​ក្រោម​១៩​ឆ្នាំ​ចំនួន​៤​​រូប​​គឺ​​អ្នក​ចាំ​ទី អ៊ុំ​ សេរីរ័ត្ន​ ច្រឹង​ ពលរដ្ឋ​​ អ៊ុំ វិចិត្រ និង​ ទូច រ៉ូម៉ា។ ​កីឡាករ​ទាំង​៣​នាក់​មក​ពី​ក្លិប​ក្រសួង​ការពារ​ជាតិ ហើយ​​អ្នក​គាំទ្រ​​អាច​ចូល​រួម​ថត​រូប​ជា​អនុស្សាវរីយ៍​​ជា​មួយ​ពួក​គេ​បាន។",nil];
-    
+    _detailTeableView.hidden = true;
+    [AppUtils showLoading:self.view];
     // =---> Creating a custom right navi bar button1
     UIButton *menu  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 28.0f)];
     [menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
@@ -46,12 +47,16 @@
     NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,barButtonItem2, nil];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
 
+    // =---> request to server
+    [self requestToserver];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - outlet actions
 
 - (IBAction)backButtonClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
@@ -70,33 +75,28 @@
             }
     }
     
-    cell.labelTitle.text = @"​​សម្រាប់​ការ​ប្រកួត​រវាង​​​ក្រុម​ម្ចាស់​ផ្ទះ​ជប៉ុន​ និង​កម្ពុជា​​​​ល្ងាច​​ថ្ងៃ​ទី៣ ខែ​កញ្ញា ឆ្នាំ២០១៥​នេះ​​ អ្នក​ស្នេហា​វិស័យ​បាល់ទាត់​​នៅ​កម្ពុជា​អាច​​ចូល​រួម​ទស្សនា​បាន​​ដោយ​សេរី​ នៅ​​​​​កោះ​ពេជ្រ​ ​ចាប់​ពី​​វេលា​ម៉ោង៤:០០​តទៅ​ ដែល​មាន​​​​បំពាក់​ដោយ​ LED ខ្នាត​ធំ​ និង​ការ​ប្រគំតន្ត្រី​ដ៏​​អស្ចារ្យ​​ដែល​មាន​លោក ខេមរៈ សិរីមន្ត ចួល​រួម​សម្ដែង​ ​ដើម្បី​ចូលរួម​គាំទ្រ​​ក្រុម​បាល់ទាត់​ជម្រើស​ជាតិ​​កម្ពុជា សម្រាប់​​ការ​ប្រកួត​​បាល់ទាត់​​ពិភព​លោក​​​​​វគ្គ​ជម្រុះ​ប្រចាំ​តំបន់​អាស៊ី​ជុំ​ទី២​ ជើង​ទី១ ក្នុង​ពូល E ។";
-    CGFloat height = [self measureTextHeight:[arrContent objectAtIndex:indexPath.row] constrainedToSize:CGSizeMake(cell.myScrollView.frame.size.width, 2000.0f) fontSize:14.0f];
+    cell.labelTitle.text = [resultDic objectForKey:@"ART_TITLE"]; // set title
+    cell.labelAuthor.text = [NSString stringWithFormat:@"By: %@",[resultDic objectForKey:@"ART_AUTHOR"]]; // set author
     
-    [self setupScrollViewWithImages:[self getImagesFromURL:linkArray] atAnyView:cell.contentView];
+    // =---> getting array image from resultDic
+    NSArray *arr = [[NSArray alloc] initWithArray:[resultDic objectForKey:@"IMAGES"]];
+    linkArray = [[NSMutableArray alloc] init];
     
-   
+    for (int i = 0; i < arr.count; i++) {
+        [linkArray addObject:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[arr objectAtIndex:i]]];
+    }
     
-    
-    // =---> Getting Scroll View from cell
-    
-    UIScrollView *anyScrollView = (UIScrollView *)[cell.contentView viewWithTag:9999];
-    
-    NSLog(@"anyScrollView is here %@",anyScrollView);
+    [self setupScrollViewWithImages:[self getImagesFromURL:linkArray] atAnyView:cell.contentView]; // set image to scroll view
     
     // =--> Create Content Label
-    
-    //    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(cell.myScrollView.frame.origin.x, (cell.myScrollView.frame.origin.y + cell.myScrollView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
+    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(cell.myScrollView.frame.size.width, 2000.0f) fontSize:14.0f];
     UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 300 , self.view.bounds.size.width - 30 , height)];
     
     [contentLabel setFont:[UIFont systemFontOfSize:14]];
-    contentLabel.text = [arrContent objectAtIndex:indexPath.row];
+    contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
     contentLabel.numberOfLines = 0;
     contentLabel.tag = 100;
     [cell.contentView addSubview:contentLabel];
-    
-//    [self addImageToScrollView:[self getImagesFromURL:linkArray] toScrollView:cell.myScrollView];
-    
     
     rowHeigh = (contentLabel.frame.origin.y + contentLabel.frame.size.height) + 10 ;
     
@@ -104,7 +104,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return arrContent.count;
+    return 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -190,6 +190,32 @@
     [anyView addSubview:anyScrollView];
 }
 
+#pragma mark - request to server
+
+-(void)requestToserver{
+    NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
+    
+    [dataDic setObject:[_receiveData objectForKey:@"ART_ID"] forKey:@"ART_ID"];
+    [reqDic setObject:@"ARTICLES_R001" forKey:@"KEY"];
+    [reqDic setObject:dataDic forKey:@"REQ_DATA"];
+    
+    ConnectionManager *cont = [[ConnectionManager alloc] init];
+    cont.delegate = self;
+    [cont sendTranData:reqDic];
+    
+}
+
+#pragma mark - return result
+-(void)returnResult:(NSDictionary *)result{
+    
+    resultDic = [[NSMutableDictionary alloc] initWithDictionary:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+    [_detailTeableView reloadData];
+    [AppUtils hideLoading:self.view];
+    _detailTeableView.hidden = false;
+}
+
+
 //-(void)addImageToScrollView:(NSArray *)imageViewArray toScrollView:(UIScrollView *)anyScrollView{
 
 //    for (int index = 0; index < imageViewArray.count; index++) {
@@ -233,15 +259,6 @@
 //    }
 //     [anyScrollView setContentSize:CGSizeMake(anyScrollView.frame.size.width * (CGFloat)imageViewArray.count, anyScrollView.frame.size.height)];
 //}
-
-
-
-
-
-
-
-
-
 
 
 @end

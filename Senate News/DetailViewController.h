@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppUtils.h"
 @interface DetailViewController : UIViewController
+
+@property (strong,nonatomic) id receiveData;
 
 @end

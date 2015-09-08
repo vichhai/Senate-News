@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 GITS. All rights reserved.
 //
 
+#import "MBProgressHUD.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
@@ -14,6 +15,24 @@
 +(CGFloat)getDeviceScreenHeight;
 +(CGFloat)getDeviceScreenWidth;
 +(void)showErrorMessage:(NSString *)message;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/** Hide loading view when finish working with server function
+ 
+ hide loading
+ 
+ @param anyView	UiView
+ */
++(void)hideLoading:(UIView *)anyView;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/** Show loading view when working with server function
+ 
+ Show loading
+ 
+ @param anyView	UiView
+ */
++(void)showLoading:(UIView *)anyView;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /** Navigation Bar Title setting function
@@ -62,4 +81,11 @@
  @return Returns			@c YES nil @c NO assign
  */
 + (BOOL)isNull:(id) obj;
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/** get OS version on current device
+ 
+ @return Returns			@c NSInteger OS version.
+ */
++(NSInteger)getOSVersion;
 @end

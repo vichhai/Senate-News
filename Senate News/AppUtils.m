@@ -18,6 +18,20 @@
 @implementation AppUtils
 
 /////////////////////////////////////////////////////////////////////////////////////////////
++(void)hideLoading:(UIView *)anyView{
+    
+    [MBProgressHUD hideAllHUDsForView:anyView animated:true];
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
++(void)showLoading:(UIView *)anyView{
+    // =---> show loading
+    MBProgressHUD *loading = [MBProgressHUD showHUDAddedTo:anyView animated:true];
+    loading.mode = MBProgressHUDModeIndeterminate;
+    loading.labelText = @"Loading";
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 +(CGFloat)getDeviceScreenHeight{
     return [[UIScreen mainScreen] bounds].size.height;
 }
@@ -109,5 +123,9 @@
     return NO;
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
++ (NSInteger)getOSVersion {
+    return [[[UIDevice currentDevice] systemVersion] integerValue];
+}
 
 @end

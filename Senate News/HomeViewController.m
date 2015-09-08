@@ -10,8 +10,13 @@
 #import "SWRevealViewController.h"
 #import "CustomTableViewCell.h"
 #import "Reachability.h"
-@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate>
-
+#import "ConnectionManager.h"
+#import "UIImageView+WebCache.h"
+#import "DetailViewController.h"
+@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
+{
+    NSMutableArray *arrayResult;
+}
 @property (nonatomic) Reachability *hostReachability;
 @property (nonatomic) Reachability *internetReachability;
 @property (nonatomic) Reachability *wifiReachability;
@@ -48,6 +53,10 @@
 
 #pragma mark - UIViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *remoteHostName = @"www.apple.com";
@@ -56,6 +65,11 @@
     [self.hostReachability startNotifier];
     //[self updateInterfaceWithReachability:self.hostReachability];
     
+    _mainTableView.hidden = true;
+    arrayResult = [[NSMutableArray alloc] init];
+    
+    // =---> show loading
+    [AppUtils showLoading:self.view];
     
     // =---> set tap gesture for uinavigation bar
 
@@ -100,6 +114,8 @@
     NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,negativeSpacer,barButtonItem2, nil];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
 
+    // =---> request to server
+    [self requestToserver];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,19 +126,65 @@
 #pragma mark - Tableview datasoruce
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 50;
+    return [arrayResult count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    [[cell.shareLabel objectAtIndex:0]setText:@"The race that produced the builders of Angkor developed slowly through the fusion of the Mon-Khmer racial groups of Southern Indochina during the first six centuries of the Christian era. Under Indian influence, two principal centers of civilization developed. The older, in the extreme south of the peninsula was called “Funan” (the name is a Chinese transliteration of the ancient Khmer form of the word “Phnom”, which means “hill”). Funan was a powerful maritime empire that ruled over all the shores of the Gulf of Siam. In the mid-sixth century,"];
-    [[cell.shareLabel objectAtIndex:1] setText:@"The race that produced"];
-    [[cell.shareLabel objectAtIndex:2] setText:@"Funan was a powerful"];
+    
+    [[cell.shareLabel objectAtIndex:0] setText:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_TITLE"]]; // set title
+    
+    [[cell.shareLabel objectAtIndex:1] setText:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_PUBLISHED_DATE"]]; // set publish date
+    
+    [[cell.shareLabel objectAtIndex:2] setText:[NSString stringWithFormat:@"By: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_AUTHOR"]]]; // set author
+    
+    [cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
+    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"detail" sender:nil];
+    [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
+}
+
+
+#pragma mark - prepare for segue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        DetailViewController *vc = [segue destinationViewController];
+        vc.receiveData = sender;
+    }
+}
+
+#pragma mark - request to server
+
+-(void)requestToserver{
+    NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
+    
+    [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
+    [dataDic setObject:@"1" forKey:@"PAGE_NO"];
+    [reqDic setObject:@"ARTICLES_L001" forKey:@"KEY"];
+    [reqDic setObject:dataDic forKey:@"REQ_DATA"];
+    
+    ConnectionManager *cont = [[ConnectionManager alloc] init];
+    cont.delegate = self;
+    [cont sendTranData:reqDic];
+
+}
+
+#pragma mark - return result
+-(void)returnResult:(NSDictionary *)result{
+    
+    [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+//    NSLog(@"array result %@",arrayResult);
+    [_mainTableView reloadData];
+    
+    // =---> Hide loading
+    
+    [AppUtils hideLoading:self.view];
+    _mainTableView.hidden = false;
 }
 
 #pragma mark - other method
