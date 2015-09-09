@@ -19,6 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [NSThread sleepForTimeInterval:5.0];
     
+    
+    /*
+        testing again n again.
+     */
+    
     // =---> Check screen height
     
     if ([AppUtils getDeviceScreenHeight] == 736) {
