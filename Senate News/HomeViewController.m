@@ -20,8 +20,6 @@
     GITSRefreshAndLoadMore *refresh_loadmore;
 }
 @property (nonatomic) Reachability *hostReachability;
-@property (nonatomic) Reachability *internetReachability;
-@property (nonatomic) Reachability *wifiReachability;
 
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @end
@@ -40,7 +38,7 @@
     NetworkStatus internetStatus = [reachability  currentReachabilityStatus];
     
     if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN)){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"no internet connection" message:@"Hello" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No internet or Wifi connection!" message:@"Please turn on the cellular or connection to Wifi" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
 }
