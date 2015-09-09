@@ -90,7 +90,10 @@
     
     // =--> Create Content Label
     CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(cell.myScrollView.frame.size.width, 2000.0f) fontSize:14.0f];
-    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 300 , self.view.bounds.size.width - 30 , height)];
+    
+    UIScrollView *tempScrollView = (UIScrollView *) [cell.contentView viewWithTag:9999];
+    
+    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, (tempScrollView.frame.origin.y + tempScrollView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
     
     [contentLabel setFont:[UIFont systemFontOfSize:14]];
     contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];

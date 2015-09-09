@@ -46,7 +46,7 @@
     
     if (!theConnection) {
         // Release the receivedData object.
-        //       responseData = nil;
+               responseData = nil;
     }
     
 }
@@ -57,6 +57,7 @@
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+//    responseData = [[NSMutableData alloc] init];
     
     [responseData appendData:data];
     
@@ -65,25 +66,21 @@
     // Convert JSON Object into Dictionary
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:responseData options:
                           NSJSONReadingMutableContainers error:&error];
-    
-    //    NSLog(@"Response %@",JSON);
-    
-    //    [self.delegate sharePopTableViewController:self didSelectRowAtIndexPath:indexPath];
     [self.delegate returnResult:JSON];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    NSLog(@"connection did finish loading: %@",connection);
+//    NSLog(@"connection did finish loading: %@",connection);
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     NSLog(@"fail with error : %@",error);
 }
 
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
-    // Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
+//- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+//                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
+//    // Return nil to indicate not necessary to store a cached response for this connection
+//    return nil;
+//}
 
 @end

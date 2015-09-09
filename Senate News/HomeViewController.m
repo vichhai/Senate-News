@@ -122,6 +122,11 @@
 
     // =---> request to server
     [self requestToserver];
+    
+    
+    for (UIView *v in [self.view subviews]) {
+        NSLog(@"all king of view %@",[v class]);
+    }
 }
 
 - (void)didReceiveMemoryWarning {

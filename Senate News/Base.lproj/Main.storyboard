@@ -145,7 +145,7 @@
                                 <rect key="frame" x="116" y="675" width="160" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWy-8U-0ng">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWy-8U-0ng">
                                 <rect key="frame" x="0.0" y="538" width="320" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="រក្សាសិទ្ធិដោយ អគ្គលេខាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubt-kJ-bfz">
@@ -168,7 +168,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ubt-kJ-bfz" firstAttribute="leading" secondItem="aWy-8U-0ng" secondAttribute="leading" constant="8" id="0lH-E7-Mzc"/>
                                     <constraint firstAttribute="trailing" secondItem="KlL-zn-AXh" secondAttribute="trailing" constant="8" id="CA5-0J-nzM"/>
