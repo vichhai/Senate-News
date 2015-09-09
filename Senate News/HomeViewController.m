@@ -13,9 +13,11 @@
 #import "ConnectionManager.h"
 #import "UIImageView+WebCache.h"
 #import "DetailViewController.h"
+
 @interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
 {
     NSMutableArray *arrayResult;
+    GITSRefreshAndLoadMore *refresh_loadmore;
 }
 @property (nonatomic) Reachability *hostReachability;
 @property (nonatomic) Reachability *internetReachability;
@@ -67,17 +69,21 @@
     
     _mainTableView.hidden = true;
     arrayResult = [[NSMutableArray alloc] init];
+    refresh_loadmore = [[GITSRefreshAndLoadMore alloc] init];
+    [ShareObject shareObjectManager].page = 1;
+    
+    // =---> add refresh and load mor to view
+
+    [self setupView];
     
     // =---> show loading
+    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [AppUtils showLoading:self.view];
     
     // =---> set tap gesture for uinavigation bar
-
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doDoubleTap)] ;
     doubleTap.numberOfTapsRequired = 2;
     [self.navigationController.navigationBar addGestureRecognizer:doubleTap];
-    
-    
     
     // =---> set navigationbar color
     self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
@@ -138,7 +144,7 @@
     
     [[cell.shareLabel objectAtIndex:2] setText:[NSString stringWithFormat:@"By: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_AUTHOR"]]]; // set author
     
-    [cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
+//    [cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
     
     return cell;
 }
@@ -164,33 +170,73 @@
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     
     [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
-    [dataDic setObject:@"1" forKey:@"PAGE_NO"];
+    [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
     [reqDic setObject:@"ARTICLES_L001" forKey:@"KEY"];
     [reqDic setObject:dataDic forKey:@"REQ_DATA"];
     
     ConnectionManager *cont = [[ConnectionManager alloc] init];
     cont.delegate = self;
     [cont sendTranData:reqDic];
-
 }
 
 #pragma mark - return result
 -(void)returnResult:(NSDictionary *)result{
     
-    [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
-//    NSLog(@"array result %@",arrayResult);
-    [_mainTableView reloadData];
     
+    if ([ShareObject shareObjectManager].isLoadMore) {
+        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+        [refresh_loadmore temp:_mainTableView];
+    } else {
+        [self.view setUserInteractionEnabled:true];
+        [arrayResult removeAllObjects];
+        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+        [refresh_loadmore temp:_mainTableView];
+        _mainTableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
+    }
+        [_mainTableView reloadData];
     // =---> Hide loading
-    
     [AppUtils hideLoading:self.view];
     _mainTableView.hidden = false;
 }
 
 #pragma mark - other method
 -(void)doDoubleTap{
-    
     // =---> scroll tableView to the top
     [_mainTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
+#pragma mark
+#pragma mark - Refresh And Load More
+
+-(void)setupView {
+    // adding refresh to mainTableView
+    [refresh_loadmore addRefreshToTableView:_mainTableView imageName:@"load_01.png"];
+    
+    // adding load more
+    [refresh_loadmore addLoadMoreForTableView:_mainTableView imageName:@"load_01.png"];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [refresh_loadmore changeImageWhenScrollDown:self.view scrollView:scrollView];
+    //    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+}
+
+// scroll up
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if (scrollView.contentOffset.y <= -105) {
+        [refresh_loadmore doRefresh:_mainTableView anyVie:self.view];
+        [ShareObject shareObjectManager].isLoadMore = false;
+        [self.view setUserInteractionEnabled:false];
+        [ShareObject shareObjectManager].page = 1;
+        [self requestToserver];
+        
+    }
+}
+
+//scroll down
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
+    [self requestToserver];
+}
+
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AppUtils.h"
+#import "GITSRefreshAndLoadMore.h"
+#import "ShareObject.h"
 @interface HomeViewController : UIViewController
 
 

@@ -10,8 +10,9 @@
 #import <UIKit/UIKit.h>
 @interface ShareObject : NSObject
 
-
+@property (nonatomic) BOOL isLoadMore;
 @property (nonatomic) CGFloat shareWidth;
-
+@property (nonatomic) int page; // for pagination
 + (ShareObject *)shareObjectManager;
+
 @end

@@ -20,7 +20,7 @@
 -(void)sendTranData:(NSDictionary *)reqDictionary{
     // Create the request
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://schedule-darapenhchet-1.c9.io/index.php/api"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://schedule-darapenhchet-3.c9.io/index.php/api"]];
     
     // Specify that it will be a POST request
     request.HTTPMethod = @"POST";
