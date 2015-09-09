@@ -61,7 +61,6 @@
 		EDD15FDD1B9D936F00D46393 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */; };
 		EDE27ABF1B9E97EA000AB507 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27ABE1B9E97EA000AB507 /* MyViewController.m */; };
 		EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */; };
-		FD2771F31B98772F005906D4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F21B98772F005906D4 /* Post.m */; };
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
@@ -165,8 +164,6 @@
 		EDE27ABE1B9E97EA000AB507 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		EDE27AC11B9ED235000AB507 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		FD2771F11B98772F005906D4 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		FD2771F21B98772F005906D4 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		FD2771F51B9877DB005906D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FD2771F61B9877DB005906D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,7 +241,6 @@
 				ED9401101B96D467001BCE2D /* AppDelegate.h */,
 				ED9401111B96D467001BCE2D /* AppDelegate.m */,
 				FD2771F41B9877B5005906D4 /* Connection */,
-				FD2771EE1B9876CC005906D4 /* Model */,
 				ED36189B1B96E5DC0095E48A /* Side Menu */,
 				ED36189A1B96E5CB0095E48A /* MainScreen */,
 				ED6B08CA1B97ECE5009068E9 /* Detail Controller */,
@@ -396,15 +392,6 @@
 			name = Refresh;
 			sourceTree = "<group>";
 		};
-		FD2771EE1B9876CC005906D4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				FD2771F11B98772F005906D4 /* Post.h */,
-				FD2771F21B98772F005906D4 /* Post.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		FD2771F41B9877B5005906D4 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,7 +538,6 @@
 				ED94FDD81B9831D2006A257E /* SDWebImagePrefetcher.m in Sources */,
 				ED94FDDF1B9831D2006A257E /* UIView+WebCacheOperation.m in Sources */,
 				EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */,
-				FD2771F31B98772F005906D4 /* Post.m in Sources */,
 				ED94FDDB1B9831D2006A257E /* UIImage+MultiFormat.m in Sources */,
 				ED3618A71B96FB8F0095E48A /* CustomTableViewCell.m in Sources */,
 				EDA3BF5E1B994C4A00F8334B /* AppUtils.m in Sources */,
