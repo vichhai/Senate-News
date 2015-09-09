@@ -19,16 +19,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [NSThread sleepForTimeInterval:5.0];
     
-    
-    
-    /*
-     
-        tesing commit
-        pull and push
-        I am the one who commit
-     */
-    
-    
     // =---> Check screen height
     
     if ([AppUtils getDeviceScreenHeight] == 736) {
