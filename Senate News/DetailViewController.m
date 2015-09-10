@@ -11,6 +11,8 @@
 #import "UIImageView+WebCache.h"
 #import "ShareObject.h"
 #import "ConnectionManager.h"
+#import <Social/Social.h>
+
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate>
 {
     NSMutableArray *linkArray;
@@ -34,18 +36,19 @@
     _detailTeableView.hidden = true;
     [AppUtils showLoading:self.view];
     // =---> Creating a custom right navi bar button1
-    UIButton *menu  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 28.0f)];
-    [menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
+    //UIButton *menu  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 28.0f)];
+    //[menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
     
     // =---> Creating a custom right navi bar button2
     UIButton *facebook  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
     
-    UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:menu];
+   // UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:menu];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:facebook];
     
-    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,barButtonItem2, nil];
+    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem2, nil];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
+    [facebook addTarget:self action:@selector(shareToFacebook) forControlEvents:UIControlEventTouchUpInside];
 
     // =---> request to server
     [self requestToserver];
@@ -57,6 +60,23 @@
 }
 
 #pragma mark - action on facebook button
+
+-(void) shareToFacebook{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *facebookController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [facebookController addURL:[NSURL URLWithString:[resultDic objectForKey:@"ART_URL"]]];
+        [facebookController setCompletionHandler:^(SLComposeViewControllerResult result){
+            if (result == SLComposeViewControllerResultCancelled) {
+                NSLog(@"Cancil");
+            }else if(result == SLComposeViewControllerResultDone){
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Done" message:@"Your sharing is succesfull!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }];
+        [self presentViewController:facebookController animated:YES completion:nil];
+    }
+    
+}
 
 #pragma mark - outlet actions
 
