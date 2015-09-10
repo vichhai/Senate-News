@@ -19,9 +19,11 @@
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
 }
-@property (nonatomic) Reachability *hostReachability;
 
+@property (nonatomic) Reachability *hostReachability;
+@property (strong,nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+
 @end
 
 @implementation HomeViewController
@@ -73,9 +75,10 @@
     // =---> add refresh and load mor to view
 
     [self setupView];
+    [self addRefreshToView];
     
     // =---> show loading
-    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [AppUtils showLoading:self.view];
     
     // =---> set tap gesture for uinavigation bar
@@ -190,6 +193,10 @@
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
         [refresh_loadmore temp:_mainTableView];
     } else {
+        if (_refreshControl) {
+            [_refreshControl endRefreshing];
+        }
+        
         [self.view setUserInteractionEnabled:true];
         [arrayResult removeAllObjects];
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
@@ -210,33 +217,51 @@
 #pragma mark
 #pragma mark - Refresh And Load More
 
+-(void)addRefreshToView{
+    _refreshControl = [[UIRefreshControl alloc] init];
+    _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    self.refreshControl.backgroundColor = [UIColor whiteColor];
+    self.refreshControl.tintColor = [UIColor blackColor];
+    [self.refreshControl addTarget:self action:@selector(refreshing) forControlEvents:UIControlEventValueChanged];
+    [_mainTableView addSubview:_refreshControl];
+}
+
+
+-(void)refreshing{
+     _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];
+    [ShareObject shareObjectManager].isLoadMore = false;
+    [self.view setUserInteractionEnabled:false];
+    [ShareObject shareObjectManager].page = 1;
+    [self requestToserver];
+}
+
 -(void)setupView {
     // adding refresh to mainTableView
-    [refresh_loadmore addRefreshToTableView:_mainTableView imageName:@"load_01.png"];
+//    [refresh_loadmore addRefreshToTableView:_mainTableView imageName:@"load_01.png"];
     
     // adding load more
     [refresh_loadmore addLoadMoreForTableView:_mainTableView imageName:@"load_01.png"];
 }
-
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [refresh_loadmore changeImageWhenScrollDown:self.view scrollView:scrollView];
-    //    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    
-}
-
-// scroll up
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    if (scrollView.contentOffset.y <= -105) {
-        [refresh_loadmore doRefresh:_mainTableView anyVie:self.view];
-        [ShareObject shareObjectManager].isLoadMore = false;
-        [self.view setUserInteractionEnabled:false];
-        [ShareObject shareObjectManager].page = 1;
-        [self requestToserver];
-        
-    }
-}
-
-//scroll down
+//
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    [refresh_loadmore changeImageWhenScrollDown:self.view scrollView:scrollView];
+//    //    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//    
+//}
+//
+//// scroll up
+//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+//    if (scrollView.contentOffset.y <= -105) {
+//        [refresh_loadmore doRefresh:_mainTableView anyVie:self.view];
+//        [ShareObject shareObjectManager].isLoadMore = false;
+//        [self.view setUserInteractionEnabled:false];
+//        [ShareObject shareObjectManager].page = 1;
+//        [self requestToserver];
+//        
+//    }
+//}
+//
+////scroll down
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
     [self requestToserver];

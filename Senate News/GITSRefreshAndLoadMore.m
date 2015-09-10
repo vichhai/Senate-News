@@ -37,11 +37,14 @@
     _moreFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 66.0)];
     _moreFooterView.backgroundColor = [UIColor colorWithRed:211 green:214 blue:219 alpha:1];
     
-    UIImageView *footerImage = [[UIImageView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 24.0) / 2,6.0, 24.0, 27.0)];
-    footerImage.image = [UIImage imageNamed:imageName];
-    footerImage.backgroundColor = [UIColor clearColor];
-    footerImage.tag = 3002;
-    [_moreFooterView addSubview:footerImage];
+//    UIImageView *footerImage = [[UIImageView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 24.0) / 2,6.0, 24.0, 27.0)];
+//    footerImage.image = [UIImage imageNamed:imageName];
+//    footerImage.backgroundColor = [UIColor clearColor];
+//    footerImage.tag = 3002;
+     _activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((_moreFooterView.frame.size.width - 45 ) / 2, (_moreFooterView.frame.size.height - 45 ) / 2, 45, 45)];
+    [_activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [_activity startAnimating];
+    [_moreFooterView addSubview:_activity];
 }
 
 
@@ -57,14 +60,15 @@
 }
 
 -(void)loopLoadMore{
-    NSArray *imageArray = [[NSArray alloc] initWithObjects:@"load_01.png",@"load_02.png",@"load_03.png",@"load_04.png",@"load_05.png",@"load_06.png", nil];
-    UIImageView *aImage = (UIImageView *)[_mainView viewWithTag:3002];
-    aImage.image = [UIImage imageNamed:[imageArray objectAtIndex:_imageIndex]];
-    _imageIndex += 1;
+//    NSArray *imageArray = [[NSArray alloc] initWithObjects:@"load_01.png",@"load_02.png",@"load_03.png",@"load_04.png",@"load_05.png",@"load_06.png", nil];
+//    UIImageView *aImage = (UIImageView *)[_mainView viewWithTag:3002];
+//    aImage.image = [UIImage imageNamed:[imageArray objectAtIndex:_imageIndex]];
+//    _imageIndex += 1;
+//    
+//    if (_imageIndex == 6) {
+//        _imageIndex = 0;
+//    }
     
-    if (_imageIndex == 6) {
-        _imageIndex = 0;
-    }
 }
 
 -(void)changeImageWhenScrollDown:(UIView *)anyView scrollView:(UIScrollView *)scrollView{
@@ -106,7 +110,7 @@
             return;
         }
         tableView.tableFooterView = _moreFooterView;
-        _imageIndex = 0;
+//        _imageIndex = 0;
         _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(loopLoadMore) userInfo:nil repeats:true];
     }
 }
