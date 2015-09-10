@@ -56,6 +56,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - action on facebook button
+
 #pragma mark - outlet actions
 
 - (IBAction)backButtonClicked:(id)sender {
