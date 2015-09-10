@@ -11,6 +11,8 @@
 #import "UIImageView+WebCache.h"
 #import "ShareObject.h"
 #import "ConnectionManager.h"
+#import <Social/Social.h>
+
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate>
 {
     NSMutableArray *linkArray;
@@ -46,6 +48,7 @@
     
     NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,barButtonItem2, nil];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
+    [facebook addTarget:self action:@selector(shareToFacebook) forControlEvents:UIControlEventTouchUpInside];
 
     // =---> request to server
     [self requestToserver];
@@ -57,6 +60,23 @@
 }
 
 #pragma mark - action on facebook button
+
+-(void) shareToFacebook{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *facebookController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [facebookController addURL:[NSURL URLWithString:[resultDic objectForKey:@"ART_URL"]]];
+        [facebookController setCompletionHandler:^(SLComposeViewControllerResult result){
+            if (result == SLComposeViewControllerResultCancelled) {
+                NSLog(@"Cancil");
+            }else if(result == SLComposeViewControllerResultDone){
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Done" message:@"Your sharing is succesfull!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }];
+        [self presentViewController:facebookController animated:YES completion:nil];
+    }
+    
+}
 
 #pragma mark - outlet actions
 

@@ -62,6 +62,7 @@
 		EDE27ABF1B9E97EA000AB507 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27ABE1B9E97EA000AB507 /* MyViewController.m */; };
 		EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */; };
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
+		FD5C1EC11BA11C7400C79177 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C1EC01BA11C7400C79177 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FD2771F51B9877DB005906D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FD2771F61B9877DB005906D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FD5C1EC01BA11C7400C79177 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD5C1EC11BA11C7400C79177 /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +223,7 @@
 		ED9401001B96D466001BCE2D = {
 			isa = PBXGroup;
 			children = (
+				FD5C1EC01BA11C7400C79177 /* Social.framework */,
 				ED94010B1B96D467001BCE2D /* Senate News */,
 				ED9401251B96D467001BCE2D /* Senate NewsTests */,
 				ED94010A1B96D467001BCE2D /* Products */,
