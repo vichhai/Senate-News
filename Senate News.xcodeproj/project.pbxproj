@@ -63,6 +63,7 @@
 		EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */; };
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
 		FD5C1EC11BA11C7400C79177 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C1EC01BA11C7400C79177 /* Social.framework */; };
+		FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C1ECB1BA16F7500C79177 /* DXPopover.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,8 @@
 		FD2771F51B9877DB005906D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FD2771F61B9877DB005906D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FD5C1EC01BA11C7400C79177 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FD5C1ECA1BA16F7500C79177 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
+		FD5C1ECB1BA16F7500C79177 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				FD5C1EC01BA11C7400C79177 /* Social.framework */,
+				FD5C1EC91BA16F7500C79177 /* Popup */,
 				ED94010B1B96D467001BCE2D /* Senate News */,
 				ED9401251B96D467001BCE2D /* Senate NewsTests */,
 				ED94010A1B96D467001BCE2D /* Products */,
@@ -407,6 +411,16 @@
 			name = Connection;
 			sourceTree = "<group>";
 		};
+		FD5C1EC91BA16F7500C79177 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				FD5C1ECA1BA16F7500C79177 /* DXPopover.h */,
+				FD5C1ECB1BA16F7500C79177 /* DXPopover.m */,
+			);
+			name = Popup;
+			path = popup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -543,6 +557,7 @@
 				ED94FDDF1B9831D2006A257E /* UIView+WebCacheOperation.m in Sources */,
 				EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */,
 				ED94FDDB1B9831D2006A257E /* UIImage+MultiFormat.m in Sources */,
+				FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */,
 				ED3618A71B96FB8F0095E48A /* CustomTableViewCell.m in Sources */,
 				EDA3BF5E1B994C4A00F8334B /* AppUtils.m in Sources */,
 				ED6B08E51B9803ED009068E9 /* GITSImageSlideViewController.swift in Sources */,

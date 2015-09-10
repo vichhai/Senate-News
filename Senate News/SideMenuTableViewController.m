@@ -47,23 +47,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) {
-        return 3;
+        return 1;
     } else if (section == 1){
         return 5;
     } else{
-        return 10;
+        return 2;
     }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    if (section == 0) {
-//        return [self setupViewForSectionHeader:@"1"];
-//    } else if (section == 1){
-//        return [self setupViewForSectionHeader:@"1"];
-//    } else{
-//        return [self setupViewForSectionHeader:@"1"];
-//    }
-    return [self setupViewForSectionHeader:@"1adfasdfasdfasdfasdfiashdfkhaskdhflkahsdjkfhkashdkfjh"];
+    if (section == 0) {
+        return [self setupViewForSectionHeader:@"ប្រតិទិនប្រជំុ"];
+    } else if (section == 1){
+        return [self setupViewForSectionHeader:@"ពត៏មានព្រឹទ្ធសភា"];
+    } else{
+        return [self setupViewForSectionHeader:@"ផ្សេងៗ"];
+    }
+    //return [self setupViewForSectionHeader:@"ពត៏មានព្រឹទ្ធសភា"];
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

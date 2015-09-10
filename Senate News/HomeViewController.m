@@ -13,11 +13,13 @@
 #import "ConnectionManager.h"
 #import "UIImageView+WebCache.h"
 #import "DetailViewController.h"
+#import "DXPopover.h"
 
 @interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
 {
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
+    DXPopover *popover;
 }
 @property (nonatomic) Reachability *hostReachability;
 
@@ -39,7 +41,12 @@
     
     if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN)){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No internet or Wifi connection!" message:@"Please turn on the cellular or connection to Wifi" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [AppUtils hideLoading:self.view];
         [alert show];
+    } else {
+        [AppUtils showLoading:self.view];
+        [ShareObject shareObjectManager].page = 1;
+        [self requestToserver];
     }
 }
 
@@ -59,6 +66,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    popover = [DXPopover popover];
     NSString *remoteHostName = @"www.apple.com";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     self.hostReachability = [Reachability reachabilityWithHostName:remoteHostName];
@@ -87,10 +95,10 @@
     self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     
     // =---> Creating a custom right navi bar button1
-    UIButton *searchButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 18.0f, 18.0f)];
-    [searchButton setImage:[UIImage imageNamed:@"Search-50.png"] forState:UIControlStateNormal];
-    [searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
-
+    UIButton *subButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 18.0f, 18.0f)];
+    [subButton setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
+    //[searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
+    [subButton addTarget:self action:@selector(subButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     // =---> Creating a custom right navi bar button2
     UIButton *moreButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 18.0f, 18.0f)];
     [moreButton setImage:[UIImage imageNamed:@"Menu-50.png"] forState:UIControlStateNormal];
@@ -112,7 +120,7 @@
         [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
     }
     
-    UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:subButton];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
 
     NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,negativeSpacer,barButtonItem2, nil];
@@ -131,6 +139,59 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Action BarButton
+
+-(void)subButtonAction:(id)sender{
+    //create view popup view with DXPopView
+    UIView *TestView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 181, 221)];
+    //add label to popup
+    UILabel *sortLabel = [[UILabel alloc]initWithFrame:CGRectMake(58, 15, 70, 25)];
+    sortLabel.text = @"Sort by:";
+    [sortLabel setFont:[UIFont boldSystemFontOfSize:18.0]];
+    [TestView addSubview:sortLabel];
+    //add button to popup
+    UIButton *sortByDate = [[UIButton alloc]initWithFrame:CGRectMake(10, 50, 75, 75)];
+    sortByDate.backgroundColor = [UIColor blueColor];
+    [TestView addSubview:sortByDate];
+    UIButton *sortByName = [[UIButton alloc]initWithFrame:CGRectMake(95, 50, 75, 75)];
+    sortByName.backgroundColor = [UIColor greenColor];
+    [TestView addSubview:sortByName];
+    UIButton *sortByAuthor = [[UIButton alloc]initWithFrame:CGRectMake(10, 135, 75, 75)];
+    sortByAuthor.backgroundColor = [UIColor redColor];
+    [TestView addSubview:sortByAuthor];
+    UIButton *sortById = [[UIButton alloc]initWithFrame:CGRectMake(95, 135, 75, 75)];
+    sortById.backgroundColor = [UIColor blackColor];
+    [TestView addSubview:sortById];
+    //add event to button
+    [sortByDate addTarget:self action:@selector(sortByDate) forControlEvents:UIControlEventTouchUpInside];
+    [sortByName addTarget:self action:@selector(sortByName) forControlEvents:UIControlEventTouchUpInside];
+    [sortByAuthor addTarget:self action:@selector(sortByAuthor) forControlEvents:UIControlEventTouchUpInside];
+    [sortById addTarget:self action:@selector(sortById) forControlEvents:UIControlEventTouchUpInside];
+    //show the popup
+    [popover showAtView:sender withContentView:TestView];
+}
+//function event of button
+-(void) sortByDate{
+    NSLog(@"Sort by date");
+    [popover dismiss];
+}
+
+-(void) sortByName{
+    NSLog(@"Sort by name");
+    [popover dismiss];
+}
+
+-(void) sortByAuthor{
+    NSLog(@"sort by author");
+    [popover dismiss];
+}
+
+-(void) sortById{
+    NSLog(@"sort by Id");
+    [popover dismiss];
+}
+
 
 #pragma mark - Tableview datasoruce
 
@@ -207,7 +268,7 @@
     // =---> scroll tableView to the top
     [_mainTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
-#pragma mark
+
 #pragma mark - Refresh And Load More
 
 -(void)setupView {
