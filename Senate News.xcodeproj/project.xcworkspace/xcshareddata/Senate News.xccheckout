@@ -10,6 +10,8 @@
 	<string>Senate News</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>04D7FE58B2B61ED6BFCF1787AEB6788F1C5B5CE9</key>
+		<string>https://github.com/vichhai/SenateProject.git</string>
 		<key>CEBCE31CA62E84AA18DD8713C532BCB946AD0891</key>
 		<string>https://github.com/vichhai/Senate-News.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Senate News.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>04D7FE58B2B61ED6BFCF1787AEB6788F1C5B5CE9</key>
+		<string>../../..</string>
 		<key>CEBCE31CA62E84AA18DD8713C532BCB946AD0891</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>CEBCE31CA62E84AA18DD8713C532BCB946AD0891</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04D7FE58B2B61ED6BFCF1787AEB6788F1C5B5CE9</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

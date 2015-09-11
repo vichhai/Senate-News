@@ -13,7 +13,7 @@
 #import "ConnectionManager.h"
 #import <Social/Social.h>
 
-@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate>
+@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 {
     NSMutableArray *linkArray;
     float rowHeigh;
@@ -40,7 +40,7 @@
     //[menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
     
     // =---> Creating a custom right navi bar button2
-    UIButton *facebook  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    UIButton *facebook  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 30.0f, 30.0f)];
     [facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
     
    // UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:menu];
@@ -84,6 +84,68 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 
+#pragma mark - CollectionView datasource and delegate
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    for (UIView *v in [cell.contentView subviews]) {
+        if ([v isKindOfClass:[UIImageView class]]){
+            [v removeFromSuperview];
+        }
+    }
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.contentView.frame];
+    imageView.image = [UIImage imageNamed:@"none_photo.png"];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[resultDic objectForKey:@"IMAGES"] objectAtIndex:indexPath.row]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell.contentView addSubview:imageView];
+    
+    
+    // =---> Image Page BackGround
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(cell.contentView.bounds.size.width - 65,(cell.contentView.frame.size.height - 25) - 20,55,20)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    view.layer.cornerRadius = 5;
+    view.layer.masksToBounds = true;
+    view.alpha = 0.7;
+    
+    // =---> Image Page
+    
+    UIImageView *imagePage = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f , view.frame.size.height / 2 - 7.0f , 12.0f, 12.0f)];
+    imagePage.image = [UIImage imageNamed:@"photo_page_icon.png"];
+    
+    // =---> label page of page
+    
+    UILabel *labelPage = [[UILabel alloc] initWithFrame:CGRectMake(23, view.frame.size.height / 2 - 6.0f, 30, 12)];
+    labelPage.text = [NSString stringWithFormat:@"%ld / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
+    labelPage.textColor = [UIColor whiteColor];
+    labelPage.font = [UIFont systemFontOfSize:12];
+    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%ld / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
+    
+    // =---> set new frame to label
+    [labelPage setFrame:CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12)];
+    
+    // =---> set new frame for view
+    [view setFrame:CGRectMake(cell.contentView.bounds.size.width - (labelPage.frame.origin.x + labelPage.frame.size.width) - 10,(cell.contentView.frame.size.height - 25) - 20,(labelPage.frame.origin.x + labelPage.frame.size.width) + 5,20)];
+    
+    [view addSubview:labelPage];
+    [view addSubview:imagePage];
+    [cell.contentView addSubview:view];
+    
+    return cell;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [[resultDic objectForKey:@"IMAGES"] count];
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.0;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"index path %@",indexPath);
+}
 #pragma mark - Tableview datasource
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -101,23 +163,26 @@
     cell.labelAuthor.text = [NSString stringWithFormat:@"By: %@",[resultDic objectForKey:@"ART_AUTHOR"]]; // set author
     
     // =---> getting array image from resultDic
-    NSArray *arr = [[NSArray alloc] initWithArray:[resultDic objectForKey:@"IMAGES"]];
-    linkArray = [[NSMutableArray alloc] init];
+    //    NSArray *arr = [[NSArray alloc] initWithArray:ret];
+    //    linkArray = [[NSMutableArray alloc] init];
+    //
+    //    for (int i = 0; i < arr.count; i++) {
+    //        [linkArray addObject:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[arr objectAtIndex:i]]];
+    //    }
+    //
+    //    [self setupScrollViewWithImages:[self getImagesFromURL:linkArray] atAnyView:cell.contentView]; // set image to scroll view
     
-    for (int i = 0; i < arr.count; i++) {
-        [linkArray addObject:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[arr objectAtIndex:i]]];
-    }
     
-    [self setupScrollViewWithImages:[self getImagesFromURL:linkArray] atAnyView:cell.contentView]; // set image to scroll view
+    [self setupCollectinView:cell.contentView];
+    
     
     // =--> Create Content Label
-    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(cell.myScrollView.frame.size.width, 2000.0f) fontSize:14.0f];
-    
-    UIScrollView *tempScrollView = (UIScrollView *) [cell.contentView viewWithTag:9999];
+    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(cell.myScrollView.frame.size.width, 2000.0f) fontSize:15.0f];
+    UICollectionView *tempScrollView = (UICollectionView *) [cell.contentView viewWithTag:9999];
     
     UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, (tempScrollView.frame.origin.y + tempScrollView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
     
-    [contentLabel setFont:[UIFont systemFontOfSize:14]];
+    [contentLabel setFont:[UIFont systemFontOfSize:15]];
     contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
     contentLabel.numberOfLines = 0;
     contentLabel.tag = 100;
@@ -145,6 +210,27 @@
 }
 
 #pragma mark - other methods
+-(void)setupCollectinView:(UIView *)anyView{
+    // =---> create flow layout for collection view
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.sectionInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    flowLayout.itemSize     = CGSizeMake(self.view.bounds.size.width - 30,[ShareObject shareObjectManager].shareWidth );
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    UICollectionView *imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(16, 138, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth) collectionViewLayout:flowLayout];
+    
+    // set Datasource and Delegate
+    imageCollectionView.delegate = self;
+    imageCollectionView.dataSource = self;
+    imageCollectionView.tag = 9999;
+    
+    [imageCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    imageCollectionView.showsHorizontalScrollIndicator = false;
+    imageCollectionView.showsVerticalScrollIndicator = false;
+    imageCollectionView.backgroundColor = [UIColor whiteColor];
+    imageCollectionView.pagingEnabled = true;
+    [anyView addSubview:imageCollectionView];
+}
 
 - (CGFloat)measureTextHeight:(NSString*)text constrainedToSize:(CGSize)constrainedToSize fontSize:(CGFloat)fontSize {
     
