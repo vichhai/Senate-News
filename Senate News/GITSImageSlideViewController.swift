@@ -33,7 +33,7 @@ class GITSImageSlideViewController: UIViewController {
         for index in 0...anyImages.count - 1 {
             
             var imageView = UIImageView(frame: CGRectMake(scrollView.frame.size.width * CGFloat(index), 0, scrollView.frame.size.width, scrollView.frame.size.height))
-            imageView.image = UIImage(named: anyImages[index] as! String)
+            imageView.image = UIImage(named: anyImages[index] as String)
             imageView.contentMode = UIViewContentMode.ScaleToFill
             scrollView.addSubview(imageView)
         }
@@ -81,7 +81,7 @@ class GITSImageSlideViewController: UIViewController {
         for index in 0...anyImages.count - 1 {
             
             var imageView = UIImageView(frame: CGRectMake(scrollView.frame.size.width * CGFloat(index), 0, scrollView.frame.size.width, scrollView.frame.size.height))
-            imageView.image = UIImage(named: anyImages[index]as! String)
+            imageView.image = UIImage(named: anyImages[index]as String)
             imageView.contentMode = UIViewContentMode.ScaleToFill
             scrollView.addSubview(imageView)
         }

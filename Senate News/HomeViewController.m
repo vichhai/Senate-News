@@ -155,16 +155,12 @@
     [TestView addSubview:sortLabel];
     //add button to popup
     UIButton *sortByDate = [[UIButton alloc]initWithFrame:CGRectMake(10, 50, 75, 75)];
-    //sortByDate.backgroundColor = [UIColor blueColor];
     [TestView addSubview:sortByDate];
     UIButton *sortByName = [[UIButton alloc]initWithFrame:CGRectMake(95, 50, 75, 75)];
-    //sortByName.backgroundColor = [UIColor greenColor];
     [TestView addSubview:sortByName];
     UIButton *sortByAuthor = [[UIButton alloc]initWithFrame:CGRectMake(10, 135, 75, 75)];
-    //sortByAuthor.backgroundColor = [UIColor redColor];
     [TestView addSubview:sortByAuthor];
     UIButton *sortById = [[UIButton alloc]initWithFrame:CGRectMake(95, 135, 75, 75)];
-    //sortById.backgroundColor = [UIColor blackColor];
     [TestView addSubview:sortById];
     //set image to button
     [sortByDate setImage:[UIImage imageNamed:@"date_icon.png"] forState:UIControlStateNormal];
