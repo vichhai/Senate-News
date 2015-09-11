@@ -22,11 +22,11 @@
     // =---> Check screen height
     
     if ([AppUtils getDeviceScreenHeight] == 736) {
-        [ShareObject shareObjectManager].shareWidth = 197;
+        [ShareObject shareObjectManager].shareWidth = 277;
     } else if ([AppUtils getDeviceScreenHeight] == 667) {
-        [ShareObject shareObjectManager].shareWidth = 177;
+        [ShareObject shareObjectManager].shareWidth = 257;
     } else {
-        [ShareObject shareObjectManager].shareWidth = 157;
+        [ShareObject shareObjectManager].shareWidth = 237;
     }
     
     return YES;

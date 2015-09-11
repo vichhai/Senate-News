@@ -18,6 +18,24 @@
 @implementation AppUtils
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+
++(void)setLineHeight:(NSString *)string anyLabel:(UILabel *)anylabel {
+    
+    NSString *labelText = string;
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:10];
+    paragraphStyle.alignment = NSTextAlignmentJustified;
+    paragraphStyle.firstLineHeadIndent = 0;
+
+    NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle};
+    //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
+    [attributedString addAttributes:attributes range:NSMakeRange(0, [labelText length])];
+    anylabel.attributedText = attributedString ;
+    
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 +(void)hideLoading:(UIView *)anyView{
     
     [MBProgressHUD hideAllHUDsForView:anyView animated:true];

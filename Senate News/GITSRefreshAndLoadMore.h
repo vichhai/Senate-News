@@ -17,7 +17,7 @@
 @property (strong,nonatomic) UIView *tempHeaderView;
 @property (strong,nonatomic) NSTimer *timer;
 @property (strong,nonatomic) UIView *mainView;
-
+@property (strong,nonatomic) UIActivityIndicatorView *activity;
 
 -(void)addRefreshToTableView:(UITableView *)tabelView imageName:(NSString *)imageName;
 -(void)addLoadMoreForTableView:(UITableView *)tabelView imageName:(NSString *)imageName;

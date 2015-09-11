@@ -16,6 +16,20 @@
 +(CGFloat)getDeviceScreenWidth;
 +(void)showErrorMessage:(NSString *)message;
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+/** set line spacing for text in label
+ 
+ set line spacing
+ 
+ @param string      String
+ 
+ @param anyLabel    UILabel
+ 
+ */
++(void)setLineHeight:(NSString *)string anyLabel:(UILabel *)anylabel;
+
 /////////////////////////////////////////////////////////////////////////////////////////////
 /** Hide loading view when finish working with server function
  
