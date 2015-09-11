@@ -40,7 +40,7 @@
     //[menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
     
     // =---> Creating a custom right navi bar button2
-    UIButton *facebook  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    UIButton *facebook  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 30.0f, 30.0f)];
     [facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
     
    // UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:menu];
