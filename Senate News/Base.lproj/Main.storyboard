@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -111,7 +111,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZsD-RB-Iab">
-                                <rect key="frame" x="0.0" y="14" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="87" width="320" height="451"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="jMA-ZJ-ukz" customClass="CustomTableViewCell">
@@ -179,16 +179,23 @@
                                     <outlet property="delegate" destination="tCO-KK-7Vp" id="2rH-3l-GQ9"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8wL-8D-lKX">
+                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZsD-RB-Iab" firstAttribute="top" secondItem="1aW-7A-9QU" secondAttribute="top" constant="14" id="9dQ-Tv-8FM"/>
                             <constraint firstItem="5ou-GR-9pZ" firstAttribute="top" secondItem="aWy-8U-0ng" secondAttribute="bottom" id="D7h-0E-koj"/>
+                            <constraint firstAttribute="trailing" secondItem="8wL-8D-lKX" secondAttribute="trailing" id="Fjs-rK-gFZ"/>
                             <constraint firstAttribute="trailing" secondItem="ZsD-RB-Iab" secondAttribute="trailing" id="Pqm-Sw-rby"/>
                             <constraint firstItem="5ou-GR-9pZ" firstAttribute="top" secondItem="ZsD-RB-Iab" secondAttribute="bottom" constant="30" id="SKI-mf-cha"/>
                             <constraint firstItem="ZsD-RB-Iab" firstAttribute="leading" secondItem="1aW-7A-9QU" secondAttribute="leading" id="ZJM-ZE-cKq"/>
                             <constraint firstItem="aWy-8U-0ng" firstAttribute="leading" secondItem="1aW-7A-9QU" secondAttribute="leading" id="a3e-EQ-Ey9"/>
+                            <constraint firstItem="8wL-8D-lKX" firstAttribute="leading" secondItem="1aW-7A-9QU" secondAttribute="leading" id="aea-KP-Owq"/>
+                            <constraint firstItem="ZsD-RB-Iab" firstAttribute="top" secondItem="8wL-8D-lKX" secondAttribute="bottom" constant="-22" id="hrC-yZ-nvL"/>
                             <constraint firstAttribute="trailing" secondItem="aWy-8U-0ng" secondAttribute="trailing" id="k0m-ED-P5d"/>
+                            <constraint firstItem="8wL-8D-lKX" firstAttribute="top" secondItem="5j0-IL-3Li" secondAttribute="bottom" constant="1" id="w4N-GR-gJg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LYK-Df-ADp">
