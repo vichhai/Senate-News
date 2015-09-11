@@ -121,6 +121,14 @@
     contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
     contentLabel.numberOfLines = 0;
     contentLabel.tag = 100;
+    
+    if ([AppUtils isNull:[resultDic objectForKey:@"ART_DETAIL"]] == false && [AppUtils isNull:[resultDic objectForKey:@"ART_TITLE"]] == false) {
+        
+        [AppUtils setLineHeight:[resultDic objectForKey:@"ART_DETAIL"] anyLabel:contentLabel];
+        [AppUtils setLineHeight:[resultDic objectForKey:@"ART_TITLE"] anyLabel:cell.labelTitle];
+        
+    }
+    
     [cell.contentView addSubview:contentLabel];
     
     rowHeigh = (contentLabel.frame.origin.y + contentLabel.frame.size.height) + 10 ;
