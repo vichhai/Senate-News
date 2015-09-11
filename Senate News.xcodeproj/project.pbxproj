@@ -17,7 +17,6 @@
 		ED6B08D51B97F35A009068E9 /* back_arrow_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED6B08D41B97F35A009068E9 /* back_arrow_icon.png */; };
 		ED6B08D71B97FAD9009068E9 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = ED6B08D61B97FAD9009068E9 /* facebook.png */; };
 		ED6B08D91B97FB20009068E9 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = ED6B08D81B97FB20009068E9 /* menu.png */; };
-		ED6B08E51B9803ED009068E9 /* GITSImageSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6B08E41B9803ED009068E9 /* GITSImageSlideViewController.swift */; };
 		ED6B08E81B9809E1009068E9 /* CustomDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6B08E71B9809E1009068E9 /* CustomDetailTableViewCell.m */; };
 		ED8761781B9EE8EB00C0E7BE /* GITSRefreshAndLoadMore.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8761771B9EE8EB00C0E7BE /* GITSRefreshAndLoadMore.m */; };
 		ED87617F1B9EEADB00C0E7BE /* load_01.png in Resources */ = {isa = PBXBuildFile; fileRef = ED8761791B9EEADB00C0E7BE /* load_01.png */; };
@@ -95,7 +94,6 @@
 		ED6B08D61B97FAD9009068E9 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		ED6B08D81B97FB20009068E9 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		ED6B08E31B9803ED009068E9 /* Senate News-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Senate News-Bridging-Header.h"; sourceTree = "<group>"; };
-		ED6B08E41B9803ED009068E9 /* GITSImageSlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GITSImageSlideViewController.swift; sourceTree = "<group>"; };
 		ED6B08E61B9809E1009068E9 /* CustomDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDetailTableViewCell.h; sourceTree = "<group>"; };
 		ED6B08E71B9809E1009068E9 /* CustomDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDetailTableViewCell.m; sourceTree = "<group>"; };
 		ED8761761B9EE8EB00C0E7BE /* GITSRefreshAndLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GITSRefreshAndLoadMore.h; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 			children = (
 				ED8761761B9EE8EB00C0E7BE /* GITSRefreshAndLoadMore.h */,
 				ED8761771B9EE8EB00C0E7BE /* GITSRefreshAndLoadMore.m */,
-				ED6B08E41B9803ED009068E9 /* GITSImageSlideViewController.swift */,
 				EDE27AC11B9ED235000AB507 /* MBProgressHUD.h */,
 				EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */,
 				EDE27AC01B9ED116000AB507 /* Refresh */,
@@ -576,7 +573,6 @@
 				FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */,
 				ED3618A71B96FB8F0095E48A /* CustomTableViewCell.m in Sources */,
 				EDA3BF5E1B994C4A00F8334B /* AppUtils.m in Sources */,
-				ED6B08E51B9803ED009068E9 /* GITSImageSlideViewController.swift in Sources */,
 				ED94FDD91B9831D2006A257E /* UIButton+WebCache.m in Sources */,
 				ED8761781B9EE8EB00C0E7BE /* GITSRefreshAndLoadMore.m in Sources */,
 				EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */,
