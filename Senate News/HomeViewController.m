@@ -192,7 +192,7 @@
 }
 
 -(void) sortById{
-    NSLog(@"sort by Id");
+    NSLog(@"sort by Id.");
     [popover dismiss];
 }
 
