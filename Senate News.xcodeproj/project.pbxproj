@@ -16,6 +16,8 @@
 		ED367CE81BA2D47900481BE7 /* munu_b.png in Resources */ = {isa = PBXBuildFile; fileRef = ED367CE61BA2D47900481BE7 /* munu_b.png */; };
 		ED367CEA1BA2D4CA00481BE7 /* menu_b_p.png in Resources */ = {isa = PBXBuildFile; fileRef = ED367CE91BA2D4CA00481BE7 /* menu_b_p.png */; };
 		ED367CEC1BA2D57900481BE7 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = ED367CEB1BA2D57900481BE7 /* menu.png */; };
+		ED367CF11BA2DE1200481BE7 /* ShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED367CF01BA2DE1200481BE7 /* ShowImageViewController.m */; };
+		ED367CF31BA2E18E00481BE7 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = ED367CF21BA2E18E00481BE7 /* close.png */; };
 		ED6B08C41B97D7B9009068E9 /* initiation_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = ED6B08C31B97D7B9009068E9 /* initiation_bg.png */; };
 		ED6B08CD1B97ED0E009068E9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6B08CC1B97ED0E009068E9 /* DetailViewController.m */; };
 		ED6B08D71B97FAD9009068E9 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = ED6B08D61B97FAD9009068E9 /* facebook.png */; };
@@ -91,6 +93,9 @@
 		ED367CE61BA2D47900481BE7 /* munu_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = munu_b.png; sourceTree = "<group>"; };
 		ED367CE91BA2D4CA00481BE7 /* menu_b_p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_b_p.png; sourceTree = "<group>"; };
 		ED367CEB1BA2D57900481BE7 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		ED367CEF1BA2DE1200481BE7 /* ShowImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageViewController.h; sourceTree = "<group>"; };
+		ED367CF01BA2DE1200481BE7 /* ShowImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageViewController.m; sourceTree = "<group>"; };
+		ED367CF21BA2E18E00481BE7 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		ED6B08C31B97D7B9009068E9 /* initiation_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = initiation_bg.png; sourceTree = "<group>"; };
 		ED6B08CB1B97ED0E009068E9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		ED6B08CC1B97ED0E009068E9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
@@ -225,6 +230,8 @@
 				ED6B08CC1B97ED0E009068E9 /* DetailViewController.m */,
 				ED6B08E61B9809E1009068E9 /* CustomDetailTableViewCell.h */,
 				ED6B08E71B9809E1009068E9 /* CustomDetailTableViewCell.m */,
+				ED367CEF1BA2DE1200481BE7 /* ShowImageViewController.h */,
+				ED367CF01BA2DE1200481BE7 /* ShowImageViewController.m */,
 			);
 			name = "Detail Controller";
 			sourceTree = "<group>";
@@ -301,6 +308,7 @@
 		ED9401321B96D471001BCE2D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				ED367CF21BA2E18E00481BE7 /* close.png */,
 				ED367CE91BA2D4CA00481BE7 /* menu_b_p.png */,
 				ED367CE61BA2D47900481BE7 /* munu_b.png */,
 				FDD0A4AC1BA277320046F4CE /* date_icon.png */,
@@ -527,6 +535,7 @@
 				ED8761811B9EEADB00C0E7BE /* load_03.png in Resources */,
 				ED367CEA1BA2D4CA00481BE7 /* menu_b_p.png in Resources */,
 				ED367CEC1BA2D57900481BE7 /* menu.png in Resources */,
+				ED367CF31BA2E18E00481BE7 /* close.png in Resources */,
 				ED367CE41BA2D2F500481BE7 /* Back-100.png in Resources */,
 				ED3618A21B96F64A0095E48A /* alarm_icon.png in Resources */,
 				ED9401431B96D687001BCE2D /* Search Filled-50.png in Resources */,
@@ -567,6 +576,7 @@
 				ED94FDD01B9831D2006A257E /* MKAnnotationView+WebCache.m in Sources */,
 				ED94FDD31B9831D2006A257E /* SDWebImageCompat.m in Sources */,
 				ED94FDD81B9831D2006A257E /* SDWebImagePrefetcher.m in Sources */,
+				ED367CF11BA2DE1200481BE7 /* ShowImageViewController.m in Sources */,
 				ED94FDDF1B9831D2006A257E /* UIView+WebCacheOperation.m in Sources */,
 				EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */,
 				ED94FDDB1B9831D2006A257E /* UIImage+MultiFormat.m in Sources */,

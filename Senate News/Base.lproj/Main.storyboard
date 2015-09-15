@@ -327,11 +327,59 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailTeableView" destination="mmh-W3-nP8" id="ueq-lY-VSr"/>
+                        <segue destination="2ZM-DR-9OB" kind="presentation" identifier="showImage" id="Et1-B9-kF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmJ-HJ-oon" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="674" y="1166"/>
+        </scene>
+        <!--Show Image View Controller-->
+        <scene sceneID="lI6-yg-8yS">
+            <objects>
+                <viewController id="KAK-33-QfQ" customClass="ShowImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M6o-dR-NhY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kc0-qZ-0Yk"/>
+                    </layoutGuides>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="BCD-HS-eaD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-a8-wzx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Oi1-a8-wzx" secondAttribute="width" id="Phf-rB-3fN"/>
+                            <constraint firstItem="Oi1-a8-wzx" firstAttribute="leading" secondItem="BCD-HS-eaD" secondAttribute="leading" id="hfB-fF-ZtA"/>
+                            <constraint firstItem="Oi1-a8-wzx" firstAttribute="top" secondItem="M6o-dR-NhY" secondAttribute="bottom" id="wjM-eV-8cn"/>
+                            <constraint firstAttribute="height" secondItem="Oi1-a8-wzx" secondAttribute="height" id="wqc-vp-Aqm"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="Jak-pN-UFC">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ftO-Td-Onp">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RDF-ek-UhA">
+                                <rect key="frame" x="173" y="226" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="close.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonAction:" destination="KAK-33-QfQ" eventType="touchUpInside" id="kwa-na-MzF"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="closeButtonAction:" destination="KAK-33-QfQ" id="q8H-Nv-HTc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lw6-10-d1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1557" y="1166"/>
         </scene>
         <!--My View Controller-->
         <scene sceneID="T5u-na-NEu">
@@ -389,9 +437,28 @@
             </objects>
             <point key="canvasLocation" x="-71" y="1970"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IWj-04-4yO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2ZM-DR-9OB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Beq-fB-xan">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KAK-33-QfQ" kind="relationship" relationship="rootViewController" id="ASR-L4-xnS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="orP-p3-QDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="1166"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Back-100.png" width="72" height="58"/>
+        <image name="close.png" width="44" height="44"/>
         <image name="menu_collabo_icon_select.png" width="50" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>

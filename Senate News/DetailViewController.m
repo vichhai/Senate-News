@@ -145,6 +145,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"index path %@",indexPath);
+    [self performSegueWithIdentifier:@"showImage" sender:[[resultDic objectForKey:@"IMAGES"] objectAtIndex:indexPath.row]];
 }
 #pragma mark - Tableview datasource
 
