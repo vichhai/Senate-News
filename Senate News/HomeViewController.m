@@ -89,6 +89,7 @@
     
     // =---> show loading
 //    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    [AppUtils showLoading:self.view];
     
     // =---> set tap gesture for uinavigation bar
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doDoubleTap)] ;
@@ -177,13 +178,15 @@
 -(void) sortByDate{
     NSLog(@"Sort by date");
     sortBy = @"date";
+    [AppUtils showLoading:self.view];
     [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
 -(void) sortByName{
-    NSLog(@"Sort by name");
+    NSLog(@"Sort by title");
     sortBy = @"title";
+    [AppUtils showLoading:self.view];
     [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
@@ -191,12 +194,15 @@
 -(void) sortByAuthor{
     NSLog(@"sort by author");
     sortBy = @"author";
+    [AppUtils showLoading:self.view];
     [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
 -(void) sortById{
+    NSLog(@"Sort by ID");
     sortBy = @"id";
+    [AppUtils showLoading:self.view];
     [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
@@ -239,7 +245,7 @@
 #pragma mark - request to server
 
 -(void)requestToserver:(NSString *)withAPIKey{
-    [AppUtils showLoading:self.view];
+
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     

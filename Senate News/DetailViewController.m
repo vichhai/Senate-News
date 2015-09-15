@@ -176,12 +176,13 @@
     
     [self setupCollectinView:cell.contentView];
     
+    UICollectionView *tempCollectionView = (UICollectionView *) [cell.contentView viewWithTag:9999];
     
     // =--> Create Content Label
-    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(cell.myScrollView.frame.size.width, 2000.0f) fontSize:15.0f];
-    UICollectionView *tempScrollView = (UICollectionView *) [cell.contentView viewWithTag:9999];
     
-    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, (tempScrollView.frame.origin.y + tempScrollView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
+    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.56;
+    
+    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
     
     [contentLabel setFont:[UIFont systemFontOfSize:15]];
     contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
