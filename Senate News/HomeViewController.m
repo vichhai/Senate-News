@@ -177,7 +177,7 @@
 }
 //function event of button
 -(void) sortByDate{
-    NSLog(@"Sort by date");
+    NSLog(@"Sort by date!");
     [popover dismiss];
 }
 
