@@ -20,6 +20,8 @@
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
     DXPopover *popover;
+    NSString *sortBy;
+    NSString *apiKey;
 }
 
 @property (nonatomic) Reachability *hostReachability;
@@ -48,7 +50,7 @@
     } else {
         [AppUtils showLoading:self.view];
         [ShareObject shareObjectManager].page = 1;
-        [self requestToserver];
+        [self requestToserver:@"ARTICLES_L001"];
     }
 }
 
@@ -87,7 +89,6 @@
     
     // =---> show loading
 //    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    [AppUtils showLoading:self.view];
     
     // =---> set tap gesture for uinavigation bar
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doDoubleTap)] ;
@@ -95,7 +96,8 @@
     [self.navigationController.navigationBar addGestureRecognizer:doubleTap];
     
     // =---> set navigationbar color
-    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
+//    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
     
     // =---> Creating a custom right navi bar button1
     UIButton *subButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
@@ -130,12 +132,8 @@
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
 
     // =---> request to server
-    [self requestToserver];
-    
-    
-    for (UIView *v in [self.view subviews]) {
-        NSLog(@"all king of view %@",[v class]);
-    }
+    sortBy = @"id";
+    [self requestToserver:@"ARTICLES_L001"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -178,21 +176,28 @@
 //function event of button
 -(void) sortByDate{
     NSLog(@"Sort by date");
+    sortBy = @"date";
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
 -(void) sortByName{
     NSLog(@"Sort by name");
+    sortBy = @"title";
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
 -(void) sortByAuthor{
     NSLog(@"sort by author");
+    sortBy = @"author";
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
 -(void) sortById{
-    NSLog(@"sort by Id.");
+    sortBy = @"id";
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
@@ -233,13 +238,23 @@
 
 #pragma mark - request to server
 
--(void)requestToserver{
+-(void)requestToserver:(NSString *)withAPIKey{
+    [AppUtils showLoading:self.view];
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     
-    [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
-    [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
-    [reqDic setObject:@"ARTICLES_L001" forKey:@"KEY"];
+    if (![withAPIKey isEqualToString:@"ARTICLES_L003"]) {
+        apiKey = withAPIKey;
+    }
+    
+    if ([withAPIKey isEqualToString:@"ARTICLES_L001"]) {
+        
+        [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
+        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
+        [dataDic setObject:sortBy forKey:@"SORT_BY"];
+    }
+    
+    [reqDic setObject:withAPIKey forKey:@"KEY"];
     [reqDic setObject:dataDic forKey:@"REQ_DATA"];
     
     ConnectionManager *cont = [[ConnectionManager alloc] init];
@@ -294,7 +309,7 @@
     [ShareObject shareObjectManager].isLoadMore = false;
     [self.view setUserInteractionEnabled:false];
     [ShareObject shareObjectManager].page = 1;
-    [self requestToserver];
+    [self requestToserver:@"ARTICLES_L001"];
 }
 
 -(void)setupView {
@@ -326,7 +341,7 @@
 ////scroll down
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
-    [self requestToserver];
+    [self requestToserver:@"ARTICLES_L001"];
 }
 
 @end

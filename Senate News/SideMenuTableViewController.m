@@ -66,15 +66,15 @@
     //return [self setupViewForSectionHeader:@"ពត៏មានព្រឹទ្ធសភា"];
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return @"Section 1";
-    } else if (section == 1){
-        return @"Section 2";
-    } else{
-        return @"Section 3";
-    }
-}
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return @"Section 1";
+//    } else if (section == 1){
+//        return @"Section 2";
+//    } else{
+//        return @"Section 3";
+//    }
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
