@@ -15,18 +15,20 @@
 #import "DetailViewController.h"
 #import "DXPopover.h"
 
-@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
+@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate,UISearchBarDelegate>
 {
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
     DXPopover *popover;
     NSString *sortBy;
     NSString *apiKey;
+    int remainPage;
 }
 
 @property (nonatomic) Reachability *hostReachability;
 @property (strong,nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -82,6 +84,9 @@
     refresh_loadmore = [[GITSRefreshAndLoadMore alloc] init];
     [ShareObject shareObjectManager].page = 1;
     
+    // =---> add delegate to search
+    self.searchBar.delegate = self;
+    
     // =---> add refresh and load mor to view
 
     [self setupView];
@@ -105,11 +110,16 @@
     [subButton setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
     //[searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
     [subButton addTarget:self action:@selector(subButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     // =---> Creating a custom right navi bar button2
     UIButton *moreButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 30.0f)];
     [moreButton setImage:[UIImage imageNamed:@"munu_b.png"] forState:UIControlStateNormal];
     [moreButton setImage:[UIImage imageNamed:@"menu_b_p.png"] forState:UIControlStateHighlighted];
     
+    // =---> Creating a custom right navi bar button2
+    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [searchButton setImage:[UIImage imageNamed:@"Search-50.png"] forState:UIControlStateNormal];
+    [searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
     
     // =---> Make space between bar button 20 point
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
@@ -128,8 +138,9 @@
     
     UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:subButton];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
-
-    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,negativeSpacer,barButtonItem2, nil];
+    UIBarButtonItem *barButtonItem3 = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    
+    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem3,barButtonItem1,negativeSpacer,barButtonItem2, nil];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
 
     // =---> request to server
@@ -179,7 +190,7 @@
     NSLog(@"Sort by date");
     sortBy = @"date";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
@@ -187,7 +198,7 @@
     NSLog(@"Sort by title");
     sortBy = @"title";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
@@ -195,7 +206,7 @@
     NSLog(@"sort by author");
     sortBy = @"author";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
@@ -203,7 +214,7 @@
     NSLog(@"Sort by ID");
     sortBy = @"id";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
@@ -232,7 +243,33 @@
     [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
 }
 
+#pragma mark - search bar delegate methods
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+//    [searchBar resignFirstResponder];
+//    searchBar.text = nil;
+//    searchBar.showsCancelButton = false;
+//    
+//    if (isSearching == true) {
+//        isSearching = false;
+//        [AppUtils showLoading:self.view];
+//        [ShareObject shareObjectManager].page = 1;
+//        [self requestToserver:@"ARTICLES_L001"];
+//    }
+}
 
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    
+    searchBar.showsCancelButton = true;
+    
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+//    isSearching = true;
+//    searchKeyWord = searchBar.text;
+//    [AppUtils showLoading:self.view];
+//    [self requestToserver:@"ARTICLES_L002"];
+}
 #pragma mark - prepare for segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -253,11 +290,18 @@
         apiKey = withAPIKey;
     }
     
-    if ([withAPIKey isEqualToString:@"ARTICLES_L001"]) {
+    if ([withAPIKey isEqualToString:@"ARTICLES_L001"]) { // list article
         
         [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
         [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
         [dataDic setObject:sortBy forKey:@"SORT_BY"];
+        
+    } else if ([withAPIKey isEqualToString:@"ARTICLES_L002"]){ // search article
+        
+//        [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
+//        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
+//        [dataDic setObject:sortBy forKey:@"SORT_BY"];
+//        [dataDic setObject:searchKeyWord forKey:@"SEARCH_KEY_WORD"];
     }
     
     [reqDic setObject:withAPIKey forKey:@"KEY"];
@@ -269,12 +313,13 @@
 }
 
 #pragma mark - return result
--(void)returnResult:(NSDictionary *)result{
+-(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
+    remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
     
-    if ([ShareObject shareObjectManager].isLoadMore) {
-        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
-        [refresh_loadmore temp:_mainTableView];
+    if ([ShareObject shareObjectManager].isLoadMore){
+            [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+            [refresh_loadmore temp:_mainTableView];
     } else {
         if (_refreshControl) {
             [_refreshControl endRefreshing];
@@ -287,9 +332,12 @@
         _mainTableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
     }
         [_mainTableView reloadData];
+    
     // =---> Hide loading
     [AppUtils hideLoading:self.view];
     _mainTableView.hidden = false;
+    
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - other method
@@ -315,7 +363,7 @@
     [ShareObject shareObjectManager].isLoadMore = false;
     [self.view setUserInteractionEnabled:false];
     [ShareObject shareObjectManager].page = 1;
-    [self requestToserver:@"ARTICLES_L001"];
+    [self requestToserver:apiKey];
 }
 
 -(void)setupView {
@@ -346,8 +394,10 @@
 //
 ////scroll down
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
-    [self requestToserver:@"ARTICLES_L001"];
+    if ([ShareObject shareObjectManager].page <= remainPage) {
+        [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
+        [self requestToserver:apiKey];
+    }
 }
 
 @end

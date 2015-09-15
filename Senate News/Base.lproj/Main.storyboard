@@ -221,6 +221,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mainTableView" destination="ZsD-RB-Iab" id="gwS-6C-yXB"/>
+                        <outlet property="searchBar" destination="8wL-8D-lKX" id="nvf-JP-kfi"/>
                         <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="8f3-50-Fob"/>
                     </connections>
                 </viewController>
@@ -348,11 +349,17 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-a8-wzx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mH4-xQ-OfF">
+                                <rect key="frame" x="142" y="233" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="mH4-xQ-OfF" secondAttribute="centerY" constant="0.5" id="9eO-Y9-YHe"/>
                             <constraint firstAttribute="width" secondItem="Oi1-a8-wzx" secondAttribute="width" id="Phf-rB-3fN"/>
+                            <constraint firstAttribute="centerX" secondItem="mH4-xQ-OfF" secondAttribute="centerX" constant="-0.5" id="evP-Hd-Woc"/>
                             <constraint firstItem="Oi1-a8-wzx" firstAttribute="leading" secondItem="BCD-HS-eaD" secondAttribute="leading" id="hfB-fF-ZtA"/>
                             <constraint firstItem="Oi1-a8-wzx" firstAttribute="top" secondItem="M6o-dR-NhY" secondAttribute="bottom" id="wjM-eV-8cn"/>
                             <constraint firstAttribute="height" secondItem="Oi1-a8-wzx" secondAttribute="height" id="wqc-vp-Aqm"/>
@@ -376,6 +383,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="mH4-xQ-OfF" id="SnA-8N-p5X"/>
+                        <outlet property="myScrollView" destination="Oi1-a8-wzx" id="Az2-iW-xMw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lw6-10-d1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

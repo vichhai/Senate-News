@@ -20,6 +20,6 @@
 @protocol ConnectionManagerDelegate <NSObject>
 @optional
 
-- (void)returnResult:(NSDictionary *) result;
+- (void)returnResult:(NSDictionary *) result withApiKey:(NSString *)apiKey;
 
 @end

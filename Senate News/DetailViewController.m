@@ -12,6 +12,7 @@
 #import "ShareObject.h"
 #import "ConnectionManager.h"
 #import <Social/Social.h>
+#import "ShowImageViewController.h"
 
 @interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 {
@@ -117,10 +118,10 @@
     // =---> label page of page
     
     UILabel *labelPage = [[UILabel alloc] initWithFrame:CGRectMake(23, view.frame.size.height / 2 - 6.0f, 30, 12)];
-    labelPage.text = [NSString stringWithFormat:@"%ld / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
+    labelPage.text = [NSString stringWithFormat:@"%d / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
     labelPage.textColor = [UIColor whiteColor];
     labelPage.font = [UIFont systemFontOfSize:12];
-    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%ld / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
+    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%d / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
     
     // =---> set new frame to label
     [labelPage setFrame:CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12)];
@@ -328,7 +329,7 @@
 }
 
 #pragma mark - return result
--(void)returnResult:(NSDictionary *)result{
+-(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
     resultDic = [[NSMutableDictionary alloc] initWithDictionary:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
     [_detailTeableView reloadData];
@@ -336,6 +337,11 @@
     _detailTeableView.hidden = false;
 }
 
+#pragma mark - prepare for segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"sender : %@",sender);
+    [ShareObject shareObjectManager].shareURL = sender;
+}
 
 //-(void)addImageToScrollView:(NSArray *)imageViewArray toScrollView:(UIScrollView *)anyScrollView{
 

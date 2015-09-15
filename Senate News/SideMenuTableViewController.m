@@ -76,6 +76,10 @@
 //    }
 //}
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 35.0;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = @"Hello";
@@ -83,13 +87,13 @@
 }
 
 -(UIView *)setupViewForSectionHeader:(NSString *)text {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 25)];
-    headerView.backgroundColor = [UIColor redColor];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 20, 20)];
-    imageView.image = [UIImage imageNamed:@"alarm_icon.png"];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
+    headerView.backgroundColor = [UIColor yellowColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,7, 20, 20)];
+    imageView.image = [UIImage imageNamed:@"Search-50.png"];
     [headerView addSubview:imageView];
     
-    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(27, 0, headerView.frame.size.width - 85, 25)];
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, headerView.frame.size.width - 85, 25)];
     textLabel.text = text;
     
     [headerView addSubview:textLabel];

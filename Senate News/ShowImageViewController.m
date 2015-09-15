@@ -7,10 +7,11 @@
 //
 
 #import "ShowImageViewController.h"
+#import "ShareObject.h"
+@interface ShowImageViewController ()<UIScrollViewDelegate>
 
-@interface ShowImageViewController ()
-
-
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
 @end
 
@@ -21,18 +22,31 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    [self setupImageView];
+}
+
+
+-(void)setupImageView{
+
+    float height = 257;
+    float width = _myScrollView.bounds.size.width - 20;
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, (_myScrollView.frame.size.height - height) / 2 - 50, width, height)];
+    imageView.tag = 99;
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[ShareObject shareObjectManager].shareURL]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
+    
+    _myScrollView.minimumZoomScale = 1.0;
+    _myScrollView.maximumZoomScale = 5.0f;
+    _myScrollView.delegate = self;
+    _myScrollView.contentSize = imageView ? imageView.frame.size : CGSizeZero;
+    [_myScrollView addSubview:imageView];
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return [self.view viewWithTag:99];
 }
-*/
 
 - (IBAction)closeButtonAction:(id)sender {
 

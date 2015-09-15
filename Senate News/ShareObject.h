@@ -13,6 +13,7 @@
 @property (nonatomic) BOOL isLoadMore;
 @property (nonatomic) CGFloat shareWidth;
 @property (nonatomic) int page; // for pagination
+@property (strong,nonatomic) NSString *shareURL;
 + (ShareObject *)shareObjectManager;
 
 @end
