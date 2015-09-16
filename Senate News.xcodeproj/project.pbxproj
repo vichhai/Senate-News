@@ -59,6 +59,8 @@
 		EDA3BF5B1B994AA500F8334B /* ShareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA3BF5A1B994AA500F8334B /* ShareObject.m */; };
 		EDA3BF5E1B994C4A00F8334B /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA3BF5D1B994C4A00F8334B /* AppUtils.m */; };
 		EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */; };
+		EDBD300F1BA9010F007E89DE /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBD300E1BA9010F007E89DE /* SearchTableViewController.m */; };
+		EDBD30131BA90176007E89DE /* CustomSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBD30121BA90176007E89DE /* CustomSearchTableViewCell.m */; };
 		EDD15FDD1B9D936F00D46393 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */; };
 		EDE27ABF1B9E97EA000AB507 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27ABE1B9E97EA000AB507 /* MyViewController.m */; };
 		EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */; };
@@ -167,6 +169,10 @@
 		EDA3BF5D1B994C4A00F8334B /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtils.m; sourceTree = "<group>"; };
 		EDA852D61B982DDF009C2B92 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		EDBD300D1BA9010F007E89DE /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		EDBD300E1BA9010F007E89DE /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		EDBD30111BA90176007E89DE /* CustomSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchTableViewCell.h; sourceTree = "<group>"; };
+		EDBD30121BA90176007E89DE /* CustomSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchTableViewCell.m; sourceTree = "<group>"; };
 		EDD15FDB1B9D936F00D46393 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
 		EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
 		EDE27ABD1B9E97EA000AB507 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 		ED6B08CA1B97ECE5009068E9 /* Detail Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EDBD30101BA90141007E89DE /* Search */,
 				ED6B08CB1B97ED0E009068E9 /* DetailViewController.h */,
 				ED6B08CC1B97ED0E009068E9 /* DetailViewController.m */,
 				ED6B08E61B9809E1009068E9 /* CustomDetailTableViewCell.h */,
@@ -404,6 +411,17 @@
 			name = common;
 			sourceTree = "<group>";
 		};
+		EDBD30101BA90141007E89DE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EDBD300D1BA9010F007E89DE /* SearchTableViewController.h */,
+				EDBD300E1BA9010F007E89DE /* SearchTableViewController.m */,
+				EDBD30111BA90176007E89DE /* CustomSearchTableViewCell.h */,
+				EDBD30121BA90176007E89DE /* CustomSearchTableViewCell.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		EDE27AC01B9ED116000AB507 /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,10 +591,12 @@
 				ED94010F1B96D467001BCE2D /* main.m in Sources */,
 				ED6B08E81B9809E1009068E9 /* CustomDetailTableViewCell.m in Sources */,
 				ED94FDD51B9831D2006A257E /* SDWebImageDownloader.m in Sources */,
+				EDBD300F1BA9010F007E89DE /* SearchTableViewController.m in Sources */,
 				ED94FDD01B9831D2006A257E /* MKAnnotationView+WebCache.m in Sources */,
 				ED94FDD31B9831D2006A257E /* SDWebImageCompat.m in Sources */,
 				ED94FDD81B9831D2006A257E /* SDWebImagePrefetcher.m in Sources */,
 				ED367CF11BA2DE1200481BE7 /* ShowImageViewController.m in Sources */,
+				EDBD30131BA90176007E89DE /* CustomSearchTableViewCell.m in Sources */,
 				ED94FDDF1B9831D2006A257E /* UIView+WebCacheOperation.m in Sources */,
 				EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */,
 				ED94FDDB1B9831D2006A257E /* UIImage+MultiFormat.m in Sources */,

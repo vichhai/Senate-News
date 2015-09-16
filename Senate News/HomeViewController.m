@@ -28,7 +28,6 @@
 @property (nonatomic) Reachability *hostReachability;
 @property (strong,nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -68,6 +67,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+        [ShareObject shareObjectManager].viewObserver = @"MainView";
 }
 
 - (void)viewDidLoad {
@@ -83,9 +83,6 @@
     arrayResult = [[NSMutableArray alloc] init];
     refresh_loadmore = [[GITSRefreshAndLoadMore alloc] init];
     [ShareObject shareObjectManager].page = 1;
-    
-    // =---> add delegate to search
-    self.searchBar.delegate = self;
     
     // =---> add refresh and load mor to view
 
@@ -120,12 +117,13 @@
     UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [searchButton setImage:[UIImage imageNamed:@"Search-50.png"] forState:UIControlStateNormal];
     [searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
+    [searchButton addTarget:self action:@selector(searchClicked) forControlEvents:UIControlEventTouchUpInside];
     
     // =---> Make space between bar button 20 point
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                        target:nil action:nil];
-    negativeSpacer.width = 20;
+    negativeSpacer.width = 15;
     
     // =---> side menu
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -154,6 +152,11 @@
 }
 
 #pragma mark - Action BarButton
+-(void)searchClicked{
+    
+    NSLog(@"working");
+    [self performSegueWithIdentifier:@"search" sender:nil];
+}
 
 -(void)subButtonAction:(id)sender{
     //create view popup view with DXPopView
@@ -243,33 +246,6 @@
     [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
 }
 
-#pragma mark - search bar delegate methods
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-//    [searchBar resignFirstResponder];
-//    searchBar.text = nil;
-//    searchBar.showsCancelButton = false;
-//    
-//    if (isSearching == true) {
-//        isSearching = false;
-//        [AppUtils showLoading:self.view];
-//        [ShareObject shareObjectManager].page = 1;
-//        [self requestToserver:@"ARTICLES_L001"];
-//    }
-}
-
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-    
-    searchBar.showsCancelButton = true;
-    
-}
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    
-//    isSearching = true;
-//    searchKeyWord = searchBar.text;
-//    [AppUtils showLoading:self.view];
-//    [self requestToserver:@"ARTICLES_L002"];
-}
 #pragma mark - prepare for segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -329,15 +305,13 @@
         [arrayResult removeAllObjects];
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
         [refresh_loadmore temp:_mainTableView];
-        _mainTableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
+        _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
         [_mainTableView reloadData];
     
     // =---> Hide loading
     [AppUtils hideLoading:self.view];
     _mainTableView.hidden = false;
-    
-    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - other method
