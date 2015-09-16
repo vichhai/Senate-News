@@ -12,6 +12,7 @@
 #import "ShareObject.h"
 #import "GITSRefreshAndLoadMore.h"
 #import "CustomSearchTableViewCell.h"
+#import "DetailViewController.h"
 
 @interface SearchTableViewController ()<UISearchBarDelegate,ConnectionManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -158,7 +159,8 @@
     [self requestToserverWithKeyWord:keywords];
     
 }
-#pragma mark - Table view data source
+
+#pragma mark - Table view data source and delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -188,10 +190,21 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
+}
+
 #pragma mark - bar button action
 -(void)backClicked{
     [self.search resignFirstResponder];
     [self.navigationController popViewControllerAnimated:true];
 }
 
+#pragma mark - prepare for segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"detail"]) {
+        DetailViewController *vc = [segue destinationViewController];
+        vc.receiveData = sender;
+    }
+}
 @end
