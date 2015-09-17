@@ -15,11 +15,14 @@
 #import "DetailViewController.h"
 #import "DXPopover.h"
 
-@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
+@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate,UISearchBarDelegate>
 {
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
     DXPopover *popover;
+    NSString *sortBy;
+    NSString *apiKey;
+    int remainPage;
 }
 
 @property (nonatomic) Reachability *hostReachability;
@@ -48,7 +51,7 @@
     } else {
         [AppUtils showLoading:self.view];
         [ShareObject shareObjectManager].page = 1;
-        [self requestToserver];
+        [self requestToserver:@"ARTICLES_L001"];
     }
 }
 
@@ -64,6 +67,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+        [ShareObject shareObjectManager].viewObserver = @"MainView";
 }
 
 - (void)viewDidLoad {
@@ -95,24 +99,31 @@
     [self.navigationController.navigationBar addGestureRecognizer:doubleTap];
     
     // =---> set navigationbar color
-    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
+//    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
     
     // =---> Creating a custom right navi bar button1
     UIButton *subButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [subButton setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
     //[searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
     [subButton addTarget:self action:@selector(subButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
     // =---> Creating a custom right navi bar button2
     UIButton *moreButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 30.0f)];
     [moreButton setImage:[UIImage imageNamed:@"munu_b.png"] forState:UIControlStateNormal];
     [moreButton setImage:[UIImage imageNamed:@"menu_b_p.png"] forState:UIControlStateHighlighted];
     
+    // =---> Creating a custom right navi bar button2
+    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [searchButton setImage:[UIImage imageNamed:@"Search-50.png"] forState:UIControlStateNormal];
+    [searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
+    [searchButton addTarget:self action:@selector(searchClicked) forControlEvents:UIControlEventTouchUpInside];
     
     // =---> Make space between bar button 20 point
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                        target:nil action:nil];
-    negativeSpacer.width = 20;
+    negativeSpacer.width = 15;
     
     // =---> side menu
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -125,17 +136,14 @@
     
     UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:subButton];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
-
-    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem1,negativeSpacer,barButtonItem2, nil];
+    UIBarButtonItem *barButtonItem3 = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    
+    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem3,barButtonItem1,negativeSpacer,barButtonItem2, nil];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
 
     // =---> request to server
-    [self requestToserver];
-    
-    
-    for (UIView *v in [self.view subviews]) {
-        NSLog(@"all king of view %@",[v class]);
-    }
+    sortBy = @"id";
+    [self requestToserver:@"ARTICLES_L001"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -144,6 +152,11 @@
 }
 
 #pragma mark - Action BarButton
+-(void)searchClicked{
+    
+    NSLog(@"working");
+    [self performSegueWithIdentifier:@"search" sender:nil];
+}
 
 -(void)subButtonAction:(id)sender{
     //create view popup view with DXPopView
@@ -177,22 +190,34 @@
 }
 //function event of button
 -(void) sortByDate{
-    NSLog(@"Sort by date!");
+    NSLog(@"Sort by date");
+    sortBy = @"date";
+    [AppUtils showLoading:self.view];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
 -(void) sortByName{
-    NSLog(@"Sort by name");
+    NSLog(@"Sort by title");
+    sortBy = @"title";
+    [AppUtils showLoading:self.view];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
 -(void) sortByAuthor{
     NSLog(@"sort by author");
+    sortBy = @"author";
+    [AppUtils showLoading:self.view];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
 -(void) sortById{
-    NSLog(@"sort by Id.");
+    NSLog(@"Sort by ID");
+    sortBy = @"id";
+    [AppUtils showLoading:self.view];
+    [self requestToserver:apiKey];
     [popover dismiss];
 }
 
@@ -221,7 +246,6 @@
     [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
 }
 
-
 #pragma mark - prepare for segue
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -233,13 +257,30 @@
 
 #pragma mark - request to server
 
--(void)requestToserver{
+-(void)requestToserver:(NSString *)withAPIKey{
+
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     
-    [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
-    [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
-    [reqDic setObject:@"ARTICLES_L001" forKey:@"KEY"];
+    if (![withAPIKey isEqualToString:@"ARTICLES_L003"]) {
+        apiKey = withAPIKey;
+    }
+    
+    if ([withAPIKey isEqualToString:@"ARTICLES_L001"]) { // list article
+        
+        [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
+        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
+        [dataDic setObject:sortBy forKey:@"SORT_BY"];
+        
+    } else if ([withAPIKey isEqualToString:@"ARTICLES_L002"]){ // search article
+        
+//        [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
+//        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
+//        [dataDic setObject:sortBy forKey:@"SORT_BY"];
+//        [dataDic setObject:searchKeyWord forKey:@"SEARCH_KEY_WORD"];
+    }
+    
+    [reqDic setObject:withAPIKey forKey:@"KEY"];
     [reqDic setObject:dataDic forKey:@"REQ_DATA"];
     
     ConnectionManager *cont = [[ConnectionManager alloc] init];
@@ -248,12 +289,13 @@
 }
 
 #pragma mark - return result
--(void)returnResult:(NSDictionary *)result{
+-(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
+    remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
     
-    if ([ShareObject shareObjectManager].isLoadMore) {
-        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
-        [refresh_loadmore temp:_mainTableView];
+    if ([ShareObject shareObjectManager].isLoadMore){
+            [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+            [refresh_loadmore temp:_mainTableView];
     } else {
         if (_refreshControl) {
             [_refreshControl endRefreshing];
@@ -263,9 +305,10 @@
         [arrayResult removeAllObjects];
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
         [refresh_loadmore temp:_mainTableView];
-        _mainTableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
+        _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
         [_mainTableView reloadData];
+    
     // =---> Hide loading
     [AppUtils hideLoading:self.view];
     _mainTableView.hidden = false;
@@ -294,7 +337,7 @@
     [ShareObject shareObjectManager].isLoadMore = false;
     [self.view setUserInteractionEnabled:false];
     [ShareObject shareObjectManager].page = 1;
-    [self requestToserver];
+    [self requestToserver:apiKey];
 }
 
 -(void)setupView {
@@ -325,8 +368,10 @@
 //
 ////scroll down
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
-    [self requestToserver];
+    if ([ShareObject shareObjectManager].page <= remainPage) {
+        [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
+        [self requestToserver:apiKey];
+    }
 }
 
 @end

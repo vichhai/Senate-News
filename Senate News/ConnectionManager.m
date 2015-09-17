@@ -66,11 +66,12 @@
     // Convert JSON Object into Dictionary
     NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:responseData options:
                           NSJSONReadingMutableContainers error:&error];
-    [self.delegate returnResult:JSON];
+    [self.delegate returnResult:JSON withApiKey:[JSON objectForKey:@"API_KEY"]];
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
 //    NSLog(@"connection did finish loading: %@",connection);
+    return;
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{

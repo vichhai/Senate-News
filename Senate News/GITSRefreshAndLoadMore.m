@@ -105,7 +105,13 @@
     if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
         NSLog(@"loadmore working too");
         [ShareObject shareObjectManager].isLoadMore = true;
-        [ShareObject shareObjectManager].page += 1;
+        
+        if ([[ShareObject shareObjectManager].viewObserver isEqualToString:@"MainView"]) {
+            [ShareObject shareObjectManager].page += 1;
+        }else {
+            [ShareObject shareObjectManager].pages += 1;
+        }
+        
         if (tableView.tableFooterView == _moreFooterView) {
             return;
         }

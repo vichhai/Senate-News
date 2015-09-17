@@ -84,7 +84,8 @@
     UIViewController* calleeViewCtrl	= aTarget;
     UIImage* imgNormal					= [UIImage imageNamed:aNormalImageCode];
     
-    UIButton* btnNewLeft				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, imgNormal.size.width/2, imgNormal.size.height/2)];
+//    UIButton* btnNewLeft				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, imgNormal.size.width/2, imgNormal.size.height/2)];
+    UIButton* btnNewLeft				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 20, 20)];
     
     [btnNewLeft setTag:10000];
     [btnNewLeft setBackgroundImage:imgNormal forState:UIControlStateNormal];
