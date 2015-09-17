@@ -77,6 +77,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
+    // remove duplicate label when scrolling
+    for (UIView *v in [cell.contentView subviews]) {
+        if ([v isKindOfClass:[UILabel class]])
+            if (v.tag == 100) {
+                [v removeFromSuperview];
+            }
+    }
+    
     // =---> setup label
     UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 150, 30)];
     myLabel.textColor = [UIColor blackColor];
@@ -84,26 +92,20 @@
     [cell.contentView addSubview:myLabel];
     switch (indexPath.section) {
         case 0:
-//            cell.textLabel.text = @"Hello case 0";
              myLabel.text = @"Hello case 0";
             break;
         case 1:
             if (indexPath.row == 0) {
-//                cell.textLabel.text = @"Change Here 1";
                 myLabel.text = @"Change Here 1";
             } else if (indexPath.row == [arrayCategory count] + 1){
-//                cell.textLabel.text = @"Change Here 2";
                 myLabel.text = @"Change Here 2";
             } else if(indexPath.row == [arrayCategory count] + 2){
-//                cell.textLabel.text = @"Change Here 3";
                 myLabel.text = @"Change Here 3";
             } else {
-//                cell.textLabel.text = [[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_NAME"];
                 myLabel.text = [[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_NAME"];
             }
             break;
         case 2:
-//            cell.textLabel.text = @"Hello case 2";
             myLabel.text = @"Hello case 2";
             break;
         default:
