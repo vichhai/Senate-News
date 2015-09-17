@@ -143,7 +143,7 @@
 
     // =---> request to server
     sortBy = @"id";
-    [self requestToserver:@"ARTICLES_L001"];
+    [self requestToserver:@"CATEGORIES_L001"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -268,7 +268,7 @@
         [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
         [dataDic setObject:sortBy forKey:@"SORT_BY"];
         
-    } else if ([withAPIKey isEqualToString:@"ARTICLES_L003"]){
+    } else if ([withAPIKey isEqualToString:@"CATEGORIES_L001"]){
         
     }
     
@@ -305,13 +305,12 @@
         // =---> Hide loading
         [AppUtils hideLoading:self.view];
         _mainTableView.hidden = false;
+    
+    } else if([apiKey isEqualToString:@"CATEGORIES_L001"]) {
         
-        [self requestToserver:@"ARTICLES_L003"];
-        
-        return;
-    } else{
-        
-        return;
+        [[NSUserDefaults standardUserDefaults]setObject:[[result objectForKey:@"RESP_DATA"]objectForKey:@"CAT_REC"] forKey:@"arrayCategory"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self requestToserver:@"ARTICLES_L001"];
     }
 }
 
