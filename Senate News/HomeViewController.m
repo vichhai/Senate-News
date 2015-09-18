@@ -99,7 +99,7 @@
     [self.navigationController.navigationBar addGestureRecognizer:doubleTap];
     
     // =---> set navigationbar color
-//    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
+    // self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
     
     // =---> Creating a custom right navi bar button1
@@ -289,6 +289,7 @@
 }
 
 #pragma mark - return result
+
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
     remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
