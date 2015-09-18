@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "AppUtils.h"
 #import "ShareObject.h"
-@interface AppDelegate ()
+#import "ConnectionManager.h"
+
+@interface AppDelegate ()<ConnectionManagerDelegate>
 
 @end
 
@@ -39,8 +41,40 @@
     return YES;
 }
 
+// register token for push notification
+-(void)registerDeviceTokens:(NSString *)apiKey withDeviceToken:(NSString *)device_token{
+    
+    if([apiKey isEqualToString:@"DEVICE_C001"]){
+        NSMutableDictionary *requestData = [[NSMutableDictionary alloc]init];
+        NSMutableDictionary *data = [[NSMutableDictionary alloc]init];
+        [data setObject:device_token forKey:@"TOKEN"];
+        [requestData setObject:apiKey forKey:@"KEY"];
+        [requestData setObject:data forKey:@"REQ_DATA"];
+        ConnectionManager *cnn = [[ConnectionManager alloc]init];
+        cnn.delegate = self;
+        [cnn sendTranData:requestData];
+    }else{
+        NSLog(@"api key is invalid");
+    }
+}
+
+
+#pragma mark - ConnectionMangerDelegate
+
+-(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
+    NSLog(@"%@", result);
+    NSLog(@"%@", apiKey);
+}
+
+#pragma mark - AppDelegate
+
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    NSLog(@"Device token : %@", deviceToken);
+    NSString* token = [[[[deviceToken description]
+                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                               stringByReplacingOccurrencesOfString: @">" withString: @""]
+                              stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
+    [self registerDeviceTokens:@"DEVICE_C001" withDeviceToken:token];
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
