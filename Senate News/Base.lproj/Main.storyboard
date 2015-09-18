@@ -41,7 +41,7 @@
         <scene sceneID="caH-g1-ydq">
             <objects>
                 <tableViewController id="Unv-Gv-B94" customClass="SideMenuTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kGd-dY-Idk">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kGd-dY-Idk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,7 +58,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9t-9G-YIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="247" y="445"/>
+            <point key="canvasLocation" x="231" y="445"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="H97-N6-2Ux">
@@ -317,6 +317,7 @@
                     <navigationItem key="navigationItem" id="Pwd-oO-7Qz"/>
                     <connections>
                         <outlet property="tableView" destination="nWF-ue-m4k" id="ov0-F4-aOU"/>
+                        <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="48X-0b-mE1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTL-rj-R0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -574,5 +575,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
+        <segue reference="8f3-50-Fob"/>
     </inferredMetricsTieBreakers>
 </document>

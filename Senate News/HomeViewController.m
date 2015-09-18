@@ -21,7 +21,7 @@
     GITSRefreshAndLoadMore *refresh_loadmore;
     DXPopover *popover;
     NSString *sortBy;
-    NSString *apiKey;
+
     int remainPage;
 }
 
@@ -143,7 +143,7 @@
 
     // =---> request to server
     sortBy = @"id";
-    [self requestToserver:@"ARTICLES_L001"];
+    [self requestToserver:@"CATEGORIES_L001"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -193,7 +193,7 @@
     NSLog(@"Sort by date");
     sortBy = @"date";
     [AppUtils showLoading:self.view];
-    [self requestToserver:apiKey];
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
@@ -201,7 +201,7 @@
     NSLog(@"Sort by title");
     sortBy = @"title";
     [AppUtils showLoading:self.view];
-    [self requestToserver:apiKey];
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
@@ -209,7 +209,7 @@
     NSLog(@"sort by author");
     sortBy = @"author";
     [AppUtils showLoading:self.view];
-    [self requestToserver:apiKey];
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
@@ -217,7 +217,7 @@
     NSLog(@"Sort by ID");
     sortBy = @"id";
     [AppUtils showLoading:self.view];
-    [self requestToserver:apiKey];
+    [self requestToserver:@"ARTICLES_L001"];
     [popover dismiss];
 }
 
@@ -262,22 +262,14 @@
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     
-    if (![withAPIKey isEqualToString:@"ARTICLES_L003"]) {
-        apiKey = withAPIKey;
-    }
-    
     if ([withAPIKey isEqualToString:@"ARTICLES_L001"]) { // list article
         
         [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
         [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
         [dataDic setObject:sortBy forKey:@"SORT_BY"];
         
-    } else if ([withAPIKey isEqualToString:@"ARTICLES_L002"]){ // search article
+    } else if ([withAPIKey isEqualToString:@"CATEGORIES_L001"]){
         
-//        [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
-//        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
-//        [dataDic setObject:sortBy forKey:@"SORT_BY"];
-//        [dataDic setObject:searchKeyWord forKey:@"SEARCH_KEY_WORD"];
     }
     
     [reqDic setObject:withAPIKey forKey:@"KEY"];
@@ -294,25 +286,33 @@
     
     remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
     
-    if ([ShareObject shareObjectManager].isLoadMore){
+    if ([apiKey isEqualToString:@"ARTICLES_L001"]) {
+        if ([ShareObject shareObjectManager].isLoadMore){
             [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
             [refresh_loadmore temp:_mainTableView];
-    } else {
-        if (_refreshControl) {
-            [_refreshControl endRefreshing];
+        } else {
+            if (_refreshControl) {
+                [_refreshControl endRefreshing];
+            }
+            
+            [self.view setUserInteractionEnabled:true];
+            [arrayResult removeAllObjects];
+            [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+            [refresh_loadmore temp:_mainTableView];
+            _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         }
-        
-        [self.view setUserInteractionEnabled:true];
-        [arrayResult removeAllObjects];
-        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
-        [refresh_loadmore temp:_mainTableView];
-        _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    }
         [_mainTableView reloadData];
+        
+        // =---> Hide loading
+        [AppUtils hideLoading:self.view];
+        _mainTableView.hidden = false;
     
-    // =---> Hide loading
-    [AppUtils hideLoading:self.view];
-    _mainTableView.hidden = false;
+    } else if([apiKey isEqualToString:@"CATEGORIES_L001"]) {
+        
+        [[NSUserDefaults standardUserDefaults]setObject:[[result objectForKey:@"RESP_DATA"]objectForKey:@"CAT_REC"] forKey:@"arrayCategory"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self requestToserver:@"ARTICLES_L001"];
+    }
 }
 
 #pragma mark - other method
@@ -338,7 +338,7 @@
     [ShareObject shareObjectManager].isLoadMore = false;
     [self.view setUserInteractionEnabled:false];
     [ShareObject shareObjectManager].page = 1;
-    [self requestToserver:apiKey];
+    [self requestToserver:@"ARTICLES_L001"];
 }
 
 -(void)setupView {
@@ -371,7 +371,7 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([ShareObject shareObjectManager].page <= remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
-        [self requestToserver:apiKey];
+        [self requestToserver:@"ARTICLES_L001"];
     }
 }
 
