@@ -52,9 +52,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) {
-        return 1;
+        return 2;
     } else if (section == 1){
-        return [arrayCategory count] + 3;
+        return [arrayCategory count];
     } else{
         return 2;
     }
@@ -92,21 +92,29 @@
     [cell.contentView addSubview:myLabel];
     switch (indexPath.section) {
         case 0:
-             myLabel.text = @"Hello case 0";
-            break;
-        case 1:
             if (indexPath.row == 0) {
-                myLabel.text = @"Change Here 1";
-            } else if (indexPath.row == [arrayCategory count] + 1){
-                myLabel.text = @"Change Here 2";
-            } else if(indexPath.row == [arrayCategory count] + 2){
-                myLabel.text = @"Change Here 3";
-            } else {
-                myLabel.text = [[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_NAME"];
+                myLabel.text = @"ព្រឹទ្ធសភា";
+            } else if (indexPath.row == 1){
+                myLabel.text = @"អគ្កលេខាធិការដ្ឋាន";
             }
             break;
+        case 1:
+//            if (indexPath.row == 0) {
+//                myLabel.text = @"Change Here 1";
+//            } else if (indexPath.row == [arrayCategory count] + 1){
+//                myLabel.text = @"Change Here 2";
+//            } else if(indexPath.row == [arrayCategory count] + 2){
+//                myLabel.text = @"Change Here 3";
+//            } else {
+                myLabel.text = [[arrayCategory objectAtIndex:indexPath.row] objectForKey:@"CAT_NAME"];
+//            }
+            break;
         case 2:
-            myLabel.text = @"Hello case 2";
+            if (indexPath.row == 0){
+                myLabel.text = @"ទំនាក់ទំនងពួកយើង";
+            } else {
+                myLabel.text = @"របៀបនៃការប្រើ";
+            }
             break;
         default:
             break;
@@ -118,8 +126,14 @@
 -(UIView *)setupViewForSectionHeader:(NSString *)text {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
     headerView.backgroundColor = [UIColor lightGrayColor];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,7, 20, 20)];
-    imageView.image = [UIImage imageNamed:@"Search-50.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5,7, 20, 20)];
+    if ([text isEqualToString:@"ប្រតិទិនប្រជំុ"]) {
+        imageView.image = [UIImage imageNamed:@"schedule"];
+    }else if ([text isEqualToString:@"ព័ត៌មានព្រឹទ្ធសភា"]){
+        imageView.image = [UIImage imageNamed:@"home"];
+    }else{
+        imageView.image = [UIImage imageNamed:@"setting"];
+    }
     [headerView addSubview:imageView];
     
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, headerView.frame.size.width - 85, 25)];
