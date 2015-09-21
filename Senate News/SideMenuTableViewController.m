@@ -7,6 +7,8 @@
 //
 
 #import "SideMenuTableViewController.h"
+#import "HomeViewController.h"
+#import "ShareObject.h"
 
 @interface SideMenuTableViewController ()
 {
@@ -99,15 +101,7 @@
             }
             break;
         case 1:
-//            if (indexPath.row == 0) {
-//                myLabel.text = @"Change Here 1";
-//            } else if (indexPath.row == [arrayCategory count] + 1){
-//                myLabel.text = @"Change Here 2";
-//            } else if(indexPath.row == [arrayCategory count] + 2){
-//                myLabel.text = @"Change Here 3";
-//            } else {
                 myLabel.text = [[arrayCategory objectAtIndex:indexPath.row] objectForKey:@"CAT_NAME"];
-//            }
             break;
         case 2:
             if (indexPath.row == 0){
@@ -150,15 +144,8 @@
             [self performSegueWithIdentifier:@"schedule" sender:nil];
             break;
         case 1:
-            if (indexPath.row == 0) {
-                NSLog(@"Change Here 1 clicked");
-            } else if (indexPath.row == [arrayCategory count] + 1){
-                NSLog(@"Change Here 2 clicked");
-            } else if(indexPath.row == [arrayCategory count] + 2){
-                NSLog(@"Change Here 3 clicked");
-            } else {
-                NSLog(@"object at index : %@",[[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_NAME"]);
-            }
+            [ShareObject shareObjectManager].shareCateId = [[arrayCategory objectAtIndex:indexPath.row] objectForKey:@"CAT_ID"];
+            [self performSegueWithIdentifier:@"category" sender:nil];
             break;
         case 2:
             break;

@@ -14,8 +14,11 @@
 @property (nonatomic) CGFloat shareWidth;
 @property (nonatomic) int page; // for pagination
 @property (nonatomic) int pages;
+@property (nonatomic) int pageCate;
 @property (nonatomic) NSString *viewObserver;
 @property (strong,nonatomic) NSString *shareURL;
+@property (strong,nonatomic) NSString *shareCateId;
+
 + (ShareObject *)shareObjectManager;
 
 @end

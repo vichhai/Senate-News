@@ -108,7 +108,9 @@
         
         if ([[ShareObject shareObjectManager].viewObserver isEqualToString:@"MainView"]) {
             [ShareObject shareObjectManager].page += 1;
-        }else {
+        } else if([[ShareObject shareObjectManager].viewObserver isEqualToString:@"category"]){
+            [ShareObject shareObjectManager].pageCate += 1;
+        } else {
             [ShareObject shareObjectManager].pages += 1;
         }
         

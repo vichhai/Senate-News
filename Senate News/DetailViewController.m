@@ -118,10 +118,10 @@
     // =---> label page of page
     
     UILabel *labelPage = [[UILabel alloc] initWithFrame:CGRectMake(23, view.frame.size.height / 2 - 6.0f, 30, 12)];
-    labelPage.text = [NSString stringWithFormat:@"%lu / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
+    labelPage.text = [NSString stringWithFormat:@"%ld / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
     labelPage.textColor = [UIColor whiteColor];
     labelPage.font = [UIFont systemFontOfSize:12];
-    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%lu/ %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
+    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%ld / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
     
     // =---> set new frame to label
     [labelPage setFrame:CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12)];

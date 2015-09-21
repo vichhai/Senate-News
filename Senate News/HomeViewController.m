@@ -193,7 +193,7 @@
     NSLog(@"Sort by date");
     sortBy = @"date";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self sortHelping];
     [popover dismiss];
 }
 
@@ -201,7 +201,7 @@
     NSLog(@"Sort by title");
     sortBy = @"title";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self sortHelping];
     [popover dismiss];
 }
 
@@ -209,7 +209,7 @@
     NSLog(@"sort by author");
     sortBy = @"author";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self sortHelping];
     [popover dismiss];
 }
 
@@ -217,7 +217,7 @@
     NSLog(@"Sort by ID");
     sortBy = @"id";
     [AppUtils showLoading:self.view];
-    [self requestToserver:@"ARTICLES_L001"];
+    [self sortHelping];
     [popover dismiss];
 }
 
@@ -320,6 +320,12 @@
 -(void)doDoubleTap{
     // =---> scroll tableView to the top
     [_mainTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+}
+
+-(void)sortHelping{
+    [arrayResult removeAllObjects];
+    [ShareObject shareObjectManager].page = 1;
+    [self requestToserver:@"ARTICLES_L001"];
 }
 
 #pragma mark - Refresh And Load More
