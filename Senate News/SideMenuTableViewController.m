@@ -95,7 +95,7 @@
             if (indexPath.row == 0) {
                 myLabel.text = @"ព្រឹទ្ធសភា";
             } else if (indexPath.row == 1){
-                myLabel.text = @"អគ្កលេខាធិការដ្ឋាន";
+                myLabel.text = @"អគ្គលេខាធិការដ្ឋាន";
             }
             break;
         case 1:
