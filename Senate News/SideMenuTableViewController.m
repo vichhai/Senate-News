@@ -147,6 +147,7 @@
     
     switch (indexPath.section) {
         case 0:
+            [self performSegueWithIdentifier:@"schedule" sender:nil];
             break;
         case 1:
             if (indexPath.row == 0) {

@@ -71,6 +71,7 @@
 		FDD00C491BAFA7F900F74057 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C461BAFA7F900F74057 /* setting.png */; };
 		FDD00C4A1BAFA7F900F74057 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C471BAFA7F900F74057 /* home.png */; };
 		FDD00C4B1BAFA7F900F74057 /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C481BAFA7F900F74057 /* schedule.png */; };
+		FDD00C4E1BAFD0D300F74057 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */; };
 		FDD0A4AF1BA277320046F4CE /* date_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD0A4AC1BA277320046F4CE /* date_icon.png */; };
 		FDD0A4B51BA286270046F4CE /* author_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD0A4B21BA286270046F4CE /* author_icon.png */; };
 		FDD0A4B61BA286270046F4CE /* character_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD0A4B31BA286270046F4CE /* character_icon.png */; };
@@ -192,6 +193,8 @@
 		FDD00C461BAFA7F900F74057 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		FDD00C471BAFA7F900F74057 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		FDD00C481BAFA7F900F74057 /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
+		FDD00C4C1BAFD0D300F74057 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
 		FDD0A4AC1BA277320046F4CE /* date_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = date_icon.png; sourceTree = "<group>"; };
 		FDD0A4B21BA286270046F4CE /* author_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = author_icon.png; sourceTree = "<group>"; };
 		FDD0A4B31BA286270046F4CE /* character_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = character_icon.png; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 				ED94013F1B96D4BA001BCE2D /* HomeViewController.m */,
 				ED3618A51B96FB8F0095E48A /* CustomTableViewCell.h */,
 				ED3618A61B96FB8F0095E48A /* CustomTableViewCell.m */,
+				FDD00C4C1BAFD0D300F74057 /* ScheduleTableViewController.h */,
+				FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */,
 			);
 			name = MainScreen;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				ED9401121B96D467001BCE2D /* AppDelegate.m in Sources */,
 				ED94FDD61B9831D2006A257E /* SDWebImageDownloaderOperation.m in Sources */,
 				ED94FDD71B9831D2006A257E /* SDWebImageManager.m in Sources */,
+				FDD00C4E1BAFD0D300F74057 /* ScheduleTableViewController.m in Sources */,
 				ED94010F1B96D467001BCE2D /* main.m in Sources */,
 				ED6B08E81B9809E1009068E9 /* CustomDetailTableViewCell.m in Sources */,
 				ED94FDD51B9831D2006A257E /* SDWebImageDownloader.m in Sources */,
@@ -719,7 +725,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "ffa16f0c-8677-4850-aea6-516f36d6d8fa";
@@ -758,7 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "ffa16f0c-8677-4850-aea6-516f36d6d8fa";
 				SDKROOT = iphoneos;
@@ -816,6 +822,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Senate NewsTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -834,6 +841,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Senate NewsTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

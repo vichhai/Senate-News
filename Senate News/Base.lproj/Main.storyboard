@@ -54,11 +54,91 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="gEV-Cu-Jhr" kind="custom" identifier="abc" customClass="SWRevealViewControllerSeguePushController" id="PAs-tq-Wca"/>
+                        <segue destination="4gQ-VQ-1eE" kind="custom" identifier="schedule" customClass="SWRevealViewControllerSeguePushController" id="Afn-zG-bE8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9t-9G-YIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="231" y="445"/>
+        </scene>
+        <!--Schedule Table View Controller-->
+        <scene sceneID="SiD-4l-oYm">
+            <objects>
+                <tableViewController id="hUn-yT-bQL" customClass="ScheduleTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrl-Jb-ML9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="73" id="a3Q-60-lAt">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3Q-60-lAt" id="fa2-ql-Aq4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hUn-yT-bQL" id="Ugm-sx-HdZ"/>
+                            <outlet property="delegate" destination="hUn-yT-bQL" id="voD-lF-SRg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Svy-44-W3i">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Tl7-fZ-qef">
+                            <view key="customView" contentMode="scaleToFill" id="91W-bw-974">
+                                <rect key="frame" x="68" y="16" width="112" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6p-Yk-VJr">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ទំព័រដើម" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-RL-GQQ">
+                                        <rect key="frame" x="43" y="6" width="61" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="EaN-Ek-skN">
+                            <view key="customView" contentMode="scaleToFill" id="thi-u7-vkW">
+                                <rect key="frame" x="149" y="15" width="88" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxY-X7-DXM">
+                                        <rect key="frame" x="25" y="0.0" width="25" height="30"/>
+                                        <state key="normal" backgroundImage="munu_b.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="menu_b_p.png"/>
+                                        <connections>
+                                            <action selector="menuAction:" destination="hUn-yT-bQL" eventType="touchUpInside" id="gxw-wL-KFg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7H8-6j-c4j">
+                                        <rect key="frame" x="65" y="2" width="25" height="25"/>
+                                        <state key="normal" backgroundImage="Search-50.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="Search Filled-50.png"/>
+                                        <connections>
+                                            <action selector="searchAction:" destination="hUn-yT-bQL" eventType="touchUpInside" id="6jQ-UC-GEY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="menuButton" destination="gxY-X7-DXM" id="P96-x4-6oK"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SpI-ZW-BCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="453"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="H97-N6-2Ux">
@@ -567,11 +647,34 @@
             </objects>
             <point key="canvasLocation" x="1116" y="1166"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YGC-sH-jGp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4gQ-VQ-1eE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HeL-Ea-RtW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hUn-yT-bQL" kind="relationship" relationship="rootViewController" id="bLZ-fs-rju"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mol-2w-Xgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="453"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Back-100.png" width="72" height="58"/>
+        <image name="Search Filled-50.png" width="44" height="44"/>
+        <image name="Search-50.png" width="44" height="44"/>
         <image name="close.png" width="44" height="44"/>
+        <image name="menu_b_p.png" width="44" height="44"/>
         <image name="menu_collabo_icon_select.png" width="50" height="58"/>
+        <image name="munu_b.png" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
