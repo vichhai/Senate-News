@@ -79,7 +79,6 @@
                                 stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                stringByReplacingOccurrencesOfString: @">" withString: @""]
                               stringByReplacingOccurrencesOfString: @" " withString: @""];
-    
     [self registerDeviceTokens:@"DEVICE_C001" withDeviceToken:token];
 }
 
