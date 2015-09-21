@@ -316,6 +316,7 @@
 }
 
 #pragma mark - other method
+
 -(void)doDoubleTap{
     // =---> scroll tableView to the top
     [_mainTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
@@ -331,7 +332,6 @@
     [self.refreshControl addTarget:self action:@selector(refreshing) forControlEvents:UIControlEventValueChanged];
     [_mainTableView addSubview:_refreshControl];
 }
-
 
 -(void)refreshing{
      _refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];

@@ -68,6 +68,11 @@
 
 #pragma mark - AppDelegate
 
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    // For swipe or tap the notification
+    NSLog(@"i am working");
+}
+
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSString* token = [[[[deviceToken description]
                                 stringByReplacingOccurrencesOfString: @"<" withString: @""]
