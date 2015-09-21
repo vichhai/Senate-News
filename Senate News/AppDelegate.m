@@ -10,6 +10,7 @@
 #import "AppUtils.h"
 #import "ShareObject.h"
 #import "ConnectionManager.h"
+#import "DetailViewController.h"
 
 @interface AppDelegate ()<ConnectionManagerDelegate>
 
@@ -70,7 +71,7 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     // For swipe or tap the notification
-    NSLog(@"i am working");
+    NSLog(@"i am working %@", userInfo);
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
@@ -92,6 +93,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
