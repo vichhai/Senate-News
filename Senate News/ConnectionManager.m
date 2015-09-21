@@ -38,7 +38,6 @@
     NSString *urlString =  [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     // Convert your data and set your request's HTTPBody property
-    //    NSString *stringData = [[NSString alloc] initWithFormat:@"jsonRequest=%@", urlString];
     NSString *stringData = [[NSString alloc] initWithFormat:@"%@",urlString];
     
     NSData *requestBodyData = [stringData dataUsingEncoding:NSUTF8StringEncoding];
@@ -55,7 +54,7 @@
     
 }
 
-#pragma mark - NSURLConnection Delegate method
+#pragma mark - NSURLConnectionDelegate method
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     responseData = [[NSMutableData alloc] init];
 }
@@ -82,11 +81,5 @@
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     NSLog(@"fail with error : %@",error);
 }
-
-//- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
-//                  willCacheResponse:(NSCachedURLResponse*)cachedResponse {
-//    // Return nil to indicate not necessary to store a cached response for this connection
-//    return nil;
-//}
 
 @end
