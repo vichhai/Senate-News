@@ -91,6 +91,7 @@
         }
     }
     
+    [ShareObject shareObjectManager].pageCate = 1;
     [reqDic setObject:withAPIKey forKey:@"KEY"];
     [reqDic setObject:dataDic forKey:@"REQ_DATA"];
     
@@ -151,6 +152,9 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([ShareObject shareObjectManager].pageCate <= remainPage) {
+        
+        NSLog(@"pageCate : %d",[ShareObject shareObjectManager].pageCate);
+        
         [refresh_loadmore doLoadMore:self.view tableView:self.mainTableView scrollView:scrollView];
         [self requestToserver:@"ARTICLES_L001"];
     }

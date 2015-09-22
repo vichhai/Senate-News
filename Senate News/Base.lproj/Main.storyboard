@@ -53,7 +53,7 @@
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="gEV-Cu-Jhr" kind="custom" identifier="abc" customClass="SWRevealViewControllerSeguePushController" id="PAs-tq-Wca"/>
+                        <segue destination="gEV-Cu-Jhr" kind="custom" identifier="main" customClass="SWRevealViewControllerSeguePushController" id="PAs-tq-Wca"/>
                         <segue destination="4gQ-VQ-1eE" kind="custom" identifier="schedule" customClass="SWRevealViewControllerSeguePushController" id="Afn-zG-bE8"/>
                         <segue destination="Hno-kU-GhS" kind="custom" identifier="category" customClass="SWRevealViewControllerSeguePushController" id="4Se-Yg-2eE"/>
                     </connections>
@@ -95,7 +95,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ទំព័រដើម" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-RL-GQQ">
                                         <rect key="frame" x="43" y="6" width="61" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

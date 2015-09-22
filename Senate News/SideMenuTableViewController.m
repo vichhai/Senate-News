@@ -56,7 +56,7 @@
     if (section == 0) {
         return 2;
     } else if (section == 1){
-        return [arrayCategory count];
+        return [arrayCategory count] + 1;
     } else{
         return 2;
     }
@@ -101,7 +101,11 @@
             }
             break;
         case 1:
-                myLabel.text = [[arrayCategory objectAtIndex:indexPath.row] objectForKey:@"CAT_NAME"];
+            if (indexPath.row == 0) {
+                myLabel.text = @"ទំព័រដើម";
+            }else{
+                myLabel.text = [[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_NAME"];
+            }
             break;
         case 2:
             if (indexPath.row == 0){
@@ -144,8 +148,13 @@
             [self performSegueWithIdentifier:@"schedule" sender:nil];
             break;
         case 1:
-            [ShareObject shareObjectManager].shareCateId = [[arrayCategory objectAtIndex:indexPath.row] objectForKey:@"CAT_ID"];
-            [self performSegueWithIdentifier:@"category" sender:nil];
+            
+            if (indexPath.row == 0) {
+                [self performSegueWithIdentifier:@"main" sender:nil];            
+            }else {
+                [ShareObject shareObjectManager].shareCateId = [[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_ID"];
+                [self performSegueWithIdentifier:@"category" sender:nil];
+            }
             break;
         case 2:
             break;
