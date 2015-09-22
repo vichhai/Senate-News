@@ -13,13 +13,17 @@
 #import "Reachability.h"
 #import "ConnectionManager.h"
 #import "ShareObject.h"
+#import "GITSRefreshAndLoadMore.h"
 
-@interface ScheduleTableViewController () <ConnectionManagerDelegate>{
+@interface ScheduleTableViewController () <ConnectionManagerDelegate>
+{
     NSString *sortBy;
     int remainPage;
     NSMutableArray *arrayResult;
+    GITSRefreshAndLoadMore *refresh_loadmore;
 }
 @property (nonatomic) Reachability *hostReachability;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 @implementation ScheduleTableViewController
@@ -29,7 +33,7 @@
 - (void)updateInterfaceWithReachability:(Reachability *)reachability
 {
     NetworkStatus internetStatus = [reachability  currentReachabilityStatus];
-    
+
     if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN)){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No internet or Wifi connection!" message:@"Please turn on the cellular or connection to Wifi" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         //[AppUtils hideLoading:self.view];
@@ -55,7 +59,12 @@
     return true;
 }
 
-#pragma mark - UIViewController method
+#pragma mark - UIViewController method]
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [ShareObject shareObjectManager].viewObserver = @"schedule";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,16 +79,11 @@
     sortBy = @"id";
     // Initialize array
     arrayResult = [[NSMutableArray alloc]init];
-    
-    // custom side bar
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [_menuButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    }
-    
+    refresh_loadmore = [[GITSRefreshAndLoadMore alloc] init];
+    [ShareObject shareObjectManager].schedulePage = 1;
+    [refresh_loadmore addLoadMoreForTableView:_scheduleTableView imageName:@"load_01.png"];
+    [self addRefreshToView];
+    [self addbarButtonAndSideBar];
     // Send request to server
     [self requestToserver:@"SCHEDULE_L001"];
 }
@@ -87,6 +91,52 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     NSLog(@"Run out of memory");
+}
+
+#pragma mark - Helper method
+
+-(void)addbarButtonAndSideBar{
+    // =---> set tap gesture for uinavigation bar
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doDoubleTap)] ;
+    doubleTap.numberOfTapsRequired = 2;
+    [self.navigationController.navigationBar addGestureRecognizer:doubleTap];
+    
+    // =---> set navigationbar color
+    // self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
+    
+    // =---> Creating a custom right navi bar button2
+    UIButton *moreButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 30.0f)];
+    [moreButton setImage:[UIImage imageNamed:@"munu_b.png"] forState:UIControlStateNormal];
+    [moreButton setImage:[UIImage imageNamed:@"menu_b_p.png"] forState:UIControlStateHighlighted];
+    
+    // =---> Creating a custom right navi bar button2
+    UIButton *searchButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [searchButton setImage:[UIImage imageNamed:@"Search-50.png"] forState:UIControlStateNormal];
+    [searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
+    [searchButton addTarget:self action:@selector(searchClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    // =---> Make space between bar button 20 point
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                       target:nil action:nil];
+    negativeSpacer.width = 15;
+    
+    // =---> side menu
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [moreButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
+    
+    UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
+    UIBarButtonItem *barButtonItem3 = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+    
+    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem3,negativeSpacer,barButtonItem2, nil];
+    self.navigationItem.rightBarButtonItems = barButtonItemArray;
+
 }
 
 #pragma mark - request to server method
@@ -97,7 +147,7 @@
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     if ([withAPIKey isEqualToString:@"SCHEDULE_L001"]) {
         [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
-        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page] forKey:@"PAGE_NO"];
+        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].schedulePage] forKey:@"PAGE_NO"];
         [dataDic setObject:@"1" forKey:@"TYPE"];
         [dataDic setObject:sortBy forKey:@"SORT_BY"];
     }
@@ -113,21 +163,47 @@
     remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
     if ([apiKey isEqualToString:@"SCHEDULE_L001"]) {
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
+    }else{
+        
+        
     }
     [_scheduleTableView reloadData];
     [AppUtils hideLoading:self.view];
 }
 
+#pragma mark - Refresh And Load More
+
+-(void)addRefreshToView{
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    self.refreshControl.backgroundColor = [UIColor whiteColor];
+    self.refreshControl.tintColor = [UIColor blackColor];
+    [self.refreshControl addTarget:self action:@selector(refreshing) forControlEvents:UIControlEventValueChanged];
+    [_scheduleTableView addSubview:self.refreshControl];
+}
+
+-(void)refreshing{
+    [arrayResult removeAllObjects];
+    [ShareObject shareObjectManager].schedulePage = 1;
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];
+    [ShareObject shareObjectManager].isLoadMore = false;
+    [ShareObject shareObjectManager].page = 1;
+    [self requestToserver:@"SCHEDULE_L001"];
+    [self.refreshControl endRefreshing];
+    
+}
+
 #pragma mark - Custom Button Click
 
-- (IBAction)searchAction:(id)sender {
-    
+-(void)doDoubleTap{
+    // =---> scroll tableView to the top
+    [_scheduleTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+}
+
+-(void)searchClicked{
     
 }
-- (IBAction)menuAction:(id)sender {
-    
-    
-}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -156,7 +232,12 @@
 #pragma mark - ScrollViewDelegate Method
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    
+    if ([ShareObject shareObjectManager].schedulePage < remainPage) {
+        [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
+        [self requestToserver:@"SCHEDULE_L001"];
+        NSLog(@"< remain page , %d", [ShareObject shareObjectManager].schedulePage);
+    }
 }
+
 
 @end

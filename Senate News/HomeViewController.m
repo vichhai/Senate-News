@@ -375,7 +375,7 @@
 //
 ////scroll down
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if ([ShareObject shareObjectManager].page <= remainPage) {
+    if ([ShareObject shareObjectManager].page < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
         [self requestToserver:@"ARTICLES_L001"];
     }

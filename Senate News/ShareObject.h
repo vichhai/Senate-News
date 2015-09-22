@@ -19,6 +19,8 @@
 @property (strong,nonatomic) NSString *shareURL;
 @property (strong,nonatomic) NSString *shareCateId;
 
+@property (nonatomic) int schedulePage;
+
 + (ShareObject *)shareObjectManager;
 
 @end

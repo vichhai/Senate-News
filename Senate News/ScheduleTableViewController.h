@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ScheduleTableViewController : UITableViewController
-@property (strong, nonatomic) IBOutlet UIButton *menuButton;
 @property (strong, nonatomic) IBOutlet UITableView *scheduleTableView;
 
 @end

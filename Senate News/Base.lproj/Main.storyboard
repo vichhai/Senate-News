@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -752,45 +752,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="EaN-Ek-skN">
-                            <view key="customView" contentMode="scaleToFill" id="thi-u7-vkW">
-                                <rect key="frame" x="149" y="15" width="88" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxY-X7-DXM">
-                                        <rect key="frame" x="10" y="0.0" width="25" height="30"/>
-                                        <state key="normal" backgroundImage="munu_b.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted" backgroundImage="menu_b_p.png"/>
-                                        <connections>
-                                            <action selector="menuAction:" destination="hUn-yT-bQL" eventType="touchUpInside" id="gxw-wL-KFg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7H8-6j-c4j">
-                                        <rect key="frame" x="65" y="2" width="25" height="25"/>
-                                        <state key="normal" backgroundImage="Search-50.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted" backgroundImage="Search Filled-50.png"/>
-                                        <connections>
-                                            <action selector="searchAction:" destination="hUn-yT-bQL" eventType="touchUpInside" id="6jQ-UC-GEY"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAh-Kz-qi0">
-                                        <rect key="frame" x="38" y="0.0" width="30" height="30"/>
-                                        <state key="normal" backgroundImage="menu.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="menuButton" destination="gxY-X7-DXM" id="P96-x4-6oK"/>
                         <outlet property="scheduleTableView" destination="Vrl-Jb-ML9" id="a3a-NJ-7SX"/>
                     </connections>
                 </tableViewController>
@@ -1517,16 +1481,11 @@
     </scenes>
     <resources>
         <image name="Back-100.png" width="72" height="58"/>
-        <image name="Search Filled-50.png" width="44" height="44"/>
-        <image name="Search-50.png" width="44" height="44"/>
         <image name="close.png" width="44" height="44"/>
-        <image name="menu.png" width="44" height="44"/>
-        <image name="menu_b_p.png" width="44" height="44"/>
         <image name="menu_collabo_icon_select.png" width="50" height="58"/>
-        <image name="munu_b.png" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="48X-0b-mE1"/>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="8f3-50-Fob"/>
     </inferredMetricsTieBreakers>
 </document>
