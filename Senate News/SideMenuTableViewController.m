@@ -54,7 +54,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 0) {
-        return 2;
+        return 3;
     } else if (section == 1){
         return [arrayCategory count];
     } else{
@@ -95,8 +95,10 @@
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
-                myLabel.text = @"ព្រឹទ្ធសភា";
+                myLabel.text = @"ប្រតិទិនទាំងអស់";
             } else if (indexPath.row == 1){
+                myLabel.text = @"ព្រឹទ្ធសភា";
+            }else{
                 myLabel.text = @"អគ្គលេខាធិការដ្ឋាន";
             }
             break;

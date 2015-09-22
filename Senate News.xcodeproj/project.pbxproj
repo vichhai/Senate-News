@@ -69,6 +69,7 @@
 		FD566D801BA7CC8C00108099 /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD566D7F1BA7CC8C00108099 /* sub.caf */; };
 		FD5C1EC11BA11C7400C79177 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C1EC01BA11C7400C79177 /* Social.framework */; };
 		FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C1ECB1BA16F7500C79177 /* DXPopover.m */; };
+		FD9532731BB0E55B0024D585 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */; };
 		FDD00C491BAFA7F900F74057 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C461BAFA7F900F74057 /* setting.png */; };
 		FDD00C4A1BAFA7F900F74057 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C471BAFA7F900F74057 /* home.png */; };
 		FDD00C4B1BAFA7F900F74057 /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C481BAFA7F900F74057 /* schedule.png */; };
@@ -193,6 +194,8 @@
 		FD5C1EC01BA11C7400C79177 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FD5C1ECA1BA16F7500C79177 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
 		FD5C1ECB1BA16F7500C79177 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
+		FD9532711BB0E55B0024D585 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
+		FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
 		FDD00C461BAFA7F900F74057 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		FDD00C471BAFA7F900F74057 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		FDD00C481BAFA7F900F74057 /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
@@ -230,8 +233,6 @@
 				ED94013F1B96D4BA001BCE2D /* HomeViewController.m */,
 				ED3618A51B96FB8F0095E48A /* CustomTableViewCell.h */,
 				ED3618A61B96FB8F0095E48A /* CustomTableViewCell.m */,
-				FDD00C4C1BAFD0D300F74057 /* ScheduleTableViewController.h */,
-				FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */,
 			);
 			name = MainScreen;
 			sourceTree = "<group>";
@@ -282,6 +283,7 @@
 		ED94010B1B96D467001BCE2D /* Senate News */ = {
 			isa = PBXGroup;
 			children = (
+				FD9532701BB0E5300024D585 /* Schedule */,
 				FD5C1EC91BA16F7500C79177 /* Popup */,
 				FD566D7E1BA7CC8C00108099 /* Sounds */,
 				ED9401101B96D467001BCE2D /* AppDelegate.h */,
@@ -494,6 +496,17 @@
 			path = ../popup;
 			sourceTree = "<group>";
 		};
+		FD9532701BB0E5300024D585 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				FDD00C4C1BAFD0D300F74057 /* ScheduleTableViewController.h */,
+				FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */,
+				FD9532711BB0E55B0024D585 /* ScheduleTableViewCell.h */,
+				FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -656,6 +669,7 @@
 				ED9401401B96D4BA001BCE2D /* HomeViewController.m in Sources */,
 				ED36189E1B96E6050095E48A /* SideMenuTableViewController.m in Sources */,
 				ED6B08CD1B97ED0E009068E9 /* DetailViewController.m in Sources */,
+				FD9532731BB0E55B0024D585 /* ScheduleTableViewCell.m in Sources */,
 				ED94FDDA1B9831D2006A257E /* UIImage+GIF.m in Sources */,
 				ED94FDD11B9831D2006A257E /* NSData+ImageContentType.m in Sources */,
 				EDD15FDD1B9D936F00D46393 /* ConnectionManager.m in Sources */,
