@@ -84,6 +84,7 @@
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     NSLog(@"Error register: %@",error);
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
