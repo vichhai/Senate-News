@@ -28,10 +28,10 @@
 
 -(void)setupImageView{
 
-    float height = 257;
-    float width = _myScrollView.bounds.size.width - 20;
+    float height = 300;
+    float width = self.view.bounds.size.width - 20;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, (_myScrollView.frame.size.height - height) / 2 - 50, width, height)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, (_myScrollView.frame.size.height - height) / 2 - 10, width, height)];
     imageView.tag = 99;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[ShareObject shareObjectManager].shareURL]];
