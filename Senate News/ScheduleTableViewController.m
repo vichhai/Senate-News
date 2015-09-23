@@ -86,8 +86,6 @@
     
     self.tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
     
-    self.tableView.hidden = true;
-    
     // Send request to server
     [self requestToserver:@"SCHEDULE_L001"];
 }

@@ -60,6 +60,9 @@
     
     // =---> set left menu
     [AppUtils settingLeftButton:self action:@selector(backClicked) normalImageCode:@"Back-100.png" highlightImageCode:nil];
+    
+    // =---> page
+    [ShareObject shareObjectManager].pages = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -135,13 +138,11 @@
     }else {
         [self requestToserverWithKeyWord:keywords];
     }
-    
-    
 }
 
 #pragma mark - search bar delegate method
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-        [searchBar resignFirstResponder];
+        [self.search resignFirstResponder];
         searchBar.text = nil;
         searchBar.showsCancelButton = false;
 }
@@ -184,13 +185,16 @@
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if ([ShareObject shareObjectManager].pages <= remainPage) {
+    if ([ShareObject shareObjectManager].pages < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:self.tableView scrollView:scrollView];
         [self requestToserverWithKeyWord:keywords];
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.search resignFirstResponder];
+    
     [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
 }
 
