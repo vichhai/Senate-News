@@ -167,7 +167,6 @@
     if ([apiKey isEqualToString:@"SCHEDULE_L001"]) {
         if ([ShareObject shareObjectManager].scheduleFlag) {
             [arrayResult removeAllObjects];
-            NSLog(@"Scroll top true %lu",(unsigned long)arrayResult.count);
         }
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
         [ShareObject shareObjectManager].scheduleFlag = FALSE;
@@ -250,8 +249,6 @@
         NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
         NSLog(@"%d",remainPage);
     }
-    NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
-    NSLog(@"%d",remainPage);
 }
 
 
