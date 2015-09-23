@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0683531BB2ADC700F70DE6 /* ScheduleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0683521BB2ADC700F70DE6 /* ScheduleSearchViewController.m */; };
 		ED3618991B96E00F0095E48A /* menu_collabo_icon_select.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3618981B96E00F0095E48A /* menu_collabo_icon_select.png */; };
 		ED36189E1B96E6050095E48A /* SideMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED36189D1B96E6050095E48A /* SideMenuTableViewController.m */; };
 		ED3618A21B96F64A0095E48A /* alarm_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3618A11B96F64A0095E48A /* alarm_icon.png */; };
@@ -93,6 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED0683511BB2ADC700F70DE6 /* ScheduleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleSearchViewController.h; sourceTree = "<group>"; };
+		ED0683521BB2ADC700F70DE6 /* ScheduleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleSearchViewController.m; sourceTree = "<group>"; };
 		ED3618981B96E00F0095E48A /* menu_collabo_icon_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_collabo_icon_select.png; sourceTree = "<group>"; };
 		ED36189C1B96E6050095E48A /* SideMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableViewController.h; sourceTree = "<group>"; };
 		ED36189D1B96E6050095E48A /* SideMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableViewController.m; sourceTree = "<group>"; };
@@ -232,6 +235,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED0683501BB2ADB300F70DE6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				ED0683511BB2ADC700F70DE6 /* ScheduleSearchViewController.h */,
+				ED0683521BB2ADC700F70DE6 /* ScheduleSearchViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		ED36189A1B96E5CB0095E48A /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +528,7 @@
 		FD9532701BB0E5300024D585 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				ED0683501BB2ADB300F70DE6 /* Search */,
 				FD430D221BB28DE400B3E524 /* Detail */,
 				FDD00C4C1BAFD0D300F74057 /* ScheduleTableViewController.h */,
 				FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */,
@@ -689,6 +702,7 @@
 				ED36189E1B96E6050095E48A /* SideMenuTableViewController.m in Sources */,
 				FD430D281BB28E6F00B3E524 /* ScheduleDetailTableViewController.m in Sources */,
 				ED6B08CD1B97ED0E009068E9 /* DetailViewController.m in Sources */,
+				ED0683531BB2ADC700F70DE6 /* ScheduleSearchViewController.m in Sources */,
 				FD9532731BB0E55B0024D585 /* ScheduleTableViewCell.m in Sources */,
 				ED94FDDA1B9831D2006A257E /* UIImage+GIF.m in Sources */,
 				ED94FDD11B9831D2006A257E /* NSData+ImageContentType.m in Sources */,
