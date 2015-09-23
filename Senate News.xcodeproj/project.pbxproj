@@ -66,6 +66,8 @@
 		EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */; };
 		EDE386A71BAFF958008403A7 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE386A61BAFF958008403A7 /* CategoryViewController.m */; };
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
+		FD430D281BB28E6F00B3E524 /* ScheduleDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD430D271BB28E6F00B3E524 /* ScheduleDetailTableViewController.m */; };
+		FD430D2B1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD430D2A1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m */; };
 		FD566D801BA7CC8C00108099 /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD566D7F1BA7CC8C00108099 /* sub.caf */; };
 		FD5C1EC11BA11C7400C79177 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C1EC01BA11C7400C79177 /* Social.framework */; };
 		FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C1ECB1BA16F7500C79177 /* DXPopover.m */; };
@@ -190,6 +192,10 @@
 		EDE386A61BAFF958008403A7 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
 		FD2771F51B9877DB005906D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FD2771F61B9877DB005906D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		FD430D261BB28E6F00B3E524 /* ScheduleDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailTableViewController.h; sourceTree = "<group>"; };
+		FD430D271BB28E6F00B3E524 /* ScheduleDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailTableViewController.m; sourceTree = "<group>"; };
+		FD430D291BB28EBA00B3E524 /* ScheduleDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailTableViewCell.h; sourceTree = "<group>"; };
+		FD430D2A1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailTableViewCell.m; sourceTree = "<group>"; };
 		FD566D7F1BA7CC8C00108099 /* sub.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sub.caf; sourceTree = "<group>"; };
 		FD5C1EC01BA11C7400C79177 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FD5C1ECA1BA16F7500C79177 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
@@ -478,6 +484,17 @@
 			name = Connection;
 			sourceTree = "<group>";
 		};
+		FD430D221BB28DE400B3E524 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FD430D261BB28E6F00B3E524 /* ScheduleDetailTableViewController.h */,
+				FD430D271BB28E6F00B3E524 /* ScheduleDetailTableViewController.m */,
+				FD430D291BB28EBA00B3E524 /* ScheduleDetailTableViewCell.h */,
+				FD430D2A1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		FD566D7E1BA7CC8C00108099 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +516,7 @@
 		FD9532701BB0E5300024D585 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				FD430D221BB28DE400B3E524 /* Detail */,
 				FDD00C4C1BAFD0D300F74057 /* ScheduleTableViewController.h */,
 				FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */,
 				FD9532711BB0E55B0024D585 /* ScheduleTableViewCell.h */,
@@ -640,6 +658,7 @@
 				ED94FDDD1B9831D2006A257E /* UIImageView+HighlightedWebCache.m in Sources */,
 				ED94FDD41B9831D2006A257E /* SDWebImageDecoder.m in Sources */,
 				EDA3BF5B1B994AA500F8334B /* ShareObject.m in Sources */,
+				FD430D2B1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m in Sources */,
 				EDE27ABF1B9E97EA000AB507 /* MyViewController.m in Sources */,
 				ED94FDDE1B9831D2006A257E /* UIImageView+WebCache.m in Sources */,
 				ED9401121B96D467001BCE2D /* AppDelegate.m in Sources */,
@@ -668,6 +687,7 @@
 				ED94FDD21B9831D2006A257E /* SDImageCache.m in Sources */,
 				ED9401401B96D4BA001BCE2D /* HomeViewController.m in Sources */,
 				ED36189E1B96E6050095E48A /* SideMenuTableViewController.m in Sources */,
+				FD430D281BB28E6F00B3E524 /* ScheduleDetailTableViewController.m in Sources */,
 				ED6B08CD1B97ED0E009068E9 /* DetailViewController.m in Sources */,
 				FD9532731BB0E55B0024D585 /* ScheduleTableViewCell.m in Sources */,
 				ED94FDDA1B9831D2006A257E /* UIImage+GIF.m in Sources */,
