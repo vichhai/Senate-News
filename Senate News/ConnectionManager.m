@@ -47,9 +47,9 @@
     // Create url connection and fire request
     NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
-    if (theConnection) {
+    if (!theConnection) {
         // Release the receivedData object.
-               responseData = [NSMutableData data];
+        responseData = nil;
     }
     
     [theConnection start];
@@ -58,7 +58,8 @@
 
 #pragma mark - NSURLConnectionDelegate method
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    responseData = [[NSMutableData alloc] init];
+//    responseData = [[NSMutableData alloc] init];
+    responseData = [NSMutableData data];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{

@@ -151,12 +151,11 @@
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if ([ShareObject shareObjectManager].pageCate <= remainPage) {
-        
-        NSLog(@"pageCate : %d",[ShareObject shareObjectManager].pageCate);
-        
+    if ([ShareObject shareObjectManager].pageCate < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:self.mainTableView scrollView:scrollView];
-        [self requestToserver:@"ARTICLES_L001"];
+        if ([ShareObject shareObjectManager].isLoadMore == true) {
+            [self requestToserver:@"ARTICLES_L001"];
+        }
     }
 }
 
