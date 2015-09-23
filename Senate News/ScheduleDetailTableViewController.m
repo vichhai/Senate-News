@@ -55,15 +55,15 @@
     
         
     // estimate geight
-    CGFloat height = [self measureTextHeight:@"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា" constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:17.0f];
+    CGFloat height = [self measureTextHeight:@"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា" constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:17.0f] * 1.6;
     
     // =---> Title label
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, (cell.contentView.frame.size.width - 20), height)];
     titleLable.textColor = [UIColor blackColor];
     titleLable.font = [UIFont systemFontOfSize:17.0f];
     titleLable.numberOfLines = 0; // set multiline
-    titleLable.text = @"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀ សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា";
-    
+    titleLable.text = @"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀ សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា";
+    [AppUtils setLineHeight:@"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា" anyLabel:titleLable];
     // =---> Date label
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (titleLable.frame.origin.y + height) + 10, (cell.contentView.frame.size.width - 20), 21)];
     dateLabel.font = [UIFont systemFontOfSize:12];

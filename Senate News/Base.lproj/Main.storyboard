@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="231" y="445"/>
         </scene>
-        <!--View Controller-->
+        <!--Schedule Search View Controller-->
         <scene sceneID="3Fb-xE-xOK">
             <objects>
-                <viewController id="Svj-9u-xLF" sceneMemberID="viewController">
+                <viewController id="Svj-9u-xLF" customClass="ScheduleSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZUf-Mb-mI6"/>
                         <viewControllerLayoutGuide type="bottom" id="4Iu-FY-eZH"/>
@@ -940,7 +940,7 @@
         <image name="menu_collabo_icon_select.png" width="50" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8f3-50-Fob"/>
+        <segue reference="48X-0b-mE1"/>
         <segue reference="PAs-tq-Wca"/>
         <segue reference="gTp-dm-6fO"/>
     </inferredMetricsTieBreakers>
