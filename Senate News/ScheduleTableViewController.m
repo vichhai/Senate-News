@@ -14,6 +14,7 @@
 #import "ConnectionManager.h"
 #import "ShareObject.h"
 #import "GITSRefreshAndLoadMore.h"
+#import "SearchTableViewController.h"
 
 @interface ScheduleTableViewController () <ConnectionManagerDelegate>
 {
@@ -148,7 +149,7 @@
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     if ([withAPIKey isEqualToString:@"SCHEDULE_L001"]) {
-        [dataDic setObject:@"5" forKey:@"PER_PAGE_CNT"];
+        [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
         [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].schedulePage] forKey:@"PAGE_NO"];
         [dataDic setObject:@"" forKey:@"TYPE"];
         [dataDic setObject:@"id" forKey:@"SORT_BY"];
@@ -175,8 +176,9 @@
     NSLog(@"count array after request %lu",(unsigned long)arrayResult.count);
     [refresh_loadmore temp:_scheduleTableView];
     [AppUtils hideLoading:self.view];
-    //[self.view setUserInteractionEnabled:true];
+    [self.view setUserInteractionEnabled:true];
 }
+
 
 #pragma mark - Refresh And Load More
 
@@ -190,14 +192,13 @@
 }
 
 -(void)refreshing{
-    //[self.view setUserInteractionEnabled:false];
+    [self.view setUserInteractionEnabled:false];
     [ShareObject shareObjectManager].schedulePage = 1;
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];
     //[ShareObject shareObjectManager].isLoadMore = false;
     [ShareObject shareObjectManager].scheduleFlag = TRUE;
     [self requestToserver:@"SCHEDULE_L001"];
     [self.refreshControl endRefreshing];
-    
 }
 
 #pragma mark - Custom Button Click
@@ -208,6 +209,10 @@
 }
 
 -(void)searchClicked{
+    [self performSegueWithIdentifier:@"search" sender:@"SCHEDULE_L002"];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
 }
 
@@ -245,7 +250,8 @@
         NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
         NSLog(@"%d",remainPage);
     }
-    
+    NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
+    NSLog(@"%d",remainPage);
 }
 
 

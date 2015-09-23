@@ -72,6 +72,8 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     // For swipe or tap the notification
     NSLog(@"i am working %@", userInfo);
+    [ShareObject shareObjectManager].isNotification = true;
+    NSLog(@"%d",[ShareObject shareObjectManager].isNotification);
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{

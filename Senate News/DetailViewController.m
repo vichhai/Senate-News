@@ -317,14 +317,13 @@
 -(void)requestToserver{
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
-    
-    [dataDic setObject:[_receiveData objectForKey:@"ART_ID"] forKey:@"ART_ID"];
-    [reqDic setObject:@"ARTICLES_R001" forKey:@"KEY"];
-    [reqDic setObject:dataDic forKey:@"REQ_DATA"];
-    
-    ConnectionManager *cont = [[ConnectionManager alloc] init];
-    cont.delegate = self;
-    [cont sendTranData:reqDic];
+        [dataDic setObject:[_receiveData objectForKey:@"ART_ID"] forKey:@"ART_ID"];
+        [reqDic setObject:@"ARTICLES_R001" forKey:@"KEY"];
+        [reqDic setObject:dataDic forKey:@"REQ_DATA"];
+        
+        ConnectionManager *cont = [[ConnectionManager alloc] init];
+        cont.delegate = self;
+        [cont sendTranData:reqDic];
     
 }
 
