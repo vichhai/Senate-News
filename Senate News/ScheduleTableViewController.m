@@ -243,8 +243,6 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([ShareObject shareObjectManager].schedulePage < remainPage && ![ShareObject shareObjectManager].scheduleFlag) {
         [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
-        //when scroll to top it is also work
-        
         [self requestToserver:@"SCHEDULE_L001"];
         NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
         NSLog(@"%d",remainPage);
