@@ -187,7 +187,9 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([ShareObject shareObjectManager].pages < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:self.tableView scrollView:scrollView];
-        [self requestToserverWithKeyWord:keywords];
+        if ([ShareObject shareObjectManager].isLoadMore == true) {
+            [self requestToserverWithKeyWord:keywords];
+        }
     }
 }
 

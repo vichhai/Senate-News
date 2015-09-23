@@ -348,36 +348,18 @@
 }
 
 -(void)setupView {
-    // adding refresh to mainTableView
-//    [refresh_loadmore addRefreshToTableView:_mainTableView imageName:@"load_01.png"];
     
     // adding load more
     [refresh_loadmore addLoadMoreForTableView:_mainTableView imageName:@"load_01.png"];
+    
 }
-//
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    [refresh_loadmore changeImageWhenScrollDown:self.view scrollView:scrollView];
-//    //    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-//    
-//}
-//
-//// scroll up
-//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-//    if (scrollView.contentOffset.y <= -105) {
-//        [refresh_loadmore doRefresh:_mainTableView anyVie:self.view];
-//        [ShareObject shareObjectManager].isLoadMore = false;
-//        [self.view setUserInteractionEnabled:false];
-//        [ShareObject shareObjectManager].page = 1;
-//        [self requestToserver];
-//        
-//    }
-//}
-//
-////scroll down
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if ([ShareObject shareObjectManager].page < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
-        [self requestToserver:@"ARTICLES_L001"];
+        if ([ShareObject shareObjectManager].isLoadMore == true) {
+             [self requestToserver:@"ARTICLES_L001"];
+        }
+        NSLog(@"M working............");
     }
 }
 
