@@ -112,6 +112,7 @@
             [ShareObject shareObjectManager].pageCate += 1;
         } else if ([[ShareObject shareObjectManager].viewObserver isEqualToString:@"schedule"]) {
             [ShareObject shareObjectManager].schedulePage += 1;
+            [ShareObject shareObjectManager].scheduleFlag = FALSE;
         } else {
             [ShareObject shareObjectManager].pages += 1;
         }

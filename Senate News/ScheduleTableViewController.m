@@ -63,6 +63,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"schedule";
+    [ShareObject shareObjectManager].scheduleFlag = FALSE;
 }
 
 - (void)viewDidLoad {
@@ -74,8 +75,6 @@
     [self.hostReachability startNotifier];
     // show loading view
     [AppUtils showLoading:self.view];
-    // set up sort
-    sortBy = @"id";
     // Initialize array
     arrayResult = [[NSMutableArray alloc]init];
     refresh_loadmore = [[GITSRefreshAndLoadMore alloc] init];
@@ -151,10 +150,10 @@
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     if ([withAPIKey isEqualToString:@"SCHEDULE_L001"]) {
-        [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
+        [dataDic setObject:@"5" forKey:@"PER_PAGE_CNT"];
         [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].schedulePage] forKey:@"PAGE_NO"];
         [dataDic setObject:@"" forKey:@"TYPE"];
-        [dataDic setObject:sortBy forKey:@"SORT_BY"];
+        [dataDic setObject:@"id" forKey:@"SORT_BY"];
     }
     [reqDic setObject:withAPIKey forKey:@"KEY"];
     [reqDic setObject:dataDic forKey:@"REQ_DATA"];
@@ -167,19 +166,18 @@
     // set data to array for looping to TableViewCell
     remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
     if ([apiKey isEqualToString:@"SCHEDULE_L001"]) {
-        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
-    }else{
-        if (self.refreshControl) {
-            [self.refreshControl endRefreshing];
+        if ([ShareObject shareObjectManager].scheduleFlag) {
+            [arrayResult removeAllObjects];
+            NSLog(@"Scroll top true %lu",(unsigned long)arrayResult.count);
         }
-        [arrayResult removeAllObjects];
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
-        //[refresh_loadmore temp:_scheduleTableView];
-        _scheduleTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        [ShareObject shareObjectManager].scheduleFlag = FALSE;
     }
     [_scheduleTableView reloadData];
+    NSLog(@"count array after request %lu",(unsigned long)arrayResult.count);
+    [refresh_loadmore temp:_scheduleTableView];
     [AppUtils hideLoading:self.view];
-    [self.view setUserInteractionEnabled:true];
+    //[self.view setUserInteractionEnabled:true];
 }
 
 #pragma mark - Refresh And Load More
@@ -194,10 +192,11 @@
 }
 
 -(void)refreshing{
-    [self.view setUserInteractionEnabled:false];
+    //[self.view setUserInteractionEnabled:false];
     [ShareObject shareObjectManager].schedulePage = 1;
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];
-    [ShareObject shareObjectManager].isLoadMore = false;
+    //[ShareObject shareObjectManager].isLoadMore = false;
+    [ShareObject shareObjectManager].scheduleFlag = TRUE;
     [self requestToserver:@"SCHEDULE_L001"];
     [self.refreshControl endRefreshing];
     
@@ -242,11 +241,15 @@
 #pragma mark - ScrollViewDelegate Method
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if ([ShareObject shareObjectManager].schedulePage < remainPage) {
+    if ([ShareObject shareObjectManager].schedulePage < remainPage && ![ShareObject shareObjectManager].scheduleFlag) {
         [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
+        //when scroll to top it is also work
+        
         [self requestToserver:@"SCHEDULE_L001"];
-        NSLog(@"< remain page , %d", [ShareObject shareObjectManager].schedulePage);
+        NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
+        NSLog(@"%d",remainPage);
     }
+    
 }
 
 

@@ -20,6 +20,7 @@
 @property (strong,nonatomic) NSString *shareCateId;
 
 @property (nonatomic) int schedulePage;
+@property (nonatomic) BOOL scheduleFlag;
 
 + (ShareObject *)shareObjectManager;
 
