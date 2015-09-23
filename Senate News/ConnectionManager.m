@@ -47,10 +47,12 @@
     // Create url connection and fire request
     NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
-    if (!theConnection) {
+    if (theConnection) {
         // Release the receivedData object.
-               responseData = nil;
+               responseData = [NSMutableData data];
     }
+    
+    [theConnection start];
     
 }
 

@@ -23,7 +23,6 @@
     GITSRefreshAndLoadMore *refresh_loadmore;
 }
 @property (nonatomic) Reachability *hostReachability;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 @implementation ScheduleTableViewController
@@ -83,6 +82,12 @@
     [refresh_loadmore addLoadMoreForTableView:_scheduleTableView imageName:@"load_01.png"];
     [self addRefreshToView];
     [self addbarButtonAndSideBar];
+
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
+    
+    self.tableView.hidden = true;
+    
     // Send request to server
     [self requestToserver:@"SCHEDULE_L001"];
 }
