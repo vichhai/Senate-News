@@ -148,7 +148,7 @@
     if ([withAPIKey isEqualToString:@"SCHEDULE_L001"]) {
         [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
         [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].schedulePage] forKey:@"PAGE_NO"];
-        [dataDic setObject:@"1" forKey:@"TYPE"];
+        [dataDic setObject:@"" forKey:@"TYPE"];
         [dataDic setObject:sortBy forKey:@"SORT_BY"];
     }
     [reqDic setObject:withAPIKey forKey:@"KEY"];
@@ -164,11 +164,17 @@
     if ([apiKey isEqualToString:@"SCHEDULE_L001"]) {
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
     }else{
-        
-        
+        if (self.refreshControl) {
+            [self.refreshControl endRefreshing];
+        }
+        [arrayResult removeAllObjects];
+        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
+        //[refresh_loadmore temp:_scheduleTableView];
+        _scheduleTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
     [_scheduleTableView reloadData];
     [AppUtils hideLoading:self.view];
+    [self.view setUserInteractionEnabled:true];
 }
 
 #pragma mark - Refresh And Load More
@@ -183,11 +189,10 @@
 }
 
 -(void)refreshing{
-    [arrayResult removeAllObjects];
+    [self.view setUserInteractionEnabled:false];
     [ShareObject shareObjectManager].schedulePage = 1;
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];
     [ShareObject shareObjectManager].isLoadMore = false;
-    [ShareObject shareObjectManager].page = 1;
     [self requestToserver:@"SCHEDULE_L001"];
     [self.refreshControl endRefreshing];
     
