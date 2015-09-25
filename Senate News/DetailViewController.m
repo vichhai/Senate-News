@@ -324,7 +324,6 @@
         ConnectionManager *cont = [[ConnectionManager alloc] init];
         cont.delegate = self;
         [cont sendTranData:reqDic];
-    
 }
 
 #pragma mark - return result
