@@ -354,12 +354,14 @@
     
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
     if ([ShareObject shareObjectManager].page < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
         if ([ShareObject shareObjectManager].isLoadMore == true) {
              [self requestToserver:@"ARTICLES_L001"];
         }
         NSLog(@"M working............");
+    }
     }
 }
 
