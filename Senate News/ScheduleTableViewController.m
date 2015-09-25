@@ -19,7 +19,7 @@
 
 @interface ScheduleTableViewController () <ConnectionManagerDelegate>
 {
-    NSString *sortBy;
+    NSString *scheduleType;
     int remainPage;
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
@@ -149,10 +149,17 @@
     
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
+    if ([[ShareObject shareObjectManager].scheduleType isEqualToString:@"all"]) {
+        scheduleType = @"";
+    }else if([[ShareObject shareObjectManager].scheduleType isEqualToString:@"1"]) {
+        scheduleType = @"1";
+    }else{
+        scheduleType = @"2";
+    }
     if ([withAPIKey isEqualToString:@"SCHEDULE_L001"]) {
         [dataDic setObject:@"10" forKey:@"PER_PAGE_CNT"];
         [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].schedulePage] forKey:@"PAGE_NO"];
-        [dataDic setObject:@"" forKey:@"TYPE"];
+        [dataDic setObject:scheduleType forKey:@"TYPE"];
         [dataDic setObject:@"id" forKey:@"SORT_BY"];
     }
     [reqDic setObject:withAPIKey forKey:@"KEY"];

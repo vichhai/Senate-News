@@ -147,6 +147,13 @@
     
     switch (indexPath.section) {
         case 0:
+            if (indexPath.row == 0) {
+                [ShareObject shareObjectManager].scheduleType = @"all";
+            }else if(indexPath.row == 1){
+                [ShareObject shareObjectManager].scheduleType = @"1";
+            }else{
+                [ShareObject shareObjectManager].scheduleType = @"2";
+            }
             [self performSegueWithIdentifier:@"schedule" sender:nil];
             break;
         case 1:
