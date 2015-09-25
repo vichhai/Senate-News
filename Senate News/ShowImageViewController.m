@@ -69,5 +69,8 @@
     [self dismissViewControllerAnimated:true completion:nil];
     
 }
+- (IBAction)imageDownload:(id)sender {
+    
+}
 
 @end
