@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -56,6 +56,7 @@
                         <segue destination="gEV-Cu-Jhr" kind="custom" identifier="main" customClass="SWRevealViewControllerSeguePushController" id="PAs-tq-Wca"/>
                         <segue destination="4gQ-VQ-1eE" kind="custom" identifier="schedule" customClass="SWRevealViewControllerSeguePushController" id="Afn-zG-bE8"/>
                         <segue destination="Hno-kU-GhS" kind="custom" identifier="category" customClass="SWRevealViewControllerSeguePushController" id="4Se-Yg-2eE"/>
+                        <segue destination="7Aa-ZB-gDC" kind="show" identifier="aboutApp" id="2wD-fL-DZ2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9t-9G-YIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -894,6 +895,127 @@
             </objects>
             <point key="canvasLocation" x="1116" y="125"/>
         </scene>
+        <!--App View Controller-->
+        <scene sceneID="2pd-2F-yan">
+            <objects>
+                <viewController id="kNd-hn-KNq" customClass="AppViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yGl-9A-a2D"/>
+                        <viewControllerLayoutGuide type="bottom" id="pie-HI-IOp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ie5-U6-ypQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="senate.png" translatesAutoresizingMaskIntoConstraints="NO" id="r49-Lg-B4C">
+                                <rect key="frame" x="110" y="139" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="2wa-36-mww"/>
+                                    <constraint firstAttribute="width" constant="100" id="Fzg-hY-zEv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senate News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6P-9H-7tU">
+                                <rect key="frame" x="96" y="247" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="9uE-Gg-9ef"/>
+                                    <constraint firstAttribute="height" constant="30" id="IJk-gZ-udD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.26718616649999999" green="0.3497570827" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: 1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-gs-V31">
+                                <rect key="frame" x="113" y="285" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="9L6-6j-ks2"/>
+                                    <constraint firstAttribute="width" constant="100" id="fx6-3w-lNW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="រក្សាសិទ្ធិដោយ អគ្កលេខាធិកាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-c1-Ca8">
+                                <rect key="frame" x="16" y="531" width="182" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2a8-Wh-dg3"/>
+                                    <constraint firstAttribute="width" constant="182" id="klb-uG-vnT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.senate.gov.kh" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOS-sy-Xqh">
+                                <rect key="frame" x="197" y="531" width="107" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="OGI-Qm-GKK"/>
+                                    <constraint firstAttribute="width" constant="107" id="zJN-sb-dc8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MDm-gs-V31" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" constant="97" id="07s-wb-0rR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MDm-gs-V31" secondAttribute="trailing" constant="91" id="33A-Ie-6xf"/>
+                            <constraint firstItem="p5i-c1-Ca8" firstAttribute="top" secondItem="yGl-9A-a2D" secondAttribute="bottom" constant="467" id="67k-mz-zsU"/>
+                            <constraint firstItem="h6P-9H-7tU" firstAttribute="top" secondItem="r49-Lg-B4C" secondAttribute="bottom" constant="8" id="6YS-7c-L90"/>
+                            <constraint firstItem="p5i-c1-Ca8" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" id="9g6-0h-qe8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="r49-Lg-B4C" secondAttribute="trailing" constant="94" id="BCa-1O-Cbg"/>
+                            <constraint firstItem="VOS-sy-Xqh" firstAttribute="leading" secondItem="p5i-c1-Ca8" secondAttribute="trailing" constant="-1" id="BPP-AU-X4O"/>
+                            <constraint firstItem="r49-Lg-B4C" firstAttribute="top" secondItem="yGl-9A-a2D" secondAttribute="bottom" constant="75" id="Boc-Nk-Ubx"/>
+                            <constraint firstItem="VOS-sy-Xqh" firstAttribute="trailing" secondItem="ie5-U6-ypQ" secondAttribute="trailingMargin" id="GeK-NN-N4n"/>
+                            <constraint firstItem="h6P-9H-7tU" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" constant="80" id="LBR-8e-oG1"/>
+                            <constraint firstItem="r49-Lg-B4C" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" constant="94" id="RnS-jU-l9w"/>
+                            <constraint firstAttribute="centerY" secondItem="r49-Lg-B4C" secondAttribute="centerY" constant="95" id="dxC-s4-yQ4"/>
+                            <constraint firstItem="p5i-c1-Ca8" firstAttribute="centerY" secondItem="VOS-sy-Xqh" secondAttribute="centerY" id="kkI-Hq-oie"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h6P-9H-7tU" secondAttribute="trailing" constant="80" id="yX3-oO-dEc"/>
+                            <constraint firstItem="MDm-gs-V31" firstAttribute="top" secondItem="h6P-9H-7tU" secondAttribute="bottom" constant="8" id="yyI-9C-HKk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="68z-9x-lHa">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="o0E-Gm-AZt">
+                            <view key="customView" contentMode="scaleToFill" id="3Lh-2h-DCl">
+                                <rect key="frame" x="66" y="388" width="160" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLY-oG-Poc">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ព័ត៌មានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="que-Bt-blA">
+                                        <rect key="frame" x="43" y="8" width="106" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="e3j-pq-SD9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6V6-lK-gyc">
+                                <rect key="frame" x="211" y="358" width="25" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="munu_b.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="menu:" destination="kNd-hn-KNq" eventType="touchUpInside" id="4jH-GR-LQV"/>
+                                    <action selector="menuAction:" destination="kNd-hn-KNq" eventType="touchUpInside" id="vu2-g2-mNa"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="menu" destination="6V6-lK-gyc" id="y6b-aL-zgY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gFl-fL-JfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673" y="-504"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="1AW-3z-uDy">
             <objects>
@@ -1004,11 +1126,31 @@
             </objects>
             <point key="canvasLocation" x="2447" y="445"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m7K-hK-3w1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Aa-ZB-gDC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A2z-mo-nAM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kNd-hn-KNq" kind="relationship" relationship="rootViewController" id="6Db-R6-xek"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZRd-2E-M8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="-504"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Back-100.png" width="72" height="58"/>
         <image name="close.png" width="44" height="44"/>
         <image name="menu_collabo_icon_select.png" width="50" height="58"/>
+        <image name="munu_b.png" width="44" height="44"/>
+        <image name="senate.png" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
