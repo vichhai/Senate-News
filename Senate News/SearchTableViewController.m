@@ -198,7 +198,7 @@
     
     [self.search resignFirstResponder];
     
-    [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
+    [self performSegueWithIdentifier:@"detail" sender:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_ID"]];
 }
 
 #pragma mark - bar button action

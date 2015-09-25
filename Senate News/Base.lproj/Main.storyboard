@@ -62,96 +62,71 @@
             </objects>
             <point key="canvasLocation" x="231" y="445"/>
         </scene>
-        <!--Schedule Search View Controller-->
-        <scene sceneID="3Fb-xE-xOK">
-            <objects>
-                <viewController id="Svj-9u-xLF" customClass="ScheduleSearchViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZUf-Mb-mI6"/>
-                        <viewControllerLayoutGuide type="bottom" id="4Iu-FY-eZH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cNE-1b-I3h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="pbE-Lh-LZg" kind="show" identifier="searchDetail" id="gTp-dm-6fO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ttW-P5-Iq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2455" y="-264"/>
-        </scene>
         <!--Schedule Table View Controller-->
         <scene sceneID="SiD-4l-oYm">
             <objects>
                 <tableViewController id="hUn-yT-bQL" customClass="ScheduleTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrl-Jb-ML9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrl-Jb-ML9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="150" id="a3Q-60-lAt" customClass="ScheduleTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="168" id="a3Q-60-lAt" customClass="ScheduleTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3Q-60-lAt" id="fa2-ql-Aq4">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-Cx-Ssl">
-                                            <rect key="frame" x="17" y="11" width="286" height="35"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="ការប្រជំុនៅទីស្តីការ">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="19" name="KhmerSangamMN"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ការប្រជំុនៅទីស្តីការ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-Cx-Ssl">
+                                            <rect key="frame" x="8" y="8" width="304" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="sZT-ye-KMP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="19"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0h-K4-kx1">
-                                            <rect key="frame" x="17" y="95" width="286" height="21"/>
+                                            <rect key="frame" x="8" y="116" width="304" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="CCh-ry-JEU"/>
+                                                <constraint firstAttribute="height" constant="21" id="78R-6D-b5W"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpk-Kw-msh">
+                                            <rect key="frame" x="8" y="138" width="304" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="d3X-Rq-TPz"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdC-vg-cYw">
-                                            <rect key="frame" x="17" y="35" width="286" height="71"/>
+                                            <rect key="frame" x="8" y="48" width="304" height="71"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="71" id="Xk1-WP-vOp"/>
+                                            </constraints>
                                             <string key="text">មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា បានវេរប្រគេនទេយ្យទានដល់ព្រះសង្ឃដែលនិមន្តមកពីវត្តទាំង៤៣វត្ត ដោយក្នុងមួយវត្តៗរួមមាន៖ ទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម ឆៃប៉ូវ៥គីឡូក្រាម សៀងផ្អែម ៥គីឡូក្រាម ពងទាប្រៃ៥០គ្រាប កាហ្វេ២ប្រអប់ ខ្ទឹមស១គីឡូក្រាម ប៊ីចេង១គីឡូក្រាម ធូប២ដុំ មី២កេស ត្រីខ២យួរ ទឹកបរិសុទ្ធ២កេស ទឹកក្រូច១កេស ទឹកផ្លែឈើ១កេស ទឹកត្រី២យួរ ទឹកស៊ីអ៊ីវ២យួរ ស្លាដក១ បច្ច័យ១០០.០០០រៀល ដោយឡែកវត្តចំនួន១០ ក្នុងខេត្តកំពង់ធំ ក្នុងមួយវត្តៗទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម មី០២កេស ទឹកបរិសុទ្ធ០២កេស ធូប០២ដុំ និងបច្ច័យ១០០.០០០រៀល៕អត្ថបទ និងរូបភាព៖នាយកដ្ឋានព័ត៌មាន",</string>
                                             <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpk-Kw-msh">
-                                            <rect key="frame" x="17" y="117" width="286" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="O03-o9-6S2"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="top" secondItem="r0h-K4-kx1" secondAttribute="bottom" constant="1" id="BP8-qV-Dqw"/>
-                                        <constraint firstItem="eOm-Cx-Ssl" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="17" id="Hgf-t6-orY"/>
-                                        <constraint firstAttribute="trailing" secondItem="eOm-Cx-Ssl" secondAttribute="trailing" constant="17" id="RIb-Hu-1K3"/>
-                                        <constraint firstItem="r0h-K4-kx1" firstAttribute="trailing" secondItem="qdC-vg-cYw" secondAttribute="trailing" id="StI-7A-oZF"/>
-                                        <constraint firstItem="r0h-K4-kx1" firstAttribute="leading" secondItem="qdC-vg-cYw" secondAttribute="leading" id="VZ2-IA-KYI"/>
-                                        <constraint firstItem="r0h-K4-kx1" firstAttribute="top" secondItem="eOm-Cx-Ssl" secondAttribute="bottom" constant="49" id="WJ4-cK-5XO"/>
-                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="top" secondItem="qdC-vg-cYw" secondAttribute="bottom" constant="11" id="bd6-dz-6iR"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="lpk-Kw-msh" secondAttribute="bottom" constant="3" id="c2U-PW-TlL"/>
-                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="centerX" secondItem="fa2-ql-Aq4" secondAttribute="centerX" id="f0P-FL-cZe"/>
-                                        <constraint firstItem="qdC-vg-cYw" firstAttribute="leading" secondItem="eOm-Cx-Ssl" secondAttribute="leading" id="ldh-GS-zYg"/>
-                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="trailing" secondItem="r0h-K4-kx1" secondAttribute="trailing" id="mLJ-fU-5HL"/>
-                                        <constraint firstItem="qdC-vg-cYw" firstAttribute="top" secondItem="fa2-ql-Aq4" secondAttribute="topMargin" constant="27" id="qDr-6d-YrJ"/>
-                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="leading" secondItem="r0h-K4-kx1" secondAttribute="leading" id="uZD-Pv-IW7"/>
-                                        <constraint firstItem="qdC-vg-cYw" firstAttribute="trailing" secondItem="eOm-Cx-Ssl" secondAttribute="trailing" id="zJ9-yE-YWf"/>
+                                        <constraint firstItem="qdC-vg-cYw" firstAttribute="top" secondItem="eOm-Cx-Ssl" secondAttribute="bottom" constant="5" id="1HL-J7-7kG"/>
+                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="88h-Uu-I6G"/>
+                                        <constraint firstItem="eOm-Cx-Ssl" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="8kP-SK-Kwv"/>
+                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="top" secondItem="r0h-K4-kx1" secondAttribute="bottom" constant="1" id="AtZ-JG-WgR"/>
+                                        <constraint firstAttribute="trailing" secondItem="qdC-vg-cYw" secondAttribute="trailing" constant="8" id="MEF-qf-6gm"/>
+                                        <constraint firstAttribute="trailing" secondItem="lpk-Kw-msh" secondAttribute="trailing" constant="8" id="NTQ-zx-ObZ"/>
+                                        <constraint firstItem="eOm-Cx-Ssl" firstAttribute="top" secondItem="fa2-ql-Aq4" secondAttribute="top" constant="8" id="RmB-h1-o6M"/>
+                                        <constraint firstItem="qdC-vg-cYw" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="ZzN-bd-LEX"/>
+                                        <constraint firstAttribute="trailing" secondItem="r0h-K4-kx1" secondAttribute="trailing" constant="8" id="phS-pl-pIM"/>
+                                        <constraint firstItem="r0h-K4-kx1" firstAttribute="top" secondItem="eOm-Cx-Ssl" secondAttribute="bottom" constant="73" id="vU0-DR-cn5"/>
+                                        <constraint firstItem="r0h-K4-kx1" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="vqH-cK-J4P"/>
+                                        <constraint firstAttribute="trailing" secondItem="eOm-Cx-Ssl" secondAttribute="trailing" constant="8" id="yy1-03-ElK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -167,6 +142,7 @@
                             <outlet property="delegate" destination="hUn-yT-bQL" id="voD-lF-SRg"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Svy-44-W3i">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Tl7-fZ-qef">
                             <view key="customView" contentMode="scaleToFill" id="91W-bw-974">
@@ -190,13 +166,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="scheduleTableView" destination="Vrl-Jb-ML9" id="a3a-NJ-7SX"/>
-                        <segue destination="Svj-9u-xLF" kind="show" identifier="search" id="URM-8l-1yD"/>
                         <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetail" id="du1-Jy-adt"/>
+                        <segue destination="Q2w-CT-N2T" kind="show" identifier="search" id="MGw-gK-nHe"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpI-ZW-BCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1987" y="455"/>
+            <point key="canvasLocation" x="1988" y="445"/>
         </scene>
         <!--Schedule Detail Table View Controller-->
         <scene sceneID="orX-eH-0Ka">
@@ -219,7 +195,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8l-pe-Ipb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2461" y="455"/>
+            <point key="canvasLocation" x="2447" y="1166"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="H97-N6-2Ux">
@@ -796,7 +772,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mol-2w-Xgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557" y="463"/>
+            <point key="canvasLocation" x="1557" y="445"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="19g-be-0Jz">
@@ -935,7 +911,98 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUm-8I-oKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="125"/>
+            <point key="canvasLocation" x="678" y="125"/>
+        </scene>
+        <!--Schedule Search View Controller-->
+        <scene sceneID="Dzs-DM-9aB">
+            <objects>
+                <tableViewController id="Q2w-CT-N2T" customClass="ScheduleSearchViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" id="RrT-q2-fev">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="168" id="bHd-KO-byW" customClass="ScheduleTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHd-KO-byW" id="WAG-Pa-a0P">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ការប្រជំុនៅទីស្តីការ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Af-u0-AXj">
+                                            <rect key="frame" x="8" y="8" width="304" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="ZK8-0c-EPg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="19"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5D-Hf-5gx">
+                                            <rect key="frame" x="8" y="116" width="304" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="WNJ-1l-KXh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUB-q0-0Qp">
+                                            <rect key="frame" x="8" y="138" width="304" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="0fd-IX-prF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s75-oq-Ixj">
+                                            <rect key="frame" x="8" y="48" width="304" height="71"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="71" id="20e-SI-0zH"/>
+                                            </constraints>
+                                            <string key="text">មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា បានវេរប្រគេនទេយ្យទានដល់ព្រះសង្ឃដែលនិមន្តមកពីវត្តទាំង៤៣វត្ត ដោយក្នុងមួយវត្តៗរួមមាន៖ ទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម ឆៃប៉ូវ៥គីឡូក្រាម សៀងផ្អែម ៥គីឡូក្រាម ពងទាប្រៃ៥០គ្រាប កាហ្វេ២ប្រអប់ ខ្ទឹមស១គីឡូក្រាម ប៊ីចេង១គីឡូក្រាម ធូប២ដុំ មី២កេស ត្រីខ២យួរ ទឹកបរិសុទ្ធ២កេស ទឹកក្រូច១កេស ទឹកផ្លែឈើ១កេស ទឹកត្រី២យួរ ទឹកស៊ីអ៊ីវ២យួរ ស្លាដក១ បច្ច័យ១០០.០០០រៀល ដោយឡែកវត្តចំនួន១០ ក្នុងខេត្តកំពង់ធំ ក្នុងមួយវត្តៗទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម មី០២កេស ទឹកបរិសុទ្ធ០២កេស ធូប០២ដុំ និងបច្ច័យ១០០.០០០រៀល៕អត្ថបទ និងរូបភាព៖នាយកដ្ឋានព័ត៌មាន",</string>
+                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="sUB-q0-0Qp" secondAttribute="trailing" constant="8" id="7yZ-F3-7x2"/>
+                                        <constraint firstItem="s75-oq-Ixj" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="A8y-Ag-3w0"/>
+                                        <constraint firstItem="sUB-q0-0Qp" firstAttribute="top" secondItem="v5D-Hf-5gx" secondAttribute="bottom" constant="1" id="Bkb-0b-qne"/>
+                                        <constraint firstItem="v5D-Hf-5gx" firstAttribute="top" secondItem="6Af-u0-AXj" secondAttribute="bottom" constant="73" id="U5A-dR-F3e"/>
+                                        <constraint firstAttribute="trailing" secondItem="v5D-Hf-5gx" secondAttribute="trailing" constant="8" id="UHF-kS-yzx"/>
+                                        <constraint firstItem="6Af-u0-AXj" firstAttribute="top" secondItem="WAG-Pa-a0P" secondAttribute="top" constant="8" id="aIF-r3-cca"/>
+                                        <constraint firstItem="6Af-u0-AXj" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="ipw-8K-0jK"/>
+                                        <constraint firstAttribute="trailing" secondItem="s75-oq-Ixj" secondAttribute="trailing" constant="8" id="rEE-no-wTt"/>
+                                        <constraint firstItem="s75-oq-Ixj" firstAttribute="top" secondItem="6Af-u0-AXj" secondAttribute="bottom" constant="5" id="sPq-W8-thR"/>
+                                        <constraint firstItem="sUB-q0-0Qp" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="xel-B7-MhJ"/>
+                                        <constraint firstItem="v5D-Hf-5gx" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="yI9-H6-dVe"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Af-u0-AXj" secondAttribute="trailing" constant="8" id="zL9-Qo-5Vn"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="v5D-Hf-5gx" id="EEW-iO-Ssd"/>
+                                    <outlet property="descriptionLabel" destination="s75-oq-Ixj" id="kha-oc-hsk"/>
+                                    <outlet property="posterLabel" destination="sUB-q0-0Qp" id="Ouz-rr-MTZ"/>
+                                    <outlet property="titleLabel" destination="6Af-u0-AXj" id="tAf-8f-i4e"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Q2w-CT-N2T" id="VJT-Pk-tzI"/>
+                            <outlet property="delegate" destination="Q2w-CT-N2T" id="hMO-u7-wUe"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="Pm3-qb-tPz"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetail" id="230-h4-iGI"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YlS-Mx-XhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2447" y="445"/>
         </scene>
     </scenes>
     <resources>
@@ -945,7 +1012,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="8f3-50-Fob"/>
-        <segue reference="du1-Jy-adt"/>
+        <segue reference="48X-0b-mE1"/>
+        <segue reference="230-h4-iGI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -62,9 +62,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [self customLabel:cell];
     
-    
+    if (![AppUtils isNull:[resultDic objectForKey:@"SCH_TITLE"]] && ![AppUtils isNull:[resultDic objectForKey:@"SCH_DESCRIPTION"]]) {
+        [self customLabel:cell];
+    }
     return cell;
 }
 
@@ -99,18 +100,19 @@
 -(void) customLabel: (UITableViewCell *) cell{
     
     // estimate geight
-    CGFloat height = [self measureTextHeight:@"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា" constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:17.0f] * 1.6;
+    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:17.0f] * 1.6;
     
     // =---> Title label
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, (cell.contentView.frame.size.width - 20), height)];
     titleLable.textColor = [UIColor blackColor];
     titleLable.font = [UIFont systemFontOfSize:20.0f];
     titleLable.numberOfLines = 0; // set multiline
-    titleLable.text = @"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀ សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា";
-    [AppUtils setLineHeight:@"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា" anyLabel:titleLable];
+    titleLable.text = [resultDic objectForKey:@"SCH_TITLE"];
+    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_TITLE"] anyLabel:titleLable];
     //if ([resultDic objectForKey:@"SCH_TITLE"] != NULL) {
         titleLable.text = [resultDic objectForKey:@"SCH_TITLE"];
     //}
+    
     // =---> Date label
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (titleLable.frame.origin.y + height) + 10, (cell.contentView.frame.size.width - 20), 21)];
     dateLabel.font = [UIFont systemFontOfSize:15];
@@ -162,17 +164,17 @@
     }
     // =---> article label
     
-    height = [self measureTextHeight:@"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា បានវេរប្រគេនទេយ្យទានដល់ព្រះសង្ឃដែលនិមន្តមកពីវត្តទាំង៤៣វត្ត ដោយក្នុងមួយវត្តៗរួមមាន៖ ទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម ឆៃប៉ូវ៥គីឡូក្រាម សៀងផ្អែម ៥គីឡូក្រាម ពងទាប្រៃ៥០គ្រាប កាហ្វេ២ប្រអប់ ខ្ទឹមស១គីឡូក្រាម ប៊ីចេង១គីឡូក្រាម ធូប២ដុំ មី២កេស ត្រីខ២យួរ ទឹកបរិសុទ្ធ២កេស ទឹកក្រូច១កេស ទឹកផ្លែឈើ១កេស ទឹកត្រី២យួរ ទឹកស៊ីអ៊ីវ២យួរ ស្លាដក១ បច្ច័យ១០០.០០០រៀល ដោយឡែកវត្តចំនួន១០ ក្នុងខេត្តកំពង់ធំ ក្នុងមួយវត្តៗទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម មី០២កេស ទឹកបរិសុទ្ធ០២កេស ធូប០២ដុំ និងបច្ច័យ១០០.០០០រៀល៕អត្ថបទ និងរូបភាព៖នាយកដ្ឋានព័ត៌មាន" constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.7;
+    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.7;
     
     UILabel *articleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (detailLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), height)];
     articleLabel.font = [UIFont systemFontOfSize:15];
     articleLabel.textColor = [UIColor blackColor];
     articleLabel.numberOfLines = 0;
-    articleLabel.text = @"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា បានវេរប្រគេនទេយ្យទានដល់ព្រះសង្ឃដែលនិមន្តមកពីវត្តទាំង៤៣វត្ត ដោយក្នុងមួយវត្តៗរួមមាន៖ ទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម ឆៃប៉ូវ៥គីឡូក្រាម សៀងផ្អែម ៥គីឡូក្រាម ពងទាប្រៃ៥០គ្រាប កាហ្វេ២ប្រអប់ ខ្ទឹមស១គីឡូក្រាម ប៊ីចេង១គីឡូក្រាម ធូប២ដុំ មី២កេស ត្រីខ២យួរ ទឹកបរិសុទ្ធ២កេស ទឹកក្រូច១កេស ទឹកផ្លែឈើ១កេស ទឹកត្រី២យួរ ទឹកស៊ីអ៊ីវ២យួរ ស្លាដក១ បច្ច័យ១០០.០០០រៀល ដោយឡែកវត្តចំនួន១០ ក្នុងខេត្តកំពង់ធំ ក្នុងមួយវត្តៗទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម មី០២កេស ទឹកបរិសុទ្ធ០២កេស ធូប០២ដុំ និងបច្ច័យ១០០.០០០រៀល៕អត្ថបទ និងរូបភាព៖នាយកដ្ឋានព័ត៌មាន";
+    articleLabel.text = [resultDic objectForKey:@"SCH_DESCRIPTION"];
     
-    [AppUtils setLineHeight:@"មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា បានវេរប្រគេនទេយ្យទានដល់ព្រះសង្ឃដែលនិមន្តមកពីវត្តទាំង៤៣វត្ត ដោយក្នុងមួយវត្តៗរួមមាន៖ ទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម ឆៃប៉ូវ៥គីឡូក្រាម សៀងផ្អែម ៥គីឡូក្រាម ពងទាប្រៃ៥០គ្រាប កាហ្វេ២ប្រអប់ ខ្ទឹមស១គីឡូក្រាម ប៊ីចេង១គីឡូក្រាម ធូប២ដុំ មី២កេស ត្រីខ២យួរ ទឹកបរិសុទ្ធ២កេស ទឹកក្រូច១កេស ទឹកផ្លែឈើ១កេស ទឹកត្រី២យួរ ទឹកស៊ីអ៊ីវ២យួរ ស្លាដក១ បច្ច័យ១០០.០០០រៀល ដោយឡែកវត្តចំនួន១០ ក្នុងខេត្តកំពង់ធំ ក្នុងមួយវត្តៗទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម មី០២កេស ទឹកបរិសុទ្ធ០២កេស ធូប០២ដុំ និងបច្ច័យ១០០.០០០រៀល៕អត្ថបទ និងរូបភាព៖នាយកដ្ឋានព័ត៌មាន" anyLabel:articleLabel];
+    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] anyLabel:articleLabel];
    // if ([resultDic objectForKey:@"SCH_DESCRIPTION"] != NULL) {
-        articleLabel.text = [resultDic objectForKey:@"SCH_DESCRIPTION"];
+//        articleLabel.text = [resultDic objectForKey:@"SCH_DESCRIPTION"];
     //}
     // =---> add all labels to tableview cell
     

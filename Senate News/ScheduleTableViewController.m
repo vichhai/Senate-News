@@ -19,7 +19,6 @@
 
 @interface ScheduleTableViewController () <ConnectionManagerDelegate>
 {
-    NSString *sortBy;
     int remainPage;
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
