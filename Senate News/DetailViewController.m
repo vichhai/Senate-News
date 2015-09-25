@@ -326,7 +326,6 @@
     [cont sendTranData:reqDic];
 }
 
-#pragma mark - return result
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
     resultDic = [[NSMutableDictionary alloc] initWithDictionary:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];

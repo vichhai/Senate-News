@@ -75,7 +75,6 @@
     [ShareObject shareObjectManager].jsonNotification = userInfo[@"aps"];
     NSLog(@"aps: %@",[ShareObject shareObjectManager].jsonNotification);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"article" object:nil];
-//    NSNotificationCenter.defaultCenter().postNotificationName("someAction", object:nil, userInfo:nil)
     
 }
 

@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "DetailViewController.h"
 #import "DXPopover.h"
+#import "ScheduleDetailTableViewController.h"
 
 @interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate,UISearchBarDelegate>
 {
@@ -71,7 +72,7 @@
 }
 
 -(void)linkToDetail: (NSNotification *) notification{
-    [self performSegueWithIdentifier:@"sDetail" sender:@"id"];
+    [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
 }
 
 - (void)viewDidLoad {
@@ -258,6 +259,9 @@
     if ([segue.identifier isEqualToString:@"detail"]) {
         DetailViewController *vc = [segue destinationViewController];
         vc.receiveData = sender;
+    } else if([segue.identifier isEqualToString:@"sDetail"]){
+        ScheduleDetailTableViewController *sv = [segue destinationViewController];
+        sv.scheduleId = sender;
     }
 }
 

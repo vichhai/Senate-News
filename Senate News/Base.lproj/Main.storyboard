@@ -159,7 +159,6 @@
                                     <outlet property="descriptionLabel" destination="qdC-vg-cYw" id="IoQ-wP-SJd"/>
                                     <outlet property="posterLabel" destination="lpk-Kw-msh" id="A3X-Ok-iVz"/>
                                     <outlet property="titleLabel" destination="eOm-Cx-Ssl" id="DVf-iv-h3M"/>
-                                    <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetailCell" id="PvV-3Q-HeP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -192,6 +191,7 @@
                     <connections>
                         <outlet property="scheduleTableView" destination="Vrl-Jb-ML9" id="a3a-NJ-7SX"/>
                         <segue destination="Svj-9u-xLF" kind="show" identifier="search" id="URM-8l-1yD"/>
+                        <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetail" id="du1-Jy-adt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpI-ZW-BCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,6 +213,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="detailSchedule" destination="NVl-Ky-TbS" id="ys0-iH-h14"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8l-pe-Ipb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -943,6 +946,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
         <segue reference="8f3-50-Fob"/>
-        <segue reference="dYX-Bj-WiK"/>
+        <segue reference="du1-Jy-adt"/>
     </inferredMetricsTieBreakers>
 </document>
