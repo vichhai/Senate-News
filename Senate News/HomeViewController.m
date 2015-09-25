@@ -67,7 +67,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-        [ShareObject shareObjectManager].viewObserver = @"MainView";
+    [ShareObject shareObjectManager].viewObserver = @"MainView";
 }
 
 - (void)viewDidLoad {
@@ -355,7 +355,7 @@
     
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
+//    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
     if ([ShareObject shareObjectManager].page < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
         if ([ShareObject shareObjectManager].isLoadMore == true) {
@@ -363,7 +363,7 @@
         }
         NSLog(@"M working............");
     }
-    }
+//    }
 }
 
 @end
