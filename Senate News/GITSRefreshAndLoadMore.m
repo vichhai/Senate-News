@@ -102,7 +102,7 @@
 
 -(void)doLoadMore:(UIView *)anyView tableView:(UITableView *)tableView scrollView:(UIScrollView *)scrollView{
     _mainView = anyView;
-    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height <= scrollView.contentSize.height) {
+    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
             NSLog(@"buttom");
         NSLog(@"loadmore working too");
         [ShareObject shareObjectManager].isLoadMore = true;

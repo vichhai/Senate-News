@@ -243,11 +243,13 @@
 #pragma mark - ScrollViewDelegate Method
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if ([ShareObject shareObjectManager].schedulePage < remainPage && ![ShareObject shareObjectManager].scheduleFlag) {
-        [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
-        [self requestToserver:@"SCHEDULE_L001"];
-        NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
-        NSLog(@"%d",remainPage);
+    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
+        if ([ShareObject shareObjectManager].schedulePage < remainPage && ![ShareObject shareObjectManager].scheduleFlag) {
+            [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
+            [self requestToserver:@"SCHEDULE_L001"];
+            NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
+            NSLog(@"%d",remainPage);
+        }
     }
 }
 
