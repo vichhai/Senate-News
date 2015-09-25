@@ -58,7 +58,7 @@
     } else if (section == 1){
         return [arrayCategory count] + 1;
     } else{
-        return 2;
+        return 3;
     }
 }
 
@@ -111,9 +111,11 @@
             break;
         case 2:
             if (indexPath.row == 0){
+                myLabel.text = @"អំពីកម្មវិធី";
+            } else if(indexPath.row == 1){
+                myLabel.text = @"ទំនាក់ទំនងព្រឹទ្ធសភា";
+            }else{
                 myLabel.text = @"ទំនាក់ទំនងពួកយើង";
-            } else {
-                myLabel.text = @"របៀបនៃការប្រើ";
             }
             break;
         default:
@@ -166,6 +168,13 @@
             }
             break;
         case 2:
+            if (indexPath.row == 0) {
+                [self performSegueWithIdentifier:@"aboutApp" sender:nil];
+            }else if(indexPath.row == 1){
+                
+            }else{
+                
+            }
             break;
         default:
             break;

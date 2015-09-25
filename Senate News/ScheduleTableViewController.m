@@ -22,6 +22,7 @@
     int remainPage;
     NSMutableArray *arrayResult;
     GITSRefreshAndLoadMore *refresh_loadmore;
+    NSString *scheduleType;
 }
 @property (nonatomic) Reachability *hostReachability;
 @end
@@ -36,12 +37,11 @@
 
     if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN)){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No internet or Wifi connection!" message:@"Please turn on the cellular or connection to Wifi" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        //[AppUtils hideLoading:self.view];
+        [AppUtils hideLoading:self.view];
         [alert show];
     } else {
-        //[AppUtils showLoading:self.view];
-        //[ShareObject shareObjectManager].page = 1;
-        //[self requestToserver:@"ARTICLES_L001"];
+        [AppUtils showLoading:self.view];
+        [self requestToserver:@"SCHEDULE_L001"];
     }
 }
 
