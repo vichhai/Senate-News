@@ -249,7 +249,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"detail" sender:[arrayResult objectAtIndex:indexPath.row]];
+    [self performSegueWithIdentifier:@"detail" sender:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_ID"]];
 }
 
 #pragma mark - prepare for segue
