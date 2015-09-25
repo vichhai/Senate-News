@@ -21,6 +21,7 @@
 @property (nonatomic) BOOL isNotification;
 @property (nonatomic) int schedulePage;
 @property (nonatomic) BOOL scheduleFlag;
+@property (strong, nonatomic) NSMutableDictionary *jsonNotification;
 
 + (ShareObject *)shareObjectManager;
 

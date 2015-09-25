@@ -70,8 +70,14 @@
     [ShareObject shareObjectManager].viewObserver = @"MainView";
 }
 
+-(void)linkToDetail: (NSNotification *) notification{
+    [self performSegueWithIdentifier:@"sDetail" sender:@"id"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Link to detail with notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"article" object:nil];
     popover = [DXPopover popover];
     NSString *remoteHostName = @"www.apple.com";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
