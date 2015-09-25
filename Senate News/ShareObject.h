@@ -18,10 +18,12 @@
 @property (nonatomic) NSString *viewObserver;
 @property (strong,nonatomic) NSString *shareURL;
 @property (strong,nonatomic) NSString *shareCateId;
+
 @property (nonatomic) BOOL isNotification;
 @property (nonatomic) int schedulePage;
 @property (nonatomic) BOOL scheduleFlag;
 @property (strong, nonatomic) NSMutableDictionary *jsonNotification;
+@property (nonatomic) NSString *scheduleType;
 
 + (ShareObject *)shareObjectManager;
 

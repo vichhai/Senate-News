@@ -15,6 +15,7 @@
 #import "ShareObject.h"
 #import "GITSRefreshAndLoadMore.h"
 #import "SearchTableViewController.h"
+#import "ScheduleDetailTableViewController.h"
 
 @interface ScheduleTableViewController () <ConnectionManagerDelegate>
 {
@@ -183,7 +184,7 @@
 
 -(void)addRefreshToView{
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"  "];
     self.refreshControl.backgroundColor = [UIColor whiteColor];
     self.refreshControl.tintColor = [UIColor blackColor];
     [self.refreshControl addTarget:self action:@selector(refreshing) forControlEvents:UIControlEventValueChanged];
@@ -192,6 +193,7 @@
 
 -(void)refreshing{
     [self.view setUserInteractionEnabled:false];
+    [AppUtils showLoading:self.view];
     [ShareObject shareObjectManager].schedulePage = 1;
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];
     //[ShareObject shareObjectManager].isLoadMore = false;
@@ -209,10 +211,6 @@
 
 -(void)searchClicked{
     [self performSegueWithIdentifier:@"search" sender:@"SCHEDULE_L002"];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
 }
 
 #pragma mark - Table view data source
@@ -236,11 +234,19 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *scheduleId = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_ID"];
+    [self performSegueWithIdentifier:@"scheduleDetail" sender:scheduleId];
 }
 
 #pragma mark - ScrollViewDelegate Method
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"scheduleDetail"]) {
+        ScheduleDetailTableViewController *sv = [segue destinationViewController];
+        sv.scheduleId = sender;
+    }
+}
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {

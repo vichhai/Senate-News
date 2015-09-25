@@ -10,4 +10,7 @@
 
 @interface ScheduleDetailTableViewController : UITableViewController
 
+@property (nonatomic) NSString *scheduleId;
+@property (strong, nonatomic) IBOutlet UITableView *detailSchedule;
+
 @end
