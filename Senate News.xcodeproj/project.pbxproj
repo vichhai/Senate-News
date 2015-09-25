@@ -361,6 +361,7 @@
 		ED9401321B96D471001BCE2D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BF0F61BB5477400F7BBE6 /* senate.png */,
 				ED8F519E1BB542890066DC35 /* Download-100.png */,
 				FDD00C461BAFA7F900F74057 /* setting.png */,
 				FDD00C471BAFA7F900F74057 /* home.png */,

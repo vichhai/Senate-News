@@ -18,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [_menu addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +41,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)menuAction:(id)sender {
-}
 
 @end

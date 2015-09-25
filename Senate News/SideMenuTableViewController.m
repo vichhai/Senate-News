@@ -82,9 +82,7 @@
     // remove duplicate label when scrolling
     for (UIView *v in [cell.contentView subviews]) {
         if ([v isKindOfClass:[UILabel class]])
-            if (v.tag == 100) {
                 [v removeFromSuperview];
-            }
     }
     
     // =---> setup label
