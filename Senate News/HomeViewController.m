@@ -69,16 +69,22 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"MainView";
+    // Link to detail with notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
 }
 
 -(void)linkToDetail: (NSNotification *) notification{
-    [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"schedule"]) {
+        [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }else{
+        [self performSegueWithIdentifier:@"detail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }
+
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Link to detail with notification
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"article" object:nil];
+
     popover = [DXPopover popover];
     NSString *remoteHostName = @"www.apple.com";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];

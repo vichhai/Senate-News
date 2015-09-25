@@ -20,6 +20,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [NSThread sleepForTimeInterval:5.0];
+    //Remote notification info
+    NSDictionary *remoteNotifiInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    //Accept push notification when app is not open
+    if (remoteNotifiInfo) {
+        [self application:application didReceiveRemoteNotification:remoteNotifiInfo];
+    }
+    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
@@ -29,8 +37,8 @@
     {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeNewsstandContentAvailability| UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
-    // =---> Check screen height
     
+    // =---> Check screen height
     if ([AppUtils getDeviceScreenHeight] == 736) {
         [ShareObject shareObjectManager].shareWidth = 277;
     } else if ([AppUtils getDeviceScreenHeight] == 667) {
@@ -38,7 +46,6 @@
     } else {
         [ShareObject shareObjectManager].shareWidth = 237;
     }
-    
     return YES;
 }
 
@@ -70,15 +77,16 @@
 #pragma mark - AppDelegate
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+ 
     // For swipe or tap the notification
     application.applicationIconBadgeNumber = 0;
     [ShareObject shareObjectManager].jsonNotification = userInfo[@"aps"];
     NSLog(@"aps: %@",[ShareObject shareObjectManager].jsonNotification);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"article" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification" object:nil];
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    
     NSString* token = [[[[deviceToken description]
                                 stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                stringByReplacingOccurrencesOfString: @">" withString: @""]
