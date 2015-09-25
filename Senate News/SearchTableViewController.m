@@ -107,6 +107,7 @@
             if ([ShareObject shareObjectManager].isLoadMore){
                 [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
                 [refresh_loadmore temp:self.tableView];
+                [ShareObject shareObjectManager].isLoadMore = false;
             } else {
                 if (self.refreshControl) {
                     [self.refreshControl endRefreshing];

@@ -37,6 +37,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [ShareObject shareObjectManager].viewObserver = @"category";
+//    [ShareObject shareObjectManager].isLoadMore = false;
 }
 
 - (void)viewDidLoad {
@@ -105,26 +106,28 @@
     
     remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
     
-    if ([ShareObject shareObjectManager].isLoadMore){
-        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
-        [refresh_loadmore temp:_mainTableView];
-    } else {
-        if (_refreshControl) {
-            [_refreshControl endRefreshing];
+    if ([apiKey isEqualToString:@"ARTICLES_L001"]) {
+        if ([ShareObject shareObjectManager].isLoadMore){
+            [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+            [refresh_loadmore temp:_mainTableView];
+            [ShareObject shareObjectManager].isLoadMore = false;
+        } else {
+            if (_refreshControl) {
+                [_refreshControl endRefreshing];
+            }
+            
+            [self.view setUserInteractionEnabled:true];
+            [arrayResult removeAllObjects];
+            [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+            [refresh_loadmore temp:_mainTableView];
+            _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         }
+        [_mainTableView reloadData];
         
-        [self.view setUserInteractionEnabled:true];
-        [arrayResult removeAllObjects];
-        [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
-        [refresh_loadmore temp:_mainTableView];
-        _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        // =---> Hide loading
+        [AppUtils hideLoading:self.view];
+        _mainTableView.hidden = false;
     }
-    [_mainTableView reloadData];
-    
-    // =---> Hide loading
-    [AppUtils hideLoading:self.view];
-    _mainTableView.hidden = false;
-    
 }
 
 #pragma mark - tableview datasource and delegate method

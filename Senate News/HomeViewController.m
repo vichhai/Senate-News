@@ -67,7 +67,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-        [ShareObject shareObjectManager].viewObserver = @"MainView";
+    [ShareObject shareObjectManager].viewObserver = @"MainView";
 }
 
 -(void)linkToDetail: (NSNotification *) notification{
@@ -296,6 +296,7 @@
         if ([ShareObject shareObjectManager].isLoadMore){
             [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
             [refresh_loadmore temp:_mainTableView];
+            [ShareObject shareObjectManager].isLoadMore = false;
         } else {
             if (_refreshControl) {
                 [_refreshControl endRefreshing];
@@ -360,7 +361,7 @@
     
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
+//    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
     if ([ShareObject shareObjectManager].page < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
         if ([ShareObject shareObjectManager].isLoadMore == true) {
@@ -368,7 +369,7 @@
         }
         NSLog(@"M working............");
     }
-    }
+//    }
 }
 
 @end
