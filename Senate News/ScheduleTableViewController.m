@@ -167,7 +167,6 @@
     if ([apiKey isEqualToString:@"SCHEDULE_L001"]) {
         if ([ShareObject shareObjectManager].scheduleFlag) {
             [arrayResult removeAllObjects];
-            NSLog(@"Scroll top true %lu",(unsigned long)arrayResult.count);
         }
         [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
         [ShareObject shareObjectManager].scheduleFlag = FALSE;
@@ -244,14 +243,14 @@
 #pragma mark - ScrollViewDelegate Method
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if ([ShareObject shareObjectManager].schedulePage < remainPage && ![ShareObject shareObjectManager].scheduleFlag) {
-        [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
-        [self requestToserver:@"SCHEDULE_L001"];
-        NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
-        NSLog(@"%d",remainPage);
+    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
+        if ([ShareObject shareObjectManager].schedulePage < remainPage && ![ShareObject shareObjectManager].scheduleFlag) {
+            [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
+            [self requestToserver:@"SCHEDULE_L001"];
+            NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
+            NSLog(@"%d",remainPage);
+        }
     }
-    NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
-    NSLog(@"%d",remainPage);
 }
 
 
