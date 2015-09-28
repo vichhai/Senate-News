@@ -66,7 +66,6 @@
     }
 }
 
-
 #pragma mark - ConnectionMangerDelegate
 
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
