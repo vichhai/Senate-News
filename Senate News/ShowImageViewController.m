@@ -71,6 +71,27 @@
 }
 - (IBAction)imageDownload:(id)sender {
     
+//    NSOperationQueue *downloadQueue = [[NSOperationQueue alloc] init];
+//    downloadQueue.maxConcurrentOperationCount = 1;
+//    NSFileManager *fileManager = [NSFileManager defaultManager];
+//    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+//    
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[ShareObject shareObjectManager].shareURL]];
+//    NSString *path = [docsPath stringByAppendingPathComponent:[url lastPathComponent]];
+//    if (![fileManager fileExistsAtPath:path]) {
+//        [downloadQueue addOperationWithBlock:^{
+//            NSString *path = [docsPath stringByAppendingPathComponent:[url lastPathComponent]];
+//            NSData *data = [NSData dataWithContentsOfURL:url];
+//            if (data)
+//                [data writeToFile:path atomically:YES];
+//            
+//            NSLog(@"Path : %@",path);
+//            NSLog(@"Data : %@",data);
+//            NSLog(@"Download Finish.... ");
+//        }];
+//        
+//    }
+
 }
 
 @end
