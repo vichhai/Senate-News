@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>D2C11818-17FE-4381-95F1-8981B0278D30</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Senate News</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CEBCE31CA62E84AA18DD8713C532BCB946AD0891</key>
 		<string>https://github.com/vichhai/Senate-News.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Senate News.xcodeproj</string>
+	<string>Senate News.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CEBCE31CA62E84AA18DD8713C532BCB946AD0891</key>

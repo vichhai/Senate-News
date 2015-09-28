@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -232,7 +232,7 @@
                                             <constraint firstAttribute="width" constant="133" id="A0F-yk-UzE"/>
                                             <constraint firstAttribute="height" constant="21" id="oas-va-KYn"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -494,7 +494,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Sep, 2015 10:16" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-6Q-GIh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-6Q-GIh">
                                                     <rect key="frame" x="16" y="114" width="288" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="6Nc-oA-0e2"/>
@@ -503,23 +503,22 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHf-9Z-YFc">
-                                                    <rect key="frame" x="16" y="138" width="288" height="157"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMd-mO-ZtS">
+                                                    <rect key="frame" x="16" y="136" width="288" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="157" id="rSN-KW-ECe"/>
+                                                        <constraint firstAttribute="height" constant="21" id="g70-Pb-Gvo"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="SaH-f0-Dm8" id="Hja-FU-oiq"/>
-                                                    </connections>
-                                                </scrollView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="MHf-9Z-YFc" firstAttribute="top" secondItem="ES4-6Q-GIh" secondAttribute="bottom" constant="3" id="0fw-0P-r8s"/>
+                                                <constraint firstAttribute="trailing" secondItem="iMd-mO-ZtS" secondAttribute="trailing" constant="16" id="4vS-1P-8If"/>
                                                 <constraint firstItem="waj-DW-Cpg" firstAttribute="leading" secondItem="Z0o-0k-j9g" secondAttribute="leading" constant="16" id="IoF-oP-7Li"/>
                                                 <constraint firstAttribute="trailing" secondItem="ES4-6Q-GIh" secondAttribute="trailing" constant="16" id="PMT-hw-Vn8"/>
-                                                <constraint firstAttribute="trailing" secondItem="MHf-9Z-YFc" secondAttribute="trailing" constant="16" id="em4-ga-OPT"/>
-                                                <constraint firstItem="MHf-9Z-YFc" firstAttribute="leading" secondItem="Z0o-0k-j9g" secondAttribute="leading" constant="16" id="huI-cT-iC2"/>
+                                                <constraint firstItem="iMd-mO-ZtS" firstAttribute="leading" secondItem="Z0o-0k-j9g" secondAttribute="leading" constant="16" id="gTK-G3-qxi"/>
+                                                <constraint firstItem="iMd-mO-ZtS" firstAttribute="top" secondItem="ES4-6Q-GIh" secondAttribute="bottom" constant="1" id="jCB-Uj-m8e"/>
                                                 <constraint firstItem="ES4-6Q-GIh" firstAttribute="leading" secondItem="Z0o-0k-j9g" secondAttribute="leading" constant="16" id="lT6-Dn-9Aw"/>
                                                 <constraint firstItem="ES4-6Q-GIh" firstAttribute="top" secondItem="waj-DW-Cpg" secondAttribute="bottom" constant="2" id="mQR-hO-idf"/>
                                                 <constraint firstItem="waj-DW-Cpg" firstAttribute="top" secondItem="Z0o-0k-j9g" secondAttribute="top" constant="8" id="y4P-Ve-MVJ"/>
@@ -529,7 +528,7 @@
                                         <connections>
                                             <outlet property="labelAuthor" destination="ES4-6Q-GIh" id="M45-iS-ygo"/>
                                             <outlet property="labelTitle" destination="waj-DW-Cpg" id="WTs-1H-g8J"/>
-                                            <outlet property="myScrollView" destination="MHf-9Z-YFc" id="0ST-Ic-DWn"/>
+                                            <outlet property="lblDate" destination="iMd-mO-ZtS" id="HjE-vI-rHY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -651,60 +650,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភាទី២ព្រឹទ្ធសភា និង ទី២ព្រឹទ្ធសភា និង ទី២ព្រឹទ្ធស" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fL-J8-SgA">
-                                <rect key="frame" x="117" y="130" width="304" height="97"/>
-                                <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLR-Rc-hI5">
-                                <rect key="frame" x="117" y="230" width="304" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DrF-4C-lSc">
-                                <rect key="frame" x="117" y="254" width="304" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ទីកន្លែង :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLS-W7-nIz">
-                                <rect key="frame" x="117" y="278" width="58" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ចាបពីម៉ោង :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMa-pk-vvJ">
-                                <rect key="frame" x="117" y="301" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ដល់ម៉ោង :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5n-Id-gNJ">
-                                <rect key="frame" x="117" y="324" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ប្រភេទ :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-a3-GXb">
-                                <rect key="frame" x="119" y="347" width="56" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="លំអិត:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5m-63-IQ6">
-                                <rect key="frame" x="119" y="370" width="56" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភាទី២ព្រឹទ្ធសភា និង ទី២ព្រឹទ្ធសភា និង ទី២ព្រឹទ្ធស" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xi2-yi-PVO">
-                                <rect key="frame" x="119" y="394" width="302" height="180"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h2g-9Q-zlu">
+                                <rect key="frame" x="76" y="147" width="448" height="296"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="1.5"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -712,7 +671,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wv3-3d-xkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="2576"/>
+            <point key="canvasLocation" x="761" y="2558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pji-kL-0dL">
@@ -935,14 +894,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="រក្សាសិទ្ធិដោយ អគ្កលេខាធិកាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-c1-Ca8">
-                                <rect key="frame" x="16" y="531" width="182" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="www.senate.gov.kh" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOS-sy-Xqh">
+                                <rect key="frame" x="197" y="531" width="107" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="www.senate.gov.kh" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOS-sy-Xqh">
-                                <rect key="frame" x="197" y="531" width="107" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="រក្សាសិទ្ធិដោយ អគ្កលេខាធិកាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-c1-Ca8">
+                                <rect key="frame" x="16" y="531" width="182" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1235,8 +1194,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="MGw-gK-nHe"/>
-        <segue reference="du1-Jy-adt"/>
         <segue reference="8f3-50-Fob"/>
+        <segue reference="dYX-Bj-WiK"/>
+        <segue reference="LG2-pN-7nr"/>
     </inferredMetricsTieBreakers>
 </document>
