@@ -1161,7 +1161,7 @@
                                         <rect key="frame" x="39" y="179" width="117" height="59"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Simple-Logo-GITS.png" translatesAutoresizingMaskIntoConstraints="NO" id="KbG-Nh-GiK">
-                                        <rect key="frame" x="169" y="155" width="87" height="91"/>
+                                        <rect key="frame" x="169" y="160" width="87" height="91"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
