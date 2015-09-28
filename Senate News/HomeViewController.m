@@ -65,7 +65,6 @@
 }
 
 #pragma mark - UIViewController
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"MainView";

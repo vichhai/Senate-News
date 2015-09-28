@@ -169,6 +169,7 @@
                         <outlet property="scheduleTableView" destination="Vrl-Jb-ML9" id="a3a-NJ-7SX"/>
                         <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetail" id="du1-Jy-adt"/>
                         <segue destination="Q2w-CT-N2T" kind="show" identifier="search" id="MGw-gK-nHe"/>
+                        <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="X6s-GJ-1tu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpI-ZW-BCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1237,6 +1238,6 @@
         <segue reference="PAs-tq-Wca"/>
         <segue reference="MGw-gK-nHe"/>
         <segue reference="du1-Jy-adt"/>
-        <segue reference="8f3-50-Fob"/>
+        <segue reference="X6s-GJ-1tu"/>
     </inferredMetricsTieBreakers>
 </document>
