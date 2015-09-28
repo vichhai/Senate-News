@@ -34,9 +34,11 @@
     
     //Accept push notification when app is not open
     if (remoteNotifiInfo) {
-        //[self application:application didReceiveRemoteNotification:remoteNotifiInfo];
+//        [self application:application didReceiveRemoteNotification:remoteNotifiInfo];
         [self handlerNotification:application didWithData:remoteNotifiInfo];
+        [ShareObject shareObjectManager].isNotification = TRUE;
     }
+    NSLog(@"didlauch");
     // =---> Check screen height
     if ([AppUtils getDeviceScreenHeight] == 736) {
         [ShareObject shareObjectManager].shareWidth = 277;
@@ -108,14 +110,22 @@
     
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[NSNotificationCenter defaultCenter]  postNotificationName:@"notification" object:nil userInfo:nil];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [[NSNotificationCenter defaultCenter]  postNotificationName:@"notification" object:nil userInfo:nil];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+   // if ([ShareObject shareObjectManager].isNotification == TRUE) {
+        [[NSNotificationCenter defaultCenter]  postNotificationName:@"notification" object:nil userInfo:nil];
+        NSLog(@"become active");
+      //  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"rest" message:@"test" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+       // [alert show];
+    //}
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

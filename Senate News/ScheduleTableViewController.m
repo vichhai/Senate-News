@@ -16,6 +16,7 @@
 #import "GITSRefreshAndLoadMore.h"
 #import "SearchTableViewController.h"
 #import "ScheduleDetailTableViewController.h"
+#import "DetailViewController.h"
 
 @interface ScheduleTableViewController () <ConnectionManagerDelegate>
 {
@@ -97,7 +98,7 @@
 
 -(void)linkToDetail: (NSNotification *) notification{
     if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"2"]) {
-        [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+        [self performSegueWithIdentifier:@"scheduleDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
     }else if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"1"]){
         [self performSegueWithIdentifier:@"detail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
     }
@@ -258,6 +259,9 @@
     if ([segue.identifier isEqualToString:@"scheduleDetail"]) {
         ScheduleDetailTableViewController *sv = [segue destinationViewController];
         sv.scheduleId = sender;
+    }else if([segue.identifier isEqualToString:@"detail"]){
+        DetailViewController *dt = [segue destinationViewController];
+        dt.receiveData = sender;
     }
 }
 
