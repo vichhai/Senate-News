@@ -37,12 +37,13 @@
     NetworkStatus internetStatus = [reachability  currentReachabilityStatus];
 
     if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN)){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No internet or Wifi connection!" message:@"Please turn on the cellular or connection to Wifi" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"គ្មានការភ្ជាប់ទៅបណ្តាញអីុនធើណែត" message:@"សូមភ្ជាប់ទៅកាន់អីុនធើណែត" delegate:nil cancelButtonTitle:@"យល់ព្រម" otherButtonTitles:nil, nil];
         [AppUtils hideLoading:self.view];
         [alert show];
     } else {
         [AppUtils showLoading:self.view];
-        [self requestToserver:@"SCHEDULE_L001"];
+        [ShareObject shareObjectManager].schedulePage = 1;
+        //[self requestToserver:@"SCHEDULE_L001"];
     }
 }
 
@@ -66,11 +67,12 @@
     [super viewDidAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"schedule";
     [ShareObject shareObjectManager].scheduleFlag = FALSE;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
     // check connection
     NSString *remoteHostName = @"www.apple.com";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -210,7 +212,6 @@
     [AppUtils showLoading:self.view];
     [ShareObject shareObjectManager].schedulePage = 1;
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Loading..."];
-    //[ShareObject shareObjectManager].isLoadMore = false;
     [ShareObject shareObjectManager].scheduleFlag = TRUE;
     [self requestToserver:@"SCHEDULE_L001"];
     [self.refreshControl endRefreshing];
@@ -241,10 +242,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scheduleCell"];
-    cell.titleLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"];
-    cell.descriptionLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_DESCRIPTION"];
-    cell.dateLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"];
-    cell.posterLabel.text = [NSString stringWithFormat:@"Post by: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
+    cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
+    cell.publish.text = [NSString stringWithFormat:@"ថ្ងៃចេញផ្សាយ: %@ / ដោយ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"], [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
     return cell;
 }
 

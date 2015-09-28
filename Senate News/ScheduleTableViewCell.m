@@ -20,4 +20,14 @@
     // Configure the view for the selected state
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    //if (self) {
+        _subView.layer.cornerRadius = 15.0; // set as you want.
+        _subView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
+        _subView.layer.borderWidth = 1.0; // set as you want.
+    //}
+    return self;
+}
 @end

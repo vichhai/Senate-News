@@ -78,6 +78,7 @@
 		FD566D801BA7CC8C00108099 /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD566D7F1BA7CC8C00108099 /* sub.caf */; };
 		FD5C1EC11BA11C7400C79177 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C1EC01BA11C7400C79177 /* Social.framework */; };
 		FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C1ECB1BA16F7500C79177 /* DXPopover.m */; };
+		FD6251961BB92D320093B8AD /* sd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD6251951BB92D320093B8AD /* sd.jpg */; };
 		FD9532731BB0E55B0024D585 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */; };
 		FDD00C491BAFA7F900F74057 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C461BAFA7F900F74057 /* setting.png */; };
 		FDD00C4A1BAFA7F900F74057 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C471BAFA7F900F74057 /* home.png */; };
@@ -217,6 +218,7 @@
 		FD5C1EC01BA11C7400C79177 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FD5C1ECA1BA16F7500C79177 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
 		FD5C1ECB1BA16F7500C79177 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
+		FD6251951BB92D320093B8AD /* sd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sd.jpg; sourceTree = "<group>"; };
 		FD9532711BB0E55B0024D585 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
 		FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
 		FDD00C461BAFA7F900F74057 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		ED9401321B96D471001BCE2D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD6251951BB92D320093B8AD /* sd.jpg */,
 				FD3BF1021BB554F500F7BBE6 /* logo.png */,
 				FD3BF1001BB554ED00F7BBE6 /* Simple-Logo-GITS.png */,
 				FD3BF0F61BB5477400F7BBE6 /* senate.png */,
@@ -655,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6251961BB92D320093B8AD /* sd.jpg in Resources */,
 				ED6B08C41B97D7B9009068E9 /* initiation_bg.png in Resources */,
 				ED9401441B96D687001BCE2D /* Search-50.png in Resources */,
 				FDD00C4B1BAFA7F900F74057 /* schedule.png in Resources */,

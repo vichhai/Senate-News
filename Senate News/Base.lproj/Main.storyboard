@@ -67,74 +67,96 @@
         <scene sceneID="SiD-4l-oYm">
             <objects>
                 <tableViewController id="hUn-yT-bQL" customClass="ScheduleTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrl-Jb-ML9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="134" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrl-Jb-ML9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="168" id="a3Q-60-lAt" customClass="ScheduleTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="134" id="a3Q-60-lAt" customClass="ScheduleTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3Q-60-lAt" id="fa2-ql-Aq4">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ការប្រជំុនៅទីស្តីការ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-Cx-Ssl">
-                                            <rect key="frame" x="8" y="8" width="304" height="35"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4no-oM-YdR">
+                                            <rect key="frame" x="8" y="6" width="304" height="121"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្ងៃទី ២៧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCm-xX-bIV">
+                                                    <rect key="frame" x="39" y="-1" width="227" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ប្រធានបទ: កិច្ចប្រជំុស្តីពិអំពើពុករលួយ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="io1-Gy-LBI">
+                                                    <rect key="frame" x="22" y="67" width="274" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="CJu-fD-wZ4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hX-du-xbc">
+                                                    <rect key="frame" x="22" y="93" width="274" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6J-DP-cdy">
+                                                    <rect key="frame" x="39" y="58" width="227" height="1"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="cAd-kz-Ycm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ខែ ០៩ ឆ្នាំ ២០១៥" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiw-VG-Lro">
+                                                    <rect key="frame" x="39" y="35" width="227" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Xmb-Qw-0zS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.59753429189747553" green="0.72075018035747973" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="sZT-ye-KMP"/>
+                                                <constraint firstItem="tiw-VG-Lro" firstAttribute="centerX" secondItem="4no-oM-YdR" secondAttribute="centerX" id="2DQ-77-zps"/>
+                                                <constraint firstItem="oCm-xX-bIV" firstAttribute="trailing" secondItem="tiw-VG-Lro" secondAttribute="trailing" id="7Ij-gg-jGo"/>
+                                                <constraint firstAttribute="bottom" secondItem="1hX-du-xbc" secondAttribute="bottom" constant="7" id="86o-lb-kl3"/>
+                                                <constraint firstItem="oCm-xX-bIV" firstAttribute="top" secondItem="4no-oM-YdR" secondAttribute="top" constant="-1" id="AbF-3f-osk"/>
+                                                <constraint firstItem="io1-Gy-LBI" firstAttribute="leading" secondItem="1hX-du-xbc" secondAttribute="leading" id="EaU-rr-2eI"/>
+                                                <constraint firstItem="L6J-DP-cdy" firstAttribute="top" secondItem="oCm-xX-bIV" secondAttribute="bottom" constant="22" id="EhQ-Ec-6aB"/>
+                                                <constraint firstItem="L6J-DP-cdy" firstAttribute="top" secondItem="tiw-VG-Lro" secondAttribute="bottom" constant="2" id="H6e-32-hnW"/>
+                                                <constraint firstItem="io1-Gy-LBI" firstAttribute="trailing" secondItem="4no-oM-YdR" secondAttribute="trailingMargin" id="QtM-d9-ati"/>
+                                                <constraint firstItem="tiw-VG-Lro" firstAttribute="leading" secondItem="L6J-DP-cdy" secondAttribute="leading" id="ZC6-g1-LxS"/>
+                                                <constraint firstItem="io1-Gy-LBI" firstAttribute="top" secondItem="L6J-DP-cdy" secondAttribute="bottom" constant="8" symbolic="YES" id="ZS4-zV-dAb"/>
+                                                <constraint firstItem="1hX-du-xbc" firstAttribute="top" secondItem="io1-Gy-LBI" secondAttribute="bottom" constant="6" id="dnl-2Z-0eN"/>
+                                                <constraint firstItem="oCm-xX-bIV" firstAttribute="leading" secondItem="4no-oM-YdR" secondAttribute="leading" constant="39" id="dxP-QL-9l6"/>
+                                                <constraint firstItem="1hX-du-xbc" firstAttribute="trailing" secondItem="io1-Gy-LBI" secondAttribute="trailing" id="gNh-Iv-rSR"/>
+                                                <constraint firstItem="io1-Gy-LBI" firstAttribute="leading" secondItem="4no-oM-YdR" secondAttribute="leading" constant="22" id="kJY-gG-cYP"/>
+                                                <constraint firstItem="tiw-VG-Lro" firstAttribute="top" secondItem="4no-oM-YdR" secondAttribute="top" constant="35" id="lVX-YZ-2Rf"/>
+                                                <constraint firstItem="L6J-DP-cdy" firstAttribute="trailing" secondItem="tiw-VG-Lro" secondAttribute="trailing" id="rgt-Fc-V9h"/>
+                                                <constraint firstItem="tiw-VG-Lro" firstAttribute="leading" secondItem="oCm-xX-bIV" secondAttribute="leading" id="thc-Mw-oWy"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="19"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0h-K4-kx1">
-                                            <rect key="frame" x="8" y="116" width="304" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="78R-6D-b5W"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpk-Kw-msh">
-                                            <rect key="frame" x="8" y="138" width="304" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="d3X-Rq-TPz"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdC-vg-cYw">
-                                            <rect key="frame" x="8" y="48" width="304" height="71"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="71" id="Xk1-WP-vOp"/>
-                                            </constraints>
-                                            <string key="text">មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា បានវេរប្រគេនទេយ្យទានដល់ព្រះសង្ឃដែលនិមន្តមកពីវត្តទាំង៤៣វត្ត ដោយក្នុងមួយវត្តៗរួមមាន៖ ទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម ឆៃប៉ូវ៥គីឡូក្រាម សៀងផ្អែម ៥គីឡូក្រាម ពងទាប្រៃ៥០គ្រាប កាហ្វេ២ប្រអប់ ខ្ទឹមស១គីឡូក្រាម ប៊ីចេង១គីឡូក្រាម ធូប២ដុំ មី២កេស ត្រីខ២យួរ ទឹកបរិសុទ្ធ២កេស ទឹកក្រូច១កេស ទឹកផ្លែឈើ១កេស ទឹកត្រី២យួរ ទឹកស៊ីអ៊ីវ២យួរ ស្លាដក១ បច្ច័យ១០០.០០០រៀល ដោយឡែកវត្តចំនួន១០ ក្នុងខេត្តកំពង់ធំ ក្នុងមួយវត្តៗទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម មី០២កេស ទឹកបរិសុទ្ធ០២កេស ធូប០២ដុំ និងបច្ច័យ១០០.០០០រៀល៕អត្ថបទ និងរូបភាព៖នាយកដ្ឋានព័ត៌មាន",</string>
-                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qdC-vg-cYw" firstAttribute="top" secondItem="eOm-Cx-Ssl" secondAttribute="bottom" constant="5" id="1HL-J7-7kG"/>
-                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="88h-Uu-I6G"/>
-                                        <constraint firstItem="eOm-Cx-Ssl" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="8kP-SK-Kwv"/>
-                                        <constraint firstItem="lpk-Kw-msh" firstAttribute="top" secondItem="r0h-K4-kx1" secondAttribute="bottom" constant="1" id="AtZ-JG-WgR"/>
-                                        <constraint firstAttribute="trailing" secondItem="qdC-vg-cYw" secondAttribute="trailing" constant="8" id="MEF-qf-6gm"/>
-                                        <constraint firstAttribute="trailing" secondItem="lpk-Kw-msh" secondAttribute="trailing" constant="8" id="NTQ-zx-ObZ"/>
-                                        <constraint firstItem="eOm-Cx-Ssl" firstAttribute="top" secondItem="fa2-ql-Aq4" secondAttribute="top" constant="8" id="RmB-h1-o6M"/>
-                                        <constraint firstItem="qdC-vg-cYw" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="ZzN-bd-LEX"/>
-                                        <constraint firstAttribute="trailing" secondItem="r0h-K4-kx1" secondAttribute="trailing" constant="8" id="phS-pl-pIM"/>
-                                        <constraint firstItem="r0h-K4-kx1" firstAttribute="top" secondItem="eOm-Cx-Ssl" secondAttribute="bottom" constant="73" id="vU0-DR-cn5"/>
-                                        <constraint firstItem="r0h-K4-kx1" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leading" constant="8" id="vqH-cK-J4P"/>
-                                        <constraint firstAttribute="trailing" secondItem="eOm-Cx-Ssl" secondAttribute="trailing" constant="8" id="yy1-03-ElK"/>
+                                        <constraint firstItem="4no-oM-YdR" firstAttribute="trailing" secondItem="fa2-ql-Aq4" secondAttribute="trailingMargin" id="IFG-3T-2Km"/>
+                                        <constraint firstItem="4no-oM-YdR" firstAttribute="top" secondItem="fa2-ql-Aq4" secondAttribute="topMargin" constant="-2" id="Jb1-t5-eKd"/>
+                                        <constraint firstItem="4no-oM-YdR" firstAttribute="centerY" secondItem="fa2-ql-Aq4" secondAttribute="centerY" id="XCw-gR-Zz8"/>
+                                        <constraint firstItem="4no-oM-YdR" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leadingMargin" id="fBt-mr-VjM"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dateLabel" destination="r0h-K4-kx1" id="fLc-19-EFG"/>
-                                    <outlet property="descriptionLabel" destination="qdC-vg-cYw" id="IoQ-wP-SJd"/>
-                                    <outlet property="posterLabel" destination="lpk-Kw-msh" id="A3X-Ok-iVz"/>
-                                    <outlet property="titleLabel" destination="eOm-Cx-Ssl" id="DVf-iv-h3M"/>
+                                    <outlet property="date" destination="tiw-VG-Lro" id="AX3-UP-vzl"/>
+                                    <outlet property="day" destination="oCm-xX-bIV" id="yX3-El-5hj"/>
+                                    <outlet property="publish" destination="1hX-du-xbc" id="kNu-yy-d8v"/>
+                                    <outlet property="subView" destination="4no-oM-YdR" id="zcV-Ko-WU1"/>
+                                    <outlet property="title" destination="io1-Gy-LBI" id="f67-Rx-n1S"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -174,7 +196,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpI-ZW-BCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="445"/>
+            <point key="canvasLocation" x="1988" y="429"/>
         </scene>
         <!--Schedule Detail Table View Controller-->
         <scene sceneID="orX-eH-0Ka">
@@ -1097,7 +1119,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YlS-Mx-XhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2447" y="445"/>
+            <point key="canvasLocation" x="2440" y="430"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ey0-wl-BGX">
@@ -1151,7 +1173,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Support by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tam-At-LZu">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Supported by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tam-At-LZu">
                                         <rect key="frame" x="19" y="134" width="178" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1236,8 +1258,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="MGw-gK-nHe"/>
         <segue reference="du1-Jy-adt"/>
+        <segue reference="MGw-gK-nHe"/>
         <segue reference="X6s-GJ-1tu"/>
     </inferredMetricsTieBreakers>
 </document>
