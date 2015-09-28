@@ -70,6 +70,9 @@
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
 		FD3BF0F71BB5477400F7BBE6 /* senate.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3BF0F61BB5477400F7BBE6 /* senate.png */; };
 		FD3BF0FB1BB5488600F7BBE6 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF0FA1BB5488600F7BBE6 /* AppViewController.m */; };
+		FD3BF1011BB554ED00F7BBE6 /* Simple-Logo-GITS.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3BF1001BB554ED00F7BBE6 /* Simple-Logo-GITS.png */; };
+		FD3BF1031BB554F500F7BBE6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3BF1021BB554F500F7BBE6 /* logo.png */; };
+		FD3BF1061BB556D300F7BBE6 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF1051BB556D300F7BBE6 /* AboutUsViewController.m */; };
 		FD430D281BB28E6F00B3E524 /* ScheduleDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD430D271BB28E6F00B3E524 /* ScheduleDetailTableViewController.m */; };
 		FD430D2B1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD430D2A1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m */; };
 		FD566D801BA7CC8C00108099 /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD566D7F1BA7CC8C00108099 /* sub.caf */; };
@@ -202,6 +205,10 @@
 		FD3BF0F61BB5477400F7BBE6 /* senate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = senate.png; sourceTree = "<group>"; };
 		FD3BF0F91BB5488600F7BBE6 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
 		FD3BF0FA1BB5488600F7BBE6 /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewController.m; sourceTree = "<group>"; };
+		FD3BF1001BB554ED00F7BBE6 /* Simple-Logo-GITS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simple-Logo-GITS.png"; sourceTree = "<group>"; };
+		FD3BF1021BB554F500F7BBE6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		FD3BF1041BB556D300F7BBE6 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		FD3BF1051BB556D300F7BBE6 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		FD430D261BB28E6F00B3E524 /* ScheduleDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailTableViewController.h; sourceTree = "<group>"; };
 		FD430D271BB28E6F00B3E524 /* ScheduleDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailTableViewController.m; sourceTree = "<group>"; };
 		FD430D291BB28EBA00B3E524 /* ScheduleDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -361,6 +368,8 @@
 		ED9401321B96D471001BCE2D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BF1021BB554F500F7BBE6 /* logo.png */,
+				FD3BF1001BB554ED00F7BBE6 /* Simple-Logo-GITS.png */,
 				FD3BF0F61BB5477400F7BBE6 /* senate.png */,
 				ED8F519E1BB542890066DC35 /* Download-100.png */,
 				FDD00C461BAFA7F900F74057 /* setting.png */,
@@ -511,6 +520,8 @@
 			children = (
 				FD3BF0F91BB5488600F7BBE6 /* AppViewController.h */,
 				FD3BF0FA1BB5488600F7BBE6 /* AppViewController.m */,
+				FD3BF1041BB556D300F7BBE6 /* AboutUsViewController.h */,
+				FD3BF1051BB556D300F7BBE6 /* AboutUsViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -607,6 +618,11 @@
 					ED9401081B96D467001BCE2D = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 8WB65T4HC4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					ED9401211B96D467001BCE2D = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -642,6 +658,7 @@
 				ED6B08C41B97D7B9009068E9 /* initiation_bg.png in Resources */,
 				ED9401441B96D687001BCE2D /* Search-50.png in Resources */,
 				FDD00C4B1BAFA7F900F74057 /* schedule.png in Resources */,
+				FD3BF1011BB554ED00F7BBE6 /* Simple-Logo-GITS.png in Resources */,
 				ED8761831B9EEADB00C0E7BE /* load_05.png in Resources */,
 				FD566D801BA7CC8C00108099 /* sub.caf in Resources */,
 				ED8761801B9EEADB00C0E7BE /* load_02.png in Resources */,
@@ -649,6 +666,7 @@
 				ED9401181B96D467001BCE2D /* Main.storyboard in Resources */,
 				ED8761821B9EEADB00C0E7BE /* load_04.png in Resources */,
 				ED94FDE31B9842F7006A257E /* photo_page_icon.png in Resources */,
+				FD3BF1031BB554F500F7BBE6 /* logo.png in Resources */,
 				FD3BF0F71BB5477400F7BBE6 /* senate.png in Resources */,
 				FDD00C491BAFA7F900F74057 /* setting.png in Resources */,
 				ED3618A41B96FB6A0095E48A /* 11700962_513955532093586_794883947600057880_n.jpg in Resources */,
@@ -689,6 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3BF1061BB556D300F7BBE6 /* AboutUsViewController.m in Sources */,
 				ED94FDDD1B9831D2006A257E /* UIImageView+HighlightedWebCache.m in Sources */,
 				ED94FDD41B9831D2006A257E /* SDWebImageDecoder.m in Sources */,
 				EDA3BF5B1B994AA500F8334B /* ShareObject.m in Sources */,

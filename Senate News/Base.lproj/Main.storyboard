@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -356,6 +356,7 @@
                         <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="8f3-50-Fob"/>
                         <segue destination="kOn-ZE-WTq" kind="show" identifier="search" id="okK-ac-N8B"/>
                         <segue destination="pbE-Lh-LZg" kind="show" identifier="sDetail" id="dYX-Bj-WiK"/>
+                        <segue destination="Q2w-CT-N2T" kind="show" identifier="sDetail" id="LG2-pN-7nr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-2g-0a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -919,72 +920,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r49-Lg-B4C">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="senate.png" translatesAutoresizingMaskIntoConstraints="NO" id="r49-Lg-B4C">
                                 <rect key="frame" x="110" y="139" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="2wa-36-mww"/>
-                                    <constraint firstAttribute="width" constant="100" id="Fzg-hY-zEv"/>
-                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senate News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6P-9H-7tU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Senate News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6P-9H-7tU">
                                 <rect key="frame" x="96" y="247" width="128" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="9uE-Gg-9ef"/>
-                                    <constraint firstAttribute="height" constant="30" id="IJk-gZ-udD"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.26718616649999999" green="0.3497570827" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version: 1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-gs-V31">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version: 1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-gs-V31">
                                 <rect key="frame" x="113" y="285" width="100" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="9L6-6j-ks2"/>
-                                    <constraint firstAttribute="width" constant="100" id="fx6-3w-lNW"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="រក្សាសិទ្ធិដោយ អគ្កលេខាធិកាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-c1-Ca8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="រក្សាសិទ្ធិដោយ អគ្កលេខាធិកាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5i-c1-Ca8">
                                 <rect key="frame" x="16" y="531" width="182" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="2a8-Wh-dg3"/>
-                                    <constraint firstAttribute="width" constant="182" id="klb-uG-vnT"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.senate.gov.kh" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOS-sy-Xqh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="www.senate.gov.kh" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VOS-sy-Xqh">
                                 <rect key="frame" x="197" y="531" width="107" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="OGI-Qm-GKK"/>
-                                    <constraint firstAttribute="width" constant="107" id="zJN-sb-dc8"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="MDm-gs-V31" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" constant="97" id="07s-wb-0rR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MDm-gs-V31" secondAttribute="trailing" constant="91" id="33A-Ie-6xf"/>
-                            <constraint firstItem="p5i-c1-Ca8" firstAttribute="top" secondItem="yGl-9A-a2D" secondAttribute="bottom" constant="467" id="67k-mz-zsU"/>
-                            <constraint firstItem="h6P-9H-7tU" firstAttribute="top" secondItem="r49-Lg-B4C" secondAttribute="bottom" constant="8" id="6YS-7c-L90"/>
-                            <constraint firstItem="p5i-c1-Ca8" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" id="9g6-0h-qe8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="r49-Lg-B4C" secondAttribute="trailing" constant="94" id="BCa-1O-Cbg"/>
-                            <constraint firstItem="VOS-sy-Xqh" firstAttribute="leading" secondItem="p5i-c1-Ca8" secondAttribute="trailing" constant="-1" id="BPP-AU-X4O"/>
-                            <constraint firstItem="r49-Lg-B4C" firstAttribute="top" secondItem="yGl-9A-a2D" secondAttribute="bottom" constant="75" id="Boc-Nk-Ubx"/>
-                            <constraint firstItem="VOS-sy-Xqh" firstAttribute="trailing" secondItem="ie5-U6-ypQ" secondAttribute="trailingMargin" id="GeK-NN-N4n"/>
-                            <constraint firstItem="h6P-9H-7tU" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" constant="80" id="LBR-8e-oG1"/>
-                            <constraint firstItem="r49-Lg-B4C" firstAttribute="leading" secondItem="ie5-U6-ypQ" secondAttribute="leadingMargin" constant="94" id="RnS-jU-l9w"/>
-                            <constraint firstAttribute="centerY" secondItem="r49-Lg-B4C" secondAttribute="centerY" constant="95" id="dxC-s4-yQ4"/>
-                            <constraint firstItem="p5i-c1-Ca8" firstAttribute="centerY" secondItem="VOS-sy-Xqh" secondAttribute="centerY" id="kkI-Hq-oie"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="h6P-9H-7tU" secondAttribute="trailing" constant="80" id="yX3-oO-dEc"/>
-                            <constraint firstItem="MDm-gs-V31" firstAttribute="top" secondItem="h6P-9H-7tU" secondAttribute="bottom" constant="8" id="yyI-9C-HKk"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="68z-9x-lHa">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="o0E-Gm-AZt">
@@ -1134,6 +1098,111 @@
             </objects>
             <point key="canvasLocation" x="2447" y="445"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ey0-wl-BGX">
+            <objects>
+                <viewController id="qYq-vE-IWb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="53Q-4v-xHz"/>
+                        <viewControllerLayoutGuide type="bottom" id="mnk-VW-eUj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IlM-k9-kXu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="រក្សាសិទ្ធដោយ: KH4IT &amp; GITS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbX-e6-Ebk">
+                                <rect key="frame" x="16" y="539" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Es-po-Qb6">
+                                <rect key="frame" x="16" y="84" width="288" height="32"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.10000000149011612" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uY-7g-U9p">
+                                <rect key="frame" x="16" y="124" width="288" height="266"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email: admin@kh4it.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKa-xC-kOx">
+                                        <rect key="frame" x="19" y="18" width="251" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone: 017 22 07 07 / 086 43 16 16" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZO-Jb-mZt">
+                                        <rect key="frame" x="19" y="47" width="275" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="            070 66 71 35 / 097 959 3388" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRj-eu-OQD">
+                                        <rect key="frame" x="19" y="76" width="275" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Website: www.kh4it.biz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywO-M2-eZW">
+                                        <rect key="frame" x="19" y="105" width="178" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Support by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tam-At-LZu">
+                                        <rect key="frame" x="19" y="134" width="178" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NTp-sf-nZR">
+                                        <rect key="frame" x="39" y="179" width="117" height="59"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Simple-Logo-GITS.png" translatesAutoresizingMaskIntoConstraints="NO" id="KbG-Nh-GiK">
+                                        <rect key="frame" x="169" y="155" width="87" height="91"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="F1O-zy-z96">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="fZK-oM-5eX">
+                            <view key="customView" contentMode="scaleToFill" id="v03-6n-bBE">
+                                <rect key="frame" x="57" y="225" width="160" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="AKH-ZS-jje">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ព័ត៌មានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-Ve-CpC">
+                                        <rect key="frame" x="43" y="8" width="106" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="T17-Z9-byF">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jnc-Sk-2MD">
+                                <rect key="frame" x="164" y="241" width="25" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="munu_b.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPq-ij-hel" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="-552"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="m7K-hK-3w1">
             <objects>
@@ -1157,13 +1226,17 @@
     <resources>
         <image name="Back-100.png" width="72" height="58"/>
         <image name="Download-100.png" width="100" height="100"/>
+        <image name="Simple-Logo-GITS.png" width="300" height="300"/>
         <image name="close.png" width="44" height="44"/>
+        <image name="logo.png" width="175" height="52"/>
         <image name="menu_collabo_icon_select.png" width="50" height="58"/>
         <image name="munu_b.png" width="44" height="44"/>
+        <image name="senate.png" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="48X-0b-mE1"/>
+        <segue reference="MGw-gK-nHe"/>
         <segue reference="du1-Jy-adt"/>
+        <segue reference="8f3-50-Fob"/>
     </inferredMetricsTieBreakers>
 </document>

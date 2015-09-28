@@ -317,6 +317,7 @@
 -(void)requestToserver{
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
+    NSLog(@"%@",_receiveData);
     [dataDic setObject:_receiveData forKey:@"ART_ID"];
     [reqDic setObject:@"ARTICLES_R001" forKey:@"KEY"];
     [reqDic setObject:dataDic forKey:@"REQ_DATA"];

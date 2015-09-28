@@ -65,6 +65,7 @@
     [super viewDidAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"schedule";
     [ShareObject shareObjectManager].scheduleFlag = FALSE;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
 }
 
 - (void)viewDidLoad {
@@ -83,10 +84,7 @@
     [refresh_loadmore addLoadMoreForTableView:_scheduleTableView imageName:@"load_01.png"];
     [self addRefreshToView];
     [self addbarButtonAndSideBar];
-
-    
     self.tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
-    
     // Send request to server
     [self requestToserver:@"SCHEDULE_L001"];
 }
@@ -96,6 +94,15 @@
     NSLog(@"Run out of memory");
 }
 
+
+-(void)linkToDetail: (NSNotification *) notification{
+    if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"2"]) {
+        [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }else if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"1"]){
+        [self performSegueWithIdentifier:@"detail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - Helper method
 
 -(void)addbarButtonAndSideBar{

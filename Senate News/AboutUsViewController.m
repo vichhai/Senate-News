@@ -1,34 +1,22 @@
 //
-//  AppViewController.m
+//  AboutUsViewController.m
 //  Senate News
 //
 //  Created by Jung Taesung on 2015. 9. 25..
 //  Copyright (c) 2015년 GITS. All rights reserved.
 //
 
-#import "AppViewController.h"
-#import "SWRevealViewController.h"
+#import "AboutUsViewController.h"
 
-@interface AppViewController ()
+@interface AboutUsViewController ()
 
 @end
 
-@implementation AppViewController
-
--(BOOL)prefersStatusBarHidden{
-    return true;
-}
+@implementation AboutUsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [_menu addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
-    }
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

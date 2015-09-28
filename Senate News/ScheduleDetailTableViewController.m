@@ -29,7 +29,6 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _detailSchedule.allowsSelection = NO;
     [AppUtils showLoading:self.view];
-    [AppUtils showLoading:self.view];
     [self requestToserver:@"SCHEDULE_R001"];
 }
 
