@@ -83,10 +83,7 @@
     [refresh_loadmore addLoadMoreForTableView:_scheduleTableView imageName:@"load_01.png"];
     [self addRefreshToView];
     [self addbarButtonAndSideBar];
-
-    
     self.tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
-    
     // Send request to server
     [self requestToserver:@"SCHEDULE_L001"];
 }

@@ -74,12 +74,12 @@
 }
 
 -(void)linkToDetail: (NSNotification *) notification{
-    if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"schedule"]) {
+    if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"2"]) {
         [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
-    }else{
+    }else if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"1"]){
         [self performSegueWithIdentifier:@"detail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
     }
-
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {

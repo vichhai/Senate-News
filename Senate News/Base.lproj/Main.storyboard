@@ -356,6 +356,7 @@
                         <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="8f3-50-Fob"/>
                         <segue destination="kOn-ZE-WTq" kind="show" identifier="search" id="okK-ac-N8B"/>
                         <segue destination="pbE-Lh-LZg" kind="show" identifier="sDetail" id="dYX-Bj-WiK"/>
+                        <segue destination="Q2w-CT-N2T" kind="show" identifier="sDetail" id="LG2-pN-7nr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-2g-0a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1234,7 +1235,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="48X-0b-mE1"/>
+        <segue reference="MGw-gK-nHe"/>
         <segue reference="du1-Jy-adt"/>
+        <segue reference="8f3-50-Fob"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -81,7 +81,8 @@
     application.applicationIconBadgeNumber = 0;
     [ShareObject shareObjectManager].jsonNotification = userInfo[@"aps"];
     NSLog(@"aps: %@",[ShareObject shareObjectManager].jsonNotification);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification" object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"notification" object:nil];
+    [[NSNotificationCenter defaultCenter]  postNotificationName:@"notification" object:nil userInfo:nil];
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{

@@ -618,6 +618,11 @@
 					ED9401081B96D467001BCE2D = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 8WB65T4HC4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					ED9401211B96D467001BCE2D = {
 						CreatedOnToolsVersion = 6.3.1;
