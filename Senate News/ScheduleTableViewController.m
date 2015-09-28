@@ -65,6 +65,7 @@
     [super viewDidAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"schedule";
     [ShareObject shareObjectManager].scheduleFlag = FALSE;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
 }
 
 - (void)viewDidLoad {
@@ -93,6 +94,15 @@
     NSLog(@"Run out of memory");
 }
 
+
+-(void)linkToDetail: (NSNotification *) notification{
+    if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"2"]) {
+        [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }else if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"1"]){
+        [self performSegueWithIdentifier:@"detail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - Helper method
 
 -(void)addbarButtonAndSideBar{

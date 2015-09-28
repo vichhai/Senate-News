@@ -256,6 +256,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_ID"]);
     [self performSegueWithIdentifier:@"detail" sender:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_ID"]];
 }
 
@@ -265,6 +266,7 @@
     if ([segue.identifier isEqualToString:@"detail"]) {
         DetailViewController *vc = [segue destinationViewController];
         vc.receiveData = sender;
+        NSLog(@"%@",vc.receiveData);
     } else if([segue.identifier isEqualToString:@"sDetail"]){
         ScheduleDetailTableViewController *sv = [segue destinationViewController];
         sv.scheduleId = sender;
