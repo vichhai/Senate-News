@@ -66,7 +66,11 @@
 //        [self customLabel:cell];
 //    }
 
-    [self addLabelsToCell:cell];
+    if (![AppUtils isNull:resultDic]) {
+        
+        [self addLabelsToCell:cell];
+        
+    }
     
     return cell;
 }
@@ -117,10 +121,10 @@
     [containerTopic addSubview:labelTopic];
     [cell.contentView addSubview:containerTopic];
     
-    height = [self measureTextHeight:@"​iPhone 6s និង6s Plus ​ដាក់​លក់​តែ​​​បី​ថ្ងៃ​​ដាច់​​ជាង​ ១៣ លាន​គ្រឿង" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.6; // change
-    UILabel *topic = [[UILabel alloc]initWithFrame:CGRectMake(160, 10, (cell.contentView.frame.size.width - 180), height)];
-    topic.text = @"​iPhone 6s និង6s Plus ​ដាក់​លក់​តែ​​​បី​ថ្ងៃ​​ដាច់​​ជាង​ ១៣ លាន​គ្រឿង"; // change
-    [AppUtils setLineHeight:@"iPhone 6s និង6s Plus ​ដាក់​លក់​តែ​​​បី​ថ្ងៃ​​ដាច់​​ជាង​ ១៣ លាន​គ្រឿង" anyLabel:topic]; // change
+    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.55; // change
+    UILabel *topic = [[UILabel alloc]initWithFrame:CGRectMake(160, containerTopic.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
+    topic.text = [resultDic objectForKey:@"SCH_TITLE"]; // change
+    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_TITLE"] anyLabel:topic]; // change
     topic.numberOfLines = 0;
     
     [cell.contentView addSubview:topic];
@@ -140,10 +144,10 @@
     [containerDes addSubview:labelDes];
     [cell.contentView addSubview:containerDes];
     
-    height = [self measureTextHeight:@"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.4; // change
-    UILabel *description = [[UILabel alloc]initWithFrame:CGRectMake(160, (topic.frame.origin.y + topic.frame.size.height) + 10, (cell.contentView.frame.size.width - 180), height)];
-    description.text = @"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕"; // change
-    [AppUtils setLineHeight:@"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕" anyLabel:description]; // change
+    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.4; // change
+    UILabel *description = [[UILabel alloc]initWithFrame:CGRectMake(160,containerDes.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
+    description.text = [resultDic objectForKey:@"SCH_DESCRIPTION"]; // change
+    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] anyLabel:description]; // change
     
     description.numberOfLines = 0;
     
@@ -166,7 +170,7 @@
     [cell.contentView addSubview:containerLoc];
     
     UILabel *location = [[UILabel alloc]initWithFrame:CGRectMake(160, (description.frame.origin.y + description.frame.size.height) + 10, (cell.contentView.frame.size.width - 180), 35)];
-    location.text = @"Location"; // change
+    location.text = [resultDic objectForKey:@"SCH_PLACE"]; // change
     
     [cell.contentView addSubview:location];
     
@@ -206,7 +210,7 @@
     [cell.contentView addSubview:containerStart];
     
     UILabel *startHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStart.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    startHour.text = @"Start Hour"; // change
+    startHour.text = [[resultDic objectForKey:@"SCH_EVENT_START"] substringFromIndex:41]; // change
     
     [cell.contentView addSubview:startHour];
     
@@ -226,7 +230,7 @@
     [cell.contentView addSubview:containerStop];
     
     UILabel *stopHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStop.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    stopHour.text = @"Finish Hour"; // change
+    stopHour.text = [[resultDic objectForKey:@"SCH_EVENT_END"] substringFromIndex:41]; // change
     
     [cell.contentView addSubview:stopHour];
     
@@ -247,11 +251,11 @@
     [cell.contentView addSubview:containerType];
     
     UILabel *type = [[UILabel alloc]initWithFrame:CGRectMake(160, containerType.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    type.text = @"Type"; // change
+    type.text = [resultDic objectForKey:@"SCH_TYPE"]; // change
     
     [cell.contentView addSubview:type];
     
-    rowHeight = type.frame.origin.y + 35 + 10;
+    rowHeight = type.frame.origin.y + 35 + 15;
     
     // =---> link
     UIView *containerLink = [[UIView alloc] initWithFrame:CGRectMake(10, (containerType.frame.origin.y + stopHour.frame.size.height) + 10 , 140, 35)];
