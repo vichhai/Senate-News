@@ -167,7 +167,7 @@
         
         UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, cell.contentView.frame.size.width - 20, height)];
         labelTitle.numberOfLines = 0;
-        labelTitle.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:15];
+        labelTitle.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
         labelTitle.text = [resultDic objectForKey:@"ART_TITLE"];
         
         height = [self measureTextHeight:[resultDic objectForKey:@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:25.0f];

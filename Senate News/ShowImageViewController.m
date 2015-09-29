@@ -33,6 +33,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, (_myScrollView.frame.size.height - height) / 2 - 10, width, height)];
     imageView.tag = 99;
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[ShareObject shareObjectManager].shareURL]];
     
