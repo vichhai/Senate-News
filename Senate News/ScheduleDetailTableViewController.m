@@ -26,20 +26,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _detailSchedule.hidden = true;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _detailSchedule.allowsSelection = NO;
     UIButton *back  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [back setImage:[UIImage imageNamed:@"Back-100"] forState:UIControlStateNormal];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:back];
     NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem2, nil];
-    self.navigationItem.leftItemsSupplementBackButton = barButtonItemArray;
+    self.navigationItem.leftBarButtonItems = barButtonItemArray;
     [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [AppUtils showLoading:self.view];
     [self requestToserver:@"SCHEDULE_R001"];
 }
 
 -(void)back{
-    NSLog(@"back");
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
