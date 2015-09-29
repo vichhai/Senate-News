@@ -68,6 +68,9 @@
 		EDA3BF5B1B994AA500F8334B /* ShareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA3BF5A1B994AA500F8334B /* ShareObject.m */; };
 		EDA3BF5E1B994C4A00F8334B /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA3BF5D1B994C4A00F8334B /* AppUtils.m */; };
 		EDA852D81B982DDF009C2B92 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */; };
+		EDB9C8E21BBA3D850051249D /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB9C8E11BBA3D850051249D /* home.png */; };
+		EDB9C8E41BBA3D9B0051249D /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB9C8E31BBA3D9B0051249D /* info.png */; };
+		EDB9C8E61BBA3DEC0051249D /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB9C8E51BBA3DEC0051249D /* news.png */; };
 		EDBD300F1BA9010F007E89DE /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBD300E1BA9010F007E89DE /* SearchTableViewController.m */; };
 		EDBD30131BA90176007E89DE /* CustomSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBD30121BA90176007E89DE /* CustomSearchTableViewCell.m */; };
 		EDD15FDD1B9D936F00D46393 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD15FDC1B9D936F00D46393 /* ConnectionManager.m */; };
@@ -89,8 +92,6 @@
 		FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C1ECB1BA16F7500C79177 /* DXPopover.m */; };
 		FD6251961BB92D320093B8AD /* sd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD6251951BB92D320093B8AD /* sd.jpg */; };
 		FD9532731BB0E55B0024D585 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */; };
-		FDD00C491BAFA7F900F74057 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C461BAFA7F900F74057 /* setting.png */; };
-		FDD00C4A1BAFA7F900F74057 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C471BAFA7F900F74057 /* home.png */; };
 		FDD00C4B1BAFA7F900F74057 /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD00C481BAFA7F900F74057 /* schedule.png */; };
 		FDD00C4E1BAFD0D300F74057 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */; };
 		FDD0A4AF1BA277320046F4CE /* date_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD0A4AC1BA277320046F4CE /* date_icon.png */; };
@@ -205,6 +206,9 @@
 		EDA3BF5D1B994C4A00F8334B /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtils.m; sourceTree = "<group>"; };
 		EDA852D61B982DDF009C2B92 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		EDA852D71B982DDF009C2B92 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		EDB9C8E11BBA3D850051249D /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		EDB9C8E31BBA3D9B0051249D /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		EDB9C8E51BBA3DEC0051249D /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
 		EDBD300D1BA9010F007E89DE /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		EDBD300E1BA9010F007E89DE /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		EDBD30111BA90176007E89DE /* CustomSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -241,8 +245,6 @@
 		FD6251951BB92D320093B8AD /* sd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sd.jpg; sourceTree = "<group>"; };
 		FD9532711BB0E55B0024D585 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
 		FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
-		FDD00C461BAFA7F900F74057 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
-		FDD00C471BAFA7F900F74057 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		FDD00C481BAFA7F900F74057 /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
 		FDD00C4C1BAFD0D300F74057 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
 		FDD00C4D1BAFD0D300F74057 /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
@@ -394,6 +396,9 @@
 				FD35EA591BBA362900B3C5C3 /* KhmerOSMoul.ttf */,
 				FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */,
 				FD35EA561BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf */,
+				EDB9C8E51BBA3DEC0051249D /* news.png */,
+				EDB9C8E31BBA3D9B0051249D /* info.png */,
+				EDB9C8E11BBA3D850051249D /* home.png */,
 				FD6251951BB92D320093B8AD /* sd.jpg */,
 				ED566F601BB8FB7100468F89 /* calendar.png */,
 				ED566F611BB8FB7100468F89 /* topic.png */,
@@ -406,8 +411,6 @@
 				FD3BF1001BB554ED00F7BBE6 /* Simple-Logo-GITS.png */,
 				FD3BF0F61BB5477400F7BBE6 /* senate.png */,
 				ED8F519E1BB542890066DC35 /* Download-100.png */,
-				FDD00C461BAFA7F900F74057 /* setting.png */,
-				FDD00C471BAFA7F900F74057 /* home.png */,
 				FDD00C481BAFA7F900F74057 /* schedule.png */,
 				ED367CF21BA2E18E00481BE7 /* close.png */,
 				ED367CE91BA2D4CA00481BE7 /* menu_b_p.png */,
@@ -691,6 +694,7 @@
 			files = (
 				FD6251961BB92D320093B8AD /* sd.jpg in Resources */,
 				ED6B08C41B97D7B9009068E9 /* initiation_bg.png in Resources */,
+				EDB9C8E21BBA3D850051249D /* home.png in Resources */,
 				ED9401441B96D687001BCE2D /* Search-50.png in Resources */,
 				ED566F6B1BB8FB7100468F89 /* links12.png in Resources */,
 				FDD00C4B1BAFA7F900F74057 /* schedule.png in Resources */,
@@ -700,13 +704,13 @@
 				FD566D801BA7CC8C00108099 /* sub.caf in Resources */,
 				ED8761801B9EEADB00C0E7BE /* load_02.png in Resources */,
 				FDD0A4B51BA286270046F4CE /* author_icon.png in Resources */,
+				EDB9C8E61BBA3DEC0051249D /* news.png in Resources */,
 				ED9401181B96D467001BCE2D /* Main.storyboard in Resources */,
 				ED8761821B9EEADB00C0E7BE /* load_04.png in Resources */,
 				ED94FDE31B9842F7006A257E /* photo_page_icon.png in Resources */,
 				FD3BF1031BB554F500F7BBE6 /* logo.png in Resources */,
 				FD3BF0F71BB5477400F7BBE6 /* senate.png in Resources */,
 				ED566F691BB8FB7100468F89 /* clock.png in Resources */,
-				FDD00C491BAFA7F900F74057 /* setting.png in Resources */,
 				ED3618A41B96FB6A0095E48A /* 11700962_513955532093586_794883947600057880_n.jpg in Resources */,
 				ED8761841B9EEADB00C0E7BE /* load_06.png in Resources */,
 				FDD0A4B71BA286270046F4CE /* id_icon.png in Resources */,
@@ -721,13 +725,13 @@
 				ED367CE41BA2D2F500481BE7 /* Back-100.png in Resources */,
 				ED3618A21B96F64A0095E48A /* alarm_icon.png in Resources */,
 				ED566F6D1BB8FB7100468F89 /* location.png in Resources */,
+				EDB9C8E41BBA3D9B0051249D /* info.png in Resources */,
 				ED9401431B96D687001BCE2D /* Search Filled-50.png in Resources */,
 				ED367CE81BA2D47900481BE7 /* munu_b.png in Resources */,
 				ED566F6C1BB8FB7100468F89 /* type.png in Resources */,
 				ED8F519F1BB542890066DC35 /* Download-100.png in Resources */,
 				ED3618991B96E00F0095E48A /* menu_collabo_icon_select.png in Resources */,
 				ED94011A1B96D467001BCE2D /* Images.xcassets in Resources */,
-				FDD00C4A1BAFA7F900F74057 /* home.png in Resources */,
 				ED6B08D71B97FAD9009068E9 /* facebook.png in Resources */,
 				FD35EA571BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf in Resources */,
 				ED87617F1B9EEADB00C0E7BE /* load_01.png in Resources */,
