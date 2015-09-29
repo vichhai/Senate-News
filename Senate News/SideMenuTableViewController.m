@@ -87,7 +87,7 @@
     }
     
     // =---> setup label
-    UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 150, 30)];
+    UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 180, 30)];
     myLabel.textColor = [UIColor blackColor];
     myLabel.font = [UIFont systemFontOfSize:17];
     [cell.contentView addSubview:myLabel];

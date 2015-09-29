@@ -34,6 +34,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [_detailTeableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _detailTeableView.hidden = true;
     [AppUtils showLoading:self.view];
     // =---> Creating a custom right navi bar button1
@@ -118,10 +120,10 @@
     // =---> label page of page
     
     UILabel *labelPage = [[UILabel alloc] initWithFrame:CGRectMake(23, view.frame.size.height / 2 - 6.0f, 30, 12)];
-    labelPage.text = [NSString stringWithFormat:@"%ld/ %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
+    labelPage.text = [NSString stringWithFormat:@"%d/ %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
     labelPage.textColor = [UIColor whiteColor];
     labelPage.font = [UIFont systemFontOfSize:12];
-    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%ld / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
+    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%d / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
     
     // =---> set new frame to label
     [labelPage setFrame:CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12)];
@@ -151,60 +153,78 @@
 #pragma mark - Tableview datasource
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CustomDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     
-    // remove duplicate label when scrolling
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+
     for (UIView *v in [cell.contentView subviews]) {
-        if ([v isKindOfClass:[UILabel class]])
-            if (v.tag == 100) {
-                [v removeFromSuperview];
-            }
+        if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
+            [v removeFromSuperview];
     }
-    cell.labelTitle.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:18];
-    cell.labelTitle.text = [resultDic objectForKey:@"ART_TITLE"]; // set title
-    cell.labelAuthor.text = [NSString stringWithFormat:@"By: %@",[resultDic objectForKey:@"ART_AUTHOR"]]; // set author
-    cell.lblDate.text = [resultDic objectForKey:@"ART_PUBLISHED_DATE"];
-    
-    // =---> getting array image from resultDic
-    //    NSArray *arr = [[NSArray alloc] initWithArray:ret];
-    //    linkArray = [[NSMutableArray alloc] init];
-    //
-    //    for (int i = 0; i < arr.count; i++) {
-    //        [linkArray addObject:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[arr objectAtIndex:i]]];
-    //    }
-    //
-    //    [self setupScrollViewWithImages:[self getImagesFromURL:linkArray] atAnyView:cell.contentView]; // set image to scroll view
-    
-    
-    [self setupCollectinView:cell.contentView];
-    
-    UICollectionView *tempCollectionView = (UICollectionView *) [cell.contentView viewWithTag:9999];
-    
-    // =--> Create Content Label
-    
-    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.65;
-    
-    UITextView *contentLabel = [[UITextView alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
-    
-    contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
-//    contentLabel.numberOfLines = 0;
-    contentLabel.tag = 100;
-    contentLabel.selectable = true;
-    contentLabel.scrollEnabled = false;
-    contentLabel.editable = false;
-    contentLabel.layoutManager.delegate = self;
-    contentLabel.dataDetectorTypes = UIDataDetectorTypeLink;
-    
-    if ([AppUtils isNull:[resultDic objectForKey:@"ART_DETAIL"]] == false && [AppUtils isNull:[resultDic objectForKey:@"ART_TITLE"]] == false) {
+    if (![AppUtils isNull:resultDic]) {
         
-        [AppUtils setTextViewHeight:[resultDic objectForKey:@"ART_DETAIL"] anyTextView:contentLabel];
-        [AppUtils setLineHeight:[resultDic objectForKey:@"ART_TITLE"] anyLabel:cell.labelTitle];
-        [contentLabel setFont:[UIFont systemFontOfSize:15]];
+        CGFloat height = 0.0;
+        height = [self measureTextHeight:[resultDic objectForKey:@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:15.0f] * 0.5;
+        
+        UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, cell.contentView.frame.size.width - 20, height)];
+        labelTitle.numberOfLines = 0;
+        labelTitle.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:15];
+        labelTitle.text = [resultDic objectForKey:@"ART_TITLE"];
+        
+        height = [self measureTextHeight:[resultDic objectForKey:@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:25.0f];
+        
+        [labelTitle setFrame:CGRectMake(10, 10, cell.contentView.frame.size.width - 20, height)];
+        
+        [cell.contentView addSubview:labelTitle];
+        
+        UILabel *labelDate = [[UILabel alloc] initWithFrame:CGRectMake(10, (labelTitle.frame.size.height + labelTitle.frame.origin.y) + 2, cell.contentView.frame.size.width - 20, 21)];
+        labelDate.font = [UIFont systemFontOfSize:12];
+        labelDate.textColor = [UIColor darkGrayColor];
+        labelDate.text = [NSString stringWithFormat:@"ចុះផ្សាយ %@",[resultDic objectForKey:@"ART_PUBLISHED_DATE"]];
+        
+        [cell.contentView addSubview:labelDate];
+        
+        UILabel *labelAuthor = [[UILabel alloc] initWithFrame:CGRectMake(10, (labelDate.frame.size.height + labelDate.frame.origin.y) + 2, cell.contentView.frame.size.width - 20, 21)];
+        labelAuthor.font = [UIFont systemFontOfSize:12];
+        labelAuthor.textColor = [UIColor darkGrayColor];
+        labelAuthor.text = [NSString stringWithFormat:@"ចុះផ្សាយដោយ: %@",[resultDic objectForKey:@"ART_AUTHOR"]]; // set author
+        
+        labelAuthor.tag = 101;
+        [cell.contentView addSubview:labelAuthor];
+        
+        [self setupCollectinView:cell.contentView];
+        
+        UICollectionView *tempCollectionView = (UICollectionView *) [cell.contentView viewWithTag:9999];
+        
+        // =--> Create Content Label
+        
+        height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:23.0f];
+        
+        if (height > 1900) {
+//            height = height * 1.35;
+        }
+        
+        
+        UITextView *contentLabel = [[UITextView alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
+        
+        contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
+        //    contentLabel.numberOfLines = 0;
+        contentLabel.tag = 100;
+        contentLabel.selectable = true;
+        contentLabel.scrollEnabled = false;
+        contentLabel.editable = false;
+        contentLabel.layoutManager.delegate = self;
+        contentLabel.dataDetectorTypes = UIDataDetectorTypeLink;
+        
+        if ([AppUtils isNull:[resultDic objectForKey:@"ART_DETAIL"]] == false && [AppUtils isNull:[resultDic objectForKey:@"ART_TITLE"]] == false) {
+            
+//            [AppUtils setTextViewHeight:[resultDic objectForKey:@"ART_DETAIL"] anyTextView:contentLabel];
+            [contentLabel setFont:[UIFont fontWithName:@"KhmerOSBattambang" size:14]];
+//            [contentLabel setFont:[UIFont systemFontOfSize:14]];
+        }
+        [cell.contentView addSubview:contentLabel];
+        
+        rowHeigh = (contentLabel.frame.origin.y + contentLabel.frame.size.height) + 10 ;
     }
-    
-    [cell.contentView addSubview:contentLabel];
-    
-    rowHeigh = (contentLabel.frame.origin.y + contentLabel.frame.size.height) + 10 ;
     
     return cell;
 }
@@ -224,13 +244,16 @@
 
 #pragma mark - other methods
 -(void)setupCollectinView:(UIView *)anyView{
+    
+    UILabel *label = (UILabel *)[self.view viewWithTag:101];
+    
     // =---> create flow layout for collection view
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.sectionInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     flowLayout.itemSize     = CGSizeMake(self.view.bounds.size.width - 30,[ShareObject shareObjectManager].shareWidth );
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    UICollectionView *imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(16, 158, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth) collectionViewLayout:flowLayout];
+    UICollectionView *imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(16, (label.frame.size.height + label.frame.origin.y) + 10, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth) collectionViewLayout:flowLayout];
     
     // set Datasource and Delegate
     imageCollectionView.delegate = self;
@@ -339,10 +362,12 @@
 
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
-    resultDic = [[NSMutableDictionary alloc] initWithDictionary:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
-    [_detailTeableView reloadData];
-    [AppUtils hideLoading:self.view];
-    _detailTeableView.hidden = false;
+    if ([apiKey isEqualToString:@"ARTICLES_R001"]) {
+        resultDic = [[NSMutableDictionary alloc] initWithDictionary:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+        [_detailTeableView reloadData];
+        [AppUtils hideLoading:self.view];
+        _detailTeableView.hidden = false;
+    }
 }
 
 #pragma mark - prepare for segue
