@@ -392,6 +392,10 @@
 		ED9401321B96D471001BCE2D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD35EA5A1BBA363600B3C5C3 /* KhmerOSNew-Regular.ttf */,
+				FD35EA591BBA362900B3C5C3 /* KhmerOSMoul.ttf */,
+				FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */,
+				FD35EA561BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf */,
 				EDB9C8E51BBA3DEC0051249D /* news.png */,
 				EDB9C8E31BBA3D9B0051249D /* info.png */,
 				EDB9C8E11BBA3D850051249D /* home.png */,
