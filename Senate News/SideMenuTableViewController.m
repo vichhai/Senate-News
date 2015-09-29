@@ -63,6 +63,7 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
     if (section == 0) {
         return [self setupViewForSectionHeader:@"ប្រតិទិនប្រជំុ"];
     } else if (section == 1){
@@ -123,9 +124,11 @@
     return cell;
 }
 
+
+
 -(UIView *)setupViewForSectionHeader:(NSString *)text {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
-    headerView.backgroundColor = [UIColor lightGrayColor];
+    //headerView.backgroundColor = [UIColor lightGrayColor];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5,7, 20, 20)];
     if ([text isEqualToString:@"ប្រតិទិនប្រជំុ"]) {
         imageView.image = [UIImage imageNamed:@"schedule"];
@@ -138,7 +141,7 @@
     
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, headerView.frame.size.width - 85, 25)];
     textLabel.text = text;
-    textLabel.font = [UIFont systemFontOfSize:19];
+    textLabel.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
     [headerView addSubview:textLabel];
     return headerView;
 }

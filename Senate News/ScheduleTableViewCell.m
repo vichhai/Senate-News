@@ -20,14 +20,23 @@
     // Configure the view for the selected state
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    //if (self) {
-        _subView.layer.cornerRadius = 15.0; // set as you want.
-        _subView.layer.borderColor = [UIColor lightGrayColor].CGColor; // set color as you want.
-        _subView.layer.borderWidth = 1.0; // set as you want.
-    //}
-    return self;
+
+-(void)customCell{
+    _subView.backgroundColor = [UIColor whiteColor];
+    _subView.layer.shadowRadius  = 1.5f;
+    _subView.layer.shadowColor   = [UIColor colorWithRed:176.f/255.f green:199.f/255.f blue:226.f/255.f alpha:1.f].CGColor;
+    _subView.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
+    _subView.layer.shadowOpacity = 0.9f;
+    _subView.layer.masksToBounds = NO;
+    UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(-2.0f, -2.0f, -2.0f, -57.0f);
+    UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(_subView.bounds, shadowInsets)];
+    _subView.layer.shadowPath     = shadowPath.CGPath;
+}
+
+-(void)customFont{
+    _title.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:15];
+    _day.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:24];
+    //_publish.font = [UIFont fontWithName:@"KhmerOSNew-Regular" size:10];
+    
 }
 @end
