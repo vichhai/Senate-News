@@ -182,11 +182,10 @@
     
     // =--> Create Content Label
     
-    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.56;
+    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.65;
     
     UITextView *contentLabel = [[UITextView alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
     
-    [contentLabel setFont:[UIFont systemFontOfSize:15]];
     contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
 //    contentLabel.numberOfLines = 0;
     contentLabel.tag = 100;
@@ -198,9 +197,9 @@
     
     if ([AppUtils isNull:[resultDic objectForKey:@"ART_DETAIL"]] == false && [AppUtils isNull:[resultDic objectForKey:@"ART_TITLE"]] == false) {
         
-//        [AppUtils setLineHeight:[resultDic objectForKey:@"ART_DETAIL"] anyLabel:contentLabel];
+        [AppUtils setTextViewHeight:[resultDic objectForKey:@"ART_DETAIL"] anyTextView:contentLabel];
         [AppUtils setLineHeight:[resultDic objectForKey:@"ART_TITLE"] anyLabel:cell.labelTitle];
-        
+        [contentLabel setFont:[UIFont systemFontOfSize:15]];
     }
     
     [cell.contentView addSubview:contentLabel];
@@ -231,7 +230,7 @@
     flowLayout.itemSize     = CGSizeMake(self.view.bounds.size.width - 30,[ShareObject shareObjectManager].shareWidth );
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    UICollectionView *imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(16, 138, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth) collectionViewLayout:flowLayout];
+    UICollectionView *imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(16, 158, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth) collectionViewLayout:flowLayout];
     
     // set Datasource and Delegate
     imageCollectionView.delegate = self;
