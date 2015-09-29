@@ -13,6 +13,8 @@
 #import "GITSRefreshAndLoadMore.h"
 #import "AppUtils.h"
 
+#define RGB(r,g,b)  [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+
 @interface ScheduleDetailTableViewController () <ConnectionManagerDelegate>
 {
     CGFloat rowHeight;
@@ -62,9 +64,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    if (![AppUtils isNull:[resultDic objectForKey:@"SCH_TITLE"]] && ![AppUtils isNull:[resultDic objectForKey:@"SCH_DESCRIPTION"]]) {
-        [self customLabel:cell];
-    }
+//    if (![AppUtils isNull:[resultDic objectForKey:@"SCH_TITLE"]] && ![AppUtils isNull:[resultDic objectForKey:@"SCH_DESCRIPTION"]]) {
+//        [self customLabel:cell];
+//    }
+
+    [self addLabelsToCell:cell];
+    
     return cell;
 }
 
@@ -95,6 +100,189 @@
 }
 
 #pragma mark - Helper Method
+
+-(void) addLabelsToCell:(UITableViewCell *)cell{
+    CGFloat height = 0.0;
+    
+    // =---> topic
+    UIView *containerTopic = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 140, 35)];
+    
+    UIImageView *imageTopic = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageTopic.image = [UIImage imageNamed:@"topic.png"];
+    
+    UILabel *labelTopic = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelTopic.textColor = RGB(218, 162, 53);
+    labelTopic.text = @"ប្រធានបទ";
+    labelTopic.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerTopic addSubview:imageTopic];
+    [containerTopic addSubview:labelTopic];
+    [cell.contentView addSubview:containerTopic];
+    
+    height = [self measureTextHeight:@"​iPhone 6s និង6s Plus ​ដាក់​លក់​តែ​​​បី​ថ្ងៃ​​ដាច់​​ជាង​ ១៣ លាន​គ្រឿង" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.6; // change
+    UILabel *topic = [[UILabel alloc]initWithFrame:CGRectMake(160, 10, (cell.contentView.frame.size.width - 180), height)];
+    topic.text = @"​iPhone 6s និង6s Plus ​ដាក់​លក់​តែ​​​បី​ថ្ងៃ​​ដាច់​​ជាង​ ១៣ លាន​គ្រឿង"; // change
+    [AppUtils setLineHeight:@"iPhone 6s និង6s Plus ​ដាក់​លក់​តែ​​​បី​ថ្ងៃ​​ដាច់​​ជាង​ ១៣ លាន​គ្រឿង" anyLabel:topic]; // change
+    topic.numberOfLines = 0;
+    
+    [cell.contentView addSubview:topic];
+    
+    // =---> Description
+    UIView *containerDes = [[UIView alloc] initWithFrame:CGRectMake(10, (topic.frame.origin.y + topic.frame.size.height) + 10 , 140, 35)];
+    
+    UIImageView *imageDes = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageDes.image = [UIImage imageNamed:@"description.png"];
+    
+    UILabel *labelDes = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelDes.textColor = RGB(218, 162, 53);
+    labelDes.text =  @"ព៌ណនា";
+    labelDes.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerDes addSubview:imageDes];
+    [containerDes addSubview:labelDes];
+    [cell.contentView addSubview:containerDes];
+    
+    height = [self measureTextHeight:@"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.4; // change
+    UILabel *description = [[UILabel alloc]initWithFrame:CGRectMake(160, (topic.frame.origin.y + topic.frame.size.height) + 10, (cell.contentView.frame.size.width - 180), height)];
+    description.text = @"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕"; // change
+    [AppUtils setLineHeight:@"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕" anyLabel:description]; // change
+    
+    description.numberOfLines = 0;
+    
+    [cell.contentView addSubview:description];
+    
+    
+    // =---> Location
+    UIView *containerLoc = [[UIView alloc] initWithFrame:CGRectMake(10, (description.frame.origin.y + description.frame.size.height) + 10 , 140, 35)];
+    
+    UIImageView *imageLoc = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageLoc.image = [UIImage imageNamed:@"location.png"];
+    
+    UILabel *labelLoc = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelLoc.textColor = RGB(218, 162, 53);
+    labelLoc.text =  @"ទីតាំង";
+    labelLoc.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerLoc addSubview:imageLoc];
+    [containerLoc addSubview:labelLoc];
+    [cell.contentView addSubview:containerLoc];
+    
+    UILabel *location = [[UILabel alloc]initWithFrame:CGRectMake(160, (description.frame.origin.y + description.frame.size.height) + 10, (cell.contentView.frame.size.width - 180), 35)];
+    location.text = @"Location"; // change
+    
+    [cell.contentView addSubview:location];
+    
+    // =---> Date
+    UIView *containerDate = [[UIView alloc] initWithFrame:CGRectMake(10, (location.frame.origin.y + location.frame.size.height) + 10 , 140, 35)];
+    
+    UIImageView *imageDate = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageDate.image = [UIImage imageNamed:@"calendar.png"];
+    
+    UILabel *labelDate = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelDate.textColor = RGB(218, 162, 53);
+    labelDate.text =  @"ពេលវេលា";
+    labelDate.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerDate addSubview:imageDate];
+    [containerDate addSubview:labelDate];
+    [cell.contentView addSubview:containerDate];
+    
+    UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 20), 35)];
+    date.text = @"29 Sep, 2015 08:42"; // change
+    
+    [cell.contentView addSubview:date];
+    
+    // =---> Start Hour
+    UIView *containerStart = [[UIView alloc] initWithFrame:CGRectMake(10, (date.frame.origin.y + date.frame.size.height) + 10 , 140, 35)];
+    
+    UIImageView *imageStart = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageStart.image = [UIImage imageNamed:@"clock.png"];
+    
+    UILabel *labelStart = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelStart.textColor = RGB(218, 162, 53);
+    labelStart.text =  @"ម៉ោងចាប់ផ្ដើម";
+    labelStart.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerStart addSubview:imageStart];
+    [containerStart addSubview:labelStart];
+    [cell.contentView addSubview:containerStart];
+    
+    UILabel *startHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStart.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
+    startHour.text = @"Start Hour"; // change
+    
+    [cell.contentView addSubview:startHour];
+    
+    // =---> Stop Hour
+    UIView *containerStop = [[UIView alloc] initWithFrame:CGRectMake(10, (startHour.frame.origin.y + startHour.frame.size.height) + 10 , 140, 35)];
+    
+    UIImageView *imageStop = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageStop.image = [UIImage imageNamed:@"clock.png"];
+    
+    UILabel *labelStop = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelStop.textColor = RGB(218, 162, 53);
+    labelStop.text =  @"ម៉ោងបញ្ចប់";
+    labelStop.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerStop addSubview:imageStop];
+    [containerStop addSubview:labelStop];
+    [cell.contentView addSubview:containerStop];
+    
+    UILabel *stopHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStop.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
+    stopHour.text = @"Finish Hour"; // change
+    
+    [cell.contentView addSubview:stopHour];
+    
+    
+    // =---> Type
+    UIView *containerType = [[UIView alloc] initWithFrame:CGRectMake(10, (stopHour.frame.origin.y + stopHour.frame.size.height) + 10 , 140, 35)];
+    
+    UIImageView *imageType = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageType.image = [UIImage imageNamed:@"type.png"];
+    
+    UILabel *labelType = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelType.textColor = RGB(218, 162, 53);
+    labelType.text =  @"ប្រភេទ";
+    labelType.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerType addSubview:imageType];
+    [containerType addSubview:labelType];
+    [cell.contentView addSubview:containerType];
+    
+    UILabel *type = [[UILabel alloc]initWithFrame:CGRectMake(160, containerType.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
+    type.text = @"Type"; // change
+    
+    [cell.contentView addSubview:type];
+    
+    rowHeight = type.frame.origin.y + 35 + 10;
+    
+    // =---> link
+    UIView *containerLink = [[UIView alloc] initWithFrame:CGRectMake(10, (containerType.frame.origin.y + stopHour.frame.size.height) + 10 , 140, 35)];
+    
+    UIImageView *imageLink = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+    imageLink.image = [UIImage imageNamed:@"links12.png"];
+    
+    UILabel *labelLink = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+    labelLink.textColor = RGB(218, 162, 53);
+    labelLink.text =  @"URL";
+    labelLink.font = [UIFont systemFontOfSize:17.0];
+    
+    [containerLink addSubview:imageLink];
+    [containerLink addSubview:labelLink];
+    [cell.contentView addSubview:containerLink];
+    
+    UITextView *link = [[UITextView alloc]initWithFrame:CGRectMake(160, containerLink.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
+    link.editable = false;
+    link.selectable = true;
+    link.scrollEnabled = false;
+    link.dataDetectorTypes = UIDataDetectorTypeLink;
+    
+    link.text = @"www.facebook.com"; // change
+    [link setFont:[UIFont systemFontOfSize:15]];
+    
+    [cell.contentView addSubview:link];
+    
+    rowHeight = link.frame.origin.y + 35 + 10;
+}
 
 -(void) customLabel: (UITableViewCell *) cell{
     

@@ -14,7 +14,7 @@
 #import <Social/Social.h>
 #import "ShowImageViewController.h"
 
-@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface DetailViewController () <UITableViewDataSource, UITableViewDelegate,ConnectionManagerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,NSLayoutManagerDelegate>
 {
     NSMutableArray *linkArray;
     float rowHeigh;
@@ -163,6 +163,7 @@
     
     cell.labelTitle.text = [resultDic objectForKey:@"ART_TITLE"]; // set title
     cell.labelAuthor.text = [NSString stringWithFormat:@"By: %@",[resultDic objectForKey:@"ART_AUTHOR"]]; // set author
+    cell.lblDate.text = [resultDic objectForKey:@"ART_PUBLISHED_DATE"];
     
     // =---> getting array image from resultDic
     //    NSArray *arr = [[NSArray alloc] initWithArray:ret];
@@ -181,20 +182,24 @@
     
     // =--> Create Content Label
     
-    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.56;
+    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.65;
     
-    UILabel *contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
+    UITextView *contentLabel = [[UITextView alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
     
-    [contentLabel setFont:[UIFont systemFontOfSize:15]];
     contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
-    contentLabel.numberOfLines = 0;
+//    contentLabel.numberOfLines = 0;
     contentLabel.tag = 100;
+    contentLabel.selectable = true;
+    contentLabel.scrollEnabled = false;
+    contentLabel.editable = false;
+    contentLabel.layoutManager.delegate = self;
+    contentLabel.dataDetectorTypes = UIDataDetectorTypeLink;
     
     if ([AppUtils isNull:[resultDic objectForKey:@"ART_DETAIL"]] == false && [AppUtils isNull:[resultDic objectForKey:@"ART_TITLE"]] == false) {
         
-        [AppUtils setLineHeight:[resultDic objectForKey:@"ART_DETAIL"] anyLabel:contentLabel];
+        [AppUtils setTextViewHeight:[resultDic objectForKey:@"ART_DETAIL"] anyTextView:contentLabel];
         [AppUtils setLineHeight:[resultDic objectForKey:@"ART_TITLE"] anyLabel:cell.labelTitle];
-        
+        [contentLabel setFont:[UIFont systemFontOfSize:15]];
     }
     
     [cell.contentView addSubview:contentLabel];
@@ -211,6 +216,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return rowHeigh;
 }
+#pragma mark - manager layout delegate 
+- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect
+{
+    return 10;
+}
 
 #pragma mark - other methods
 -(void)setupCollectinView:(UIView *)anyView{
@@ -220,7 +230,7 @@
     flowLayout.itemSize     = CGSizeMake(self.view.bounds.size.width - 30,[ShareObject shareObjectManager].shareWidth );
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    UICollectionView *imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(16, 138, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth) collectionViewLayout:flowLayout];
+    UICollectionView *imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(16, 158, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth) collectionViewLayout:flowLayout];
     
     // set Datasource and Delegate
     imageCollectionView.delegate = self;
@@ -266,7 +276,7 @@
 
 -(void)setupScrollViewWithImages:(NSArray *)imageViewArray atAnyView:(UIView *)anyView{
     
-    UIScrollView *anyScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(16, 138, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth)];
+    UIScrollView *anyScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(16, 158, self.view.bounds.size.width - 30, [ShareObject shareObjectManager].shareWidth)];
     anyScrollView.pagingEnabled = true;
     anyScrollView.showsHorizontalScrollIndicator = false;
     anyScrollView.tag = 9999;

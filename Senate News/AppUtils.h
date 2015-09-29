@@ -17,6 +17,17 @@
 +(void)showErrorMessage:(NSString *)message;
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+/** set line spacing for text in label
+ 
+ set line spacing
+ 
+ @param string      String
+ 
+ @param anyLabel    UILabel
+ 
+ */
++(void)setTextViewHeight:(NSString *)string anyTextView:(UITextView *)anyTextView;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /** set line spacing for text in label

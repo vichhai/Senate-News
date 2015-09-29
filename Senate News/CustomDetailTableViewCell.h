@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labelAuthor;
 @property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *lblDate;
 
 @end
