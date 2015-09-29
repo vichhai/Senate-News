@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -174,14 +174,14 @@
                     <navigationItem key="navigationItem" id="Svy-44-W3i">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Tl7-fZ-qef">
                             <view key="customView" contentMode="scaleToFill" id="91W-bw-974">
-                                <rect key="frame" x="68" y="16" width="112" height="35"/>
+                                <rect key="frame" x="16" y="4" width="150" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6p-Yk-VJr">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ទំព័រដើម" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-RL-GQQ">
-                                        <rect key="frame" x="43" y="6" width="61" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ប្រតិទិនប្រជំុ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-RL-GQQ">
+                                        <rect key="frame" x="43" y="3" width="99" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -195,13 +195,131 @@
                     <connections>
                         <outlet property="scheduleTableView" destination="Vrl-Jb-ML9" id="a3a-NJ-7SX"/>
                         <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetail" id="du1-Jy-adt"/>
-                        <segue destination="Q2w-CT-N2T" kind="show" identifier="search" id="MGw-gK-nHe"/>
                         <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="X6s-GJ-1tu"/>
+                        <segue destination="g5B-RR-jQV" kind="show" identifier="search" id="SAb-1Y-Npx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpI-ZW-BCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="429"/>
+            <point key="canvasLocation" x="2043" y="424"/>
+        </scene>
+        <!--Schedule Search View Controller-->
+        <scene sceneID="yAA-Xp-0tL">
+            <objects>
+                <tableViewController id="g5B-RR-jQV" customClass="ScheduleSearchViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="KKv-cr-YvN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="150" id="SeU-i3-cdG" customClass="ScheduleTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SeU-i3-cdG" id="ktV-JI-e64">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1K-sz-HB1">
+                                            <rect key="frame" x="8" y="6" width="304" height="136"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្ងៃទី ២៧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pId-JG-Z0F">
+                                                    <rect key="frame" x="39" y="9" width="227" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ប្រធានបទ: កិច្ចប្រជំុស្តីពិអំពើពុករលួយ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nd-dv-4aF">
+                                                    <rect key="frame" x="22" y="79" width="274" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="eWQ-IP-vAQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zk0-Gi-D5e">
+                                                    <rect key="frame" x="39" y="74" width="227" height="1"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ខែ ០៩ ឆ្នាំ ២០១៥" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAJ-fS-B5s">
+                                                    <rect key="frame" x="39" y="50" width="227" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="pXL-yg-sIS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fe-Mv-AhI">
+                                                    <rect key="frame" x="22" y="101" width="274" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ផុតកំណត់" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-EW-dON">
+                                                    <rect key="frame" x="8" y="9" width="50" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.070598680790000007" blue="0.1701482507" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.59753429189999996" green="0.72075018040000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="8fe-Mv-AhI" firstAttribute="trailing" secondItem="3Nd-dv-4aF" secondAttribute="trailing" id="1Ee-u8-ZHn"/>
+                                                <constraint firstItem="3Nd-dv-4aF" firstAttribute="leading" secondItem="z1K-sz-HB1" secondAttribute="leading" constant="22" id="6c4-EV-hFV"/>
+                                                <constraint firstAttribute="bottom" secondItem="8fe-Mv-AhI" secondAttribute="bottom" constant="-1" id="Av9-uP-hCp"/>
+                                                <constraint firstItem="8fe-Mv-AhI" firstAttribute="top" secondItem="Zk0-Gi-D5e" secondAttribute="bottom" constant="26" id="D3z-YC-BcY"/>
+                                                <constraint firstItem="pId-JG-Z0F" firstAttribute="trailing" secondItem="ZAJ-fS-B5s" secondAttribute="trailing" id="D5i-py-WJe"/>
+                                                <constraint firstItem="pId-JG-Z0F" firstAttribute="top" secondItem="z1K-sz-HB1" secondAttribute="top" constant="9" id="FSQ-27-pwO"/>
+                                                <constraint firstItem="Zk0-Gi-D5e" firstAttribute="leading" secondItem="ZAJ-fS-B5s" secondAttribute="leading" id="IJa-gR-UGr"/>
+                                                <constraint firstItem="pId-JG-Z0F" firstAttribute="leading" secondItem="z1K-sz-HB1" secondAttribute="leading" constant="39" id="Mkq-eu-eaJ"/>
+                                                <constraint firstItem="3Nd-dv-4aF" firstAttribute="trailing" secondItem="z1K-sz-HB1" secondAttribute="trailingMargin" id="Q4D-tG-Tci"/>
+                                                <constraint firstItem="3Nd-dv-4aF" firstAttribute="top" secondItem="Zk0-Gi-D5e" secondAttribute="bottom" constant="4" id="SAa-Lm-e2Z"/>
+                                                <constraint firstItem="ZAJ-fS-B5s" firstAttribute="trailing" secondItem="Zk0-Gi-D5e" secondAttribute="trailing" id="dxG-aI-uxr"/>
+                                                <constraint firstItem="Zk0-Gi-D5e" firstAttribute="top" secondItem="ZAJ-fS-B5s" secondAttribute="bottom" constant="3" id="hcn-0X-twY"/>
+                                                <constraint firstItem="ZAJ-fS-B5s" firstAttribute="leading" secondItem="pId-JG-Z0F" secondAttribute="leading" id="kb7-HH-m8E"/>
+                                                <constraint firstItem="3Nd-dv-4aF" firstAttribute="top" secondItem="ZAJ-fS-B5s" secondAttribute="bottom" constant="8" symbolic="YES" id="leX-RR-hiI"/>
+                                                <constraint firstItem="ZAJ-fS-B5s" firstAttribute="top" secondItem="pId-JG-Z0F" secondAttribute="bottom" constant="4" id="lwZ-1O-6pf"/>
+                                                <constraint firstItem="3Nd-dv-4aF" firstAttribute="leading" secondItem="8fe-Mv-AhI" secondAttribute="leading" id="tyE-hl-tqp"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Nd-dv-4aF" secondAttribute="bottom" constant="30" id="vSa-4R-54V"/>
+                                                <constraint firstItem="ZAJ-fS-B5s" firstAttribute="centerX" secondItem="z1K-sz-HB1" secondAttribute="centerX" id="xWO-S5-GKq"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="z1K-sz-HB1" firstAttribute="top" secondItem="ktV-JI-e64" secondAttribute="topMargin" constant="-2" id="1V1-Jy-yLa"/>
+                                        <constraint firstItem="z1K-sz-HB1" firstAttribute="trailing" secondItem="ktV-JI-e64" secondAttribute="trailingMargin" id="QVM-Dd-4dt"/>
+                                        <constraint firstItem="z1K-sz-HB1" firstAttribute="bottom" secondItem="ktV-JI-e64" secondAttribute="bottomMargin" id="Vjj-bT-29e"/>
+                                        <constraint firstItem="z1K-sz-HB1" firstAttribute="leading" secondItem="ktV-JI-e64" secondAttribute="leadingMargin" id="WSo-Si-4SB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="ZAJ-fS-B5s" id="SCz-wv-EvE"/>
+                                    <outlet property="day" destination="pId-JG-Z0F" id="Z9e-Yk-Wht"/>
+                                    <outlet property="publish" destination="8fe-Mv-AhI" id="DBX-pC-u0A"/>
+                                    <outlet property="status" destination="Jvf-EW-dON" id="IW9-BF-7KP"/>
+                                    <outlet property="subView" destination="z1K-sz-HB1" id="PuY-q0-zua"/>
+                                    <outlet property="title" destination="3Nd-dv-4aF" id="UjZ-4q-i9W"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="g5B-RR-jQV" id="NRZ-bJ-U66"/>
+                            <outlet property="delegate" destination="g5B-RR-jQV" id="G20-uE-hXf"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="Grq-KA-fqs"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetail" id="cDU-52-SMW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DfJ-rH-tfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2478" y="424"/>
         </scene>
         <!--Schedule Detail Table View Controller-->
         <scene sceneID="orX-eH-0Ka">
@@ -224,7 +342,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8l-pe-Ipb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2447" y="1166"/>
+            <point key="canvasLocation" x="2368" y="1166"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="H97-N6-2Ux">
@@ -384,7 +502,6 @@
                         <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="8f3-50-Fob"/>
                         <segue destination="kOn-ZE-WTq" kind="show" identifier="search" id="okK-ac-N8B"/>
                         <segue destination="pbE-Lh-LZg" kind="show" identifier="sDetail" id="dYX-Bj-WiK"/>
-                        <segue destination="Q2w-CT-N2T" kind="show" identifier="sDetail" id="LG2-pN-7nr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-2g-0a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1133,121 +1250,6 @@
             </objects>
             <point key="canvasLocation" x="678" y="125"/>
         </scene>
-        <!--Schedule Search View Controller-->
-        <scene sceneID="Dzs-DM-9aB">
-            <objects>
-                <tableViewController id="Q2w-CT-N2T" customClass="ScheduleSearchViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="RrT-q2-fev">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="150" id="bHd-KO-byW" customClass="ScheduleTableViewCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHd-KO-byW" id="WAG-Pa-a0P">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ej0-ya-5Zp">
-                                            <rect key="frame" x="8" y="7" width="304" height="136"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្ងៃទី ២៧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsN-8t-jbI">
-                                                    <rect key="frame" x="39" y="9" width="227" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ប្រធានបទ: កិច្ចប្រជំុស្តីពិអំពើពុករលួយ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8y-OO-cVS">
-                                                    <rect key="frame" x="22" y="79" width="274" height="27"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="27" id="ESy-3T-6RE"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lem-E3-ihY">
-                                                    <rect key="frame" x="39" y="74" width="227" height="1"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ខែ ០៩ ឆ្នាំ ២០១៥" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfD-At-w2O">
-                                                    <rect key="frame" x="39" y="50" width="227" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="eHN-nd-JWc"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-Kk-qFk">
-                                                    <rect key="frame" x="22" y="101" width="274" height="36"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ផុតកំណត់" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm5-7q-PFV">
-                                                    <rect key="frame" x="8" y="8" width="50" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="1" green="0.070598680790000007" blue="0.1701482507" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDy-E1-FSY">
-                                                    <rect key="frame" x="241" y="17" width="25" height="25"/>
-                                                    <state key="normal" backgroundImage="Back-100.png">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.59753429189999996" green="0.72075018040000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="yfD-At-w2O" firstAttribute="leading" secondItem="MsN-8t-jbI" secondAttribute="leading" id="3xr-xX-2tb"/>
-                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="trailing" secondItem="dkC-Kk-qFk" secondAttribute="trailing" id="5x1-be-BP0"/>
-                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="top" secondItem="lem-E3-ihY" secondAttribute="bottom" constant="4" id="Bcc-i7-foy"/>
-                                                <constraint firstItem="dkC-Kk-qFk" firstAttribute="leading" secondItem="u8y-OO-cVS" secondAttribute="leading" id="GAe-bZ-BeO"/>
-                                                <constraint firstItem="dkC-Kk-qFk" firstAttribute="top" secondItem="lem-E3-ihY" secondAttribute="bottom" constant="26" id="GND-rQ-IEM"/>
-                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="top" secondItem="yfD-At-w2O" secondAttribute="bottom" constant="8" symbolic="YES" id="KFF-aR-57u"/>
-                                                <constraint firstItem="MsN-8t-jbI" firstAttribute="leading" secondItem="Ej0-ya-5Zp" secondAttribute="leading" constant="39" id="Kzn-9u-Rph"/>
-                                                <constraint firstItem="lem-E3-ihY" firstAttribute="trailing" secondItem="yfD-At-w2O" secondAttribute="trailing" id="TYn-lg-8Ip"/>
-                                                <constraint firstItem="lem-E3-ihY" firstAttribute="leading" secondItem="yfD-At-w2O" secondAttribute="leading" id="Tvu-4L-uoL"/>
-                                                <constraint firstItem="lem-E3-ihY" firstAttribute="top" secondItem="yfD-At-w2O" secondAttribute="bottom" constant="3" id="Ufm-7D-5nU"/>
-                                                <constraint firstAttribute="bottom" secondItem="u8y-OO-cVS" secondAttribute="bottom" constant="30" id="Wtq-nw-BrJ"/>
-                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="trailing" secondItem="Ej0-ya-5Zp" secondAttribute="trailingMargin" id="fc0-T5-UBf"/>
-                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="leading" secondItem="Ej0-ya-5Zp" secondAttribute="leading" constant="22" id="gbs-Ke-j32"/>
-                                                <constraint firstItem="lem-E3-ihY" firstAttribute="centerX" secondItem="Ej0-ya-5Zp" secondAttribute="centerX" id="j3B-6e-YeV"/>
-                                                <constraint firstItem="yfD-At-w2O" firstAttribute="top" secondItem="MsN-8t-jbI" secondAttribute="bottom" constant="4" id="kHv-Gl-iKb"/>
-                                                <constraint firstItem="MsN-8t-jbI" firstAttribute="top" secondItem="Ej0-ya-5Zp" secondAttribute="top" constant="9" id="lhS-01-PLW"/>
-                                                <constraint firstItem="MsN-8t-jbI" firstAttribute="trailing" secondItem="yfD-At-w2O" secondAttribute="trailing" id="qlQ-eu-0RW"/>
-                                                <constraint firstAttribute="bottom" secondItem="dkC-Kk-qFk" secondAttribute="bottom" constant="-1" id="x5Y-LT-X5O"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Ej0-ya-5Zp" firstAttribute="trailing" secondItem="WAG-Pa-a0P" secondAttribute="trailingMargin" id="E7J-lm-LfE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Ej0-ya-5Zp" secondAttribute="bottom" constant="-2" id="IDl-NI-Abd"/>
-                                        <constraint firstItem="Ej0-ya-5Zp" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leadingMargin" id="l0s-97-rfu"/>
-                                        <constraint firstItem="Ej0-ya-5Zp" firstAttribute="top" secondItem="WAG-Pa-a0P" secondAttribute="topMargin" constant="-1" id="lJh-CO-xEe"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Q2w-CT-N2T" id="VJT-Pk-tzI"/>
-                            <outlet property="delegate" destination="Q2w-CT-N2T" id="hMO-u7-wUe"/>
-                        </connections>
-                    </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="Pm3-qb-tPz"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="pbE-Lh-LZg" kind="show" identifier="scheduleDetail" id="230-h4-iGI"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YlS-Mx-XhJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2440" y="430"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="ey0-wl-BGX">
             <objects>
@@ -1385,10 +1387,8 @@
         <image name="senate.png" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MGw-gK-nHe"/>
+        <segue reference="du1-Jy-adt"/>
         <segue reference="PAs-tq-Wca"/>
         <segue reference="X6s-GJ-1tu"/>
-        <segue reference="du1-Jy-adt"/>
-        <segue reference="MGw-gK-nHe"/>
     </inferredMetricsTieBreakers>
 </document>
