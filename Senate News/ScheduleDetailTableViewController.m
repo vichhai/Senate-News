@@ -26,9 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _detailSchedule.hidden = true;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _detailSchedule.allowsSelection = NO;
+    [self.view setUserInteractionEnabled:false];
     UIButton *back  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [back setImage:[UIImage imageNamed:@"Back-100"] forState:UIControlStateNormal];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:back];
@@ -119,6 +119,7 @@
     [_detailSchedule reloadData];
     [AppUtils hideLoading:self.view];
     _detailSchedule.hidden = false;
+    [self.view setUserInteractionEnabled:true];
 }
 
 #pragma mark - Helper Method
@@ -134,7 +135,7 @@
     
     UILabel *labelTopic = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
     labelTopic.textColor = RGB(218, 162, 53);
-    labelTopic.text = @"ប្រធានបទ";
+    labelTopic.text = @"ប្រធានបទ:";
     labelTopic.font = [UIFont systemFontOfSize:17.0];
     
     [containerTopic addSubview:imageTopic];
@@ -157,7 +158,7 @@
     
     UILabel *labelDes = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
     labelDes.textColor = RGB(218, 162, 53);
-    labelDes.text =  @"ព៌ណនា";
+    labelDes.text =  @"ព៌ណនា:";
     labelDes.font = [UIFont systemFontOfSize:17.0];
     
     [containerDes addSubview:imageDes];
@@ -182,7 +183,7 @@
     
     UILabel *labelLoc = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
     labelLoc.textColor = RGB(218, 162, 53);
-    labelLoc.text =  @"ទីតាំង";
+    labelLoc.text =  @"ទីតាំង:";
     labelLoc.font = [UIFont systemFontOfSize:17.0];
     
     [containerLoc addSubview:imageLoc];
@@ -198,19 +199,21 @@
     UIView *containerDate = [[UIView alloc] initWithFrame:CGRectMake(10, (location.frame.origin.y + location.frame.size.height) + 10 , 140, 35)];
     
     UIImageView *imageDate = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
-    imageDate.image = [UIImage imageNamed:@"calendar.png"];
+    imageDate.image = [UIImage imageNamed:@"calendar"];
     
     UILabel *labelDate = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
     labelDate.textColor = RGB(218, 162, 53);
-    labelDate.text =  @"ពេលវេលា";
+    labelDate.text =  @"កាលបរិច្ឆេត:";
     labelDate.font = [UIFont systemFontOfSize:17.0];
     
     [containerDate addSubview:imageDate];
     [containerDate addSubview:labelDate];
     [cell.contentView addSubview:containerDate];
-    
+//    NSString *day = [[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
+//    NSString *month = [[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
+//    NSString *year = [[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
     UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 20), 35)];
-    date.text = @"29 Sep, 2015 08:42"; // change
+    date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
     
     [cell.contentView addSubview:date];
     
@@ -278,34 +281,34 @@
     rowHeight = type.frame.origin.y + 35 + 15;
     
     // =---> link
-    UIView *containerLink = [[UIView alloc] initWithFrame:CGRectMake(10, (containerType.frame.origin.y + stopHour.frame.size.height) + 10 , 140, 35)];
-    
-    UIImageView *imageLink = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
-    imageLink.image = [UIImage imageNamed:@"links12.png"];
-    
-    UILabel *labelLink = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
-    labelLink.textColor = RGB(218, 162, 53);
-    labelLink.text =  @"URL";
-    labelLink.font = [UIFont systemFontOfSize:17.0];
-    
-    [containerLink addSubview:imageLink];
-    [containerLink addSubview:labelLink];
-    [cell.contentView addSubview:containerLink];
-    
-    height = [self measureTextHeight:@"www.facebook.com" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f]; // change
-    
-    UITextView *link = [[UITextView alloc]initWithFrame:CGRectMake(160, containerLink.frame.origin.y , (cell.contentView.frame.size.width - 180), height)];
-    link.editable = false;
-    link.selectable = true;
-    link.scrollEnabled = false;
-    link.dataDetectorTypes = UIDataDetectorTypeLink;
-    
-    link.text = @"www.facebook.com"; // change
-    [link setFont:[UIFont systemFontOfSize:15]];
-    
-    [cell.contentView addSubview:link];
-    
-    rowHeight = link.frame.origin.y + height + 10;
+//    UIView *containerLink = [[UIView alloc] initWithFrame:CGRectMake(10, (containerType.frame.origin.y + stopHour.frame.size.height) + 10 , 140, 35)];
+//    
+//    UIImageView *imageLink = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
+//    imageLink.image = [UIImage imageNamed:@"links12.png"];
+//    
+//    UILabel *labelLink = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
+//    labelLink.textColor = RGB(218, 162, 53);
+//    labelLink.text =  @"URL";
+//    labelLink.font = [UIFont systemFontOfSize:17.0];
+//    
+//    [containerLink addSubview:imageLink];
+//    [containerLink addSubview:labelLink];
+//    [cell.contentView addSubview:containerLink];
+//    
+//    height = [self measureTextHeight:@"www.facebook.com" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f]; // change
+//    
+//    UITextView *link = [[UITextView alloc]initWithFrame:CGRectMake(160, containerLink.frame.origin.y , (cell.contentView.frame.size.width - 180), height)];
+//    link.editable = false;
+//    link.selectable = true;
+//    link.scrollEnabled = false;
+//    link.dataDetectorTypes = UIDataDetectorTypeLink;
+//    
+//    link.text = @"www.facebook.com"; // change
+//    [link setFont:[UIFont systemFontOfSize:15]];
+//    
+//    [cell.contentView addSubview:link];
+//    
+//    rowHeight = link.frame.origin.y + height + 10;
 }
 
 -(void) customLabel: (UITableViewCell *) cell{
