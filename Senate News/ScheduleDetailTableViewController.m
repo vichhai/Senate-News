@@ -28,8 +28,18 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _detailSchedule.allowsSelection = NO;
+    UIButton *back  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [back setImage:[UIImage imageNamed:@"Back-100"] forState:UIControlStateNormal];
+    UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:back];
+    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem2, nil];
+    self.navigationItem.leftItemsSupplementBackButton = barButtonItemArray;
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [AppUtils showLoading:self.view];
     [self requestToserver:@"SCHEDULE_R001"];
+}
+
+-(void)back{
+    NSLog(@"back");
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -40,6 +50,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)doDoubleTap{
+    // =---> scroll tableView to the top
+    [_detailSchedule scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return true;
 }
 
 #pragma mark - Table view data source
@@ -143,8 +162,9 @@
     height = [self measureTextHeight:@"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.4; // change
     UILabel *description = [[UILabel alloc]initWithFrame:CGRectMake(160, (topic.frame.origin.y + topic.frame.size.height) + 10, (cell.contentView.frame.size.width - 180), height)];
     description.text = @"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕"; // change
+    description.text = [resultDic objectForKey:@"SCH_DESCRIPTION"];
     [AppUtils setLineHeight:@"​ក្រុមហ៊ុន Apple ​បាន​រាយការណ៍​ថា ​តួរ​លេខ​នៃ​ការ​លក់​​ iPhone 6s និង​ iPhone 6s Plus គឺ​បាន​ច្រើន​ជាង​ ១៣ លាន​គ្រឿង​​ក្នុង​រយៈ​ពេល​នៃ​ការ​ដាក់​លក់​ត្រឹម​បី​ថ្ងៃ ដែល​ចំនួន​តួរលេខ​នៃ​ការ​លក់​នេះ​គឺ​បាន​លើស​​ពី​ឆ្នាំ​មុន​ដោយ​បាន​ត្រឹម​តែ​ ១០ លាន​គ្រឿង​តែ​ប៉ុណ្ណោះ​បើ​ប្រៀប​ទៅ​នឹង​រយៈ​ពេល​នៃ​ការ​លក់​ចំនួន​បី​ថ្ងៃ​ដូច​គ្នា។ ​តាម​ការ​ឲ្យ​ដឹង​ពី​អ្នក​វិភាគ​របស់​ក្រុមហ៊ុន FBR & Co. ​បាន​ឲ្យ​ដឹង​ថា​ ចំនួន​​នៃ​ការ​លក់​នោះ​គឺ​មាន​ប្រមាណ​ជា ២ ទៅ ២,៥ លាន​គ្រឿង​បាន​លក់​នៅ​ក្នុង​ប្រទេស​ចិន ហើយ​ចំណែក​ឯ​​បណ្ដា​ប្រទេស​ផ្សេង​ទៀត​គឺ​បាន​កើន​ឡើង​ចន្លោះ​ពី ៥ ទៅ ១០ ភាគរយ៕" anyLabel:description]; // change
-    
+   // [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] anyLabel:description];
     description.numberOfLines = 0;
     
     [cell.contentView addSubview:description];

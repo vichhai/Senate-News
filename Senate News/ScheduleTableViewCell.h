@@ -18,8 +18,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UILabel *title;
 @property (strong, nonatomic) IBOutlet UILabel *publish;
-@property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UIView *subView;
+@property (strong, nonatomic) IBOutlet UILabel *status;
 
 
 -(void)customCell;

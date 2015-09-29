@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -118,6 +118,12 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ផុតកំណត់" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZE-09-giK">
+                                                    <rect key="frame" x="8" y="9" width="50" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.070598680790000007" blue="0.1701482507" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.59753429189747553" green="0.72075018035747973" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -153,6 +159,7 @@
                                     <outlet property="date" destination="tiw-VG-Lro" id="AX3-UP-vzl"/>
                                     <outlet property="day" destination="oCm-xX-bIV" id="yX3-El-5hj"/>
                                     <outlet property="publish" destination="1hX-du-xbc" id="kNu-yy-d8v"/>
+                                    <outlet property="status" destination="DZE-09-giK" id="G4w-mS-Zal"/>
                                     <outlet property="subView" destination="4no-oM-YdR" id="zcV-Ko-WU1"/>
                                     <outlet property="title" destination="io1-Gy-LBI" id="f67-Rx-n1S"/>
                                 </connections>
@@ -1130,75 +1137,99 @@
         <scene sceneID="Dzs-DM-9aB">
             <objects>
                 <tableViewController id="Q2w-CT-N2T" customClass="ScheduleSearchViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" id="RrT-q2-fev">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="RrT-q2-fev">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="168" id="bHd-KO-byW" customClass="ScheduleTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="150" id="bHd-KO-byW" customClass="ScheduleTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bHd-KO-byW" id="WAG-Pa-a0P">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ការប្រជំុនៅទីស្តីការ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Af-u0-AXj">
-                                            <rect key="frame" x="8" y="8" width="304" height="35"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ej0-ya-5Zp">
+                                            <rect key="frame" x="8" y="7" width="304" height="136"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្ងៃទី ២៧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsN-8t-jbI">
+                                                    <rect key="frame" x="39" y="9" width="227" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ប្រធានបទ: កិច្ចប្រជំុស្តីពិអំពើពុករលួយ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8y-OO-cVS">
+                                                    <rect key="frame" x="22" y="79" width="274" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="ESy-3T-6RE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lem-E3-ihY">
+                                                    <rect key="frame" x="39" y="74" width="227" height="1"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ខែ ០៩ ឆ្នាំ ២០១៥" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfD-At-w2O">
+                                                    <rect key="frame" x="39" y="50" width="227" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="eHN-nd-JWc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkC-Kk-qFk">
+                                                    <rect key="frame" x="22" y="101" width="274" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ផុតកំណត់" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm5-7q-PFV">
+                                                    <rect key="frame" x="8" y="8" width="50" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="0.070598680790000007" blue="0.1701482507" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDy-E1-FSY">
+                                                    <rect key="frame" x="241" y="17" width="25" height="25"/>
+                                                    <state key="normal" backgroundImage="Back-100.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.59753429189999996" green="0.72075018040000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="ZK8-0c-EPg"/>
+                                                <constraint firstItem="yfD-At-w2O" firstAttribute="leading" secondItem="MsN-8t-jbI" secondAttribute="leading" id="3xr-xX-2tb"/>
+                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="trailing" secondItem="dkC-Kk-qFk" secondAttribute="trailing" id="5x1-be-BP0"/>
+                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="top" secondItem="lem-E3-ihY" secondAttribute="bottom" constant="4" id="Bcc-i7-foy"/>
+                                                <constraint firstItem="dkC-Kk-qFk" firstAttribute="leading" secondItem="u8y-OO-cVS" secondAttribute="leading" id="GAe-bZ-BeO"/>
+                                                <constraint firstItem="dkC-Kk-qFk" firstAttribute="top" secondItem="lem-E3-ihY" secondAttribute="bottom" constant="26" id="GND-rQ-IEM"/>
+                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="top" secondItem="yfD-At-w2O" secondAttribute="bottom" constant="8" symbolic="YES" id="KFF-aR-57u"/>
+                                                <constraint firstItem="MsN-8t-jbI" firstAttribute="leading" secondItem="Ej0-ya-5Zp" secondAttribute="leading" constant="39" id="Kzn-9u-Rph"/>
+                                                <constraint firstItem="lem-E3-ihY" firstAttribute="trailing" secondItem="yfD-At-w2O" secondAttribute="trailing" id="TYn-lg-8Ip"/>
+                                                <constraint firstItem="lem-E3-ihY" firstAttribute="leading" secondItem="yfD-At-w2O" secondAttribute="leading" id="Tvu-4L-uoL"/>
+                                                <constraint firstItem="lem-E3-ihY" firstAttribute="top" secondItem="yfD-At-w2O" secondAttribute="bottom" constant="3" id="Ufm-7D-5nU"/>
+                                                <constraint firstAttribute="bottom" secondItem="u8y-OO-cVS" secondAttribute="bottom" constant="30" id="Wtq-nw-BrJ"/>
+                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="trailing" secondItem="Ej0-ya-5Zp" secondAttribute="trailingMargin" id="fc0-T5-UBf"/>
+                                                <constraint firstItem="u8y-OO-cVS" firstAttribute="leading" secondItem="Ej0-ya-5Zp" secondAttribute="leading" constant="22" id="gbs-Ke-j32"/>
+                                                <constraint firstItem="lem-E3-ihY" firstAttribute="centerX" secondItem="Ej0-ya-5Zp" secondAttribute="centerX" id="j3B-6e-YeV"/>
+                                                <constraint firstItem="yfD-At-w2O" firstAttribute="top" secondItem="MsN-8t-jbI" secondAttribute="bottom" constant="4" id="kHv-Gl-iKb"/>
+                                                <constraint firstItem="MsN-8t-jbI" firstAttribute="top" secondItem="Ej0-ya-5Zp" secondAttribute="top" constant="9" id="lhS-01-PLW"/>
+                                                <constraint firstItem="MsN-8t-jbI" firstAttribute="trailing" secondItem="yfD-At-w2O" secondAttribute="trailing" id="qlQ-eu-0RW"/>
+                                                <constraint firstAttribute="bottom" secondItem="dkC-Kk-qFk" secondAttribute="bottom" constant="-1" id="x5Y-LT-X5O"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="19"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5D-Hf-5gx">
-                                            <rect key="frame" x="8" y="116" width="304" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="WNJ-1l-KXh"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUB-q0-0Qp">
-                                            <rect key="frame" x="8" y="138" width="304" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="0fd-IX-prF"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s75-oq-Ixj">
-                                            <rect key="frame" x="8" y="48" width="304" height="71"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="71" id="20e-SI-0zH"/>
-                                            </constraints>
-                                            <string key="text">មាជិកាគណៈកម្មការទី២ព្រឹទ្ធសភា និងជាសមាជិកាក្រុមសមាជិកព្រឹទ្ធសភាប្រ ចាំភូមិភាគទី៨ ព្រមទាំងបុត្រាបុត្រី និងចៅ ឯកឧត្តមឧត្តមសេណីយ៍ឯក សៀក សុជាតិ និងឯកឧត្តម ជាសមាជិកព្រឹទ្ធសភា បានវេរប្រគេនទេយ្យទានដល់ព្រះសង្ឃដែលនិមន្តមកពីវត្តទាំង៤៣វត្ត ដោយក្នុងមួយវត្តៗរួមមាន៖ ទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម ឆៃប៉ូវ៥គីឡូក្រាម សៀងផ្អែម ៥គីឡូក្រាម ពងទាប្រៃ៥០គ្រាប កាហ្វេ២ប្រអប់ ខ្ទឹមស១គីឡូក្រាម ប៊ីចេង១គីឡូក្រាម ធូប២ដុំ មី២កេស ត្រីខ២យួរ ទឹកបរិសុទ្ធ២កេស ទឹកក្រូច១កេស ទឹកផ្លែឈើ១កេស ទឹកត្រី២យួរ ទឹកស៊ីអ៊ីវ២យួរ ស្លាដក១ បច្ច័យ១០០.០០០រៀល ដោយឡែកវត្តចំនួន១០ ក្នុងខេត្តកំពង់ធំ ក្នុងមួយវត្តៗទៀនវស្សា០១គូ អង្ករ៥០គីឡូក្រាម មី០២កេស ទឹកបរិសុទ្ធ០២កេស ធូប០២ដុំ និងបច្ច័យ១០០.០០០រៀល៕អត្ថបទ និងរូបភាព៖នាយកដ្ឋានព័ត៌មាន",</string>
-                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="sUB-q0-0Qp" secondAttribute="trailing" constant="8" id="7yZ-F3-7x2"/>
-                                        <constraint firstItem="s75-oq-Ixj" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="A8y-Ag-3w0"/>
-                                        <constraint firstItem="sUB-q0-0Qp" firstAttribute="top" secondItem="v5D-Hf-5gx" secondAttribute="bottom" constant="1" id="Bkb-0b-qne"/>
-                                        <constraint firstItem="v5D-Hf-5gx" firstAttribute="top" secondItem="6Af-u0-AXj" secondAttribute="bottom" constant="73" id="U5A-dR-F3e"/>
-                                        <constraint firstAttribute="trailing" secondItem="v5D-Hf-5gx" secondAttribute="trailing" constant="8" id="UHF-kS-yzx"/>
-                                        <constraint firstItem="6Af-u0-AXj" firstAttribute="top" secondItem="WAG-Pa-a0P" secondAttribute="top" constant="8" id="aIF-r3-cca"/>
-                                        <constraint firstItem="6Af-u0-AXj" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="ipw-8K-0jK"/>
-                                        <constraint firstAttribute="trailing" secondItem="s75-oq-Ixj" secondAttribute="trailing" constant="8" id="rEE-no-wTt"/>
-                                        <constraint firstItem="s75-oq-Ixj" firstAttribute="top" secondItem="6Af-u0-AXj" secondAttribute="bottom" constant="5" id="sPq-W8-thR"/>
-                                        <constraint firstItem="sUB-q0-0Qp" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="xel-B7-MhJ"/>
-                                        <constraint firstItem="v5D-Hf-5gx" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leading" constant="8" id="yI9-H6-dVe"/>
-                                        <constraint firstAttribute="trailing" secondItem="6Af-u0-AXj" secondAttribute="trailing" constant="8" id="zL9-Qo-5Vn"/>
+                                        <constraint firstItem="Ej0-ya-5Zp" firstAttribute="trailing" secondItem="WAG-Pa-a0P" secondAttribute="trailingMargin" id="E7J-lm-LfE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ej0-ya-5Zp" secondAttribute="bottom" constant="-2" id="IDl-NI-Abd"/>
+                                        <constraint firstItem="Ej0-ya-5Zp" firstAttribute="leading" secondItem="WAG-Pa-a0P" secondAttribute="leadingMargin" id="l0s-97-rfu"/>
+                                        <constraint firstItem="Ej0-ya-5Zp" firstAttribute="top" secondItem="WAG-Pa-a0P" secondAttribute="topMargin" constant="-1" id="lJh-CO-xEe"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="dateLabel" destination="v5D-Hf-5gx" id="EEW-iO-Ssd"/>
-                                    <outlet property="descriptionLabel" destination="s75-oq-Ixj" id="kha-oc-hsk"/>
-                                    <outlet property="posterLabel" destination="sUB-q0-0Qp" id="Ouz-rr-MTZ"/>
-                                    <outlet property="titleLabel" destination="6Af-u0-AXj" id="tAf-8f-i4e"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1354,9 +1385,9 @@
         <image name="senate.png" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="MGw-gK-nHe"/>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="LG2-pN-7nr"/>
-        <segue reference="dYX-Bj-WiK"/>
-        <segue reference="8f3-50-Fob"/>
+        <segue reference="X6s-GJ-1tu"/>
+        <segue reference="du1-Jy-adt"/>
     </inferredMetricsTieBreakers>
 </document>
