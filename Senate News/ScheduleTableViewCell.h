@@ -14,4 +14,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *posterLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *day;
+@property (strong, nonatomic) IBOutlet UILabel *date;
+@property (strong, nonatomic) IBOutlet UILabel *title;
+@property (strong, nonatomic) IBOutlet UILabel *publish;
+@property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) IBOutlet UIView *subView;
+
 @end
