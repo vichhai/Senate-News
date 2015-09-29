@@ -128,7 +128,7 @@
 
 -(UIView *)setupViewForSectionHeader:(NSString *)text {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
-    //headerView.backgroundColor = [UIColor lightGrayColor];
+    headerView.backgroundColor = [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5,7, 20, 20)];
     if ([text isEqualToString:@"ប្រតិទិនប្រជំុ"]) {
         imageView.image = [UIImage imageNamed:@"schedule"];
