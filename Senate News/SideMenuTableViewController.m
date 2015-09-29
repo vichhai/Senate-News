@@ -9,7 +9,7 @@
 #import "SideMenuTableViewController.h"
 #import "HomeViewController.h"
 #import "ShareObject.h"
-
+#import "ScheduleDetailTableViewController.h"
 @interface SideMenuTableViewController ()
 {
     NSMutableArray *arrayCategory;
@@ -86,7 +86,7 @@
     }
     
     // =---> setup label
-    UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 150, 30)];
+    UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 170, 30)];
     myLabel.textColor = [UIColor blackColor];
     myLabel.font = [UIFont systemFontOfSize:17];
     [cell.contentView addSubview:myLabel];
@@ -125,20 +125,22 @@
 
 -(UIView *)setupViewForSectionHeader:(NSString *)text {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
-    headerView.backgroundColor = [UIColor lightGrayColor];
+    headerView.backgroundColor = [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5,7, 20, 20)];
     if ([text isEqualToString:@"ប្រតិទិនប្រជំុ"]) {
-        imageView.image = [UIImage imageNamed:@"schedule"];
+        imageView.image = [UIImage imageNamed:@"calendar.png"];
     }else if ([text isEqualToString:@"ព័ត៌មានព្រឹទ្ធសភា"]){
-        imageView.image = [UIImage imageNamed:@"home"];
+        imageView.image = [UIImage imageNamed:@"news.png"];
     }else{
-        imageView.image = [UIImage imageNamed:@"setting"];
+        imageView.image = [UIImage imageNamed:@"info.png"];
     }
     [headerView addSubview:imageView];
     
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, headerView.frame.size.width - 85, 25)];
     textLabel.text = text;
     textLabel.font = [UIFont systemFontOfSize:19];
+    textLabel.textColor = RGB(218, 162, 53);
+    
     [headerView addSubview:textLabel];
     return headerView;
 }
