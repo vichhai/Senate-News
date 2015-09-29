@@ -129,7 +129,6 @@
 -(UIView *)setupViewForSectionHeader:(NSString *)text {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
     headerView.backgroundColor = [UIColor whiteColor];
-    //headerView.backgroundColor = [UIColor lightGrayColor];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5,7, 20, 20)];
     if ([text isEqualToString:@"ប្រតិទិនប្រជំុ"]) {
         imageView.image = [UIImage imageNamed:@"calendar.png"];
@@ -143,7 +142,7 @@
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, headerView.frame.size.width - 85, 25)];
     textLabel.text = text;
     textLabel.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
-    textLabel.font = [UIFont systemFontOfSize:19];
+   // textLabel.font = [UIFont systemFontOfSize:19];
     textLabel.textColor = RGB(218, 162, 53);
     
     [headerView addSubview:textLabel];

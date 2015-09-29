@@ -28,8 +28,18 @@
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _detailSchedule.allowsSelection = NO;
+    UIButton *back  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [back setImage:[UIImage imageNamed:@"Back-100"] forState:UIControlStateNormal];
+    UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:back];
+    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem2, nil];
+    self.navigationItem.leftItemsSupplementBackButton = barButtonItemArray;
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [AppUtils showLoading:self.view];
     [self requestToserver:@"SCHEDULE_R001"];
+}
+
+-(void)back{
+    NSLog(@"back");
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -40,6 +50,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)doDoubleTap{
+    // =---> scroll tableView to the top
+    [_detailSchedule scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return true;
 }
 
 #pragma mark - Table view data source
