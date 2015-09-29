@@ -19,7 +19,6 @@
 		ED367CEC1BA2D57900481BE7 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = ED367CEB1BA2D57900481BE7 /* menu.png */; };
 		ED367CF11BA2DE1200481BE7 /* ShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED367CF01BA2DE1200481BE7 /* ShowImageViewController.m */; };
 		ED367CF31BA2E18E00481BE7 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = ED367CF21BA2E18E00481BE7 /* close.png */; };
-		ED566F671BB8FB7100468F89 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = ED566F601BB8FB7100468F89 /* calendar.png */; };
 		ED566F681BB8FB7100468F89 /* topic.png in Resources */ = {isa = PBXBuildFile; fileRef = ED566F611BB8FB7100468F89 /* topic.png */; };
 		ED566F691BB8FB7100468F89 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = ED566F621BB8FB7100468F89 /* clock.png */; };
 		ED566F6A1BB8FB7100468F89 /* description.png in Resources */ = {isa = PBXBuildFile; fileRef = ED566F631BB8FB7100468F89 /* description.png */; };
@@ -80,6 +79,7 @@
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
 		FD35EA571BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */; };
 		FD35EA581BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD35EA561BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf */; };
+		FD35EA5C1BBA78E300B3C5C3 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FD35EA5B1BBA78E300B3C5C3 /* calendar.png */; };
 		FD3BF0F71BB5477400F7BBE6 /* senate.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3BF0F61BB5477400F7BBE6 /* senate.png */; };
 		FD3BF0FB1BB5488600F7BBE6 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF0FA1BB5488600F7BBE6 /* AppViewController.m */; };
 		FD3BF1011BB554ED00F7BBE6 /* Simple-Logo-GITS.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3BF1001BB554ED00F7BBE6 /* Simple-Logo-GITS.png */; };
@@ -127,7 +127,6 @@
 		ED367CEF1BA2DE1200481BE7 /* ShowImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageViewController.h; sourceTree = "<group>"; };
 		ED367CF01BA2DE1200481BE7 /* ShowImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageViewController.m; sourceTree = "<group>"; };
 		ED367CF21BA2E18E00481BE7 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
-		ED566F601BB8FB7100468F89 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		ED566F611BB8FB7100468F89 /* topic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topic.png; sourceTree = "<group>"; };
 		ED566F621BB8FB7100468F89 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		ED566F631BB8FB7100468F89 /* description.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = description.png; sourceTree = "<group>"; };
@@ -227,6 +226,7 @@
 		FD35EA561BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KhmerOSBattambang-Regular.ttf"; sourceTree = "<group>"; };
 		FD35EA591BBA362900B3C5C3 /* KhmerOSMoul.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KhmerOSMoul.ttf; sourceTree = "<group>"; };
 		FD35EA5A1BBA363600B3C5C3 /* KhmerOSNew-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KhmerOSNew-Regular.ttf"; sourceTree = "<group>"; };
+		FD35EA5B1BBA78E300B3C5C3 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		FD3BF0F61BB5477400F7BBE6 /* senate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = senate.png; sourceTree = "<group>"; };
 		FD3BF0F91BB5488600F7BBE6 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
 		FD3BF0FA1BB5488600F7BBE6 /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewController.m; sourceTree = "<group>"; };
@@ -392,6 +392,7 @@
 		ED9401321B96D471001BCE2D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD35EA5B1BBA78E300B3C5C3 /* calendar.png */,
 				FD35EA5A1BBA363600B3C5C3 /* KhmerOSNew-Regular.ttf */,
 				FD35EA591BBA362900B3C5C3 /* KhmerOSMoul.ttf */,
 				FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */,
@@ -400,7 +401,6 @@
 				EDB9C8E31BBA3D9B0051249D /* info.png */,
 				EDB9C8E11BBA3D850051249D /* home.png */,
 				FD6251951BB92D320093B8AD /* sd.jpg */,
-				ED566F601BB8FB7100468F89 /* calendar.png */,
 				ED566F611BB8FB7100468F89 /* topic.png */,
 				ED566F621BB8FB7100468F89 /* clock.png */,
 				ED566F631BB8FB7100468F89 /* description.png */,
@@ -715,6 +715,7 @@
 				ED8761841B9EEADB00C0E7BE /* load_06.png in Resources */,
 				FDD0A4B71BA286270046F4CE /* id_icon.png in Resources */,
 				ED94011D1B96D467001BCE2D /* LaunchScreen.xib in Resources */,
+				FD35EA5C1BBA78E300B3C5C3 /* calendar.png in Resources */,
 				FDD0A4AF1BA277320046F4CE /* date_icon.png in Resources */,
 				ED566F681BB8FB7100468F89 /* topic.png in Resources */,
 				FDD0A4B61BA286270046F4CE /* character_icon.png in Resources */,

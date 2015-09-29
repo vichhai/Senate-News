@@ -144,6 +144,7 @@
     
     height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.55; // change
     UILabel *topic = [[UILabel alloc]initWithFrame:CGRectMake(160, containerTopic.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
+    topic.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
     topic.text = [resultDic objectForKey:@"SCH_TITLE"]; // change
     [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_TITLE"] anyLabel:topic]; // change
     topic.numberOfLines = 0;
@@ -195,7 +196,7 @@
     
     [cell.contentView addSubview:location];
     
-    // =---> Date
+    // =---> start Date
     UIView *containerDate = [[UIView alloc] initWithFrame:CGRectMake(10, (location.frame.origin.y + location.frame.size.height) + 10 , 140, 35)];
     
     UIImageView *imageDate = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
@@ -209,9 +210,6 @@
     [containerDate addSubview:imageDate];
     [containerDate addSubview:labelDate];
     [cell.contentView addSubview:containerDate];
-//    NSString *day = [[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
-//    NSString *month = [[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
-//    NSString *year = [[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
     UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 20), 35)];
     date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
     

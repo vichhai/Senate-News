@@ -164,7 +164,6 @@
 //    cell.descriptionLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_DESCRIPTION"];
 //    cell.dateLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"];
 //    cell.posterLabel.text = [NSString stringWithFormat:@"Post by: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
-//
     [cell customCell];
     [cell customFont];
     NSString *day = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];

@@ -77,7 +77,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 +(void)showErrorMessage:(NSString *)message{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ការណែនាំ" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ការណែនាំ" message:message delegate:nil cancelButtonTitle:@"យល់ព្រម" otherButtonTitles:nil];
     [alert show];
 }
 

@@ -142,7 +142,6 @@
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, headerView.frame.size.width - 85, 25)];
     textLabel.text = text;
     textLabel.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
-   // textLabel.font = [UIFont systemFontOfSize:19];
     textLabel.textColor = RGB(218, 162, 53);
     
     [headerView addSubview:textLabel];
@@ -175,7 +174,7 @@
             if (indexPath.row == 0) {
                 [self performSegueWithIdentifier:@"aboutApp" sender:nil];
             }else if(indexPath.row == 1){
-                
+                [self performSegueWithIdentifier:@"aboutUs" sender:nil];
             }else{
                 
             }

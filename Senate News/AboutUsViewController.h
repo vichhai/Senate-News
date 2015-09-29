@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AboutUsViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *menu;
+@property (strong, nonatomic) IBOutlet UIView *subView;
+@property (strong, nonatomic) IBOutlet UIView *titleView;
 
 @end

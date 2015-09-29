@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -57,6 +57,7 @@
                         <segue destination="4gQ-VQ-1eE" kind="custom" identifier="schedule" customClass="SWRevealViewControllerSeguePushController" id="Afn-zG-bE8"/>
                         <segue destination="Hno-kU-GhS" kind="custom" identifier="category" customClass="SWRevealViewControllerSeguePushController" id="4Se-Yg-2eE"/>
                         <segue destination="7Aa-ZB-gDC" kind="custom" identifier="aboutApp" customClass="SWRevealViewControllerSeguePushController" id="2wD-fL-DZ2"/>
+                        <segue destination="e61-JA-oEy" kind="custom" identifier="aboutUs" customClass="SWRevealViewControllerSeguePushController" id="ur9-jb-LAS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9t-9G-YIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1229,7 +1230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFl-fL-JfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="-532"/>
+            <point key="canvasLocation" x="1552" y="-532"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1AW-3z-uDy">
@@ -1250,10 +1251,10 @@
             </objects>
             <point key="canvasLocation" x="678" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--About Us View Controller-->
         <scene sceneID="ey0-wl-BGX">
             <objects>
-                <viewController id="qYq-vE-IWb" sceneMemberID="viewController">
+                <viewController id="qYq-vE-IWb" customClass="AboutUsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="53Q-4v-xHz"/>
                         <viewControllerLayoutGuide type="bottom" id="mnk-VW-eUj"/>
@@ -1268,14 +1269,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Es-po-Qb6">
-                                <rect key="frame" x="16" y="84" width="288" height="32"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view alpha="0.10000000149011612" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uY-7g-U9p">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uY-7g-U9p">
                                 <rect key="frame" x="16" y="124" width="288" height="266"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email: admin@kh4it.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKa-xC-kOx">
@@ -1315,7 +1309,18 @@
                                         <rect key="frame" x="169" y="160" width="87" height="91"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGe-HN-gr6">
+                                <rect key="frame" x="16" y="84" width="288" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact Us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqs-wM-Fyq">
+                                        <rect key="frame" x="93" y="5" width="102" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1350,10 +1355,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="menu" destination="Jnc-Sk-2MD" id="pbm-jV-WGf"/>
+                        <outlet property="subView" destination="9uY-7g-U9p" id="lBH-oR-pMs"/>
+                        <outlet property="titleView" destination="cGe-HN-gr6" id="Uqv-sc-nLp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPq-ij-hel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220" y="-552"/>
+            <point key="canvasLocation" x="670" y="-552"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m7K-hK-3w1">
@@ -1372,7 +1382,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRd-2E-M8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="-532"/>
+            <point key="canvasLocation" x="1167" y="-532"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6rt-WX-QwE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e61-JA-oEy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6xJ-9n-hUi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qYq-vE-IWb" kind="relationship" relationship="rootViewController" id="qcz-N6-Kbc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cpf-yc-JEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="-552"/>
         </scene>
     </scenes>
     <resources>
@@ -1389,5 +1418,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="PAs-tq-Wca"/>
         <segue reference="X6s-GJ-1tu"/>
+        <segue reference="du1-Jy-adt"/>
     </inferredMetricsTieBreakers>
 </document>
