@@ -291,7 +291,9 @@
     [containerLink addSubview:labelLink];
     [cell.contentView addSubview:containerLink];
     
-    UITextView *link = [[UITextView alloc]initWithFrame:CGRectMake(160, containerLink.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
+    height = [self measureTextHeight:@"www.facebook.com" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f]; // change
+    
+    UITextView *link = [[UITextView alloc]initWithFrame:CGRectMake(160, containerLink.frame.origin.y , (cell.contentView.frame.size.width - 180), height)];
     link.editable = false;
     link.selectable = true;
     link.scrollEnabled = false;
@@ -302,7 +304,7 @@
     
     [cell.contentView addSubview:link];
     
-    rowHeight = link.frame.origin.y + 35 + 10;
+    rowHeight = link.frame.origin.y + height + 10;
 }
 
 -(void) customLabel: (UITableViewCell *) cell{
