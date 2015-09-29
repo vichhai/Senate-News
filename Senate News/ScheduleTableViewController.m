@@ -67,7 +67,6 @@
     [super viewDidAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"schedule";
     [ShareObject shareObjectManager].scheduleFlag = FALSE;
-    
 }
 
 - (void)viewDidLoad {
@@ -242,6 +241,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scheduleCell"];
+    [cell customCell];
+    [cell customFont];
+    NSString *day = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
+    cell.day.text = [NSString stringWithFormat:@"ថ្ងៃទី: %@",day];
     cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
     cell.publish.text = [NSString stringWithFormat:@"ថ្ងៃចេញផ្សាយ: %@ / ដោយ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"], [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
     return cell;

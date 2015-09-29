@@ -21,4 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UIView *subView;
 
+
+-(void)customCell;
+-(void)customFont;
 @end

@@ -63,6 +63,7 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
     if (section == 0) {
         return [self setupViewForSectionHeader:@"ប្រតិទិនប្រជំុ"];
     } else if (section == 1){
@@ -122,6 +123,8 @@
     
     return cell;
 }
+
+
 
 -(UIView *)setupViewForSectionHeader:(NSString *)text {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 45)];
