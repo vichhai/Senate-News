@@ -253,6 +253,9 @@
         cell.day.text = @"មិនទាន់កំណត់" ;
         cell.date.text = @"មិនទាន់កំណត់" ;
     }
+    if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"EXPIRED"] intValue] == 0) {
+        cell.status.textColor = [UIColor redColor];
+    }
     cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
     cell.publish.text = [NSString stringWithFormat:@"ថ្ងៃចេញផ្សាយ: %@ / ដោយ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"], [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
     return cell;
