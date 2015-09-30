@@ -117,6 +117,7 @@
     // =---> Image Page
     
     UIImageView *imagePage = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f , view.frame.size.height / 2 - 7.0f , 12.0f, 12.0f)];
+    imageView.contentMode = UIViewContentModeScaleToFill;
     imagePage.image = [UIImage imageNamed:@"photo_page_icon.png"];
     
     // =---> label page of page

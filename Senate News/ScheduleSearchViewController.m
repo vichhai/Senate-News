@@ -157,22 +157,32 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scheduleCell" forIndexPath:indexPath];
-    
-//    cell.titleLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"];
-//    cell.descriptionLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_DESCRIPTION"];
-//    cell.dateLabel.text = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"];
-//    cell.posterLabel.text = [NSString stringWithFormat:@"Post by: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
     [cell customCell];
     [cell customFont];
-    NSString *day = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
-    cell.day.text = [NSString stringWithFormat:@"ថ្ងៃទី: %@",day];
-    NSString *month = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3];
-    NSString *year = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5];
-    cell.date.text = [NSString stringWithFormat:@"ខែ %@ ឆ្នាំ %@",month,year];
-    cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
-    cell.publish.text = [NSString stringWithFormat:@"ថ្ងៃចេញផ្សាយ: %@ / ដោយ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"], [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
+    if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"EXPIRED"] intValue] == 0) {
+        cell.status.textColor = [UIColor redColor];
+    }
+    if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] != NULL) {
+        NSString *day = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
+        cell.day.text = [NSString stringWithFormat:@"ថ្ងៃទី: %@",day];
+        NSString *month = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3];
+        NSString *year = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5];
+        cell.date.text = [NSString stringWithFormat:@"ខែ %@ ឆ្នាំ %@",month,year];
+    }else{
+        cell.date.text = @"គ្មានកាលបរិច្ឆេត";
+    }
+    if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"] != NULL) {
+        cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
+    }else{
+        cell.title.text = @"ក្មានប្រធានបទ";
+    }
+    if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"]) {
+        cell.publish.text = [NSString stringWithFormat:@"ថ្ងៃចេញផ្សាយ: %@ / ដោយ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"], [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
+    }else{
+        cell.publish.text = @"គ្មានកាលបរិច្ឆេត";
+    }
+    
     return cell;
 }
 
