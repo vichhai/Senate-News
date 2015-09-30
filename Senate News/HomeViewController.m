@@ -46,7 +46,7 @@
     NetworkStatus internetStatus = [reachability  currentReachabilityStatus];
     
     if ((internetStatus != ReachableViaWiFi) && (internetStatus != ReachableViaWWAN)){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"No internet or Wifi connection!" message:@"Please turn on the cellular or connection to Wifi" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"គ្មានការភ្ជាប់ទៅបណ្តាញអីុនធើណែត" message:@"សូមភ្ជាប់ទៅកាន់អីុនធើណែត" delegate:nil cancelButtonTitle:@"យល់ព្រម" otherButtonTitles:nil, nil];
         [AppUtils hideLoading:self.view];
         [alert show];
     } else {
