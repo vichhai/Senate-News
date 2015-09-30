@@ -112,9 +112,9 @@
             if (indexPath.row == 0){
                 myLabel.text = @"អំពីកម្មវិធី";
             } else if(indexPath.row == 1){
-                myLabel.text = @"ទំនាក់ទំនងព្រឹទ្ធសភា";
+                 myLabel.text = @"ទំនាក់ទំនងពួកយើង";
             }else{
-                myLabel.text = @"ទំនាក់ទំនងពួកយើង";
+               
             }
             break;
         default:
