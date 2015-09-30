@@ -938,6 +938,7 @@
 				PROVISIONING_PROFILE = "ffa16f0c-8677-4850-aea6-516f36d6d8fa";
 				SWIFT_OBJC_BRIDGING_HEADER = "Senate News/Senate News-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -955,6 +956,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ffa16f0c-8677-4850-aea6-516f36d6d8fa";
 				SWIFT_OBJC_BRIDGING_HEADER = "Senate News/Senate News-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
