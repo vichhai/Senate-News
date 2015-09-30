@@ -37,6 +37,8 @@
     
     [_detailTeableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _detailTeableView.hidden = true;
+    _detailTeableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     [AppUtils showLoading:self.view];
     // =---> Creating a custom right navi bar button1
     //UIButton *menu  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 28.0f)];
@@ -197,12 +199,11 @@
         
         // =--> Create Content Label
         
-        height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:23.0f];
+        height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:21.0f];
         
-        if (height > 1900) {
-//            height = height * 1.35;
+        if ([_receiveData isEqualToString:@"11802"]) {
+            height = height * 1.2;
         }
-        
         
         UITextView *contentLabel = [[UITextView alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
         
@@ -217,9 +218,9 @@
         
         if ([AppUtils isNull:[resultDic objectForKey:@"ART_DETAIL"]] == false && [AppUtils isNull:[resultDic objectForKey:@"ART_TITLE"]] == false) {
             
-//            [AppUtils setTextViewHeight:[resultDic objectForKey:@"ART_DETAIL"] anyTextView:contentLabel];
-            [contentLabel setFont:[UIFont fontWithName:@"KhmerOSBattambang" size:14]];
-//            [contentLabel setFont:[UIFont systemFontOfSize:14]];
+            [AppUtils setTextViewHeight:[resultDic objectForKey:@"ART_DETAIL"] anyTextView:contentLabel];
+//            [contentLabel setFont:[UIFont fontWithName:@"KhmerOSBattambang" size:14]];
+            [contentLabel setFont:[UIFont systemFontOfSize:16]];
         }
         [cell.contentView addSubview:contentLabel];
         
