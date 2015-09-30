@@ -142,7 +142,7 @@
     [containerTopic addSubview:labelTopic];
     [cell.contentView addSubview:containerTopic];
     
-    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.55; // change
+    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.9; // change
     UILabel *topic = [[UILabel alloc]initWithFrame:CGRectMake(160, containerTopic.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
     topic.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
     topic.text = [resultDic objectForKey:@"SCH_TITLE"]; // change
