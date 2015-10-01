@@ -253,8 +253,8 @@
         cell.day.text = @"0" ;
         cell.date.text = @"គ្មានកាលបរិច្ឆេត" ;
     }
-    if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"EXPIRED"] intValue] == 0) {
-        cell.status.textColor = [UIColor redColor];
+    if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EXPIRIED"] isEqualToString:@"TRUE"]) {
+        cell.status.hidden = NO;
     }
     if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"] != NULL) {
         cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
