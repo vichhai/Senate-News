@@ -105,7 +105,6 @@
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.contentView addSubview:imageView];
     
-    
     // =---> Image Page BackGround
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(cell.contentView.bounds.size.width - 65,(cell.contentView.frame.size.height - 25) - 20,55,20)];
@@ -113,6 +112,7 @@
     view.layer.cornerRadius = 5;
     view.layer.masksToBounds = true;
     view.alpha = 0.7;
+    
     
     // =---> Image Page
     
