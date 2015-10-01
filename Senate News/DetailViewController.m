@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_detailTeableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [_detailTeableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"tableCell"];
     _detailTeableView.hidden = true;
     _detailTeableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -92,7 +92,7 @@
 #pragma mark - CollectionView datasource and delegate
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
     for (UIView *v in [cell.contentView subviews]) {
         if ([v isKindOfClass:[UIImageView class]]){
             [v removeFromSuperview];
@@ -157,7 +157,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableCell" forIndexPath:indexPath];
 
     for (UIView *v in [cell.contentView subviews]) {
         if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
@@ -262,7 +262,7 @@
     imageCollectionView.dataSource = self;
     imageCollectionView.tag = 9999;
     
-    [imageCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    [imageCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"collectionCell"];
     imageCollectionView.showsHorizontalScrollIndicator = false;
     imageCollectionView.showsVerticalScrollIndicator = false;
     imageCollectionView.backgroundColor = [UIColor whiteColor];
