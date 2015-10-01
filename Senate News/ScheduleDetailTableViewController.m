@@ -256,10 +256,8 @@
     [containerStop addSubview:labelStop];
     [cell.contentView addSubview:containerStop];
     
-    UILabel *stopHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStop.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    if ([resultDic objectForKey:@"SCH_EVENT_END"] != NULL) {
-        stopHour.text = [[resultDic objectForKey:@"SCH_EVENT_END"] substringFromIndex:41]; // change
-    }
+    UILabel *stopHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStop.frame.origin.y ,(cell.contentView.frame.size.width - 180), 35)];
+    stopHour.text = [[resultDic objectForKey:@"SCH_EVENT_END"] substringFromIndex:41]; // change
     
     [cell.contentView addSubview:stopHour];
     
