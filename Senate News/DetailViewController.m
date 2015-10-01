@@ -172,7 +172,7 @@
         labelTitle.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
         labelTitle.text = [resultDic objectForKey:@"ART_TITLE"];
         
-        height = [self measureTextHeight:[resultDic objectForKey:@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:25.0f];
+        height = [self measureTextHeight:[resultDic objectForKey:@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:27.0f];
         
         [labelTitle setFrame:CGRectMake(10, 10, cell.contentView.frame.size.width - 20, height)];
         
@@ -199,9 +199,9 @@
         
         // =--> Create Content Label
         
-        height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:21.0f];
+        height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:22.0f];
         
-        if ([_receiveData isEqualToString:@"11802"]) {
+        if ([_receiveData isEqualToString:@"11802"] || [_receiveData isEqualToString:@"11809"] || [_receiveData isEqualToString:@"11805"] || [_receiveData isEqualToString:@"11795"]) {
             height = height * 1.2;
         }
         
