@@ -105,7 +105,6 @@
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.contentView addSubview:imageView];
     
-    
     // =---> Image Page BackGround
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(cell.contentView.bounds.size.width - 65,(cell.contentView.frame.size.height - 25) - 20,55,20)];
@@ -114,9 +113,11 @@
     view.layer.masksToBounds = true;
     view.alpha = 0.7;
     
+    
     // =---> Image Page
     
     UIImageView *imagePage = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f , view.frame.size.height / 2 - 7.0f , 12.0f, 12.0f)];
+    imageView.contentMode = UIViewContentModeScaleToFill;
     imagePage.image = [UIImage imageNamed:@"photo_page_icon.png"];
     
     // =---> label page of page

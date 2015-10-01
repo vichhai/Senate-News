@@ -87,9 +87,7 @@
 //    }
 
     if (![AppUtils isNull:resultDic]) {
-        
         [self addLabelsToCell:cell];
-        
     }
     
     return cell;
@@ -145,8 +143,10 @@
     height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.9; // change
     UILabel *topic = [[UILabel alloc]initWithFrame:CGRectMake(160, containerTopic.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
     topic.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
-    topic.text = [resultDic objectForKey:@"SCH_TITLE"]; // change
-    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_TITLE"] anyLabel:topic]; // change
+    if ([resultDic objectForKey:@"SCH_TITLE"] != NULL) {
+        topic.text = [resultDic objectForKey:@"SCH_TITLE"]; // change
+        [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_TITLE"] anyLabel:topic]; // change
+    }
     topic.numberOfLines = 0;
     
     [cell.contentView addSubview:topic];
@@ -168,9 +168,10 @@
     
     height = [self measureTextHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.4; // change
     UILabel *description = [[UILabel alloc]initWithFrame:CGRectMake(160,containerDes.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
-    description.text = [resultDic objectForKey:@"SCH_DESCRIPTION"]; // change
-    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] anyLabel:description]; // change
-    
+    if ([resultDic objectForKey:@"SCH_DESCRIPTION"] != NULL) {
+        description.text = [resultDic objectForKey:@"SCH_DESCRIPTION"]; // change
+        [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] anyLabel:description]; // change
+    }
     description.numberOfLines = 0;
     
     [cell.contentView addSubview:description];
@@ -192,7 +193,9 @@
     [cell.contentView addSubview:containerLoc];
     
     UILabel *location = [[UILabel alloc]initWithFrame:CGRectMake(160, (description.frame.origin.y + description.frame.size.height) + 10, (cell.contentView.frame.size.width - 180), 35)];
-    location.text = [resultDic objectForKey:@"SCH_PLACE"]; // change
+    if ([resultDic objectForKey:@"SCH_PLACE"] != NULL) {
+        location.text = [resultDic objectForKey:@"SCH_PLACE"]; // change
+    }
     
     [cell.contentView addSubview:location];
     
@@ -211,7 +214,9 @@
     [containerDate addSubview:labelDate];
     [cell.contentView addSubview:containerDate];
     UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 20), 35)];
-    date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
+    if ([resultDic objectForKey:@"SCH_EVENT_START"] != NULL) {
+        date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
+    }
     
     [cell.contentView addSubview:date];
     
@@ -229,10 +234,11 @@
     [containerStart addSubview:imageStart];
     [containerStart addSubview:labelStart];
     [cell.contentView addSubview:containerStart];
-    
     UILabel *startHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStart.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    startHour.text = [[resultDic objectForKey:@"SCH_EVENT_START"] substringFromIndex:41]; // change
-    
+    if ([resultDic objectForKey:@"SCH_EVENT_START"] != NULL) {
+        startHour.text = [[resultDic objectForKey:@"SCH_EVENT_START"] substringFromIndex:41]; // change
+    }
+ 
     [cell.contentView addSubview:startHour];
     
     // =---> Stop Hour
@@ -272,7 +278,9 @@
     [cell.contentView addSubview:containerType];
     
     UILabel *type = [[UILabel alloc]initWithFrame:CGRectMake(160, containerType.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    type.text = [resultDic objectForKey:@"SCH_TYPE"]; // change
+    if ([resultDic objectForKey:@"SCH_TYPE"] != NULL) {
+        type.text = [resultDic objectForKey:@"SCH_TYPE"]; // change
+    }
     
     [cell.contentView addSubview:type];
     
