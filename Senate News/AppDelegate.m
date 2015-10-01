@@ -38,7 +38,10 @@
         [self handlerNotification:application didWithData:remoteNotifiInfo];
         [ShareObject shareObjectManager].isNotification = TRUE;
     }
-    NSLog(@"didlauch");
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+        [ShareObject shareObjectManager].shareWidth = 450;
+        return YES;
+    }
     // =---> Check screen height
     if ([AppUtils getDeviceScreenHeight] == 736) {
         [ShareObject shareObjectManager].shareWidth = 277;

@@ -67,11 +67,12 @@
     [super viewDidAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"schedule";
     [ShareObject shareObjectManager].scheduleFlag = FALSE;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
+
     // check connection
     NSString *remoteHostName = @"www.apple.com";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -95,7 +96,6 @@
     [super didReceiveMemoryWarning];
     NSLog(@"Run out of memory");
 }
-
 
 -(void)linkToDetail: (NSNotification *) notification{
     if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"2"]) {
