@@ -160,8 +160,8 @@
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scheduleCell" forIndexPath:indexPath];
     [cell customCell];
     [cell customFont];
-    if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"EXPIRED"] intValue] == 0) {
-        cell.status.textColor = [UIColor redColor];
+    if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EXPIRIED"] isEqualToString:@"TRUE"]) {
+        cell.status.hidden = NO;
     }
     if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] != NULL) {
         NSString *day = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
