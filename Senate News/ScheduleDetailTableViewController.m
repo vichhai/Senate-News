@@ -86,6 +86,11 @@
 //        [self customLabel:cell];
 //    }
 
+    for (UIView *v in [cell.contentView subviews]) {
+        if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UIView class]])
+            [v removeFromSuperview];
+    }
+    
     if (![AppUtils isNull:resultDic]) {
         [self addLabelsToCell:cell];
     }
@@ -213,7 +218,7 @@
     [containerDate addSubview:imageDate];
     [containerDate addSubview:labelDate];
     [cell.contentView addSubview:containerDate];
-    UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 20), 35)];
+    UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 170), 35)];
     if ([resultDic objectForKey:@"SCH_EVENT_START"] != NULL) {
         date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
     }
