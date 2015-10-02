@@ -256,7 +256,10 @@
     }
     if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EXPIRIED"] isEqualToString:@"TRUE"]) {
         cell.status.hidden = NO;
+    } else {
+        cell.status.hidden = true;
     }
+        
     if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"] != NULL) {
         cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
     }else{

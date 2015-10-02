@@ -33,7 +33,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, ((_myScrollView.frame.size.height - height) / 2) - 10, width, height)];
     imageView.tag = 99;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
+//    imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[ShareObject shareObjectManager].shareURL]];
     
@@ -72,27 +72,20 @@
 }
 - (IBAction)imageDownload:(id)sender {
     
-//    NSOperationQueue *downloadQueue = [[NSOperationQueue alloc] init];
-//    downloadQueue.maxConcurrentOperationCount = 1;
-//    NSFileManager *fileManager = [NSFileManager defaultManager];
-//    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-//    
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[ShareObject shareObjectManager].shareURL]];
-//    NSString *path = [docsPath stringByAppendingPathComponent:[url lastPathComponent]];
-//    if (![fileManager fileExistsAtPath:path]) {
-//        [downloadQueue addOperationWithBlock:^{
-//            NSString *path = [docsPath stringByAppendingPathComponent:[url lastPathComponent]];
-//            NSData *data = [NSData dataWithContentsOfURL:url];
-//            if (data)
-//                [data writeToFile:path atomically:YES];
-//            
-//            NSLog(@"Path : %@",path);
-//            NSLog(@"Data : %@",data);
-//            NSLog(@"Download Finish.... ");
-//        }];
-//        
-//    }
+    UIImage *image = ((UIImageView *)[self.view viewWithTag:99]).image;
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
 
+-(void)image:(UIImage *) image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
+    UIAlertView *alert;
+    if (error) {
+        alert = [[UIAlertView alloc]initWithTitle:@"" message:@"បរាជ័យ" delegate:self cancelButtonTitle:@"យល់ព្រម" otherButtonTitles:nil];
+    }else{
+        alert = [[UIAlertView alloc]initWithTitle:@"" message:@"ជោគជ័យ" delegate:self cancelButtonTitle:@"យល់ព្រម" otherButtonTitles:nil];
+    }
+    
+    [alert show];
+    
 }
 
 @end
