@@ -100,7 +100,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6J-DP-cdy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="98B8FF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6J-DP-cdy">
                                                     <rect key="frame" x="39" y="74" width="227" height="1"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -129,7 +129,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.59753429189747553" green="0.72075018035747973" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="io1-Gy-LBI" firstAttribute="leading" secondItem="4no-oM-YdR" secondAttribute="leading" constant="22" id="2g2-nb-ALz"/>
                                                 <constraint firstItem="oCm-xX-bIV" firstAttribute="top" secondItem="4no-oM-YdR" secondAttribute="top" constant="9" id="4BM-D0-nYc"/>
@@ -155,10 +155,11 @@
                                     <constraints>
                                         <constraint firstItem="4no-oM-YdR" firstAttribute="top" secondItem="fa2-ql-Aq4" secondAttribute="topMargin" constant="-2" id="MSb-vw-dIq"/>
                                         <constraint firstItem="4no-oM-YdR" firstAttribute="bottom" secondItem="fa2-ql-Aq4" secondAttribute="bottomMargin" id="YR2-65-Nhc"/>
-                                        <constraint firstItem="4no-oM-YdR" firstAttribute="trailing" secondItem="fa2-ql-Aq4" secondAttribute="trailingMargin" id="rkS-I4-fDG"/>
+                                        <constraint firstAttribute="trailing" secondItem="4no-oM-YdR" secondAttribute="trailing" constant="8" id="nlr-di-tUR"/>
                                         <constraint firstItem="4no-oM-YdR" firstAttribute="leading" secondItem="fa2-ql-Aq4" secondAttribute="leadingMargin" id="yb3-IU-6p0"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="date" destination="tiw-VG-Lro" id="AX3-UP-vzl"/>
                                     <outlet property="day" destination="oCm-xX-bIV" id="yX3-El-5hj"/>
