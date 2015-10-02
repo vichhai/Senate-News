@@ -105,6 +105,7 @@
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 #pragma mark - Helper method
 
 -(void)addbarButtonAndSideBar{

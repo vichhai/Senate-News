@@ -22,7 +22,6 @@
     GITSRefreshAndLoadMore *refresh_loadmore;
     DXPopover *popover;
     NSString *sortBy;
-
     int remainPage;
 }
 
@@ -68,7 +67,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"MainView";
-    // Link to detail with notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
 }
 
@@ -83,7 +81,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     popover = [DXPopover popover];
     NSString *remoteHostName = @"www.apple.com";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];

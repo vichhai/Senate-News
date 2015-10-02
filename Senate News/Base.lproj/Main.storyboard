@@ -1111,6 +1111,7 @@
                     <connections>
                         <outlet property="mainTableView" destination="FfL-m0-dPf" id="JbE-mT-o9x"/>
                         <segue destination="SaH-f0-Dm8" kind="show" identifier="detail" id="4Ti-9a-Nxj"/>
+                        <segue destination="pbE-Lh-LZg" kind="show" identifier="sDetail" id="9It-ja-CRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HhX-cO-CNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1445,8 +1446,8 @@
         <image name="senate.png" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X6s-GJ-1tu"/>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="du1-Jy-adt"/>
+        <segue reference="8f3-50-Fob"/>
+        <segue reference="dYX-Bj-WiK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,7 @@
 #import "ConnectionManager.h"
 #import "GITSRefreshAndLoadMore.h"
 #import "DetailViewController.h"
+#import "ScheduleDetailTableViewController.h"
 
 @interface CategoryViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
 {
@@ -37,7 +38,17 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [ShareObject shareObjectManager].viewObserver = @"category";
-//    [ShareObject shareObjectManager].isLoadMore = false;
+    [ShareObject shareObjectManager].isLoadMore = false;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
+}
+
+-(void)linkToDetail: (NSNotification *) notification{
+    if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"2"]) {
+        [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }else if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"1"]){
+        [self performSegueWithIdentifier:@"detail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -192,6 +203,9 @@
         NSLog(@"sender is %@",sender);
         DetailViewController *vc = [segue destinationViewController];
         vc.receiveData = sender;
+    }else if([segue.identifier isEqualToString:@"sDetail"]){
+        ScheduleDetailTableViewController *sv = [segue destinationViewController];
+        sv.scheduleId = sender;
     }
 }
 
