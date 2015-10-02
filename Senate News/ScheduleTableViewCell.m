@@ -28,7 +28,7 @@
     _subView.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
     _subView.layer.shadowOpacity = 0.9f;
     _subView.layer.masksToBounds = NO;
-    UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(-2.0f, -2.0f, -2.0f, (-1 * _subView.bounds.size.width) - 300);
+    UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(-2.0f, -2.0f, -2.0f, -57);
     UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(_subView.bounds, shadowInsets)];
     _subView.layer.shadowPath     = shadowPath.CGPath;
 }
