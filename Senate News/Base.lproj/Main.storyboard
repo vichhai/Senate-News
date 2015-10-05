@@ -179,18 +179,18 @@
                     <navigationItem key="navigationItem" id="Svy-44-W3i">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Tl7-fZ-qef">
                             <view key="customView" contentMode="scaleToFill" id="91W-bw-974">
-                                <rect key="frame" x="16" y="4" width="150" height="35"/>
+                                <rect key="frame" x="16" y="-10" width="150" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="16.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6p-Yk-VJr">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ប្រតិទិនប្រជំុ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5T-RL-GQQ">
-                                        <rect key="frame" x="43" y="3" width="99" height="29"/>
+                                        <rect key="frame" x="43" y="15" width="99" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="h6p-Yk-VJr">
+                                        <rect key="frame" x="5" y="10" width="30" height="47"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -489,14 +489,14 @@
                     <navigationItem key="navigationItem" id="LYK-Df-ADp">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="ABj-Sb-sQa">
                             <view key="customView" contentMode="scaleToFill" id="cJU-cb-uZ6">
-                                <rect key="frame" x="16" y="4" width="112" height="35"/>
+                                <rect key="frame" x="16" y="-10" width="150" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="DWD-Hk-2cY">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="DWD-Hk-2cY">
+                                        <rect key="frame" x="0.0" y="10" width="30" height="47"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ទំព័រដើម" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huk-Ck-Ejb">
-                                        <rect key="frame" x="43" y="7" width="61" height="21"/>
+                                        <rect key="frame" x="38" y="21" width="61" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1092,14 +1092,14 @@
                     <navigationItem key="navigationItem" id="FgD-Yw-b3W">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="D4D-Ll-IeK">
                             <view key="customView" contentMode="scaleToFill" id="31I-vd-Hos">
-                                <rect key="frame" x="16" y="4" width="161" height="35"/>
+                                <rect key="frame" x="16" y="-10" width="150" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnq-Da-b5O">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="bnq-Da-b5O">
+                                        <rect key="frame" x="3" y="10" width="30" height="47"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ព័ត៌មានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcM-Kc-OkB">
-                                        <rect key="frame" x="43" y="7" width="112" height="22"/>
+                                        <rect key="frame" x="39" y="19" width="112" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1196,14 +1196,14 @@
                     <navigationItem key="navigationItem" id="68z-9x-lHa">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="o0E-Gm-AZt">
                             <view key="customView" contentMode="scaleToFill" id="3Lh-2h-DCl">
-                                <rect key="frame" x="16" y="4" width="160" height="35"/>
+                                <rect key="frame" x="16" y="-10" width="150" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLY-oG-Poc">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="qLY-oG-Poc">
+                                        <rect key="frame" x="0.0" y="10" width="30" height="47"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="អំពីកម្មវិធី" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="que-Bt-blA">
-                                        <rect key="frame" x="43" y="8" width="106" height="21"/>
+                                        <rect key="frame" x="41" y="21" width="106" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1359,14 +1359,14 @@
                     <navigationItem key="navigationItem" id="F1O-zy-z96">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="fZK-oM-5eX">
                             <view key="customView" contentMode="scaleToFill" id="v03-6n-bBE">
-                                <rect key="frame" x="16" y="4" width="170" height="35"/>
+                                <rect key="frame" x="16" y="-10" width="160" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_collabo_icon_select.png" translatesAutoresizingMaskIntoConstraints="NO" id="AKH-ZS-jje">
-                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="AKH-ZS-jje">
+                                        <rect key="frame" x="0.0" y="10" width="30" height="47"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ទំនាក់ទំនង់ពួកយើង" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEd-Ve-CpC">
-                                        <rect key="frame" x="43" y="8" width="123" height="21"/>
+                                        <rect key="frame" x="33" y="19" width="128" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1436,20 +1436,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="16.png" width="16" height="27"/>
         <image name="Back-100.png" width="72" height="58"/>
         <image name="Download-100.png" width="100" height="100"/>
         <image name="Simple-Logo-GITS.png" width="300" height="300"/>
         <image name="calendar159 (1).png" width="32" height="32"/>
         <image name="close.png" width="44" height="44"/>
         <image name="logo.png" width="175" height="52"/>
-        <image name="menu_collabo_icon_select.png" width="50" height="58"/>
+        <image name="logo_small.png" width="89" height="150"/>
         <image name="munu_b.png" width="44" height="44"/>
         <image name="senate.png" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uyr-Nz-S4q"/>
+        <segue reference="8f3-50-Fob"/>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="du1-Jy-adt"/>
+        <segue reference="dYX-Bj-WiK"/>
     </inferredMetricsTieBreakers>
 </document>

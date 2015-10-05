@@ -43,7 +43,7 @@
     } else {
         [AppUtils showLoading:self.view];
         [ShareObject shareObjectManager].schedulePage = 1;
-        //[self requestToserver:@"SCHEDULE_L001"];
+        [self requestToserver:@"SCHEDULE_L001"];
     }
 }
 

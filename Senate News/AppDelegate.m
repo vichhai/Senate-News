@@ -30,14 +30,14 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeNewsstandContentAvailability| UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
     //Remote notification info
-    NSDictionary *remoteNotifiInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
+    // NSDictionary *remoteNotifiInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
     
     //Accept push notification when app is not open
-    if (remoteNotifiInfo) {
-//        [self application:application didReceiveRemoteNotification:remoteNotifiInfo];
-        [self handlerNotification:application didWithData:remoteNotifiInfo];
-        [ShareObject shareObjectManager].isNotification = TRUE;
-    }
+//    if (remoteNotifiInfo) {
+////        [self application:application didReceiveRemoteNotification:remoteNotifiInfo];
+//        [self handlerNotification:application didWithData:remoteNotifiInfo];
+//        [ShareObject shareObjectManager].isNotification = TRUE;
+//    }
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
         [ShareObject shareObjectManager].shareWidth = 450;
         return YES;
