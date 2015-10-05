@@ -69,10 +69,10 @@ extern NSString *const SDWebImageDownloadFinishNotification;
  *
  *  @return the initialized instance
  */
-- (id)initWithRequest:(NSURLRequest *)request
+- (instancetype)initWithRequest:(NSURLRequest *)request
               options:(SDWebImageDownloaderOptions)options
              progress:(SDWebImageDownloaderProgressBlock)progressBlock
             completed:(SDWebImageDownloaderCompletedBlock)completedBlock
-            cancelled:(SDWebImageNoParamsBlock)cancelBlock;
+            cancelled:(SDWebImageNoParamsBlock)cancelBlock NS_DESIGNATED_INITIALIZER;
 
 @end

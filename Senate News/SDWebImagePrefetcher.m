@@ -63,12 +63,12 @@
 
         if (image) {
             if (self.progressBlock) {
-                self.progressBlock(self.finishedCount,[self.prefetchURLs count]);
+                self.progressBlock(self.finishedCount,(self.prefetchURLs).count);
             }
         }
         else {
             if (self.progressBlock) {
-                self.progressBlock(self.finishedCount,[self.prefetchURLs count]);
+                self.progressBlock(self.finishedCount,(self.prefetchURLs).count);
             }
             // Add last failed
             self.skippedCount++;

@@ -15,6 +15,7 @@
 #import "GITSRefreshAndLoadMore.h"
 #import "DetailViewController.h"
 #import "ScheduleDetailTableViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface CategoryViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
 {
@@ -43,10 +44,10 @@
 }
 
 -(void)linkToDetail: (NSNotification *) notification{
-    if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"2"]) {
-        [self performSegueWithIdentifier:@"sDetail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
-    }else if ([[[ShareObject shareObjectManager].jsonNotification objectForKey:@"type"] isEqualToString:@"1"]){
-        [self performSegueWithIdentifier:@"detail" sender:[[ShareObject shareObjectManager].jsonNotification objectForKey:@"id"]];
+    if ([([ShareObject shareObjectManager].jsonNotification)[@"type"] isEqualToString:@"2"]) {
+        [self performSegueWithIdentifier:@"sDetail" sender:([ShareObject shareObjectManager].jsonNotification)[@"id"]];
+    }else if ([([ShareObject shareObjectManager].jsonNotification)[@"type"] isEqualToString:@"1"]){
+        [self performSegueWithIdentifier:@"detail" sender:([ShareObject shareObjectManager].jsonNotification)[@"id"]];
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -96,16 +97,16 @@
     
     if ([withAPIKey isEqualToString:@"ARTICLES_L001"]) { // list article
         
-        [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
-        [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].pageCate] forKey:@"PAGE_NO"];
+        dataDic[@"PER_PAGE_CNT"] = @"20";
+        dataDic[@"PAGE_NO"] = [NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].pageCate];
         if (![AppUtils isNull:[ShareObject shareObjectManager].shareCateId]) {
-            [dataDic setObject:[ShareObject shareObjectManager].shareCateId forKey:@"CAT_ID"];
+            dataDic[@"CAT_ID"] = [ShareObject shareObjectManager].shareCateId;
         }
     }
     
     [ShareObject shareObjectManager].pageCate = 1;
-    [reqDic setObject:withAPIKey forKey:@"KEY"];
-    [reqDic setObject:dataDic forKey:@"REQ_DATA"];
+    reqDic[@"KEY"] = withAPIKey;
+    reqDic[@"REQ_DATA"] = dataDic;
     
     ConnectionManager *cont = [[ConnectionManager alloc] init];
     cont.delegate = self;
@@ -115,11 +116,11 @@
 #pragma mark - return result
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
-    remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
+    remainPage = [result[@"TOTAL_PAGE_COUNT"] intValue];
     
     if ([apiKey isEqualToString:@"ARTICLES_L001"]) {
         if ([ShareObject shareObjectManager].isLoadMore){
-            [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+            [arrayResult addObjectsFromArray:result[@"RESP_DATA"][@"ART_REC"]];
             [refresh_loadmore temp:_mainTableView];
             [ShareObject shareObjectManager].isLoadMore = false;
         } else {
@@ -129,7 +130,7 @@
             
             [self.view setUserInteractionEnabled:true];
             [arrayResult removeAllObjects];
-            [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+            [arrayResult addObjectsFromArray:result[@"RESP_DATA"][@"ART_REC"]];
             [refresh_loadmore temp:_mainTableView];
             _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         }
@@ -145,22 +146,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [arrayResult count];
+    return arrayResult.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CustomSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    [[cell.shareLabels objectAtIndex:0] setFont:[UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17]];
+    [(cell.shareLabels)[0] setFont:[UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17]];
     
-    [[cell.shareLabels objectAtIndex:0] setText:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_TITLE"]]; // set title
+    [(cell.shareLabels)[0] setText:arrayResult[indexPath.row][@"ART_TITLE"]]; // set title
     
-    [[cell.shareLabels objectAtIndex:1] setText:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_PUBLISHED_DATE"]]; // set publish date
+    [(cell.shareLabels)[1] setText:arrayResult[indexPath.row][@"ART_PUBLISHED_DATE"]]; // set publish date
     
-    [[cell.shareLabels objectAtIndex:2] setText:[NSString stringWithFormat:@"By: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_AUTHOR"]]]; // set author
+    [(cell.shareLabels)[2] setText:[NSString stringWithFormat:@"By: %@",arrayResult[indexPath.row][@"ART_AUTHOR"]]]; // set author
     
-    // [cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
+    [cell.myImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
     
     return cell;
 }
@@ -175,7 +176,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"detail" sender:[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_ID"]];
+    [self performSegueWithIdentifier:@"detail" sender:arrayResult[indexPath.row][@"ART_ID"]];
 }
 
 #pragma mark - other methods
@@ -201,10 +202,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detail"]) {
         NSLog(@"sender is %@",sender);
-        DetailViewController *vc = [segue destinationViewController];
+        DetailViewController *vc = segue.destinationViewController;
         vc.receiveData = sender;
     }else if([segue.identifier isEqualToString:@"sDetail"]){
-        ScheduleDetailTableViewController *sv = [segue destinationViewController];
+        ScheduleDetailTableViewController *sv = segue.destinationViewController;
         sv.scheduleId = sender;
     }
 }

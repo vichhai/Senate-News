@@ -78,12 +78,12 @@
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     
-    [dataDic setObject:@"20" forKey:@"PER_PAGE_CNT"];
-    [dataDic setObject:[NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].pages] forKey:@"PAGE_NO"];
-    [dataDic setObject:keyword forKey:@"SEARCH_KEY_WORD"];
+    dataDic[@"PER_PAGE_CNT"] = @"20";
+    dataDic[@"PAGE_NO"] = [NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].pages];
+    dataDic[@"SEARCH_KEY_WORD"] = keyword;
     
-    [reqDic setObject:@"SCHEDULE_L002" forKey:@"KEY"];
-    [reqDic setObject:dataDic forKey:@"REQ_DATA"];
+    reqDic[@"KEY"] = @"SCHEDULE_L002";
+    reqDic[@"REQ_DATA"] = dataDic;
     
     ConnectionManager *cont = [[ConnectionManager alloc] init];
     cont.delegate = self;
@@ -94,11 +94,11 @@
 #pragma mark - return result
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
-    remainPage = [[result objectForKey:@"TOTAL_PAGE_COUNT"] intValue];
+    remainPage = [result[@"TOTAL_PAGE_COUNT"] intValue];
     
     if ([apiKey isEqual:@"SCHEDULE_L002"]) {
         
-        if ([[result objectForKey:@"STATUS"] intValue] == 0) {
+        if ([result[@"STATUS"] intValue] == 0) {
             [AppUtils showErrorMessage:@"គ្មានទិន្នន័យ"];
             [AppUtils hideLoading:self.view];
             
@@ -106,7 +106,7 @@
         } else {
             
             if ([ShareObject shareObjectManager].isLoadMore){
-                [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+                [arrayResult addObjectsFromArray:result[@"RESP_DATA"][@"ART_REC"]];
                 [refresh_loadmore temp:self.tableView];
                 [ShareObject shareObjectManager].isLoadMore = false;
             } else {
@@ -116,7 +116,7 @@
                 
                 [self.view setUserInteractionEnabled:true];
                 [arrayResult removeAllObjects];
-                [arrayResult addObjectsFromArray:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
+                [arrayResult addObjectsFromArray:result[@"RESP_DATA"][@"SCH_REC"]];
                 [refresh_loadmore temp:self.tableView];
                 self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
             }
@@ -152,7 +152,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [arrayResult count];
+    return arrayResult.count;
 }
 
 
@@ -160,25 +160,25 @@
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scheduleCell" forIndexPath:indexPath];
     [cell customCell];
     [cell customFont];
-    if ([[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EXPIRIED"] isEqualToString:@"TRUE"]) {
+    if ([arrayResult[indexPath.row][@"SCH_EXPIRIED"] isEqualToString:@"TRUE"]) {
         cell.status.hidden = NO;
     }
-    if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] != NULL) {
-        NSString *day = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
+    if (arrayResult[indexPath.row][@"SCH_EVENT_START"] != NULL) {
+        NSString *day = [arrayResult[indexPath.row][@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1];
         cell.day.text = [NSString stringWithFormat:@"ថ្ងៃទី: %@",day];
-        NSString *month = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3];
-        NSString *year = [[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5];
+        NSString *month = [arrayResult[indexPath.row][@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3];
+        NSString *year = [arrayResult[indexPath.row][@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5];
         cell.date.text = [NSString stringWithFormat:@"ខែ %@ ឆ្នាំ %@",month,year];
     }else{
         cell.date.text = @"គ្មានកាលបរិច្ឆេត";
     }
-    if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"] != NULL) {
-        cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_TITLE"]];
+    if (arrayResult[indexPath.row][@"SCH_TITLE"] != NULL) {
+        cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",arrayResult[indexPath.row][@"SCH_TITLE"]];
     }else{
         cell.title.text = @"ក្មានប្រធានបទ";
     }
-    if ([[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"]) {
-        cell.publish.text = [NSString stringWithFormat:@"ថ្ងៃចេញផ្សាយ: %@ / ដោយ: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_PUBLISHED_DATE"], [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_AUTHOR"]];
+    if (arrayResult[indexPath.row][@"SCH_PUBLISHED_DATE"]) {
+        cell.publish.text = [NSString stringWithFormat:@"ថ្ងៃចេញផ្សាយ: %@ / ដោយ: %@",arrayResult[indexPath.row][@"SCH_PUBLISHED_DATE"], arrayResult[indexPath.row][@"SCH_AUTHOR"]];
     }else{
         cell.publish.text = @"គ្មានកាលបរិច្ឆេត";
     }
@@ -196,7 +196,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *scheduleId = [[arrayResult objectAtIndex:indexPath.row] objectForKey:@"SCH_ID"];
+    NSString *scheduleId = arrayResult[indexPath.row][@"SCH_ID"];
     [self performSegueWithIdentifier:@"scheduleDetail" sender:scheduleId];
 }
 
@@ -204,7 +204,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"scheduleDetail"]) {
-        ScheduleDetailTableViewController *sv = [segue destinationViewController];
+        ScheduleDetailTableViewController *sv = segue.destinationViewController;
         sv.scheduleId = sender;
     }
 }

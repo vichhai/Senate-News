@@ -44,7 +44,7 @@ NSString *const SDWebImageDownloadFinishNotification = @"SDWebImageDownloadFinis
 @synthesize executing = _executing;
 @synthesize finished = _finished;
 
-- (id)initWithRequest:(NSURLRequest *)request
+- (instancetype)initWithRequest:(NSURLRequest *)request
               options:(SDWebImageDownloaderOptions)options
              progress:(SDWebImageDownloaderProgressBlock)progressBlock
             completed:(SDWebImageDownloaderCompletedBlock)completedBlock
@@ -228,7 +228,7 @@ NSString *const SDWebImageDownloadFinishNotification = @"SDWebImageDownloadFinis
         });
     }
     else {
-        NSUInteger code = [((NSHTTPURLResponse *)response) statusCode];
+        NSUInteger code = ((NSHTTPURLResponse *)response).statusCode;
         
         //This is the case when server returns '304 Not Modified'. It means that remote image is not changed.
         //In case of 304 we need just cancel the operation and return cached image from the cache.
@@ -242,7 +242,7 @@ NSString *const SDWebImageDownloadFinishNotification = @"SDWebImageDownloadFinis
         });
 
         if (self.completedBlock) {
-            self.completedBlock(nil, nil, [NSError errorWithDomain:NSURLErrorDomain code:[((NSHTTPURLResponse *)response) statusCode] userInfo:nil], YES);
+            self.completedBlock(nil, nil, [NSError errorWithDomain:NSURLErrorDomain code:((NSHTTPURLResponse *)response).statusCode userInfo:nil], YES);
         }
         CFRunLoopStop(CFRunLoopGetCurrent());
         [self done];
@@ -448,17 +448,17 @@ NSString *const SDWebImageDownloadFinishNotification = @"SDWebImageDownloadFinis
             [challenge.sender performDefaultHandlingForAuthenticationChallenge:challenge];
         } else {
             NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-            [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
+            [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
         }
     } else {
-        if ([challenge previousFailureCount] == 0) {
+        if (challenge.previousFailureCount == 0) {
             if (self.credential) {
-                [[challenge sender] useCredential:self.credential forAuthenticationChallenge:challenge];
+                [challenge.sender useCredential:self.credential forAuthenticationChallenge:challenge];
             } else {
-                [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+                [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
             }
         } else {
-            [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+            [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
         }
     }
 }

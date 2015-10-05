@@ -32,7 +32,7 @@
 -(void)addLoadMoreForTableView:(UITableView *)tabelView imageName:(NSString *)imageName{
     _tempFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0,[UIScreen mainScreen].bounds.size.width , 66.0)];
     _tempFooterView.backgroundColor = [UIColor colorWithRed:10 green:214 blue:219 alpha:1];
-    [tabelView setTableFooterView:_tempFooterView];
+    tabelView.tableFooterView = _tempFooterView;
     // =---> for load more
     _moreFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 66.0)];
     _moreFooterView.backgroundColor = [UIColor colorWithRed:211 green:214 blue:219 alpha:1];
@@ -42,16 +42,16 @@
 //    footerImage.backgroundColor = [UIColor clearColor];
 //    footerImage.tag = 3002;
      _activity = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((_moreFooterView.frame.size.width - 45 ) / 2, (_moreFooterView.frame.size.height - 45 ) / 2, 45, 45)];
-    [_activity setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    _activity.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [_activity startAnimating];
     [_moreFooterView addSubview:_activity];
 }
 
 
 -(void)loopRefresh{
-    NSArray *imageArray = [[NSArray alloc] initWithObjects:@"load_01.png",@"load_02.png",@"load_03.png",@"load_04.png",@"load_05.png",@"load_06.png", nil];
+    NSArray *imageArray = @[@"load_01.png",@"load_02.png",@"load_03.png",@"load_04.png",@"load_05.png",@"load_06.png"];
     UIImageView *aImage = (UIImageView *)[_mainView viewWithTag:3001];
-    aImage.image = [UIImage imageNamed:[imageArray objectAtIndex:_imageIndex]];
+    aImage.image = [UIImage imageNamed:imageArray[_imageIndex]];
     _imageIndex += 1;
     
     if (_imageIndex == 6) {

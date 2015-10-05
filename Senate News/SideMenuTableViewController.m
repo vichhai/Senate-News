@@ -56,7 +56,7 @@
     if (section == 0) {
         return 3;
     } else if (section == 1){
-        return [arrayCategory count] + 1;
+        return arrayCategory.count + 1;
     } else{
         return 3;
     }
@@ -81,7 +81,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // remove duplicate label when scrolling
-    for (UIView *v in [cell.contentView subviews]) {
+    for (UIView *v in (cell.contentView).subviews) {
         if ([v isKindOfClass:[UILabel class]])
                 [v removeFromSuperview];
     }
@@ -105,7 +105,7 @@
             if (indexPath.row == 0) {
                 myLabel.text = @"ទំព័រដើម";
             }else{
-                myLabel.text = [[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_NAME"];
+                myLabel.text = arrayCategory[indexPath.row - 1][@"CAT_NAME"];
             }
             break;
         case 2:
@@ -166,7 +166,7 @@
             if (indexPath.row == 0) {
                 [self performSegueWithIdentifier:@"main" sender:nil];            
             }else {
-                [ShareObject shareObjectManager].shareCateId = [[arrayCategory objectAtIndex:indexPath.row - 1] objectForKey:@"CAT_ID"];
+                [ShareObject shareObjectManager].shareCateId = arrayCategory[indexPath.row - 1][@"CAT_ID"];
                 [self performSegueWithIdentifier:@"category" sender:nil];
             }
             break;

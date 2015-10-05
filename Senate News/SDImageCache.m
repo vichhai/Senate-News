@@ -42,8 +42,8 @@ static NSData *kPNGSignatureData = nil;
 BOOL ImageDataHasPNGPreffix(NSData *data);
 
 BOOL ImageDataHasPNGPreffix(NSData *data) {
-    NSUInteger pngSignatureLength = [kPNGSignatureData length];
-    if ([data length] >= pngSignatureLength) {
+    NSUInteger pngSignatureLength = kPNGSignatureData.length;
+    if (data.length >= pngSignatureLength) {
         if ([[data subdataWithRange:NSMakeRange(0, pngSignatureLength)] isEqualToData:kPNGSignatureData]) {
             return YES;
         }
@@ -79,7 +79,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     return instance;
 }
 
-- (id)init {
+- (instancetype)init {
     return [self initWithNamespace:@"default"];
 }
 
@@ -175,7 +175,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 #pragma mark SDImageCache (private)
 
 - (NSString *)cachedFileNameForKey:(NSString *)key {
-    const char *str = [key UTF8String];
+    const char *str = key.UTF8String;
     if (str == NULL) {
         str = "";
     }
@@ -226,7 +226,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
                 BOOL imageIsPng = hasAlpha;
 
                 // But if we have an image data, we will look at the preffix
-                if ([imageData length] >= [kPNGSignatureData length]) {
+                if (imageData.length >= kPNGSignatureData.length) {
                     imageIsPng = ImageDataHasPNGPreffix(imageData);
                 }
 
@@ -510,8 +510,8 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 
             // Store a reference to this file and account for its total size.
             NSNumber *totalAllocatedSize = resourceValues[NSURLTotalFileAllocatedSizeKey];
-            currentCacheSize += [totalAllocatedSize unsignedIntegerValue];
-            [cacheFiles setObject:resourceValues forKey:fileURL];
+            currentCacheSize += totalAllocatedSize.unsignedIntegerValue;
+            cacheFiles[fileURL] = resourceValues;
         }
         
         for (NSURL *fileURL in urlsToDelete) {
@@ -535,7 +535,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
                 if ([_fileManager removeItemAtURL:fileURL error:nil]) {
                     NSDictionary *resourceValues = cacheFiles[fileURL];
                     NSNumber *totalAllocatedSize = resourceValues[NSURLTotalFileAllocatedSizeKey];
-                    currentCacheSize -= [totalAllocatedSize unsignedIntegerValue];
+                    currentCacheSize -= totalAllocatedSize.unsignedIntegerValue;
 
                     if (currentCacheSize < desiredCacheSize) {
                         break;
@@ -588,7 +588,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     __block NSUInteger count = 0;
     dispatch_sync(self.ioQueue, ^{
         NSDirectoryEnumerator *fileEnumerator = [_fileManager enumeratorAtPath:self.diskCachePath];
-        count = [[fileEnumerator allObjects] count];
+        count = fileEnumerator.allObjects.count;
     });
     return count;
 }
@@ -608,7 +608,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
         for (NSURL *fileURL in fileEnumerator) {
             NSNumber *fileSize;
             [fileURL getResourceValue:&fileSize forKey:NSURLFileSizeKey error:NULL];
-            totalSize += [fileSize unsignedIntegerValue];
+            totalSize += fileSize.unsignedIntegerValue;
             fileCount += 1;
         }
 
