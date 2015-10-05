@@ -13,6 +13,7 @@
 #import "GITSRefreshAndLoadMore.h"
 #import "CustomSearchTableViewCell.h"
 #import "DetailViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface SearchTableViewController ()<UISearchBarDelegate,ConnectionManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -180,9 +181,7 @@
     [(cell.shareLabels)[1] setText:arrayResult[indexPath.row][@"ART_PUBLISHED_DATE"]]; // set publish date
     
     [(cell.shareLabels)[2] setText:[NSString stringWithFormat:@"By: %@",arrayResult[indexPath.row][@"ART_AUTHOR"]]]; // set author
-    
-    //[cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
-    
+   [cell.myImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
     return cell;
 }
 

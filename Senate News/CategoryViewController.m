@@ -15,6 +15,7 @@
 #import "GITSRefreshAndLoadMore.h"
 #import "DetailViewController.h"
 #import "ScheduleDetailTableViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface CategoryViewController () <UITableViewDataSource,UITableViewDelegate,ConnectionManagerDelegate>
 {
@@ -160,7 +161,7 @@
     
     [(cell.shareLabels)[2] setText:[NSString stringWithFormat:@"By: %@",arrayResult[indexPath.row][@"ART_AUTHOR"]]]; // set author
     
-    // [cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
+    [cell.myImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
     
     return cell;
 }

@@ -32,7 +32,11 @@
     return instance;
 }
 
-- (instancetype)init {
+- (id)init {
+    return [self initWithImageManager:[SDWebImageManager new]];
+}
+
+- (id)initWithImageManager:(SDWebImageManager *)manager {
     if ((self = [super init])) {
         _manager = manager;
         _options = SDWebImageLowPriority;
@@ -93,8 +97,7 @@
 }
 
 - (void)reportStatus {
-    NSUInteger total = (self.prefetchURLs).count;
-    NSLog(@"Finished prefetching (%@ successful, %@ skipped, timeElasped %.2f)", @(total - self.skippedCount), @(self.skippedCount), CFAbsoluteTimeGetCurrent() - self.startedTime);
+    NSUInteger total = [self.prefetchURLs count];
     if ([self.delegate respondsToSelector:@selector(imagePrefetcher:didFinishWithTotalCount:skippedCount:)]) {
         [self.delegate imagePrefetcher:self
                didFinishWithTotalCount:(total - self.skippedCount)

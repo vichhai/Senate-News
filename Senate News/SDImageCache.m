@@ -83,7 +83,12 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     return [self initWithNamespace:@"default"];
 }
 
-- (instancetype)initWithNamespace:(NSString *)ns {
+- (id)initWithNamespace:(NSString *)ns {
+    NSString *path = [self makeDiskCachePath:ns];
+    return [self initWithNamespace:ns diskCacheDirectory:path];
+}
+
+- (id)initWithNamespace:(NSString *)ns diskCacheDirectory:(NSString *)directory {
     if ((self = [super init])) {
         NSString *fullNamespace = [@"com.hackemist.SDWebImageCache." stringByAppendingString:ns];
 
