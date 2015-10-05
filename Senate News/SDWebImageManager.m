@@ -21,7 +21,7 @@
 
 @property (strong, nonatomic, readwrite) SDImageCache *imageCache;
 @property (strong, nonatomic, readwrite) SDWebImageDownloader *imageDownloader;
-@property (strong, nonatomic) NSMutableArray *failedURLs;
+@property (strong, nonatomic) NSMutableSet *failedURLs;
 @property (strong, nonatomic) NSMutableArray *runningOperations;
 
 @end
@@ -41,7 +41,7 @@
     if ((self = [super init])) {
         _imageCache = [self createCache];
         _imageDownloader = [SDWebImageDownloader sharedDownloader];
-        _failedURLs = [NSMutableArray new];
+        _failedURLs = [NSMutableSet new];
         _runningOperations = [NSMutableArray new];
     }
     return self;
@@ -133,7 +133,7 @@
         isFailedUrl = [self.failedURLs containsObject:url];
     }
 
-    if (!url || (!(options & SDWebImageRetryFailed) && isFailedUrl)) {
+    if (url.absoluteString.length == 0 || (!(options & SDWebImageRetryFailed) && isFailedUrl)) {
         dispatch_main_sync_safe(^{
             NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
             completedBlock(nil, error, SDImageCacheTypeNone, YES, url);
@@ -192,13 +192,25 @@
                         }
                     });
 
-                    if (error.code != NSURLErrorNotConnectedToInternet && error.code != NSURLErrorCancelled && error.code != NSURLErrorTimedOut) {
+                    if (   error.code != NSURLErrorNotConnectedToInternet
+                        && error.code != NSURLErrorCancelled
+                        && error.code != NSURLErrorTimedOut
+                        && error.code != NSURLErrorInternationalRoamingOff
+                        && error.code != NSURLErrorDataNotAllowed
+                        && error.code != NSURLErrorCannotFindHost
+                        && error.code != NSURLErrorCannotConnectToHost) {
                         @synchronized (self.failedURLs) {
                             [self.failedURLs addObject:url];
                         }
                     }
                 }
                 else {
+                    if ((options & SDWebImageRetryFailed)) {
+                        @synchronized (self.failedURLs) {
+                            [self.failedURLs removeObject:url];
+                        }
+                    }
+                    
                     BOOL cacheOnDisk = !(options & SDWebImageCacheMemoryOnly);
 
                     if (options & SDWebImageRefreshCached && image && !downloadedImage) {
@@ -210,7 +222,7 @@
 
                             if (transformedImage && finished) {
                                 BOOL imageWasTransformed = ![transformedImage isEqual:downloadedImage];
-                                [self.imageCache storeImage:transformedImage recalculateFromImage:imageWasTransformed imageData:data forKey:key toDisk:cacheOnDisk];
+                                [self.imageCache storeImage:transformedImage recalculateFromImage:imageWasTransformed imageData:(imageWasTransformed ? nil : data) forKey:key toDisk:cacheOnDisk];
                             }
 
                             dispatch_main_sync_safe(^{
@@ -323,6 +335,24 @@
 //        self.cancelBlock = nil;
         _cancelBlock = nil;
     }
+}
+
+@end
+
+
+@implementation SDWebImageManager (Deprecated)
+
+// deprecated method, uses the non deprecated method
+// adapter for the completion block
+- (id <SDWebImageOperation>)downloadWithURL:(NSURL *)url options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletedWithFinishedBlock)completedBlock {
+    return [self downloadImageWithURL:url
+                              options:options
+                             progress:progressBlock
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                                if (completedBlock) {
+                                    completedBlock(image, error, cacheType, finished);
+                                }
+                            }];
 }
 
 @end

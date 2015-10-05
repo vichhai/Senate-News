@@ -8,10 +8,6 @@
 
 #import "SDWebImagePrefetcher.h"
 
-#if (!defined(DEBUG) && !defined (SD_VERBOSE)) || defined(SD_LOG_NONE)
-#define NSLog(...)
-#endif
-
 @interface SDWebImagePrefetcher ()
 
 @property (strong, nonatomic) SDWebImageManager *manager;
@@ -38,8 +34,9 @@
 
 - (instancetype)init {
     if ((self = [super init])) {
-        _manager = [SDWebImageManager new];
+        _manager = manager;
         _options = SDWebImageLowPriority;
+        _prefetcherQueue = dispatch_get_main_queue();
         self.maxConcurrentDownloads = 3;
     }
     return self;
@@ -64,14 +61,11 @@
             if (self.progressBlock) {
                 self.progressBlock(self.finishedCount,(self.prefetchURLs).count);
             }
-            NSLog(@"Prefetched %@ out of %@", @(self.finishedCount), @(self.prefetchURLs.count));
         }
         else {
             if (self.progressBlock) {
                 self.progressBlock(self.finishedCount,(self.prefetchURLs).count);
             }
-            NSLog(@"Prefetched %@ out of %@ (Failed)", @(self.finishedCount), @(self.prefetchURLs.count));
-
             // Add last failed
             self.skippedCount++;
         }
@@ -82,9 +76,8 @@
                                 totalCount:self.prefetchURLs.count
             ];
         }
-
         if (self.prefetchURLs.count > self.requestedCount) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_async(self.prefetcherQueue, ^{
                 [self startPrefetchingAtIndex:self.requestedCount];
             });
         }
@@ -94,6 +87,7 @@
                 self.completionBlock(self.finishedCount, self.skippedCount);
                 self.completionBlock = nil;
             }
+            self.progressBlock = nil;
         }
     }];
 }
