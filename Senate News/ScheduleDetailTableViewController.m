@@ -212,7 +212,7 @@
     
     UILabel *labelDate = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
     labelDate.textColor = RGB(218, 162, 53);
-    labelDate.text =  @"កាលបរិច្ឆេត:";
+    labelDate.text =  @"កាលបរិច្ឆេទ:";
     labelDate.font = [UIFont systemFontOfSize:17.0];
     
     [containerDate addSubview:imageDate];

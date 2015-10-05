@@ -246,7 +246,7 @@
     
     [[cell.shareLabel objectAtIndex:2] setText:[NSString stringWithFormat:@"By: %@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_AUTHOR"]]]; // set author
     
-//    [cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
+    [cell.myImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[arrayResult objectAtIndex:indexPath.row] objectForKey:@"ART_IMAGE"]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]]; // set image
     
     return cell;
 }
