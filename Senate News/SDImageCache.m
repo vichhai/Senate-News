@@ -19,8 +19,8 @@ static NSData *kPNGSignatureData = nil;
 BOOL ImageDataHasPNGPreffix(NSData *data);
 
 BOOL ImageDataHasPNGPreffix(NSData *data) {
-    NSUInteger pngSignatureLength = [kPNGSignatureData length];
-    if ([data length] >= pngSignatureLength) {
+    NSUInteger pngSignatureLength = kPNGSignatureData.length;
+    if (data.length >= pngSignatureLength) {
         if ([[data subdataWithRange:NSMakeRange(0, pngSignatureLength)] isEqualToData:kPNGSignatureData]) {
             return YES;
         }
@@ -53,11 +53,11 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
     return instance;
 }
 
-- (id)init {
+- (instancetype)init {
     return [self initWithNamespace:@"default"];
 }
 
-- (id)initWithNamespace:(NSString *)ns {
+- (instancetype)initWithNamespace:(NSString *)ns {
     if ((self = [super init])) {
         NSString *fullNamespace = [@"com.hackemist.SDWebImageCache." stringByAppendingString:ns];
 
@@ -128,7 +128,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
 #pragma mark SDImageCache (private)
 
 - (NSString *)cachedFileNameForKey:(NSString *)key {
-    const char *str = [key UTF8String];
+    const char *str = key.UTF8String;
     if (str == NULL) {
         str = "";
     }
@@ -165,7 +165,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
                 BOOL imageIsPng = YES;
 
                 // But if we have an image data, we will look at the preffix
-                if ([imageData length] >= [kPNGSignatureData length]) {
+                if (imageData.length >= kPNGSignatureData.length) {
                     imageIsPng = ImageDataHasPNGPreffix(imageData);
                 }
 
@@ -425,8 +425,8 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
 
             // Store a reference to this file and account for its total size.
             NSNumber *totalAllocatedSize = resourceValues[NSURLTotalFileAllocatedSizeKey];
-            currentCacheSize += [totalAllocatedSize unsignedIntegerValue];
-            [cacheFiles setObject:resourceValues forKey:fileURL];
+            currentCacheSize += totalAllocatedSize.unsignedIntegerValue;
+            cacheFiles[fileURL] = resourceValues;
         }
         
         for (NSURL *fileURL in urlsToDelete) {
@@ -450,7 +450,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
                 if ([_fileManager removeItemAtURL:fileURL error:nil]) {
                     NSDictionary *resourceValues = cacheFiles[fileURL];
                     NSNumber *totalAllocatedSize = resourceValues[NSURLTotalFileAllocatedSizeKey];
-                    currentCacheSize -= [totalAllocatedSize unsignedIntegerValue];
+                    currentCacheSize -= totalAllocatedSize.unsignedIntegerValue;
 
                     if (currentCacheSize < desiredCacheSize) {
                         break;
@@ -499,7 +499,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
     __block NSUInteger count = 0;
     dispatch_sync(self.ioQueue, ^{
         NSDirectoryEnumerator *fileEnumerator = [_fileManager enumeratorAtPath:self.diskCachePath];
-        count = [[fileEnumerator allObjects] count];
+        count = fileEnumerator.allObjects.count;
     });
     return count;
 }
@@ -519,7 +519,7 @@ BOOL ImageDataHasPNGPreffix(NSData *data) {
         for (NSURL *fileURL in fileEnumerator) {
             NSNumber *fileSize;
             [fileURL getResourceValue:&fileSize forKey:NSURLFileSizeKey error:NULL];
-            totalSize += [fileSize unsignedIntegerValue];
+            totalSize += fileSize.unsignedIntegerValue;
             fileCount += 1;
         }
 

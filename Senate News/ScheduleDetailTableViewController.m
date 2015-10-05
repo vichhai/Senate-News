@@ -32,7 +32,7 @@
     UIButton *back  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [back setImage:[UIImage imageNamed:@"Back-100"] forState:UIControlStateNormal];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:back];
-    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem2, nil];
+    NSArray *barButtonItemArray = @[barButtonItem2];
     self.navigationItem.leftBarButtonItems = barButtonItemArray;
     [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [AppUtils showLoading:self.view];
@@ -86,7 +86,7 @@
 //        [self customLabel:cell];
 //    }
 
-    for (UIView *v in [cell.contentView subviews]) {
+    for (UIView *v in (cell.contentView).subviews) {
         if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UIView class]])
             [v removeFromSuperview];
     }
@@ -105,11 +105,11 @@
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     if ([withAPIKey isEqualToString:@"SCHEDULE_R001"]) {
-        [dataDic setObject:_scheduleId forKey:@"SCH_ID"];
+        dataDic[@"SCH_ID"] = _scheduleId;
     }
     NSLog(@"%@",_scheduleId);
-    [reqDic setObject:withAPIKey forKey:@"KEY"];
-    [reqDic setObject:dataDic forKey:@"REQ_DATA"];
+    reqDic[@"KEY"] = withAPIKey;
+    reqDic[@"REQ_DATA"] = dataDic;
     ConnectionManager *cont = [[ConnectionManager alloc] init];
     cont.delegate = self;
     [cont sendTranData:reqDic];
@@ -117,7 +117,7 @@
 
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     // set data to array for looping to TableViewCell
-        resultDic = [[NSMutableDictionary alloc] initWithDictionary:[[result objectForKey:@"RESP_DATA"] objectForKey:@"SCH_REC"]];
+        resultDic = [[NSMutableDictionary alloc] initWithDictionary:result[@"RESP_DATA"][@"SCH_REC"]];
     NSLog(@"%@",resultDic);
     [_detailSchedule reloadData];
     [AppUtils hideLoading:self.view];
@@ -145,12 +145,12 @@
     [containerTopic addSubview:labelTopic];
     [cell.contentView addSubview:containerTopic];
     
-    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.9; // change
+    height = [self measureTextHeight:resultDic[@"SCH_TITLE"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.9; // change
     UILabel *topic = [[UILabel alloc]initWithFrame:CGRectMake(160, containerTopic.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
     topic.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
-    if ([resultDic objectForKey:@"SCH_TITLE"] != NULL) {
-        topic.text = [resultDic objectForKey:@"SCH_TITLE"]; // change
-        [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_TITLE"] anyLabel:topic]; // change
+    if (resultDic[@"SCH_TITLE"] != NULL) {
+        topic.text = resultDic[@"SCH_TITLE"]; // change
+        [AppUtils setLineHeight:resultDic[@"SCH_TITLE"] anyLabel:topic]; // change
     }
     topic.numberOfLines = 0;
     
@@ -171,11 +171,11 @@
     [containerDes addSubview:labelDes];
     [cell.contentView addSubview:containerDes];
     
-    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.4; // change
+    height = [self measureTextHeight:resultDic[@"SCH_DESCRIPTION"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f] * 1.4; // change
     UILabel *description = [[UILabel alloc]initWithFrame:CGRectMake(160,containerDes.frame.origin.y + 5, (cell.contentView.frame.size.width - 180), height)];
-    if ([resultDic objectForKey:@"SCH_DESCRIPTION"] != NULL) {
-        description.text = [resultDic objectForKey:@"SCH_DESCRIPTION"]; // change
-        [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] anyLabel:description]; // change
+    if (resultDic[@"SCH_DESCRIPTION"] != NULL) {
+        description.text = resultDic[@"SCH_DESCRIPTION"]; // change
+        [AppUtils setLineHeight:resultDic[@"SCH_DESCRIPTION"] anyLabel:description]; // change
     }
     description.numberOfLines = 0;
     
@@ -198,8 +198,8 @@
     [cell.contentView addSubview:containerLoc];
     
     UILabel *location = [[UILabel alloc]initWithFrame:CGRectMake(160, (description.frame.origin.y + description.frame.size.height) + 10, (cell.contentView.frame.size.width - 180), 35)];
-    if ([resultDic objectForKey:@"SCH_PLACE"] != NULL) {
-        location.text = [resultDic objectForKey:@"SCH_PLACE"]; // change
+    if (resultDic[@"SCH_PLACE"] != NULL) {
+        location.text = resultDic[@"SCH_PLACE"]; // change
     }
     
     [cell.contentView addSubview:location];
@@ -219,8 +219,8 @@
     [containerDate addSubview:labelDate];
     [cell.contentView addSubview:containerDate];
     UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 170), 35)];
-    if ([resultDic objectForKey:@"SCH_EVENT_START"] != NULL) {
-        date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[[resultDic objectForKey:@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
+    if (resultDic[@"SCH_EVENT_START"] != NULL) {
+        date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[resultDic[@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[resultDic[@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[resultDic[@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
     }
     
     [cell.contentView addSubview:date];
@@ -240,8 +240,8 @@
     [containerStart addSubview:labelStart];
     [cell.contentView addSubview:containerStart];
     UILabel *startHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStart.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    if ([resultDic objectForKey:@"SCH_EVENT_START"] != NULL) {
-        startHour.text = [[resultDic objectForKey:@"SCH_EVENT_START"] substringFromIndex:41]; // change
+    if (resultDic[@"SCH_EVENT_START"] != NULL) {
+        startHour.text = [resultDic[@"SCH_EVENT_START"] substringFromIndex:41]; // change
     }
  
     [cell.contentView addSubview:startHour];
@@ -262,7 +262,7 @@
     [cell.contentView addSubview:containerStop];
     
     UILabel *stopHour = [[UILabel alloc]initWithFrame:CGRectMake(160, containerStop.frame.origin.y ,(cell.contentView.frame.size.width - 180), 35)];
-    stopHour.text = [[resultDic objectForKey:@"SCH_EVENT_END"] substringFromIndex:41]; // change
+    stopHour.text = [resultDic[@"SCH_EVENT_END"] substringFromIndex:41]; // change
     
     [cell.contentView addSubview:stopHour];
     
@@ -283,8 +283,8 @@
     [cell.contentView addSubview:containerType];
     
     UILabel *type = [[UILabel alloc]initWithFrame:CGRectMake(160, containerType.frame.origin.y , (cell.contentView.frame.size.width - 180), 35)];
-    if ([resultDic objectForKey:@"SCH_TYPE"] != NULL) {
-        type.text = [resultDic objectForKey:@"SCH_TYPE"]; // change
+    if (resultDic[@"SCH_TYPE"] != NULL) {
+        type.text = resultDic[@"SCH_TYPE"]; // change
     }
     
     [cell.contentView addSubview:type];
@@ -325,79 +325,79 @@
 -(void) customLabel: (UITableViewCell *) cell{
     
     // estimate geight
-    CGFloat height = [self measureTextHeight:[resultDic objectForKey:@"SCH_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:17.0f] * 1.6;
+    CGFloat height = [self measureTextHeight:resultDic[@"SCH_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:17.0f] * 1.6;
     
     // =---> Title label
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, (cell.contentView.frame.size.width - 20), height)];
     titleLable.textColor = [UIColor blackColor];
     titleLable.font = [UIFont systemFontOfSize:20.0f];
     titleLable.numberOfLines = 0; // set multiline
-    titleLable.text = [resultDic objectForKey:@"SCH_TITLE"];
-    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_TITLE"] anyLabel:titleLable];
+    titleLable.text = resultDic[@"SCH_TITLE"];
+    [AppUtils setLineHeight:resultDic[@"SCH_TITLE"] anyLabel:titleLable];
     //if ([resultDic objectForKey:@"SCH_TITLE"] != NULL) {
-        titleLable.text = [resultDic objectForKey:@"SCH_TITLE"];
+        titleLable.text = resultDic[@"SCH_TITLE"];
     //}
     
     // =---> Date label
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (titleLable.frame.origin.y + height) + 10, (cell.contentView.frame.size.width - 20), 21)];
     dateLabel.font = [UIFont systemFontOfSize:15];
     dateLabel.textColor = [UIColor lightGrayColor];
-    if ([resultDic objectForKey:@"SCH_PUBLISHED_DATE"] != NULL) {
-        dateLabel.text = [NSString stringWithFormat:@"កាលបរិច្ឆេតចេញផ្សាយ: %@",[resultDic objectForKey:@"SCH_PUBLISHED_DATE"]];
+    if (resultDic[@"SCH_PUBLISHED_DATE"] != NULL) {
+        dateLabel.text = [NSString stringWithFormat:@"កាលបរិច្ឆេតចេញផ្សាយ: %@",resultDic[@"SCH_PUBLISHED_DATE"]];
     }
     // =---> Author label
     UILabel *authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (dateLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), 21)];
     authorLabel.font = [UIFont systemFontOfSize:15];
     authorLabel.textColor = [UIColor lightGrayColor];
-    if ([resultDic objectForKey:@"SCH_AUTHOR"] != NULL) {
-        authorLabel.text = [NSString stringWithFormat:@"ចេញផ្សាយដោយ: %@",[resultDic objectForKey:@"SCH_AUTHOR"]];
+    if (resultDic[@"SCH_AUTHOR"] != NULL) {
+        authorLabel.text = [NSString stringWithFormat:@"ចេញផ្សាយដោយ: %@",resultDic[@"SCH_AUTHOR"]];
     }
     // =---> Place label
     UILabel *placeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (authorLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), 21)];
     placeLabel.font = [UIFont systemFontOfSize:15];
     placeLabel.textColor = [UIColor blackColor];
-    if ([resultDic objectForKey:@"SCH_PLACE"] != NULL) {
-        placeLabel.text = [NSString stringWithFormat:@"ទីកន្លែង: %@", [resultDic objectForKey:@"SCH_PLACE"]];
+    if (resultDic[@"SCH_PLACE"] != NULL) {
+        placeLabel.text = [NSString stringWithFormat:@"ទីកន្លែង: %@", resultDic[@"SCH_PLACE"]];
     }
     // =---> start hour label
     UILabel *startLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (placeLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), 21)];
     startLabel.font = [UIFont systemFontOfSize:15];
     startLabel.textColor = [UIColor blackColor];
-    if ([resultDic objectForKey:@"SCH_EVENT_START"] != NULL) {
-        startLabel.text = [NSString stringWithFormat:@"ចាប់ពី: %@", [resultDic objectForKey:@"SCH_EVENT_START"]];
+    if (resultDic[@"SCH_EVENT_START"] != NULL) {
+        startLabel.text = [NSString stringWithFormat:@"ចាប់ពី: %@", resultDic[@"SCH_EVENT_START"]];
     }
     // =---> stop hour label
     UILabel *stopLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (startLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), 21)];
     stopLabel.font = [UIFont systemFontOfSize:15];
     stopLabel.textColor = [UIColor blackColor];
-    if ([resultDic objectForKey:@"SCH_EVENT_END"] != NULL) {
-        stopLabel.text = [NSString stringWithFormat:@"ដល់: %@", [resultDic objectForKey:@"SCH_EVENT_END"]];
+    if (resultDic[@"SCH_EVENT_END"] != NULL) {
+        stopLabel.text = [NSString stringWithFormat:@"ដល់: %@", resultDic[@"SCH_EVENT_END"]];
     }
     // =---> Type label
     UILabel *typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (stopLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), 21)];
     typeLabel.font = [UIFont systemFontOfSize:15];
     typeLabel.textColor = [UIColor blackColor];
-    if ([resultDic objectForKey:@"SCH_TYPE"] != NULL) {
-        typeLabel.text = [NSString stringWithFormat:@"ប្រភេទរបស់: %@", [resultDic objectForKey:@"SCH_TYPE"]];
+    if (resultDic[@"SCH_TYPE"] != NULL) {
+        typeLabel.text = [NSString stringWithFormat:@"ប្រភេទរបស់: %@", resultDic[@"SCH_TYPE"]];
     }
     // =---> detail label
     UILabel *detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (typeLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), 21)];
     detailLabel.font = [UIFont systemFontOfSize:16];
     detailLabel.textColor = [UIColor blackColor];
-    if ([resultDic objectForKey:@"SCH_DESCRIPTION"] != NULL) {
+    if (resultDic[@"SCH_DESCRIPTION"] != NULL) {
         detailLabel.text = @"ពត៏មានលំអិត:";
     }
     // =---> article label
     
-    height = [self measureTextHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.7;
+    height = [self measureTextHeight:resultDic[@"SCH_DESCRIPTION"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:15.0f] * 1.7;
     
     UILabel *articleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (detailLabel.frame.origin.y + 21) + 10, (cell.contentView.frame.size.width - 20), height)];
     articleLabel.font = [UIFont systemFontOfSize:15];
     articleLabel.textColor = [UIColor blackColor];
     articleLabel.numberOfLines = 0;
-    articleLabel.text = [resultDic objectForKey:@"SCH_DESCRIPTION"];
+    articleLabel.text = resultDic[@"SCH_DESCRIPTION"];
     
-    [AppUtils setLineHeight:[resultDic objectForKey:@"SCH_DESCRIPTION"] anyLabel:articleLabel];
+    [AppUtils setLineHeight:resultDic[@"SCH_DESCRIPTION"] anyLabel:articleLabel];
    // if ([resultDic objectForKey:@"SCH_DESCRIPTION"] != NULL) {
 //        articleLabel.text = [resultDic objectForKey:@"SCH_DESCRIPTION"];
     //}

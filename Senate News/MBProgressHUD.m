@@ -136,7 +136,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		hud.removeFromSuperViewOnHide = YES;
 		[hud hide:animated];
 	}
-	return [huds count];
+	return huds.count;
 }
 
 + (MB_INSTANCETYPE)HUDForView:(UIView *)view {
@@ -162,7 +162,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 #pragma mark - Lifecycle
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
 		// Set default values for properties
@@ -208,12 +208,12 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	return self;
 }
 
-- (id)initWithView:(UIView *)view {
+- (instancetype)initWithView:(UIView *)view {
 	NSAssert(view, @"View must not be nil.");
 	return [self initWithFrame:view.bounds];
 }
 
-- (id)initWithWindow:(UIWindow *)window {
+- (instancetype)initWithWindow:(UIWindow *)window {
 	return [self initWithView:window];
 }
 
@@ -274,11 +274,11 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 - (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay {
-	[self performSelector:@selector(hideDelayed:) withObject:[NSNumber numberWithBool:animated] afterDelay:delay];
+	[self performSelector:@selector(hideDelayed:) withObject:@(animated) afterDelay:delay];
 }
 
 - (void)hideDelayed:(NSNumber *)animated {
-	[self hide:[animated boolValue]];
+	[self hide:animated.boolValue];
 }
 
 #pragma mark - Timer callbacks
@@ -485,7 +485,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 			[self addSubview:indicator];
 		}
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 50000
-		[(UIActivityIndicatorView *)indicator setColor:self.activityIndicatorColor];
+		((UIActivityIndicatorView *)indicator).color = self.activityIndicatorColor;
 #endif
 	}
 	else if (mode == MBProgressHUDModeDeterminateHorizontalBar) {
@@ -671,8 +671,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 - (NSArray *)observableKeypaths {
-	return [NSArray arrayWithObjects:@"mode", @"customView", @"labelText", @"labelFont", @"labelColor",
-			@"detailsLabelText", @"detailsLabelFont", @"detailsLabelColor", @"progress", @"activityIndicatorColor", nil];
+	return @[@"mode", @"customView", @"labelText", @"labelFont", @"labelColor",
+			@"detailsLabelText", @"detailsLabelFont", @"detailsLabelColor", @"progress", @"activityIndicatorColor"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -763,7 +763,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		[UIView beginAnimations:nil context:nil];
 		[UIView setAnimationDuration:0.3];
 	}
-	[self setTransform:rotationTransform];
+	self.transform = rotationTransform;
 	if (animated) {
 		[UIView commitAnimations];
 	}
@@ -777,11 +777,11 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 #pragma mark - Lifecycle
 
-- (id)init {
+- (instancetype)init {
 	return [self initWithFrame:CGRectMake(0.f, 0.f, 37.f, 37.f)];
 }
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
 		self.backgroundColor = [UIColor clearColor];
@@ -869,7 +869,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 - (NSArray *)observableKeypaths {
-	return [NSArray arrayWithObjects:@"progressTintColor", @"backgroundTintColor", @"progress", @"annular", nil];
+	return @[@"progressTintColor", @"backgroundTintColor", @"progress", @"annular"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -883,11 +883,11 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 #pragma mark - Lifecycle
 
-- (id)init {
+- (instancetype)init {
 	return [self initWithFrame:CGRectMake(.0f, .0f, 120.0f, 20.0f)];
 }
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
 		_progress = 0.f;
@@ -917,8 +917,8 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	CGContextSetLineWidth(context, 2);
-	CGContextSetStrokeColorWithColor(context,[_lineColor CGColor]);
-	CGContextSetFillColorWithColor(context, [_progressRemainingColor CGColor]);
+	CGContextSetStrokeColorWithColor(context,_lineColor.CGColor);
+	CGContextSetFillColorWithColor(context, _progressRemainingColor.CGColor);
 	
 	// Draw background
 	float radius = (rect.size.height / 2) - 2;
@@ -941,7 +941,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	CGContextAddArcToPoint(context, 2, rect.size.height - 2, 2, rect.size.height/2, radius);
 	CGContextStrokePath(context);
 	
-	CGContextSetFillColorWithColor(context, [_progressColor CGColor]);
+	CGContextSetFillColorWithColor(context, _progressColor.CGColor);
 	radius = radius - 2;
 	float amount = self.progress * rect.size.width;
 	
@@ -1012,7 +1012,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 - (NSArray *)observableKeypaths {
-	return [NSArray arrayWithObjects:@"lineColor", @"progressRemainingColor", @"progressColor", @"progress", nil];
+	return @[@"lineColor", @"progressRemainingColor", @"progressColor", @"progress"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

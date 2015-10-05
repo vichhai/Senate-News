@@ -51,7 +51,7 @@
    // UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:menu];
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:facebook];
     
-    NSArray *barButtonItemArray = [[NSArray alloc] initWithObjects:barButtonItem2, nil];
+    NSArray *barButtonItemArray = @[barButtonItem2];
     self.navigationItem.rightBarButtonItems = barButtonItemArray;
     [facebook addTarget:self action:@selector(shareToFacebook) forControlEvents:UIControlEventTouchUpInside];
 
@@ -69,15 +69,15 @@
 -(void) shareToFacebook{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *facebookController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [facebookController addURL:[NSURL URLWithString:[resultDic objectForKey:@"ART_URL"]]];
-        [facebookController setCompletionHandler:^(SLComposeViewControllerResult result){
+        [facebookController addURL:[NSURL URLWithString:resultDic[@"ART_URL"]]];
+        facebookController.completionHandler = ^(SLComposeViewControllerResult result){
             if (result == SLComposeViewControllerResultCancelled) {
                 NSLog(@"Cancil");
             }else if(result == SLComposeViewControllerResultDone){
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Done" message:@"Your sharing is succesfull!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                 [alert show];
             }
-        }];
+        };
         [self presentViewController:facebookController animated:YES completion:nil];
     }
     
@@ -93,7 +93,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-    for (UIView *v in [cell.contentView subviews]) {
+    for (UIView *v in (cell.contentView).subviews) {
         if ([v isKindOfClass:[UIImageView class]]){
             [v removeFromSuperview];
         }
@@ -101,7 +101,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.contentView.frame];
     imageView.image = [UIImage imageNamed:@"none_photo.png"];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",[[resultDic objectForKey:@"IMAGES"] objectAtIndex:indexPath.row]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.senate.gov.kh/home/%@",resultDic[@"IMAGES"][indexPath.row]]] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.contentView addSubview:imageView];
     
@@ -123,16 +123,16 @@
     // =---> label page of page
     
     UILabel *labelPage = [[UILabel alloc] initWithFrame:CGRectMake(23, view.frame.size.height / 2 - 6.0f, 30, 12)];
-    labelPage.text = [NSString stringWithFormat:@"%d/ %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]];
+    labelPage.text = [NSString stringWithFormat:@"%d/ %lu",indexPath.row + 1,(unsigned long)[resultDic[@"IMAGES"] count]];
     labelPage.textColor = [UIColor whiteColor];
     labelPage.font = [UIFont systemFontOfSize:12];
-    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%d / %lu",indexPath.row + 1,(unsigned long)[[resultDic objectForKey:@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
+    CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%d / %lu",indexPath.row + 1,(unsigned long)[resultDic[@"IMAGES"] count]] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
     
     // =---> set new frame to label
-    [labelPage setFrame:CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12)];
+    labelPage.frame = CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12);
     
     // =---> set new frame for view
-    [view setFrame:CGRectMake(cell.contentView.bounds.size.width - (labelPage.frame.origin.x + labelPage.frame.size.width) - 10,(cell.contentView.frame.size.height - 25) - 20,(labelPage.frame.origin.x + labelPage.frame.size.width) + 5,20)];
+    view.frame = CGRectMake(cell.contentView.bounds.size.width - (labelPage.frame.origin.x + labelPage.frame.size.width) - 10,(cell.contentView.frame.size.height - 25) - 20,(labelPage.frame.origin.x + labelPage.frame.size.width) + 5,20);
     
     [view addSubview:labelPage];
     [view addSubview:imagePage];
@@ -142,7 +142,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [[resultDic objectForKey:@"IMAGES"] count];
+    return [resultDic[@"IMAGES"] count];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -151,7 +151,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"index path %@",indexPath);
-    [self performSegueWithIdentifier:@"showImage" sender:[[resultDic objectForKey:@"IMAGES"] objectAtIndex:indexPath.row]];
+    [self performSegueWithIdentifier:@"showImage" sender:resultDic[@"IMAGES"][indexPath.row]];
 } 
 #pragma mark - Tableview datasource
 
@@ -159,37 +159,37 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableCell" forIndexPath:indexPath];
 
-    for (UIView *v in [cell.contentView subviews]) {
+    for (UIView *v in (cell.contentView).subviews) {
         if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UITextView class]])
             [v removeFromSuperview];
     }
     if (![AppUtils isNull:resultDic]) {
         
         CGFloat height = 0.0;
-        height = [self measureTextHeight:[resultDic objectForKey:@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:15.0f] * 0.5;
+        height = [self measureTextHeight:resultDic[@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:15.0f] * 0.5;
         
         UILabel *labelTitle = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, cell.contentView.frame.size.width - 20, height)];
         labelTitle.numberOfLines = 0;
         labelTitle.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
-        labelTitle.text = [resultDic objectForKey:@"ART_TITLE"];
+        labelTitle.text = resultDic[@"ART_TITLE"];
         
-        height = [self measureTextHeight:[resultDic objectForKey:@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:27.0f];
+        height = [self measureTextHeight:resultDic[@"ART_TITLE"] constrainedToSize:CGSizeMake(cell.contentView.frame.size.width, 2000.0f) fontSize:27.0f];
         
-        [labelTitle setFrame:CGRectMake(10, 10, cell.contentView.frame.size.width - 20, height)];
+        labelTitle.frame = CGRectMake(10, 10, cell.contentView.frame.size.width - 20, height);
         
         [cell.contentView addSubview:labelTitle];
         
         UILabel *labelDate = [[UILabel alloc] initWithFrame:CGRectMake(10, (labelTitle.frame.size.height + labelTitle.frame.origin.y) + 2, cell.contentView.frame.size.width - 20, 21)];
         labelDate.font = [UIFont systemFontOfSize:12];
         labelDate.textColor = [UIColor darkGrayColor];
-        labelDate.text = [NSString stringWithFormat:@"ចុះផ្សាយ %@",[resultDic objectForKey:@"ART_PUBLISHED_DATE"]];
+        labelDate.text = [NSString stringWithFormat:@"ចុះផ្សាយ %@",resultDic[@"ART_PUBLISHED_DATE"]];
         
         [cell.contentView addSubview:labelDate];
         
         UILabel *labelAuthor = [[UILabel alloc] initWithFrame:CGRectMake(10, (labelDate.frame.size.height + labelDate.frame.origin.y) + 2, cell.contentView.frame.size.width - 20, 21)];
         labelAuthor.font = [UIFont systemFontOfSize:12];
         labelAuthor.textColor = [UIColor darkGrayColor];
-        labelAuthor.text = [NSString stringWithFormat:@"ចុះផ្សាយដោយ: %@",[resultDic objectForKey:@"ART_AUTHOR"]]; // set author
+        labelAuthor.text = [NSString stringWithFormat:@"ចុះផ្សាយដោយ: %@",resultDic[@"ART_AUTHOR"]]; // set author
         
         labelAuthor.tag = 101;
         [cell.contentView addSubview:labelAuthor];
@@ -200,7 +200,7 @@
         
         // =--> Create Content Label
         
-        height = [self measureTextHeight:[resultDic objectForKey:@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:22.0f];
+        height = [self measureTextHeight:resultDic[@"ART_DETAIL"] constrainedToSize:CGSizeMake(tempCollectionView.frame.size.width, 2000.0f) fontSize:22.0f];
         
         if ([_receiveData isEqualToString:@"11802"] || [_receiveData isEqualToString:@"11809"] || [_receiveData isEqualToString:@"11805"] || [_receiveData isEqualToString:@"11795"]) {
             height = height * 1.2;
@@ -208,7 +208,7 @@
         
         UITextView *contentLabel = [[UITextView alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
         
-        contentLabel.text = [resultDic objectForKey:@"ART_DETAIL"];
+        contentLabel.text = resultDic[@"ART_DETAIL"];
         //    contentLabel.numberOfLines = 0;
         contentLabel.tag = 100;
         contentLabel.selectable = true;
@@ -217,11 +217,11 @@
         contentLabel.layoutManager.delegate = self;
         contentLabel.dataDetectorTypes = UIDataDetectorTypeLink;
         
-        if ([AppUtils isNull:[resultDic objectForKey:@"ART_DETAIL"]] == false && [AppUtils isNull:[resultDic objectForKey:@"ART_TITLE"]] == false) {
+        if ([AppUtils isNull:resultDic[@"ART_DETAIL"]] == false && [AppUtils isNull:resultDic[@"ART_TITLE"]] == false) {
             
-            [AppUtils setTextViewHeight:[resultDic objectForKey:@"ART_DETAIL"] anyTextView:contentLabel];
+            [AppUtils setTextViewHeight:resultDic[@"ART_DETAIL"] anyTextView:contentLabel];
 //            [contentLabel setFont:[UIFont fontWithName:@"KhmerOSBattambang" size:14]];
-            [contentLabel setFont:[UIFont systemFontOfSize:16]];
+            contentLabel.font = [UIFont systemFontOfSize:16];
         }
         [cell.contentView addSubview:contentLabel];
         
@@ -292,7 +292,7 @@
     
     for (int i = 0; i<arrayURL.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView sd_setImageWithURL:[arrayURL objectAtIndex:i] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
+        [imageView sd_setImageWithURL:arrayURL[i] placeholderImage:[UIImage imageNamed:@"none_photo.png"]];
         [arrayImageView addObject:imageView];
     }
     return arrayImageView;
@@ -307,8 +307,8 @@
     anyScrollView.tag = 9999;
     
     for (int index = 0; index < imageViewArray.count; index++) {
-        UIImageView *imageView = (UIImageView *)[imageViewArray objectAtIndex:index];
-        [imageView  setFrame:CGRectMake((anyScrollView.frame.size.width * (CGFloat)index), 0, anyScrollView.frame.size.width, anyScrollView.frame.size.height)];
+        UIImageView *imageView = (UIImageView *)imageViewArray[index];
+        imageView.frame = CGRectMake((anyScrollView.frame.size.width * (CGFloat)index), 0, anyScrollView.frame.size.width, anyScrollView.frame.size.height);
         
         // =---> Image Page BackGround
         
@@ -332,17 +332,17 @@
         CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%d / %lu",index + 1,(unsigned long)imageViewArray.count] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
         
         // =---> set new frame to label
-        [labelPage setFrame:CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12)];
+        labelPage.frame = CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12);
         
         // =---> set new frame for view
-        [view setFrame:CGRectMake((imageView.frame.origin.x + imageView.frame.size.width) - (labelPage.frame.origin.x + labelPage.frame.size.width) - 10,(anyScrollView.frame.size.height - 25) - 10,(labelPage.frame.origin.x + labelPage.frame.size.width) + 5,20)];
+        view.frame = CGRectMake((imageView.frame.origin.x + imageView.frame.size.width) - (labelPage.frame.origin.x + labelPage.frame.size.width) - 10,(anyScrollView.frame.size.height - 25) - 10,(labelPage.frame.origin.x + labelPage.frame.size.width) + 5,20);
         
         [view addSubview:labelPage];
         [view addSubview:imagePage];
         [anyScrollView addSubview:imageView];
         [anyScrollView addSubview:view];
     }
-    [anyScrollView setContentSize:CGSizeMake(anyScrollView.frame.size.width * (CGFloat)imageViewArray.count, anyScrollView.frame.size.height)];
+    anyScrollView.contentSize = CGSizeMake(anyScrollView.frame.size.width * (CGFloat)imageViewArray.count, anyScrollView.frame.size.height);
     
     [anyView addSubview:anyScrollView];
 }
@@ -353,9 +353,9 @@
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     NSLog(@"%@",_receiveData);
-    [dataDic setObject:_receiveData forKey:@"ART_ID"];
-    [reqDic setObject:@"ARTICLES_R001" forKey:@"KEY"];
-    [reqDic setObject:dataDic forKey:@"REQ_DATA"];
+    dataDic[@"ART_ID"] = _receiveData;
+    reqDic[@"KEY"] = @"ARTICLES_R001";
+    reqDic[@"REQ_DATA"] = dataDic;
     
     ConnectionManager *cont = [[ConnectionManager alloc] init];
     cont.delegate = self;
@@ -365,7 +365,7 @@
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     
     if ([apiKey isEqualToString:@"ARTICLES_R001"]) {
-        resultDic = [[NSMutableDictionary alloc] initWithDictionary:[[result objectForKey:@"RESP_DATA"] objectForKey:@"ART_REC"]];
+        resultDic = [[NSMutableDictionary alloc] initWithDictionary:result[@"RESP_DATA"][@"ART_REC"]];
         [_detailTeableView reloadData];
         [AppUtils hideLoading:self.view];
         _detailTeableView.hidden = false;

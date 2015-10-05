@@ -62,7 +62,7 @@ static NSString *const kCompletedCallbackKey = @"completed";
     return instance;
 }
 
-- (id)init {
+- (instancetype)init {
     if ((self = [super init])) {
         _operationClass = [SDWebImageDownloaderOperation class];
         _executionOrder = SDWebImageDownloaderFIFOExecutionOrder;
@@ -225,7 +225,7 @@ static NSString *const kCompletedCallbackKey = @"completed";
 }
 
 - (void)setSuspended:(BOOL)suspended {
-    [self.downloadQueue setSuspended:suspended];
+    (self.downloadQueue).suspended = suspended;
 }
 
 @end

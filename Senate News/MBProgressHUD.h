@@ -172,7 +172,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
  * @param window The window instance that will provide the bounds for the HUD. Should be the same instance as
  * the HUD's superview (i.e., the window that the HUD will be added to).
  */
-- (id)initWithWindow:(UIWindow *)window;
+- (instancetype)initWithWindow:(UIWindow *)window;
 
 /**
  * A convenience constructor that initializes the HUD with the view's bounds. Calls the designated constructor with
@@ -181,7 +181,7 @@ typedef void (^MBProgressHUDCompletionBlock)();
  * @param view The view instance that will provide the bounds for the HUD. Should be the same instance as
  * the HUD's superview (i.e., the view that the HUD will be added to).
  */
-- (id)initWithView:(UIView *)view;
+- (instancetype)initWithView:(UIView *)view;
 
 /** 
  * Display the HUD. You need to make sure that the main thread completes its run loop soon after this method call so

@@ -17,7 +17,7 @@
 /**
  * Get the current image URL.
  */
-- (NSURL *)sd_currentImageURL;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *sd_currentImageURL;
 
 /**
  * Get the image URL for a control state.

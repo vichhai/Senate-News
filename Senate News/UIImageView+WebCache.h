@@ -50,7 +50,7 @@
  * Note that because of the limitations of categories this property can get out of sync
  * if you use sd_setImage: directly.
  */
-- (NSURL *)sd_imageURL;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSURL *sd_imageURL;
 
 /**
  * Set the imageView `image` with an `url`.

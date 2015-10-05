@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    [NSThread sleepForTimeInterval:5.0];
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 8.0)
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
@@ -59,9 +59,9 @@
     if([apiKey isEqualToString:@"DEVICE_C001"]){
         NSMutableDictionary *requestData = [[NSMutableDictionary alloc]init];
         NSMutableDictionary *data = [[NSMutableDictionary alloc]init];
-        [data setObject:device_token forKey:@"TOKEN"];
-        [requestData setObject:apiKey forKey:@"KEY"];
-        [requestData setObject:data forKey:@"REQ_DATA"];
+        data[@"TOKEN"] = device_token;
+        requestData[@"KEY"] = apiKey;
+        requestData[@"REQ_DATA"] = data;
         ConnectionManager *cnn = [[ConnectionManager alloc]init];
         cnn.delegate = self;
         [cnn sendTranData:requestData];
@@ -92,7 +92,7 @@
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     
-    NSString* token = [[[[deviceToken description]
+    NSString* token = [[[deviceToken.description
                                 stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                stringByReplacingOccurrencesOfString: @">" withString: @""]
                               stringByReplacingOccurrencesOfString: @" " withString: @""];

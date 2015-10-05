@@ -23,13 +23,13 @@
     NSString *labelText = string;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle setLineSpacing:10];
+    paragraphStyle.lineSpacing = 10;
     paragraphStyle.alignment = NSTextAlignmentJustified;
     paragraphStyle.firstLineHeadIndent = 0;
     
     NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle};
     //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
-    [attributedString addAttributes:attributes range:NSMakeRange(0, [labelText length])];
+    [attributedString addAttributes:attributes range:NSMakeRange(0, labelText.length)];
     anyTextView.attributedText = attributedString ;
 }
 
@@ -40,13 +40,13 @@
     NSString *labelText = string;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle setLineSpacing:10];
+    paragraphStyle.lineSpacing = 10;
     paragraphStyle.alignment = NSTextAlignmentJustified;
     paragraphStyle.firstLineHeadIndent = 0;
 
     NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle};
     //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
-    [attributedString addAttributes:attributes range:NSMakeRange(0, [labelText length])];
+    [attributedString addAttributes:attributes range:NSMakeRange(0, labelText.length)];
     anylabel.attributedText = attributedString ;
     
 }
@@ -67,12 +67,12 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 +(CGFloat)getDeviceScreenHeight{
-    return [[UIScreen mainScreen] bounds].size.height;
+    return [UIScreen mainScreen].bounds.size.height;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 +(CGFloat)getDeviceScreenWidth {
-    return [[UIScreen mainScreen] bounds].size.width;
+    return [UIScreen mainScreen].bounds.size.width;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@
 //    UIButton* btnNewLeft				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, imgNormal.size.width/2, imgNormal.size.height/2)];
     UIButton* btnNewLeft				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 20, 20)];
     
-    [btnNewLeft setTag:10000];
+    btnNewLeft.tag = 10000;
     [btnNewLeft setBackgroundImage:imgNormal forState:UIControlStateNormal];
     
     if ([AppUtils isNull:aHighlightImageCode] == NO)
@@ -127,7 +127,7 @@
     UIImage* imgNormal					= [UIImage imageNamed:aNormalImageCode];
     UIButton* btnNewRight				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, imgNormal.size.width/2, imgNormal.size.height/2)];
     
-    [btnNewRight setTag:10001];
+    btnNewRight.tag = 10001;
     [btnNewRight setBackgroundImage:imgNormal forState:UIControlStateNormal];
     
     if ([AppUtils isNull:aHighlightImageCode] == NO)
@@ -160,7 +160,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 + (NSInteger)getOSVersion {
-    return [[[UIDevice currentDevice] systemVersion] integerValue];
+    return [UIDevice currentDevice].systemVersion.integerValue;
 }
 
 @end

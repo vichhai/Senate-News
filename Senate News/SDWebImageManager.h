@@ -220,7 +220,7 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
 /**
  * Check one or more operations running
  */
-- (BOOL)isRunning;
+@property (NS_NONATOMIC_IOSONLY, getter=isRunning, readonly) BOOL running;
 
 /**
  *  Check if image has already been cached
