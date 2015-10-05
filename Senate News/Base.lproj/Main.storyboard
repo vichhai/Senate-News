@@ -1306,10 +1306,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NTp-sf-nZR">
-                                        <rect key="frame" x="39" y="179" width="117" height="59"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Simple-Logo-GITS.png" translatesAutoresizingMaskIntoConstraints="NO" id="KbG-Nh-GiK">
-                                        <rect key="frame" x="169" y="160" width="87" height="91"/>
+                                        <rect key="frame" x="86" y="178" width="117" height="59"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1438,7 +1435,6 @@
     <resources>
         <image name="Back-100.png" width="72" height="58"/>
         <image name="Download-100.png" width="100" height="100"/>
-        <image name="Simple-Logo-GITS.png" width="300" height="300"/>
         <image name="calendar159 (1).png" width="32" height="32"/>
         <image name="close.png" width="44" height="44"/>
         <image name="logo.png" width="175" height="52"/>
