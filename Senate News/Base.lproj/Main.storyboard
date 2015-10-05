@@ -368,7 +368,7 @@
                                 <rect key="frame" x="116" y="675" width="160" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWy-8U-0ng">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWy-8U-0ng">
                                 <rect key="frame" x="0.0" y="474" width="320" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="រក្សាសិទ្ធិដោយ អគ្គលេខាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubt-kJ-bfz">
@@ -642,7 +642,7 @@
                                     <outlet property="delegate" destination="SaH-f0-Dm8" id="FAm-Q6-aft"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hD-ET-peE">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hD-ET-peE">
                                 <rect key="frame" x="0.0" y="474" width="320" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="រក្សាសិទ្ធិដោយ អគ្គលេខាដ្ឋានព្រឹទ្ធសភា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-CA-QcX">
