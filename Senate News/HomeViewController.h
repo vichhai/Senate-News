@@ -11,5 +11,6 @@
 #import "GITSRefreshAndLoadMore.h"
 #import "ShareObject.h"
 @interface HomeViewController : UIViewController
+
 @end
 
