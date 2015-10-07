@@ -41,6 +41,7 @@
 
 -(void)back{
     [self.navigationController popViewControllerAnimated:true];
+    [ShareObject shareObjectManager].jsonNotification = nil;
 }
 
 -(void)viewDidAppear:(BOOL)animated{

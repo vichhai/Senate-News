@@ -74,7 +74,7 @@
             if (result == SLComposeViewControllerResultCancelled) {
                 NSLog(@"Cancil");
             }else if(result == SLComposeViewControllerResultDone){
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Done" message:@"Your sharing is succesfull!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ជោគជ័យ" message:@"ប្រតិបតិការបានជោគជ័យ" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                 [alert show];
             }
         };
@@ -86,7 +86,6 @@
 #pragma mark - outlet actions
 
 - (IBAction)backButtonClicked:(id)sender {
-    //[self.navigationController popViewControllerAnimated:true];
     [self.navigationController popViewControllerAnimated:true];
     [ShareObject shareObjectManager].jsonNotification = nil;
 }
