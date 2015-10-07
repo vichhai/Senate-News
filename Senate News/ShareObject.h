@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSMutableDictionary *jsonNotification;
 @property (nonatomic) NSString *scheduleType;
 
+@property (nonatomic) BOOL isCloseME;
+
 + (ShareObject *)shareObjectManager;
 
 @end

@@ -67,7 +67,15 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"MainView";
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
+    [ShareObject shareObjectManager].viewObserver = @"MainView";
+    
+    if([ShareObject shareObjectManager].isCloseME){
+        [self linkToDetail:nil];
+        [ShareObject shareObjectManager].isCloseME=false;
+    }else{
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
+    }
 }
 
 -(void)linkToDetail: (NSNotification *) notification{

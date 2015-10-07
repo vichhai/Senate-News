@@ -29,15 +29,16 @@
     {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeNewsstandContentAvailability| UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
-    //Remote notification info
-    // NSDictionary *remoteNotifiInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
     
+    NSDictionary *remoteNotif = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
     //Accept push notification when app is not open
-//    if (remoteNotifiInfo) {
-////        [self application:application didReceiveRemoteNotification:remoteNotifiInfo];
-//        [self handlerNotification:application didWithData:remoteNotifiInfo];
-//        [ShareObject shareObjectManager].isNotification = TRUE;
-//    }
+    if (remoteNotif) {
+        [ShareObject shareObjectManager].jsonNotification = remoteNotif[@"aps"];
+        [ShareObject shareObjectManager].isCloseME = true;
+        [self handlerNotification:application didWithData:remoteNotif];
+        
+    }
+
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
         [ShareObject shareObjectManager].shareWidth = 450;
         return YES;
@@ -80,14 +81,21 @@
 #pragma mark - AppDelegate
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    [ShareObject shareObjectManager].jsonNotification = userInfo[@"aps"];
     [self handlerNotification:application didWithData:userInfo];
 }
+//
+//-(void)handlerNotification:(UIApplication *)application didWithData:(NSDictionary *)userInfo{
+//    // For swipe or tap the notification
+//    application.applicationIconBadgeNumber = 0;
+//    [ShareObject shareObjectManager].jsonNotification = userInfo[@"aps"];
+//    [[NSNotificationCenter defaultCenter]  postNotificationName:@"notification" object:nil userInfo:nil];
+//}
 
 -(void)handlerNotification:(UIApplication *)application didWithData:(NSDictionary *)userInfo{
     // For swipe or tap the notification
     application.applicationIconBadgeNumber = 0;
-    [ShareObject shareObjectManager].jsonNotification = userInfo[@"aps"];
-    [[NSNotificationCenter defaultCenter]  postNotificationName:@"notification" object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter]  postNotificationName:@"notification" object:nil];
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{

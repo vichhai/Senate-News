@@ -86,7 +86,9 @@
 #pragma mark - outlet actions
 
 - (IBAction)backButtonClicked:(id)sender {
+    //[self.navigationController popViewControllerAnimated:true];
     [self.navigationController popViewControllerAnimated:true];
+    [ShareObject shareObjectManager].jsonNotification = nil;
 }
 
 #pragma mark - CollectionView datasource and delegate
