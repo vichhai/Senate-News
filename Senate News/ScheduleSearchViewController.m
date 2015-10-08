@@ -170,7 +170,7 @@
         NSString *year = [arrayResult[indexPath.row][@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5];
         cell.date.text = [NSString stringWithFormat:@"ខែ %@ ឆ្នាំ %@",month,year];
     }else{
-        cell.date.text = @"គ្មានកាលបរិច្ឆេត";
+        cell.date.text = @"គ្មានកាលបរិច្ឆេទ";
     }
     if (arrayResult[indexPath.row][@"SCH_TITLE"] != NULL) {
         cell.title.text = [NSString stringWithFormat:@"ប្រធានបទ: %@",arrayResult[indexPath.row][@"SCH_TITLE"]];

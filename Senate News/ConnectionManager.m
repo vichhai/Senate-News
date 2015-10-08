@@ -19,13 +19,10 @@
 
 -(void)sendTranData:(NSDictionary *)reqDictionary{
     // Create the request
-    
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://schedule-darapenhchet-3.c9.io/index.php/api"]];
-    
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://schedule-darapenhchet-3.c9.io/index.php/api"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
-    
+                                                       timeoutInterval:60.0];    
     // Specify that it will be a POST request
     request.HTTPMethod = @"POST";
     
@@ -58,13 +55,10 @@
 
 #pragma mark - NSURLConnectionDelegate method
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-//    responseData = [[NSMutableData alloc] init];
     responseData = [NSMutableData data];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-//    responseData = [[NSMutableData alloc] init];
-    
     [responseData appendData:data];
     
     NSError *error=nil;
@@ -76,7 +70,6 @@
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-//    NSLog(@"connection did finish loading: %@",connection);
     connection = nil;
     return;
 }

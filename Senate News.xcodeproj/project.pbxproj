@@ -89,7 +89,6 @@
 		FD3BF1061BB556D300F7BBE6 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF1051BB556D300F7BBE6 /* AboutUsViewController.m */; };
 		FD430D281BB28E6F00B3E524 /* ScheduleDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD430D271BB28E6F00B3E524 /* ScheduleDetailTableViewController.m */; };
 		FD430D2B1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD430D2A1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m */; };
-		FD566D801BA7CC8C00108099 /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD566D7F1BA7CC8C00108099 /* sub.caf */; };
 		FD5C1EC11BA11C7400C79177 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C1EC01BA11C7400C79177 /* Social.framework */; };
 		FD5C1ECC1BA16F7500C79177 /* DXPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C1ECB1BA16F7500C79177 /* DXPopover.m */; };
 		FD9532731BB0E55B0024D585 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9532721BB0E55B0024D585 /* ScheduleTableViewCell.m */; };
@@ -228,8 +227,6 @@
 		FD2771F61B9877DB005906D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KhmerOSBattambang-Bold.ttf"; sourceTree = "<group>"; };
 		FD35EA561BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KhmerOSBattambang-Regular.ttf"; sourceTree = "<group>"; };
-		FD35EA591BBA362900B3C5C3 /* KhmerOSMoul.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KhmerOSMoul.ttf; sourceTree = "<group>"; };
-		FD35EA5A1BBA363600B3C5C3 /* KhmerOSNew-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KhmerOSNew-Regular.ttf"; sourceTree = "<group>"; };
 		FD35EA5B1BBA78E300B3C5C3 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		FD3BF0F61BB5477400F7BBE6 /* senate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = senate.png; sourceTree = "<group>"; };
 		FD3BF0F91BB5488600F7BBE6 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
@@ -242,7 +239,6 @@
 		FD430D271BB28E6F00B3E524 /* ScheduleDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailTableViewController.m; sourceTree = "<group>"; };
 		FD430D291BB28EBA00B3E524 /* ScheduleDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailTableViewCell.h; sourceTree = "<group>"; };
 		FD430D2A1BB28EBA00B3E524 /* ScheduleDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailTableViewCell.m; sourceTree = "<group>"; };
-		FD566D7F1BA7CC8C00108099 /* sub.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sub.caf; sourceTree = "<group>"; };
 		FD5C1EC01BA11C7400C79177 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FD5C1ECA1BA16F7500C79177 /* DXPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXPopover.h; sourceTree = "<group>"; };
 		FD5C1ECB1BA16F7500C79177 /* DXPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXPopover.m; sourceTree = "<group>"; };
@@ -348,7 +344,6 @@
 				FD3BF0F81BB5486900F7BBE6 /* Setting */,
 				FD9532701BB0E5300024D585 /* Schedule */,
 				FD5C1EC91BA16F7500C79177 /* Popup */,
-				FD566D7E1BA7CC8C00108099 /* Sounds */,
 				FD2771F41B9877B5005906D4 /* Connection */,
 				ED36189B1B96E5DC0095E48A /* Side Menu */,
 				ED36189A1B96E5CB0095E48A /* MainScreen */,
@@ -404,8 +399,6 @@
 				ED81C3D31BC4CB0700A4FBE4 /* ipad2.png */,
 				FDA4BB411BC208EE001918DE /* logo_small.png */,
 				FD35EA5B1BBA78E300B3C5C3 /* calendar.png */,
-				FD35EA5A1BBA363600B3C5C3 /* KhmerOSNew-Regular.ttf */,
-				FD35EA591BBA362900B3C5C3 /* KhmerOSMoul.ttf */,
 				FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */,
 				FD35EA561BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf */,
 				EDB9C8E51BBA3DEC0051249D /* news.png */,
@@ -580,14 +573,6 @@
 			name = Detail;
 			sourceTree = "<group>";
 		};
-		FD566D7E1BA7CC8C00108099 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				FD566D7F1BA7CC8C00108099 /* sub.caf */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
 		FD5C1EC91BA16F7500C79177 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,7 +691,6 @@
 				ED566F6A1BB8FB7100468F89 /* description.png in Resources */,
 				FDA4BB421BC208EE001918DE /* logo_small.png in Resources */,
 				ED8761831B9EEADB00C0E7BE /* load_05.png in Resources */,
-				FD566D801BA7CC8C00108099 /* sub.caf in Resources */,
 				ED8761801B9EEADB00C0E7BE /* load_02.png in Resources */,
 				ED81C3D01BC4C84600A4FBE4 /* 750 x 1334.png in Resources */,
 				FDD0A4B51BA286270046F4CE /* author_icon.png in Resources */,

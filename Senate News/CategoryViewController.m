@@ -201,7 +201,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detail"]) {
-        NSLog(@"sender is %@",sender);
         DetailViewController *vc = segue.destinationViewController;
         vc.receiveData = sender;
     }else if([segue.identifier isEqualToString:@"sDetail"]){

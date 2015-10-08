@@ -28,7 +28,7 @@
     _subView.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
     _subView.layer.shadowOpacity = 0.9f;
     _subView.layer.masksToBounds = NO;
-    UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(-2.0f, -2.0f, -2.0f, -57);
+    UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(-2.0f, -2.0f, -2.0f, -1000);
     UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(_subView.bounds, shadowInsets)];
     _subView.layer.shadowPath     = shadowPath.CGPath;
 }
@@ -36,7 +36,6 @@
 -(void)customFont{
     _title.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:15];
     _day.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:24];
-    //_publish.font = [UIFont fontWithName:@"KhmerOSNew-Regular" size:10];
     
 }
 @end

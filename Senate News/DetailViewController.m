@@ -40,15 +40,10 @@
     _detailTeableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [AppUtils showLoading:self.view];
-    // =---> Creating a custom right navi bar button1
-    //UIButton *menu  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 28.0f)];
-    //[menu setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
-    
     // =---> Creating a custom right navi bar button2
     UIButton *facebook  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 20.0f, 20.0f)];
     [facebook setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
-    
-   // UIBarButtonItem *barButtonItem1 = [[UIBarButtonItem alloc] initWithCustomView:menu];
+
     UIBarButtonItem *barButtonItem2 = [[UIBarButtonItem alloc] initWithCustomView:facebook];
     
     NSArray *barButtonItemArray = @[barButtonItem2];
@@ -151,7 +146,6 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"index path %@",indexPath);
     [self performSegueWithIdentifier:@"showImage" sender:resultDic[@"IMAGES"][indexPath.row]];
 } 
 #pragma mark - Tableview datasource
@@ -210,7 +204,6 @@
         UITextView *contentLabel = [[UITextView alloc] initWithFrame:CGRectMake(16, (tempCollectionView.frame.origin.y + tempCollectionView.frame.size.height) + 5 , self.view.bounds.size.width - 30 , height)];
         
         contentLabel.text = resultDic[@"ART_DETAIL"];
-        //    contentLabel.numberOfLines = 0;
         contentLabel.tag = 100;
         contentLabel.selectable = true;
         contentLabel.scrollEnabled = false;
@@ -221,7 +214,6 @@
         if ([AppUtils isNull:resultDic[@"ART_DETAIL"]] == false && [AppUtils isNull:resultDic[@"ART_TITLE"]] == false) {
             
             [AppUtils setTextViewHeight:resultDic[@"ART_DETAIL"] anyTextView:contentLabel];
-//            [contentLabel setFont:[UIFont fontWithName:@"KhmerOSBattambang" size:14]];
             contentLabel.font = [UIFont systemFontOfSize:16];
         }
         [cell.contentView addSubview:contentLabel];
@@ -353,7 +345,7 @@
 -(void)requestToserver{
     NSMutableDictionary *reqDic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
-    NSLog(@"%@",_receiveData);
+ 
     dataDic[@"ART_ID"] = _receiveData;
     reqDic[@"KEY"] = @"ARTICLES_R001";
     reqDic[@"REQ_DATA"] = dataDic;
@@ -375,53 +367,7 @@
 
 #pragma mark - prepare for segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSLog(@"sender : %@",sender);
     [ShareObject shareObjectManager].shareURL = sender;
 }
-
-//-(void)addImageToScrollView:(NSArray *)imageViewArray toScrollView:(UIScrollView *)anyScrollView{
-
-//    for (int index = 0; index < imageViewArray.count; index++) {
-//        UIImageView *imageView = (UIImageView *)[imageViewArray objectAtIndex:index];
-//        [imageView  setFrame:CGRectMake((anyScrollView.frame.size.width * (CGFloat)index), 0, anyScrollView.frame.size.width, anyScrollView.frame.size.height)];
-//        
-//        NSLog(@"images %@",imageView);
-//        NSLog(@"Scroll View %f",anyScrollView.frame.size.width);
-//        
-//        // =---> Image Page BackGround
-//        
-//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake((imageView.frame.origin.x + imageView.frame.size.width) - 65,(anyScrollView.frame.size.height - 25) - 10,55,20)];
-//        view.backgroundColor = [UIColor lightGrayColor];
-//        view.layer.cornerRadius = 5;
-//        view.layer.masksToBounds = true;
-//        view.alpha = 0.7;
-//        
-//        // =---> Image Page
-//        
-//        UIImageView *imagePage = [[UIImageView alloc] initWithFrame:CGRectMake(5.0f , view.frame.size.height / 2 - 7.0f , 12.0f, 12.0f)];
-//        imagePage.image = [UIImage imageNamed:@"photo_page_icon.png"];
-//        
-//        // =---> label page of page
-//        
-//        UILabel *labelPage = [[UILabel alloc] initWithFrame:CGRectMake(23, view.frame.size.height / 2 - 6.0f, 30, 12)];
-//        labelPage.text = [NSString stringWithFormat:@"%d / %lu",index + 1,(unsigned long)imageViewArray.count];
-//        labelPage.textColor = [UIColor whiteColor];
-//        labelPage.font = [UIFont systemFontOfSize:12];
-//        CGFloat width = [self measureTextWidth:[NSString stringWithFormat:@"%d / %lu",index + 1,(unsigned long)imageViewArray.count] constrainedToSize:CGSizeMake(2000.0f, 12) fontSize:12];
-//        
-//        // =---> set new frame to label
-//        [labelPage setFrame:CGRectMake(labelPage.frame.origin.x, labelPage.frame.origin.y, width, 12)];
-//        
-//        // =---> set new frame for view
-//        [view setFrame:CGRectMake((imageView.frame.origin.x + imageView.frame.size.width) - (labelPage.frame.origin.x + labelPage.frame.size.width) - 10,(anyScrollView.frame.size.height - 25) - 10,(labelPage.frame.origin.x + labelPage.frame.size.width) + 5,20)];
-//        
-//        [view addSubview:labelPage];
-//        [view addSubview:imagePage];
-//        [anyScrollView addSubview:imageView];
-//        [anyScrollView addSubview:view];
-//    }
-//     [anyScrollView setContentSize:CGSizeMake(anyScrollView.frame.size.width * (CGFloat)imageViewArray.count, anyScrollView.frame.size.height)];
-//}
-
 
 @end

@@ -28,7 +28,6 @@
     paragraphStyle.firstLineHeadIndent = 0;
     
     NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle};
-    //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
     [attributedString addAttributes:attributes range:NSMakeRange(0, labelText.length)];
     anyTextView.attributedText = attributedString ;
 }
@@ -45,7 +44,6 @@
     paragraphStyle.firstLineHeadIndent = 0;
 
     NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle};
-    //    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
     [attributedString addAttributes:attributes range:NSMakeRange(0, labelText.length)];
     anylabel.attributedText = attributedString ;
     
@@ -100,7 +98,6 @@
     UIViewController* calleeViewCtrl	= aTarget;
     UIImage* imgNormal					= [UIImage imageNamed:aNormalImageCode];
     
-//    UIButton* btnNewLeft				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, imgNormal.size.width/2, imgNormal.size.height/2)];
     UIButton* btnNewLeft				= [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 20, 20)];
     
     btnNewLeft.tag = 10000;

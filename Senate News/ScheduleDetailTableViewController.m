@@ -83,10 +83,6 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-//    if (![AppUtils isNull:[resultDic objectForKey:@"SCH_TITLE"]] && ![AppUtils isNull:[resultDic objectForKey:@"SCH_DESCRIPTION"]]) {
-//        [self customLabel:cell];
-//    }
-
     for (UIView *v in (cell.contentView).subviews) {
         if ([v isKindOfClass:[UILabel class]] || [v isKindOfClass:[UIView class]])
             [v removeFromSuperview];
@@ -108,7 +104,6 @@
     if ([withAPIKey isEqualToString:@"SCHEDULE_R001"]) {
         dataDic[@"SCH_ID"] = _scheduleId;
     }
-    NSLog(@"%@",_scheduleId);
     reqDic[@"KEY"] = withAPIKey;
     reqDic[@"REQ_DATA"] = dataDic;
     ConnectionManager *cont = [[ConnectionManager alloc] init];
@@ -118,8 +113,7 @@
 
 -(void)returnResult:(NSDictionary *)result withApiKey:(NSString *)apiKey{
     // set data to array for looping to TableViewCell
-        resultDic = [[NSMutableDictionary alloc] initWithDictionary:result[@"RESP_DATA"][@"SCH_REC"]];
-    NSLog(@"%@",resultDic);
+    resultDic = [[NSMutableDictionary alloc] initWithDictionary:result[@"RESP_DATA"][@"SCH_REC"]];
     [_detailSchedule reloadData];
     [AppUtils hideLoading:self.view];
     _detailSchedule.hidden = false;
@@ -291,36 +285,6 @@
     [cell.contentView addSubview:type];
     
     rowHeight = type.frame.origin.y + 35 + 15;
-    
-    // =---> link
-//    UIView *containerLink = [[UIView alloc] initWithFrame:CGRectMake(10, (containerType.frame.origin.y + stopHour.frame.size.height) + 10 , 140, 35)];
-//    
-//    UIImageView *imageLink = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
-//    imageLink.image = [UIImage imageNamed:@"links12.png"];
-//    
-//    UILabel *labelLink = [[UILabel alloc] initWithFrame:CGRectMake(41, 5, 90, 25)];
-//    labelLink.textColor = RGB(218, 162, 53);
-//    labelLink.text =  @"URL";
-//    labelLink.font = [UIFont systemFontOfSize:17.0];
-//    
-//    [containerLink addSubview:imageLink];
-//    [containerLink addSubview:labelLink];
-//    [cell.contentView addSubview:containerLink];
-//    
-//    height = [self measureTextHeight:@"www.facebook.com" constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f]; // change
-//    
-//    UITextView *link = [[UITextView alloc]initWithFrame:CGRectMake(160, containerLink.frame.origin.y , (cell.contentView.frame.size.width - 180), height)];
-//    link.editable = false;
-//    link.selectable = true;
-//    link.scrollEnabled = false;
-//    link.dataDetectorTypes = UIDataDetectorTypeLink;
-//    
-//    link.text = @"www.facebook.com"; // change
-//    [link setFont:[UIFont systemFontOfSize:15]];
-//    
-//    [cell.contentView addSubview:link];
-//    
-//    rowHeight = link.frame.origin.y + height + 10;
 }
 
 -(void) customLabel: (UITableViewCell *) cell{
@@ -335,9 +299,7 @@
     titleLable.numberOfLines = 0; // set multiline
     titleLable.text = resultDic[@"SCH_TITLE"];
     [AppUtils setLineHeight:resultDic[@"SCH_TITLE"] anyLabel:titleLable];
-    //if ([resultDic objectForKey:@"SCH_TITLE"] != NULL) {
-        titleLable.text = resultDic[@"SCH_TITLE"];
-    //}
+    titleLable.text = resultDic[@"SCH_TITLE"];
     
     // =---> Date label
     UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, (titleLable.frame.origin.y + height) + 10, (cell.contentView.frame.size.width - 20), 21)];
@@ -399,9 +361,7 @@
     articleLabel.text = resultDic[@"SCH_DESCRIPTION"];
     
     [AppUtils setLineHeight:resultDic[@"SCH_DESCRIPTION"] anyLabel:articleLabel];
-   // if ([resultDic objectForKey:@"SCH_DESCRIPTION"] != NULL) {
-//        articleLabel.text = [resultDic objectForKey:@"SCH_DESCRIPTION"];
-    //}
+
     // =---> add all labels to tableview cell
     
     [cell.contentView addSubview:titleLable];

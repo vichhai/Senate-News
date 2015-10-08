@@ -189,7 +189,6 @@
         [ShareObject shareObjectManager].scheduleFlag = FALSE;
     }
     [_scheduleTableView reloadData];
-    NSLog(@"count array after request %lu",(unsigned long)arrayResult.count);
     [refresh_loadmore temp:_scheduleTableView];
     [AppUtils hideLoading:self.view];
     [self.view setUserInteractionEnabled:true];
@@ -296,8 +295,6 @@
         if ([ShareObject shareObjectManager].schedulePage < remainPage && ![ShareObject shareObjectManager].scheduleFlag) {
             [refresh_loadmore doLoadMore:self.view tableView:_scheduleTableView scrollView:scrollView];
             [self requestToserver:@"SCHEDULE_L001"];
-            NSLog(@"%d",[ShareObject shareObjectManager].schedulePage);
-            NSLog(@"%d",remainPage);
         }
     }
 }

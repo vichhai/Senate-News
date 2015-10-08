@@ -67,7 +67,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [ShareObject shareObjectManager].viewObserver = @"MainView";
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkToDetail:) name:@"notification" object:nil];
     [ShareObject shareObjectManager].viewObserver = @"MainView";
     
     if([ShareObject shareObjectManager].isCloseME){
@@ -94,8 +93,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     self.hostReachability = [Reachability reachabilityWithHostName:remoteHostName];
     [self.hostReachability startNotifier];
-    //[self updateInterfaceWithReachability:self.hostReachability];
-    
+
     _mainTableView.hidden = true;
     arrayResult = [[NSMutableArray alloc] init];
     refresh_loadmore = [[GITSRefreshAndLoadMore alloc] init];
@@ -107,7 +105,6 @@
     [self addRefreshToView];
     
     // =---> show loading
-//    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [AppUtils showLoading:self.view];
     
     // =---> set tap gesture for uinavigation bar
@@ -116,13 +113,11 @@
     [self.navigationController.navigationBar addGestureRecognizer:doubleTap];
     
     // =---> set navigationbar color
-    // self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1];
     
     // =---> Creating a custom right navi bar button1
     UIButton *subButton  = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [subButton setImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
-    //[searchButton setImage:[UIImage imageNamed:@"Search Filled-50.png"] forState:UIControlStateHighlighted];
     [subButton addTarget:self action:@selector(subButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     // =---> Creating a custom right navi bar button2
@@ -170,8 +165,6 @@
 
 #pragma mark - Action BarButton
 -(void)searchClicked{
-    
-    NSLog(@"working");
     [self performSegueWithIdentifier:@"search" sender:nil];
 }
 
@@ -207,7 +200,6 @@
 }
 //function event of button
 -(void) sortByDate{
-    NSLog(@"Sort by date");
     sortBy = @"date";
     [AppUtils showLoading:self.view];
     [self sortHelping];
@@ -215,7 +207,6 @@
 }
 
 -(void) sortByName{
-    NSLog(@"Sort by title");
     sortBy = @"title";
     [AppUtils showLoading:self.view];
     [self sortHelping];
@@ -223,7 +214,6 @@
 }
 
 -(void) sortByAuthor{
-    NSLog(@"sort by author");
     sortBy = @"author";
     [AppUtils showLoading:self.view];
     [self sortHelping];
@@ -231,7 +221,6 @@
 }
 
 -(void) sortById{
-    NSLog(@"Sort by ID");
     sortBy = @"id";
     [AppUtils showLoading:self.view];
     [self sortHelping];
@@ -260,7 +249,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%@",arrayResult[indexPath.row][@"ART_ID"]);
     [self performSegueWithIdentifier:@"detail" sender:arrayResult[indexPath.row][@"ART_ID"]];
 }
 
@@ -270,7 +258,6 @@
     if ([segue.identifier isEqualToString:@"detail"]) {
         DetailViewController *vc = segue.destinationViewController;
         vc.receiveData = sender;
-        NSLog(@"%@",vc.receiveData);
     } else if([segue.identifier isEqualToString:@"sDetail"]){
         ScheduleDetailTableViewController *sv = segue.destinationViewController;
         sv.scheduleId = sender;
@@ -285,7 +272,6 @@
     NSMutableDictionary *dataDic = [[NSMutableDictionary alloc] init];
     
     if ([withAPIKey isEqualToString:@"ARTICLES_L001"]) { // list article
-        
         dataDic[@"PER_PAGE_CNT"] = @"20";
         dataDic[@"PAGE_NO"] = [NSString stringWithFormat:@"%d",[ShareObject shareObjectManager].page];
         dataDic[@"SORT_BY"] = sortBy;
@@ -377,15 +363,12 @@
     
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-//    if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
     if ([ShareObject shareObjectManager].page < remainPage) {
         [refresh_loadmore doLoadMore:self.view tableView:_mainTableView scrollView:scrollView];
         if ([ShareObject shareObjectManager].isLoadMore == true) {
              [self requestToserver:@"ARTICLES_L001"];
         }
-        NSLog(@"M working............");
     }
-//    }
 }
 
 @end

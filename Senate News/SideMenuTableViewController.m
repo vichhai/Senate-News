@@ -182,9 +182,6 @@
         default:
             break;
     }
-    
-    
-//    [self performSegueWithIdentifier:@"abc" sender:nil];
 }
 
 @end
