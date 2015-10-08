@@ -20,7 +20,7 @@
 -(void)sendTranData:(NSDictionary *)reqDictionary{
     // Create the request
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://schedule-darapenhchet-3.c9.io/index.php/api"]
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.api.senate.gov.kh/index.php/api"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];    
     // Specify that it will be a POST request
