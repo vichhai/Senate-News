@@ -31,7 +31,7 @@
     }
     
     NSDictionary *remoteNotif = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
-    //Accept push notification when app is not open
+    // Accept push notification when app is not open
     if (remoteNotif) {
         [ShareObject shareObjectManager].jsonNotification = remoteNotif[@"aps"];
         [ShareObject shareObjectManager].isCloseME = true;
