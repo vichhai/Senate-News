@@ -103,8 +103,6 @@
 -(void)doLoadMore:(UIView *)anyView tableView:(UITableView *)tableView scrollView:(UIScrollView *)scrollView{
     _mainView = anyView;
     if (scrollView.contentOffset.y + [UIScreen mainScreen].bounds.size.height >= scrollView.contentSize.height) {
-            NSLog(@"buttom");
-        NSLog(@"loadmore working too");
         [ShareObject shareObjectManager].isLoadMore = true;
         
         if ([[ShareObject shareObjectManager].viewObserver isEqualToString:@"MainView"]) {
@@ -122,7 +120,6 @@
             return;
         }
         tableView.tableFooterView = _moreFooterView;
-//        _imageIndex = 0;
         _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(loopLoadMore) userInfo:nil repeats:true];
     }
 }
