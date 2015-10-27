@@ -13,6 +13,7 @@
 {
     NSMutableData *responseData;
 }
+
 @end
 
 @implementation ConnectionManager
