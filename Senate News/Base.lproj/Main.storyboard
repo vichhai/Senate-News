@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nR7-n0-suC">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -72,22 +72,22 @@
         <scene sceneID="SiD-4l-oYm">
             <objects>
                 <tableViewController id="hUn-yT-bQL" customClass="ScheduleTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrl-Jb-ML9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="161" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vrl-Jb-ML9">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="150" id="a3Q-60-lAt" customClass="ScheduleTableViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="150"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="161" id="a3Q-60-lAt" customClass="ScheduleTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="161"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3Q-60-lAt" id="fa2-ql-Aq4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4no-oM-YdR">
-                                            <rect key="frame" x="8" y="6" width="304" height="136"/>
+                                            <rect key="frame" x="8" y="6" width="304" height="147"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្ងៃទី ២៧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCm-xX-bIV">
                                                     <rect key="frame" x="39" y="9" width="227" height="37"/>
@@ -124,18 +124,18 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hX-du-xbc">
-                                                    <rect key="frame" x="22" y="101" width="274" height="36"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ផុតកំណត់" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZE-09-giK">
                                                     <rect key="frame" x="8" y="9" width="50" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="1" green="0.070598680790000007" blue="0.1701482507" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hX-du-xbc">
+                                                    <rect key="frame" x="8" y="100" width="288" height="47"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -147,14 +147,14 @@
                                                 <constraint firstItem="tiw-VG-Lro" firstAttribute="centerX" secondItem="4no-oM-YdR" secondAttribute="centerX" id="5eL-Sk-Ypg"/>
                                                 <constraint firstItem="L6J-DP-cdy" firstAttribute="leading" secondItem="tiw-VG-Lro" secondAttribute="leading" id="5zG-JC-Ntp"/>
                                                 <constraint firstItem="oCm-xX-bIV" firstAttribute="leading" secondItem="4no-oM-YdR" secondAttribute="leading" constant="39" id="6aw-18-9zh"/>
-                                                <constraint firstAttribute="bottom" secondItem="io1-Gy-LBI" secondAttribute="bottom" constant="30" id="7cC-ER-qze"/>
+                                                <constraint firstAttribute="bottom" secondItem="io1-Gy-LBI" secondAttribute="bottom" constant="41" id="7cC-ER-qze"/>
                                                 <constraint firstItem="tiw-VG-Lro" firstAttribute="trailing" secondItem="L6J-DP-cdy" secondAttribute="trailing" id="LXK-qw-JLa"/>
                                                 <constraint firstItem="oCm-xX-bIV" firstAttribute="trailing" secondItem="tiw-VG-Lro" secondAttribute="trailing" id="PnC-Jl-Www"/>
                                                 <constraint firstItem="tiw-VG-Lro" firstAttribute="top" secondItem="oCm-xX-bIV" secondAttribute="bottom" constant="4" id="SvC-ja-DxF"/>
-                                                <constraint firstItem="io1-Gy-LBI" firstAttribute="leading" secondItem="1hX-du-xbc" secondAttribute="leading" id="UIG-CF-f7u"/>
-                                                <constraint firstAttribute="bottom" secondItem="1hX-du-xbc" secondAttribute="bottom" constant="-1" id="WIf-Fr-jw6"/>
+                                                <constraint firstItem="io1-Gy-LBI" firstAttribute="leading" secondItem="1hX-du-xbc" secondAttribute="leading" constant="14" id="UIG-CF-f7u"/>
+                                                <constraint firstAttribute="bottom" secondItem="1hX-du-xbc" secondAttribute="bottom" id="WIf-Fr-jw6"/>
                                                 <constraint firstItem="io1-Gy-LBI" firstAttribute="top" secondItem="L6J-DP-cdy" secondAttribute="bottom" constant="4" id="Wwr-xs-Faa"/>
-                                                <constraint firstItem="1hX-du-xbc" firstAttribute="top" secondItem="L6J-DP-cdy" secondAttribute="bottom" constant="26" id="f5e-mi-78A"/>
+                                                <constraint firstItem="1hX-du-xbc" firstAttribute="top" secondItem="L6J-DP-cdy" secondAttribute="bottom" constant="25" id="f5e-mi-78A"/>
                                                 <constraint firstItem="io1-Gy-LBI" firstAttribute="trailing" secondItem="4no-oM-YdR" secondAttribute="trailingMargin" id="gZ1-fq-E3q"/>
                                                 <constraint firstItem="1hX-du-xbc" firstAttribute="trailing" secondItem="io1-Gy-LBI" secondAttribute="trailing" id="hst-GX-F9C"/>
                                                 <constraint firstItem="L6J-DP-cdy" firstAttribute="top" secondItem="tiw-VG-Lro" secondAttribute="bottom" constant="3" id="isj-MO-met"/>
@@ -236,15 +236,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="150" id="SeU-i3-cdG" customClass="ScheduleTableViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="150"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCell" rowHeight="161" id="SeU-i3-cdG" customClass="ScheduleTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="161"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SeU-i3-cdG" id="ktV-JI-e64">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1K-sz-HB1">
-                                            <rect key="frame" x="8" y="6" width="304" height="136"/>
+                                            <rect key="frame" x="8" y="6" width="304" height="147"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្ងៃទី ២៧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pId-JG-Z0F">
                                                     <rect key="frame" x="39" y="9" width="227" height="37"/>
@@ -281,18 +281,18 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fe-Mv-AhI">
-                                                    <rect key="frame" x="22" y="101" width="274" height="36"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ផុតកំណត់" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-EW-dON">
                                                     <rect key="frame" x="8" y="9" width="50" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="1" green="0.070598680790000007" blue="0.1701482507" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ថ្អៃទី ២ ខែ ៩ ឆ្នាំ ២០១៥ / ដោយ លោក តារា" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fe-Mv-AhI">
+                                                    <rect key="frame" x="8" y="107" width="288" height="40"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -301,8 +301,8 @@
                                             <constraints>
                                                 <constraint firstItem="8fe-Mv-AhI" firstAttribute="trailing" secondItem="3Nd-dv-4aF" secondAttribute="trailing" id="1Ee-u8-ZHn"/>
                                                 <constraint firstItem="3Nd-dv-4aF" firstAttribute="leading" secondItem="z1K-sz-HB1" secondAttribute="leading" constant="22" id="6c4-EV-hFV"/>
-                                                <constraint firstAttribute="bottom" secondItem="8fe-Mv-AhI" secondAttribute="bottom" constant="-1" id="Av9-uP-hCp"/>
-                                                <constraint firstItem="8fe-Mv-AhI" firstAttribute="top" secondItem="Zk0-Gi-D5e" secondAttribute="bottom" constant="26" id="D3z-YC-BcY"/>
+                                                <constraint firstAttribute="bottom" secondItem="8fe-Mv-AhI" secondAttribute="bottom" id="Av9-uP-hCp"/>
+                                                <constraint firstItem="8fe-Mv-AhI" firstAttribute="top" secondItem="Zk0-Gi-D5e" secondAttribute="bottom" constant="32" id="D3z-YC-BcY"/>
                                                 <constraint firstItem="pId-JG-Z0F" firstAttribute="trailing" secondItem="ZAJ-fS-B5s" secondAttribute="trailing" id="D5i-py-WJe"/>
                                                 <constraint firstItem="pId-JG-Z0F" firstAttribute="top" secondItem="z1K-sz-HB1" secondAttribute="top" constant="9" id="FSQ-27-pwO"/>
                                                 <constraint firstItem="Zk0-Gi-D5e" firstAttribute="leading" secondItem="ZAJ-fS-B5s" secondAttribute="leading" id="IJa-gR-UGr"/>
@@ -314,8 +314,8 @@
                                                 <constraint firstItem="ZAJ-fS-B5s" firstAttribute="leading" secondItem="pId-JG-Z0F" secondAttribute="leading" id="kb7-HH-m8E"/>
                                                 <constraint firstItem="3Nd-dv-4aF" firstAttribute="top" secondItem="ZAJ-fS-B5s" secondAttribute="bottom" constant="8" symbolic="YES" id="leX-RR-hiI"/>
                                                 <constraint firstItem="ZAJ-fS-B5s" firstAttribute="top" secondItem="pId-JG-Z0F" secondAttribute="bottom" constant="4" id="lwZ-1O-6pf"/>
-                                                <constraint firstItem="3Nd-dv-4aF" firstAttribute="leading" secondItem="8fe-Mv-AhI" secondAttribute="leading" id="tyE-hl-tqp"/>
-                                                <constraint firstAttribute="bottom" secondItem="3Nd-dv-4aF" secondAttribute="bottom" constant="30" id="vSa-4R-54V"/>
+                                                <constraint firstItem="3Nd-dv-4aF" firstAttribute="leading" secondItem="8fe-Mv-AhI" secondAttribute="leading" constant="14" id="tyE-hl-tqp"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Nd-dv-4aF" secondAttribute="bottom" constant="41" id="vSa-4R-54V"/>
                                                 <constraint firstItem="ZAJ-fS-B5s" firstAttribute="centerX" secondItem="z1K-sz-HB1" secondAttribute="centerX" id="xWO-S5-GKq"/>
                                             </constraints>
                                         </view>
@@ -353,7 +353,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DfJ-rH-tfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2478" y="424"/>
+            <point key="canvasLocation" x="2479" y="424"/>
         </scene>
         <!--Schedule Detail Table View Controller-->
         <scene sceneID="orX-eH-0Ka">
@@ -1573,8 +1573,8 @@
         <image name="senate.png" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uyr-Nz-S4q"/>
         <segue reference="PAs-tq-Wca"/>
-        <segue reference="dYX-Bj-WiK"/>
-        <segue reference="8f3-50-Fob"/>
+        <segue reference="cDU-52-SMW"/>
     </inferredMetricsTieBreakers>
 </document>

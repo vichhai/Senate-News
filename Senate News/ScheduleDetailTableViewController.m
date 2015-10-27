@@ -213,7 +213,9 @@
     [containerDate addSubview:imageDate];
     [containerDate addSubview:labelDate];
     [cell.contentView addSubview:containerDate];
-    UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 170), 35)];
+    height = [self measureTextHeight:resultDic[@"SCH_EVENT_START"] constrainedToSize:CGSizeMake((cell.contentView.frame.size.width - 180), 2000.0f) fontSize:17.0f];
+    UILabel *date = [[UILabel alloc]initWithFrame:CGRectMake(160, containerDate.frame.origin.y, (cell.contentView.frame.size.width - 170), height)];
+    date.numberOfLines = 0;
     if (resultDic[@"SCH_EVENT_START"] != NULL) {
         date.text = [NSString stringWithFormat:@"ថ្ងៃទី %@ ខែ %@ ឆ្នាំ %@",[resultDic[@"SCH_EVENT_START"] componentsSeparatedByString:@" "][1],[resultDic[@"SCH_EVENT_START"] componentsSeparatedByString:@" "][3],[resultDic[@"SCH_EVENT_START"] componentsSeparatedByString:@" "][5]]; // change
     }
@@ -221,7 +223,7 @@
     [cell.contentView addSubview:date];
     
     // =---> Start Hour
-    UIView *containerStart = [[UIView alloc] initWithFrame:CGRectMake(10, (date.frame.origin.y + date.frame.size.height) + 10 , 140, 35)];
+    UIView *containerStart = [[UIView alloc] initWithFrame:CGRectMake(10, (date.frame.origin.y + date.frame.size.height) + 5 , 140, 35)];
     
     UIImageView *imageStart = [[UIImageView alloc] initWithFrame:CGRectMake(8, 5, 25, 25)];
     imageStart.image = [UIImage imageNamed:@"clock.png"];
