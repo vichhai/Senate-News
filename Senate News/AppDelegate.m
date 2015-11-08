@@ -97,6 +97,7 @@
                                stringByReplacingOccurrencesOfString: @">" withString: @""]
                               stringByReplacingOccurrencesOfString: @" " withString: @""];
     [self registerDeviceTokens:@"DEVICE_C001" withDeviceToken:token];
+    NSLog(@"Token %@",token);
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{

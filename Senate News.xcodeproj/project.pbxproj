@@ -44,7 +44,6 @@
 		ED9401181B96D467001BCE2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9401161B96D467001BCE2D /* Main.storyboard */; };
 		ED94011A1B96D467001BCE2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED9401191B96D467001BCE2D /* Images.xcassets */; };
 		ED94011D1B96D467001BCE2D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED94011B1B96D467001BCE2D /* LaunchScreen.xib */; };
-		ED9401291B96D467001BCE2D /* Senate_NewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9401281B96D467001BCE2D /* Senate_NewsTests.m */; };
 		ED9401401B96D4BA001BCE2D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED94013F1B96D4BA001BCE2D /* HomeViewController.m */; };
 		ED9401431B96D687001BCE2D /* Search Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9401411B96D687001BCE2D /* Search Filled-50.png */; };
 		ED9401441B96D687001BCE2D /* Search-50.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9401421B96D687001BCE2D /* Search-50.png */; };
@@ -101,16 +100,6 @@
 		FDD0A4B71BA286270046F4CE /* id_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD0A4B41BA286270046F4CE /* id_icon.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		ED9401231B96D467001BCE2D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ED9401011B96D466001BCE2D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ED9401081B96D467001BCE2D;
-			remoteInfo = "Senate News";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		ED0683511BB2ADC700F70DE6 /* ScheduleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleSearchViewController.h; sourceTree = "<group>"; };
 		ED0683521BB2ADC700F70DE6 /* ScheduleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleSearchViewController.m; sourceTree = "<group>"; };
@@ -160,9 +149,6 @@
 		ED9401171B96D467001BCE2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED9401191B96D467001BCE2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ED94011C1B96D467001BCE2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		ED9401221B96D467001BCE2D /* Senate NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Senate NewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED9401271B96D467001BCE2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED9401281B96D467001BCE2D /* Senate_NewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Senate_NewsTests.m; sourceTree = "<group>"; };
 		ED94013E1B96D4BA001BCE2D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		ED94013F1B96D4BA001BCE2D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		ED9401411B96D687001BCE2D /* Search Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search Filled-50.png"; sourceTree = "<group>"; };
@@ -263,13 +249,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED94011F1B96D467001BCE2D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -322,7 +301,6 @@
 			children = (
 				FD5C1EC01BA11C7400C79177 /* Social.framework */,
 				ED94010B1B96D467001BCE2D /* Senate News */,
-				ED9401251B96D467001BCE2D /* Senate NewsTests */,
 				ED94010A1B96D467001BCE2D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -331,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				ED9401091B96D467001BCE2D /* Senate News.app */,
-				ED9401221B96D467001BCE2D /* Senate NewsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,23 +344,6 @@
 				ED6B08E31B9803ED009068E9 /* Senate News-Bridging-Header.h */,
 				ED94010D1B96D467001BCE2D /* Info.plist */,
 				ED94010E1B96D467001BCE2D /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		ED9401251B96D467001BCE2D /* Senate NewsTests */ = {
-			isa = PBXGroup;
-			children = (
-				ED9401281B96D467001BCE2D /* Senate_NewsTests.m */,
-				ED9401261B96D467001BCE2D /* Supporting Files */,
-			);
-			path = "Senate NewsTests";
-			sourceTree = "<group>";
-		};
-		ED9401261B96D467001BCE2D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ED9401271B96D467001BCE2D /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -616,24 +576,6 @@
 			productReference = ED9401091B96D467001BCE2D /* Senate News.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ED9401211B96D467001BCE2D /* Senate NewsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ED94012F1B96D467001BCE2D /* Build configuration list for PBXNativeTarget "Senate NewsTests" */;
-			buildPhases = (
-				ED94011E1B96D467001BCE2D /* Sources */,
-				ED94011F1B96D467001BCE2D /* Frameworks */,
-				ED9401201B96D467001BCE2D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ED9401241B96D467001BCE2D /* PBXTargetDependency */,
-			);
-			name = "Senate NewsTests";
-			productName = "Senate NewsTests";
-			productReference = ED9401221B96D467001BCE2D /* Senate NewsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -652,11 +594,6 @@
 							};
 						};
 					};
-					ED9401211B96D467001BCE2D = {
-						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 8WB65T4HC4;
-						TestTargetID = ED9401081B96D467001BCE2D;
-					};
 				};
 			};
 			buildConfigurationList = ED9401041B96D466001BCE2D /* Build configuration list for PBXProject "Senate News" */;
@@ -673,7 +610,6 @@
 			projectRoot = "";
 			targets = (
 				ED9401081B96D467001BCE2D /* Senate News */,
-				ED9401211B96D467001BCE2D /* Senate NewsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -733,13 +669,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED9401201B96D467001BCE2D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -793,23 +722,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED94011E1B96D467001BCE2D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ED9401291B96D467001BCE2D /* Senate_NewsTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ED9401241B96D467001BCE2D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ED9401081B96D467001BCE2D /* Senate News */;
-			targetProxy = ED9401231B96D467001BCE2D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ED9401161B96D467001BCE2D /* Main.storyboard */ = {
@@ -872,7 +785,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "90de9d1c-35ba-454e-9e2f-f6d17c956b35";
+				PROVISIONING_PROFILE = "e68cbcf7-d7bc-48b5-ada8-8a322a0b3ce2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -910,7 +823,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "90de9d1c-35ba-454e-9e2f-f6d17c956b35";
+				PROVISIONING_PROFILE = "e68cbcf7-d7bc-48b5-ada8-8a322a0b3ce2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -922,14 +835,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vuthea Chheang (8WB65T4HC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vuthea Chheang (8WB65T4HC4)";
 				INFOPLIST_FILE = "Senate News/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kh4it.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "90de9d1c-35ba-454e-9e2f-f6d17c956b35";
+				PROVISIONING_PROFILE = "e68cbcf7-d7bc-48b5-ada8-8a322a0b3ce2";
 				SWIFT_OBJC_BRIDGING_HEADER = "Senate News/Senate News-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -942,64 +855,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vuthea Chheang (8WB65T4HC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vuthea Chheang (8WB65T4HC4)";
 				INFOPLIST_FILE = "Senate News/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kh4it.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "90de9d1c-35ba-454e-9e2f-f6d17c956b35";
+				PROVISIONING_PROFILE = "e68cbcf7-d7bc-48b5-ada8-8a322a0b3ce2";
 				SWIFT_OBJC_BRIDGING_HEADER = "Senate News/Senate News-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		ED9401301B96D467001BCE2D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Senate NewsTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.khmergits.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Senate News.app/Senate News";
-			};
-			name = Debug;
-		};
-		ED9401311B96D467001BCE2D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Senate NewsTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.khmergits.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Senate News.app/Senate News";
-			};
-			name = Release;
-		};
-		FD925F3D1BC77EF0004AC51E /* Distribution */ = {
+		FD04A7BB1BEB3AFB0054E4A3 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1020,17 +889,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vuthea Chheang (8WB65T4HC4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1038,54 +900,29 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "90de9d1c-35ba-454e-9e2f-f6d17c956b35";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "e68cbcf7-d7bc-48b5-ada8-8a322a0b3ce2";
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
 		};
-		FD925F3E1BC77EF0004AC51E /* Distribution */ = {
+		FD04A7BC1BEB3AFB0054E4A3 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vuthea Chheang (8WB65T4HC4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vuthea Chheang (8WB65T4HC4)";
 				INFOPLIST_FILE = "Senate News/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kh4it.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "90de9d1c-35ba-454e-9e2f-f6d17c956b35";
+				PROVISIONING_PROFILE = "e68cbcf7-d7bc-48b5-ada8-8a322a0b3ce2";
 				SWIFT_OBJC_BRIDGING_HEADER = "Senate News/Senate News-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Distribution;
-		};
-		FD925F3F1BC77EF0004AC51E /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Senate NewsTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.khmergits.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Senate News.app/Senate News";
 			};
 			name = Distribution;
 		};
@@ -1096,8 +933,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED94012A1B96D467001BCE2D /* Debug */,
-				FD925F3D1BC77EF0004AC51E /* Distribution */,
 				ED94012B1B96D467001BCE2D /* Release */,
+				FD04A7BB1BEB3AFB0054E4A3 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1106,18 +943,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED94012D1B96D467001BCE2D /* Debug */,
-				FD925F3E1BC77EF0004AC51E /* Distribution */,
 				ED94012E1B96D467001BCE2D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ED94012F1B96D467001BCE2D /* Build configuration list for PBXNativeTarget "Senate NewsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ED9401301B96D467001BCE2D /* Debug */,
-				FD925F3F1BC77EF0004AC51E /* Distribution */,
-				ED9401311B96D467001BCE2D /* Release */,
+				FD04A7BC1BEB3AFB0054E4A3 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
