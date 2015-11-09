@@ -77,6 +77,13 @@
 		EDE27ABF1B9E97EA000AB507 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27ABE1B9E97EA000AB507 /* MyViewController.m */; };
 		EDE27AC31B9ED235000AB507 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */; };
 		EDE386A71BAFF958008403A7 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE386A61BAFF958008403A7 /* CategoryViewController.m */; };
+		FD0AF2B71BF0563C00F4CA12 /* cer.pem in Resources */ = {isa = PBXBuildFile; fileRef = FD0AF2B11BF0563C00F4CA12 /* cer.pem */; settings = {ASSET_TAGS = (); }; };
+		FD0AF2B81BF0563C00F4CA12 /* cert.p12 in Resources */ = {isa = PBXBuildFile; fileRef = FD0AF2B21BF0563C00F4CA12 /* cert.p12 */; settings = {ASSET_TAGS = (); }; };
+		FD0AF2B91BF0563C00F4CA12 /* CertificateSigningRequest.certSigningRequest in Resources */ = {isa = PBXBuildFile; fileRef = FD0AF2B31BF0563C00F4CA12 /* CertificateSigningRequest.certSigningRequest */; settings = {ASSET_TAGS = (); }; };
+		FD0AF2BA1BF0563C00F4CA12 /* key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = FD0AF2B41BF0563C00F4CA12 /* key.p12 */; settings = {ASSET_TAGS = (); }; };
+		FD0AF2BB1BF0563C00F4CA12 /* key.pem in Resources */ = {isa = PBXBuildFile; fileRef = FD0AF2B51BF0563C00F4CA12 /* key.pem */; settings = {ASSET_TAGS = (); }; };
+		FD0AF2BC1BF0563C00F4CA12 /* key.unencrypted.pem in Resources */ = {isa = PBXBuildFile; fileRef = FD0AF2B61BF0563C00F4CA12 /* key.unencrypted.pem */; settings = {ASSET_TAGS = (); }; };
+		FD0AF2BE1BF0568D00F4CA12 /* CertificateSigningRequestProduction.certSigningRequest in Resources */ = {isa = PBXBuildFile; fileRef = FD0AF2BD1BF0568D00F4CA12 /* CertificateSigningRequestProduction.certSigningRequest */; settings = {ASSET_TAGS = (); }; };
 		FD2771F71B9877DB005906D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2771F61B9877DB005906D4 /* Reachability.m */; };
 		FD35EA571BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */; };
 		FD35EA581BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD35EA561BBA312300B3C5C3 /* KhmerOSBattambang-Regular.ttf */; };
@@ -209,6 +216,13 @@
 		EDE27AC21B9ED235000AB507 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		EDE386A51BAFF958008403A7 /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		EDE386A61BAFF958008403A7 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		FD0AF2B11BF0563C00F4CA12 /* cer.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cer.pem; sourceTree = "<group>"; };
+		FD0AF2B21BF0563C00F4CA12 /* cert.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cert.p12; sourceTree = "<group>"; };
+		FD0AF2B31BF0563C00F4CA12 /* CertificateSigningRequest.certSigningRequest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CertificateSigningRequest.certSigningRequest; sourceTree = "<group>"; };
+		FD0AF2B41BF0563C00F4CA12 /* key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = key.p12; sourceTree = "<group>"; };
+		FD0AF2B51BF0563C00F4CA12 /* key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.pem; sourceTree = "<group>"; };
+		FD0AF2B61BF0563C00F4CA12 /* key.unencrypted.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = key.unencrypted.pem; sourceTree = "<group>"; };
+		FD0AF2BD1BF0568D00F4CA12 /* CertificateSigningRequestProduction.certSigningRequest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CertificateSigningRequestProduction.certSigningRequest; sourceTree = "<group>"; };
 		FD2771F51B9877DB005906D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FD2771F61B9877DB005906D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FD35EA551BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KhmerOSBattambang-Bold.ttf"; sourceTree = "<group>"; };
@@ -299,9 +313,9 @@
 		ED9401001B96D466001BCE2D = {
 			isa = PBXGroup;
 			children = (
-				FD5C1EC01BA11C7400C79177 /* Social.framework */,
 				ED94010B1B96D467001BCE2D /* Senate News */,
 				ED94010A1B96D467001BCE2D /* Products */,
+				FD5C1EC01BA11C7400C79177 /* Social.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,6 +353,8 @@
 		ED94010C1B96D467001BCE2D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FD0AF2B01BF0562600F4CA12 /* APNS Production */,
+				FD0AF2AF1BF0560E00F4CA12 /* APNS Development */,
 				ED9401391B96D486001BCE2D /* outsources */,
 				ED9401321B96D471001BCE2D /* images */,
 				ED6B08E31B9803ED009068E9 /* Senate News-Bridging-Header.h */,
@@ -500,6 +516,27 @@
 			name = category;
 			sourceTree = "<group>";
 		};
+		FD0AF2AF1BF0560E00F4CA12 /* APNS Development */ = {
+			isa = PBXGroup;
+			children = (
+				FD0AF2B11BF0563C00F4CA12 /* cer.pem */,
+				FD0AF2B21BF0563C00F4CA12 /* cert.p12 */,
+				FD0AF2B31BF0563C00F4CA12 /* CertificateSigningRequest.certSigningRequest */,
+				FD0AF2B41BF0563C00F4CA12 /* key.p12 */,
+				FD0AF2B51BF0563C00F4CA12 /* key.pem */,
+				FD0AF2B61BF0563C00F4CA12 /* key.unencrypted.pem */,
+			);
+			name = "APNS Development";
+			sourceTree = "<group>";
+		};
+		FD0AF2B01BF0562600F4CA12 /* APNS Production */ = {
+			isa = PBXGroup;
+			children = (
+				FD0AF2BD1BF0568D00F4CA12 /* CertificateSigningRequestProduction.certSigningRequest */,
+			);
+			name = "APNS Production";
+			sourceTree = "<group>";
+		};
 		FD2771F41B9877B5005906D4 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB9C8E21BBA3D850051249D /* home.png in Resources */,
+				FD0AF2B91BF0563C00F4CA12 /* CertificateSigningRequest.certSigningRequest in Resources */,
 				ED9401441B96D687001BCE2D /* Search-50.png in Resources */,
 				ED566F6B1BB8FB7100468F89 /* links12.png in Resources */,
 				FDD00C4B1BAFA7F900F74057 /* schedule.png in Resources */,
@@ -635,12 +673,15 @@
 				ED81C3D41BC4CB0700A4FBE4 /* ipad1.png in Resources */,
 				ED8761821B9EEADB00C0E7BE /* load_04.png in Resources */,
 				ED94FDE31B9842F7006A257E /* photo_page_icon.png in Resources */,
+				FD0AF2BC1BF0563C00F4CA12 /* key.unencrypted.pem in Resources */,
 				FD3BF1031BB554F500F7BBE6 /* logo.png in Resources */,
+				FD0AF2B81BF0563C00F4CA12 /* cert.p12 in Resources */,
 				FD3BF0F71BB5477400F7BBE6 /* senate.png in Resources */,
 				ED566F691BB8FB7100468F89 /* clock.png in Resources */,
 				ED8761841B9EEADB00C0E7BE /* load_06.png in Resources */,
 				FDD0A4B71BA286270046F4CE /* id_icon.png in Resources */,
 				ED94011D1B96D467001BCE2D /* LaunchScreen.xib in Resources */,
+				FD0AF2BA1BF0563C00F4CA12 /* key.p12 in Resources */,
 				FD35EA5C1BBA78E300B3C5C3 /* calendar.png in Resources */,
 				ED81C3CF1BC4C84600A4FBE4 /* 640 x 1136.png in Resources */,
 				FDD0A4AF1BA277320046F4CE /* date_icon.png in Resources */,
@@ -648,10 +689,12 @@
 				FDD0A4B61BA286270046F4CE /* character_icon.png in Resources */,
 				ED8761811B9EEADB00C0E7BE /* load_03.png in Resources */,
 				ED367CEA1BA2D4CA00481BE7 /* menu_b_p.png in Resources */,
+				FD0AF2BB1BF0563C00F4CA12 /* key.pem in Resources */,
 				ED367CEC1BA2D57900481BE7 /* menu.png in Resources */,
 				ED367CF31BA2E18E00481BE7 /* close.png in Resources */,
 				ED367CE41BA2D2F500481BE7 /* Back-100.png in Resources */,
 				ED566F6D1BB8FB7100468F89 /* location.png in Resources */,
+				FD0AF2B71BF0563C00F4CA12 /* cer.pem in Resources */,
 				EDB9C8E41BBA3D9B0051249D /* info.png in Resources */,
 				ED9401431B96D687001BCE2D /* Search Filled-50.png in Resources */,
 				ED367CE81BA2D47900481BE7 /* munu_b.png in Resources */,
@@ -661,6 +704,7 @@
 				ED6B08D71B97FAD9009068E9 /* facebook.png in Resources */,
 				ED81C3CE1BC4C84600A4FBE4 /* 640 x 960.png in Resources */,
 				FD35EA571BBA312300B3C5C3 /* KhmerOSBattambang-Bold.ttf in Resources */,
+				FD0AF2BE1BF0568D00F4CA12 /* CertificateSigningRequestProduction.certSigningRequest in Resources */,
 				ED87617F1B9EEADB00C0E7BE /* load_01.png in Resources */,
 				ED81C3D51BC4CB0700A4FBE4 /* ipad2.png in Resources */,
 				ED81C3D11BC4C84600A4FBE4 /* 1242 x 2208.png in Resources */,
