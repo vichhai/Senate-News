@@ -48,7 +48,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -57,6 +57,8 @@
         return 3;
     } else if (section == 1){
         return arrayCategory.count + 1;
+    }else if (section == 2){
+        return 5;
     } else{
         return 3;
     }
@@ -68,6 +70,8 @@
         return [self setupViewForSectionHeader:@"ប្រតិទិនប្រជំុ"];
     } else if (section == 1){
         return [self setupViewForSectionHeader:@"ព័ត៌មានព្រឹទ្ធសភា"];
+    }else if (section == 2){
+        return [self setupViewForSectionHeader:@"បណ្តាញសង្គម អ.ព.ស"];
     } else{
         return [self setupViewForSectionHeader:@"ផ្សេងៗ"];
     }
@@ -109,12 +113,25 @@
             }
             break;
         case 2:
+            if (indexPath.row == 0) {
+                myLabel.text = @"អ្នកនាំពាក្យព្រឹទ្ធសភា";
+            }else if(indexPath.row == 1){
+                myLabel.text = @"ព័ត៍មានព្រឹទ្ធសភា";
+            }else if (indexPath.row == 2){
+                myLabel.text = @"ប្រជាធិបតេយ្យ⁣ នឹង និតិរដ្ឋ";
+            }else if(indexPath.row == 3){
+                myLabel.text = @"គេហទំព័រព្រឹទ្ធសភា";
+            }else if (indexPath.row == 4){
+                myLabel.text = @"គេហទំព័រច្បាប់ព្រឹទ្ធសភា";
+            }
+            break;
+        case 3:
             if (indexPath.row == 0){
                 myLabel.text = @"អំពីកម្មវិធី";
             } else if(indexPath.row == 1){
-                 myLabel.text = @"ទំនាក់ទំនងពួកយើង";
-            }else{
-               
+                myLabel.text = @"ទំនាក់ទំនងព្រឹទ្ធសភា";
+            } else if (indexPath.row == 2){
+                myLabel.text = @"ទំនាក់ទំនងការអភិវឌ្ឍន៏";
             }
             break;
         default:
@@ -134,6 +151,8 @@
         imageView.image = [UIImage imageNamed:@"calendar.png"];
     }else if ([text isEqualToString:@"ព័ត៌មានព្រឹទ្ធសភា"]){
         imageView.image = [UIImage imageNamed:@"news.png"];
+    }else if ([text isEqualToString:@"បណ្តាញសង្គម អ.ព.ស"]){
+        imageView.image = [UIImage imageNamed:@"link.png"];
     }else{
         imageView.image = [UIImage imageNamed:@"info.png"];
     }
@@ -149,7 +168,6 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
@@ -172,8 +190,28 @@
             break;
         case 2:
             if (indexPath.row == 0) {
+                NSURL *url = [NSURL URLWithString:@"fb://profile/558050957660331"];
+                [[UIApplication sharedApplication] openURL:url];
+            }else if (indexPath.row == 1){
+                NSURL *url = [NSURL URLWithString:@"fb://profile/347480542089854"];
+                [[UIApplication sharedApplication] openURL:url];
+            }else if (indexPath.row == 2){
+                NSURL *url = [NSURL URLWithString:@"fb://profile/340454229447304"];
+                [[UIApplication sharedApplication] openURL:url];
+            }else if (indexPath.row == 3){
+                NSURL *url = [NSURL URLWithString:@"http://www.senate.gov.kh"];
+                [[UIApplication sharedApplication] openURL:url];
+            }else if (indexPath.row == 4){
+                NSURL *url = [NSURL URLWithString:@"http://www.laws.gov.kh"];
+                [[UIApplication sharedApplication] openURL:url];
+            }
+            break;
+        case 3:
+            if (indexPath.row == 0) {
                 [self performSegueWithIdentifier:@"aboutApp" sender:nil];
-            }else if(indexPath.row == 1){
+            }else if (indexPath.row == 1){
+                [self performSegueWithIdentifier:@"aboutSenate" sender:nil];
+            }else if(indexPath.row == 2){
                 [self performSegueWithIdentifier:@"aboutUs" sender:nil];
             }else{
                 

@@ -89,7 +89,7 @@
     [self addbarButtonAndSideBar];
     self.tableView.contentInset = UIEdgeInsetsMake(80, 0, 0, 0);
     // Send request to server
-    [self requestToserver:@"SCHEDULE_L001"];
+    //[self requestToserver:@"SCHEDULE_L001"];
 }
 
 - (void)didReceiveMemoryWarning {
