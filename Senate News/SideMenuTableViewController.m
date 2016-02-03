@@ -157,7 +157,6 @@
         imageView.image = [UIImage imageNamed:@"info.png"];
     }
     [headerView addSubview:imageView];
-    
     UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, headerView.frame.size.width - 85, 25)];
     textLabel.text = text;
     textLabel.font = [UIFont fontWithName:@"KhmerOSBattambang-Bold" size:17];
